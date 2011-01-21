@@ -33,6 +33,7 @@
 	return self;
 }
 
+// Did appears
 - (void) viewDidAppear: (BOOL) animated
 {
 	[[self tabBarController] setTitle: @"Home"];
