@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 
-@interface AreaDailyViewController : UIViewController {
-
+@interface AreaDailyViewController : UITableViewController {
+	NSMutableArray *days;
+	IBOutlet UITableView *myTable;
+	NSMutableData *responseData;
 }
 
 @end

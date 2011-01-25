@@ -42,7 +42,7 @@
 				<int key="NSvFlags">274</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<object class="IBUIImageView" id="152566150">
+					<object class="IBUIImageView" id="802438882">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">274</int>
 						<string key="NSFrame">{{53, 74}, {205, 209}}</string>
@@ -55,7 +55,7 @@
 							<string key="NSResourceName">logo_top_center.png</string>
 						</object>
 					</object>
-					<object class="IBUITextField" id="812403171">
+					<object class="IBUITextField" id="1025064786">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{53, 275}, {205, 31}}</string>
@@ -69,7 +69,7 @@
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MAA</bytes>
-							<object class="NSColorSpace" key="NSCustomColorSpace" id="91824562">
+							<object class="NSColorSpace" key="NSCustomColorSpace" id="59128397">
 								<int key="NSID">2</int>
 							</object>
 						</object>
@@ -86,7 +86,7 @@
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MQA</bytes>
-					<reference key="NSCustomColorSpace" ref="91824562"/>
+					<reference key="NSCustomColorSpace" ref="59128397"/>
 				</object>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -118,8 +118,8 @@
 						<reference key="object" ref="191373211"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="152566150"/>
-							<reference ref="812403171"/>
+							<reference ref="802438882"/>
+							<reference ref="1025064786"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -136,12 +136,12 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">4</int>
-						<reference key="object" ref="152566150"/>
+						<reference key="object" ref="802438882"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">6</int>
-						<reference key="object" ref="812403171"/>
+						<reference key="object" ref="1025064786"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</object>
@@ -187,7 +187,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">6</int>
+			<int key="maxID">7</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -303,7 +303,7 @@
 				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier" id="128017570">
+					<object class="IBClassDescriptionSource" key="sourceIdentifier" id="117289012">
 						<string key="majorKey">IBFrameworkSource</string>
 						<string key="minorKey">UIKit.framework/Headers/UIResponder.h</string>
 					</object>
@@ -327,7 +327,7 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">UIResponder</string>
 					<string key="superclassName">NSObject</string>
-					<reference key="sourceIdentifier" ref="128017570"/>
+					<reference key="sourceIdentifier" ref="117289012"/>
 				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">UISearchBar</string>
@@ -348,7 +348,7 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">UITextField</string>
 					<string key="superclassName">UIControl</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier" id="614237688">
+					<object class="IBClassDescriptionSource" key="sourceIdentifier" id="933754728">
 						<string key="majorKey">IBFrameworkSource</string>
 						<string key="minorKey">UIKit.framework/Headers/UITextField.h</string>
 					</object>
@@ -362,7 +362,7 @@
 				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">UIView</string>
-					<reference key="sourceIdentifier" ref="614237688"/>
+					<reference key="sourceIdentifier" ref="933754728"/>
 				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">UIView</string>

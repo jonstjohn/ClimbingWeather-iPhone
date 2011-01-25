@@ -42,7 +42,7 @@
 	*/
 	
 	MyManager *sharedManager = [MyManager sharedManager];
-	[[self navigationItem] setTitle: [sharedManager stateName]];
+	[[self navigationItem] setTitle: [sharedManager stateCode]];
 	areas = [[NSMutableArray alloc] initWithObjects: nil];
 	
 	return self;
@@ -100,7 +100,7 @@
 		cell = [[[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: @"UITableViewCell"] autorelease];
 	}
 	NSLog(@"%@", areas);
-	[[cell textLabel] setText: [[areas objectAtIndex: [indexPath row]] objectAtIndex: 0]]; // @"test"];
+	[[cell textLabel] setText: [[areas objectAtIndex: [indexPath row]] objectAtIndex: 1]]; // @"test"];
 	
 	return cell;
 }
@@ -108,6 +108,12 @@
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath
 {
 	NSLog(@"Clicked row at index path %@", indexPath);
+
+	MyManager *sharedManager = [MyManager sharedManager];
+	NSString *areaName = [[areas objectAtIndex: [indexPath row]] objectAtIndex: 1];
+	sharedManager.areaName = areaName;
+	NSString *areaId = [[areas objectAtIndex: [indexPath row]] objectAtIndex: 0];
+	sharedManager.areaId = areaId;
 	
 	// Create tabBarController
 	UITabBarController *tabController = [[UITabBarController alloc] init];
@@ -128,25 +134,10 @@
 	
 	// Attach to tab bar controller
 	[tabController setViewControllers: viewControllers];
-	[[tabController navigationItem] setTitle: [[areas objectAtIndex: [indexPath row]] objectAtIndex: 0]];
+	
+	[[tabController navigationItem] setTitle: areaName];
 	
 	[[self navigationController] pushViewController: tabController animated: YES];
-	return;
-	
-	//[[self navigationController] pushViewController: [[AreaTabBarController alloc] init] animated: YES];
-	//[self presentModalViewController:[[AreasViewController alloc] initWithNibName:@"AreasViewController" bundle:nil] animated:NO];
-	return;
-	
-	
-	responseData = [[NSMutableData data] retain];
-	
-	
-	NSString *areaId = [[areas objectAtIndex: [indexPath row]] objectAtIndex: 0];
-	NSString *url = [NSString stringWithFormat: @"http://www.climbingweather.com/api/area/%@", areaId];
-	NSLog(@"URL: %@", url);
-	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: url]];
-	
-	[[NSURLConnection alloc] initWithRequest:request delegate:self];
 	
 }
 
@@ -191,7 +182,7 @@
 	for (int i = 0; i < [areasJson count]; i++) {
 		NSLog(@"Area # %i", i);
 		NSLog(@"%@", [[areasJson objectAtIndex: i] objectForKey: @"name"]);
-		[areas addObject: [NSArray arrayWithObjects: [[areasJson objectAtIndex: i] objectForKey: @"name"], [[areasJson objectAtIndex: i] objectForKey: @"name"], nil]];
+		[areas addObject: [NSArray arrayWithObjects: [[areasJson objectAtIndex: i] objectForKey: @"id"], [[areasJson objectAtIndex: i] objectForKey: @"name"], nil]];
 		NSLog(@"Added object");
 		NSLog(@"%@", areas);
 	}
@@ -200,16 +191,6 @@
 	NSLog(@"Areas: %@", areas);
 	[[self tableView] reloadData];
 	
-	/*
-	 NSArray *luckyNumbers = [responseString JSONValue];
-	 
-	 NSMutableString *text = [NSMutableString stringWithString:@"Lucky numbers:\n"];
-	 
-	 for (int i = 0; i < [luckyNumbers count]; i++)
-	 [text appendFormat:@"%@\n", [luckyNumbers objectAtIndex:i]];
-	 
-	 label.text =  text;
-	 */
 }
 
 
