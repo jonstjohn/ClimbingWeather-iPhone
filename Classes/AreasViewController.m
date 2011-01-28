@@ -11,6 +11,7 @@
 #import "AreaHourlyViewController.h"
 #import "AreaMapViewController.h"
 #import "MyManager.h"
+#import "AreasCell.h"
 
 @implementation AreasViewController
 
@@ -45,6 +46,8 @@
 	[[self navigationItem] setTitle: [sharedManager stateCode]];
 	areas = [[NSMutableArray alloc] initWithObjects: nil];
 	
+	[[self tableView] setRowHeight: 65.0];
+	
 	return self;
 }
 
@@ -67,7 +70,7 @@
 	
 	
 	//NSString *stateCode = [[states objectAtIndex: [indexPath row]] objectAtIndex: 0];
-	NSString *url = [NSString stringWithFormat: @"http://www.climbingweather.com/api/state/area/%@", [sharedManager stateCode]];
+	NSString *url = [NSString stringWithFormat: @"http://www.climbingweather.com/api/state/area/%@?days=3", [sharedManager stateCode]];
 	NSLog(@"URL: %@", url);
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: url]];
 	
@@ -93,6 +96,7 @@
 
 - (UITableViewCell *) tableView: (UITableView *) tableView cellForRowAtIndexPath: (NSIndexPath *) indexPath
 {
+	/*
 	NSLog(@"Displaying row: %i", [indexPath row]);
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"UITableViewCell"];
 	
@@ -102,6 +106,51 @@
 	NSLog(@"%@", areas);
 	[[cell textLabel] setText: [[areas objectAtIndex: [indexPath row]] objectAtIndex: 1]]; // @"test"];
 	
+	return cell;
+	 */
+
+	AreasCell *cell = (AreasCell *)[tableView dequeueReusableCellWithIdentifier: @"AreasCell"];
+	
+	if (!cell) {
+		cell = [[[AreasCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: @"AreasCell"] autorelease];
+	}
+	
+	/*
+	NSLog(@"%@", [cell dayLabel]);
+	NSString *high = [[days objectAtIndex: [indexPath row]] objectForKey: @"hi"];
+	NSString *low = [[days objectAtIndex: [indexPath row]] objectForKey: @"l"];
+	NSString *conditions = [[days objectAtIndex: [indexPath row]] objectForKey: @"c"];
+	*/
+	
+	//NSArray *area = [NSArray arrayWithArray: [areas objectAtIndex: [indexPath row]]];
+	NSDictionary *area = [areas objectAtIndex: [indexPath row]];
+	
+	//[[cell areaName] setText: [[areas objectAtIndex: [indexPath row]] objectForKey: @"name"]]; // @"test"];
+	[[cell areaName] setText: [area objectForKey: @"name"]];
+	
+	/*
+	[[cell dateLabel] setText: [[days objectAtIndex: [indexPath row]] objectForKey: @"dd"]];
+	[[cell highLabel] setText: [NSString stringWithFormat: @"%@˚", high]];
+	[[cell lowLabel] setText: [NSString stringWithFormat: @"%@˚", low]];
+	[[cell precipDayLabel] setText: [NSString stringWithFormat: @"%@%%", [[days objectAtIndex: [indexPath row]] objectForKey: @"pd"]]];
+	[[cell precipNightLabel] setText: [NSString stringWithFormat: @"%@%%", [[days objectAtIndex: [indexPath row]] objectForKey: @"pn"]]];
+	[[cell windLabel] setText: [NSString stringWithFormat: @"%@ mph", [[days objectAtIndex: [indexPath row]] objectForKey: @"ws"]]];
+	[[cell humLabel] setText: [NSString stringWithFormat: @"%@%%", [[days objectAtIndex: [indexPath row]] objectForKey: @"h"]]];
+	[[cell conditionsLabel] setText: conditions];
+	if ([conditions length] == 0) {
+		[[cell conditionsLabel] setHidden: YES];
+	} else {
+		[[cell conditionsLabel] setHidden: NO];
+	}
+	 */
+	
+	[[cell favoriteImage] setImage: [UIImage imageNamed: @"btn_star_big_off.png"]];
+	
+	NSArray *forecast = [area objectForKey: @"f"];
+	NSDictionary *day1 = [forecast objectAtIndex: 0];
+	NSDictionary *day2 = [forecast objectAtIndex: 1];
+	[[cell day1Symbol] setImage: [UIImage imageNamed: [NSString stringWithFormat: @"%@.png", [day1 objectForKey: @"sy"]]]];
+	[[cell day2Symbol] setImage: [UIImage imageNamed: [NSString stringWithFormat: @"%@.png", [day2 objectForKey: @"sy"]]]];
 	return cell;
 }
 
@@ -180,15 +229,9 @@
 	[areas removeAllObjects];
 	
 	for (int i = 0; i < [areasJson count]; i++) {
-		NSLog(@"Area # %i", i);
-		NSLog(@"%@", [[areasJson objectAtIndex: i] objectForKey: @"name"]);
-		[areas addObject: [NSArray arrayWithObjects: [[areasJson objectAtIndex: i] objectForKey: @"id"], [[areasJson objectAtIndex: i] objectForKey: @"name"], nil]];
-		NSLog(@"Added object");
-		NSLog(@"%@", areas);
+		[areas addObject: [areasJson objectAtIndex: i]];
 	}
 	
-	NSLog(@"Reloading table");
-	NSLog(@"Areas: %@", areas);
 	[[self tableView] reloadData];
 	
 }

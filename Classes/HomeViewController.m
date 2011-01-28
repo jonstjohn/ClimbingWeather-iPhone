@@ -38,6 +38,7 @@
 {
 	[[self tabBarController] setTitle: @"Home"];
 	[[self navigationController] setNavigationBarHidden: YES];
+	//[[self tabBarController] setHidesBottomBarWhenPushed: YES];
 }
 
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
