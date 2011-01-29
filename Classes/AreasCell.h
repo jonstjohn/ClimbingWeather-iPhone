@@ -14,19 +14,19 @@
 	UILabel *areaName;
 	UIImageView *day1Symbol;
 	UILabel *day1High;
-	UILabel *day1Low;
+	UILabel *day1Precip;
 	UIImageView *day2Symbol;
 	UILabel *day2High;
-	UILabel *day2Low;
+	UILabel *day2Precip;
 }
 
 @property (nonatomic, retain) UIImageView *favoriteImage;
 @property (nonatomic, retain) UILabel *areaName;
 @property (nonatomic, retain) UIImageView *day1Symbol;
 @property (nonatomic, retain) UILabel *day1High;
-@property (nonatomic, retain) UILabel *day1Low;
+@property (nonatomic, retain) UILabel *day1Precip;
 @property (nonatomic, retain) UIImageView *day2Symbol;
 @property (nonatomic, retain) UILabel *day2High;
-@property (nonatomic, retain) UILabel *day2Low;
+@property (nonatomic, retain) UILabel *day2Precip;
 
 @end

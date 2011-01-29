@@ -15,20 +15,22 @@
 @synthesize areaName;
 @synthesize day1Symbol;
 @synthesize day1High;
-@synthesize day1Low;
+@synthesize day1Precip;
 @synthesize day2Symbol;
 @synthesize day2High;
-@synthesize day2Low;
+@synthesize day2Precip;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
 		
+		/*
         favoriteImage = [[UIImageView alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: favoriteImage];
 		[favoriteImage setContentMode: UIViewContentModeScaleAspectFit];
 		[favoriteImage release];
+		 */
 		
         areaName = [[UILabel alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: areaName];
@@ -43,9 +45,9 @@
 		[[self contentView] addSubview: day1High];
 		[day1High release];
 		
-        day2Low = [[UILabel alloc] initWithFrame: CGRectZero];
-		[[self contentView] addSubview: day2Low];
-		[day2Low release];
+        day1Precip = [[UILabel alloc] initWithFrame: CGRectZero];
+		[[self contentView] addSubview: day1Precip];
+		[day1Precip release];
 		
         day2Symbol = [[UIImageView alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: day2Symbol];
@@ -56,9 +58,9 @@
 		[[self contentView] addSubview: day2High];
 		[day2High release];
 		
-        day2Low = [[UILabel alloc] initWithFrame: CGRectZero];
-		[[self contentView] addSubview: day2Low];
-		[day2Low release];
+        day2Precip = [[UILabel alloc] initWithFrame: CGRectZero];
+		[[self contentView] addSubview: day2Precip];
+		[day2Precip release];
     }
     return self;
 }
@@ -72,21 +74,31 @@
 	float w = bounds.size.width;
 	//float valueWidth = 200.0;
 	
-	float inset = 5.0;
-	float columnSpacing = 10.0;
+	float inset = 10.0;
+	float columnSpacing = 3.0;
 	
 	float secondRowY = inset + 25.0;
-	//float thirdRowY = secondRowY + 20.0;
+	float thirdRowY = secondRowY + 18.0;
 	
+	/*
 	float favoriteX = inset;
 	float favoriteWidth = 50.0;
 	
 	float areaNameX = favoriteX + favoriteWidth + columnSpacing;
 	float areaNameWidth = w - favoriteWidth - inset * 2.0 - 100.0;
+	 
+	*/
+	float areaNameX = inset;
+	float areaNameWidth = w - inset * 2.0;
 	
 	float symbolWidth = 30.0;
-	float day1SymbolX = areaNameX;
-	float day2SymbolX = day1SymbolX + symbolWidth + inset;
+	float tempWidth = 60.0;
+	
+	float day1SymbolX = areaNameX + columnSpacing;
+	float day1HighX = day1SymbolX + symbolWidth + columnSpacing;
+	
+	float day2SymbolX = day1HighX + tempWidth + columnSpacing;
+	float day2HighX = day2SymbolX + symbolWidth + columnSpacing;
 	
 	//float secondRowHeight = 20.0;
 	
@@ -103,10 +115,13 @@
 	
 	float big = 16.0;
 	float small = 12.0;
+	float smaller = 10.0;
 	
 	// Favorite
+	/*
 	CGRect innerFrameIcon = CGRectMake(favoriteX, inset, favoriteWidth, big + small + 2.0);
 	[favoriteImage setFrame: innerFrameIcon];
+	*/
 	
 	// Area Name
 	CGRect innerFrameAreaName = CGRectMake(areaNameX, inset, areaNameWidth, big + 1.0);
@@ -116,11 +131,39 @@
 	
 	// Day 1 Symbol
 	CGRect innerFrameDay1Symbol = CGRectMake(day1SymbolX, secondRowY, symbolWidth, symbolWidth);
+	//[day1Symbol setBackgroundColor: [UIColor grayColor]];
 	[day1Symbol setFrame: innerFrameDay1Symbol];
+	
+	// Day 1 High
+	CGRect innerFrameDay1High = CGRectMake(day1HighX, secondRowY, tempWidth, small + 1.0);
+	//[day1High setBackgroundColor: [UIColor purpleColor]];
+	[day1High setTextAlignment: UITextAlignmentCenter];
+	[day1High setFont: [UIFont systemFontOfSize: small]];
+	[day1High setFrame: innerFrameDay1High];
+	
+	// Day 1 Precip
+	CGRect innerFrameDay1Precip = CGRectMake(day1HighX, thirdRowY, tempWidth, smaller + 1.0);
+	[day1Precip setTextAlignment: UITextAlignmentCenter];
+	[day1Precip setFont: [UIFont systemFontOfSize: smaller]];
+	[day1Precip setFrame: innerFrameDay1Precip];
 	
 	// Day 2 Symbol
 	CGRect innerFrameDay2Symbol = CGRectMake(day2SymbolX, secondRowY, symbolWidth, symbolWidth);
+	//[day2Symbol setBackgroundColor: [UIColor grayColor]];
 	[day2Symbol setFrame: innerFrameDay2Symbol];
+	
+	// Day 2 High
+	CGRect innerFrameDay2High = CGRectMake(day2HighX, secondRowY, tempWidth, small + 1.0);
+	//[day2High setBackgroundColor: [UIColor purpleColor]];
+	[day2High setTextAlignment: UITextAlignmentCenter];
+	[day2High setFont: [UIFont systemFontOfSize: small]];
+	[day2High setFrame: innerFrameDay2High];
+	
+	// Day 2 Precip
+	CGRect innerFrameDay2Precip = CGRectMake(day2HighX, thirdRowY, tempWidth, smaller + 1.0);
+	[day2Precip setTextAlignment: UITextAlignmentCenter];
+	[day2Precip setFont: [UIFont systemFontOfSize: smaller]];
+	[day2Precip setFrame: innerFrameDay2Precip];
 	
 	/*
 	// Date

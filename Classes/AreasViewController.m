@@ -46,7 +46,7 @@
 	[[self navigationItem] setTitle: [sharedManager stateCode]];
 	areas = [[NSMutableArray alloc] initWithObjects: nil];
 	
-	[[self tableView] setRowHeight: 65.0];
+	[[self tableView] setRowHeight: 75.0];
 	
 	return self;
 }
@@ -144,13 +144,17 @@
 	}
 	 */
 	
-	[[cell favoriteImage] setImage: [UIImage imageNamed: @"btn_star_big_off.png"]];
+	//[[cell favoriteImage] setImage: [UIImage imageNamed: @"btn_star_big_off.png"]];
 	
 	NSArray *forecast = [area objectForKey: @"f"];
 	NSDictionary *day1 = [forecast objectAtIndex: 0];
 	NSDictionary *day2 = [forecast objectAtIndex: 1];
 	[[cell day1Symbol] setImage: [UIImage imageNamed: [NSString stringWithFormat: @"%@.png", [day1 objectForKey: @"sy"]]]];
+	[[cell day1High] setText: [NSString stringWithFormat: @"%@˚ / %@˚", [day1 objectForKey: @"hi"], [day1 objectForKey: @"l"]]];
+	[[cell day1Precip] setText: [NSString stringWithFormat: @"%@%% / %@%%", [day1 objectForKey: @"pd"], [day1 objectForKey: @"pn"]]];
 	[[cell day2Symbol] setImage: [UIImage imageNamed: [NSString stringWithFormat: @"%@.png", [day2 objectForKey: @"sy"]]]];
+	[[cell day2High] setText: [NSString stringWithFormat: @"%@˚ / %@˚", [day2 objectForKey: @"hi"], [day2 objectForKey: @"l"]]];
+	[[cell day2Precip] setText: [NSString stringWithFormat: @"%@%% / %@%%", [day2 objectForKey: @"pd"], [day2 objectForKey: @"pn"]]];
 	return cell;
 }
 
@@ -159,9 +163,9 @@
 	NSLog(@"Clicked row at index path %@", indexPath);
 
 	MyManager *sharedManager = [MyManager sharedManager];
-	NSString *areaName = [[areas objectAtIndex: [indexPath row]] objectAtIndex: 1];
+	NSString *areaName = [[areas objectAtIndex: [indexPath row]] objectForKey: @"name"];
 	sharedManager.areaName = areaName;
-	NSString *areaId = [[areas objectAtIndex: [indexPath row]] objectAtIndex: 0];
+	NSString *areaId = [[areas objectAtIndex: [indexPath row]] objectForKey: @"id"];
 	sharedManager.areaId = areaId;
 	
 	// Create tabBarController
