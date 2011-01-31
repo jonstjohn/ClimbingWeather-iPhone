@@ -1,7 +1,7 @@
 //
 //  AreasCell.m
 //  climbingweather
-//
+//Temp
 //  Created by Jonathan StJohn on 1/25/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
@@ -14,11 +14,14 @@
 @synthesize favoriteImage;
 @synthesize areaName;
 @synthesize day1Symbol;
-@synthesize day1High;
+@synthesize day1Temp;
 @synthesize day1Precip;
 @synthesize day2Symbol;
-@synthesize day2High;
+@synthesize day2Temp;
 @synthesize day2Precip;
+@synthesize day3Symbol;
+@synthesize day3Temp;
+@synthesize day3Precip;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     
@@ -41,9 +44,9 @@
 		[day1Symbol setContentMode: UIViewContentModeScaleAspectFit];
 		[day1Symbol release];
 		
-        day1High = [[UILabel alloc] initWithFrame: CGRectZero];
-		[[self contentView] addSubview: day1High];
-		[day1High release];
+        day1Temp = [[UILabel alloc] initWithFrame: CGRectZero];
+		[[self contentView] addSubview: day1Temp];
+		[day1Temp release];
 		
         day1Precip = [[UILabel alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: day1Precip];
@@ -54,13 +57,26 @@
 		[day2Symbol setContentMode: UIViewContentModeScaleAspectFit];
 		[day2Symbol release];
 		
-        day2High = [[UILabel alloc] initWithFrame: CGRectZero];
-		[[self contentView] addSubview: day2High];
-		[day2High release];
+        day2Temp = [[UILabel alloc] initWithFrame: CGRectZero];
+		[[self contentView] addSubview: day2Temp];
+		[day2Temp release];
 		
         day2Precip = [[UILabel alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: day2Precip];
 		[day2Precip release];
+		
+        day3Symbol = [[UIImageView alloc] initWithFrame: CGRectZero];
+		[[self contentView] addSubview: day3Symbol];
+		[day3Symbol setContentMode: UIViewContentModeScaleAspectFit];
+		[day3Symbol release];
+		
+        day3Temp = [[UILabel alloc] initWithFrame: CGRectZero];
+		[[self contentView] addSubview: day3Temp];
+		[day3Temp release];
+		
+        day3Precip = [[UILabel alloc] initWithFrame: CGRectZero];
+		[[self contentView] addSubview: day3Precip];
+		[day3Precip release];
     }
     return self;
 }
@@ -92,13 +108,16 @@
 	float areaNameWidth = w - inset * 2.0;
 	
 	float symbolWidth = 30.0;
-	float tempWidth = 60.0;
+	float tempWidth = 65.0;
 	
 	float day1SymbolX = areaNameX + columnSpacing;
-	float day1HighX = day1SymbolX + symbolWidth + columnSpacing;
+	float day1TempX = day1SymbolX + symbolWidth + columnSpacing;
 	
-	float day2SymbolX = day1HighX + tempWidth + columnSpacing;
-	float day2HighX = day2SymbolX + symbolWidth + columnSpacing;
+	float day2SymbolX = day1TempX + tempWidth + columnSpacing;
+	float day2TempX = day2SymbolX + symbolWidth + columnSpacing;
+	
+	float day3SymbolX = day2TempX + tempWidth + columnSpacing;
+	float day3TempX = day3SymbolX + symbolWidth + columnSpacing;
 	
 	//float secondRowHeight = 20.0;
 	
@@ -134,15 +153,15 @@
 	//[day1Symbol setBackgroundColor: [UIColor grayColor]];
 	[day1Symbol setFrame: innerFrameDay1Symbol];
 	
-	// Day 1 High
-	CGRect innerFrameDay1High = CGRectMake(day1HighX, secondRowY, tempWidth, small + 1.0);
-	//[day1High setBackgroundColor: [UIColor purpleColor]];
-	[day1High setTextAlignment: UITextAlignmentCenter];
-	[day1High setFont: [UIFont systemFontOfSize: small]];
-	[day1High setFrame: innerFrameDay1High];
+	// Day 1 Temp
+	CGRect innerFrameDay1Temp = CGRectMake(day1TempX, secondRowY, tempWidth, small + 1.0);
+	//[day1Temp setBackgroundColor: [UIColor purpleColor]];
+	[day1Temp setTextAlignment: UITextAlignmentCenter];
+	[day1Temp setFont: [UIFont systemFontOfSize: small]];
+	[day1Temp setFrame: innerFrameDay1Temp];
 	
 	// Day 1 Precip
-	CGRect innerFrameDay1Precip = CGRectMake(day1HighX, thirdRowY, tempWidth, smaller + 1.0);
+	CGRect innerFrameDay1Precip = CGRectMake(day1TempX, thirdRowY, tempWidth, smaller + 1.0);
 	[day1Precip setTextAlignment: UITextAlignmentCenter];
 	[day1Precip setFont: [UIFont systemFontOfSize: smaller]];
 	[day1Precip setFrame: innerFrameDay1Precip];
@@ -152,18 +171,36 @@
 	//[day2Symbol setBackgroundColor: [UIColor grayColor]];
 	[day2Symbol setFrame: innerFrameDay2Symbol];
 	
-	// Day 2 High
-	CGRect innerFrameDay2High = CGRectMake(day2HighX, secondRowY, tempWidth, small + 1.0);
-	//[day2High setBackgroundColor: [UIColor purpleColor]];
-	[day2High setTextAlignment: UITextAlignmentCenter];
-	[day2High setFont: [UIFont systemFontOfSize: small]];
-	[day2High setFrame: innerFrameDay2High];
+	// Day 2 Temp
+	CGRect innerFrameDay2Temp = CGRectMake(day2TempX, secondRowY, tempWidth, small + 1.0);
+	//[day2Temp setBackgroundColor: [UIColor purpleColor]];
+	[day2Temp setTextAlignment: UITextAlignmentCenter];
+	[day2Temp setFont: [UIFont systemFontOfSize: small]];
+	[day2Temp setFrame: innerFrameDay2Temp];
 	
 	// Day 2 Precip
-	CGRect innerFrameDay2Precip = CGRectMake(day2HighX, thirdRowY, tempWidth, smaller + 1.0);
+	CGRect innerFrameDay2Precip = CGRectMake(day2TempX, thirdRowY, tempWidth, smaller + 1.0);
 	[day2Precip setTextAlignment: UITextAlignmentCenter];
 	[day2Precip setFont: [UIFont systemFontOfSize: smaller]];
 	[day2Precip setFrame: innerFrameDay2Precip];
+	
+	// Day 3 Symbol
+	CGRect innerFrameDay3Symbol = CGRectMake(day3SymbolX, secondRowY, symbolWidth, symbolWidth);
+	//[day3Symbol setBackgroundColor: [UIColor grayColor]];
+	[day3Symbol setFrame: innerFrameDay3Symbol];
+	
+	// Day 3 Temp
+	CGRect innerFrameDay3Temp = CGRectMake(day3TempX, secondRowY, tempWidth, small + 1.0);
+	//[day3Temp setBackgroundColor: [UIColor purpleColor]];
+	[day3Temp setTextAlignment: UITextAlignmentCenter];
+	[day3Temp setFont: [UIFont systemFontOfSize: small]];
+	[day3Temp setFrame: innerFrameDay3Temp];
+	
+	// Day 3 Precip
+	CGRect innerFrameDay3Precip = CGRectMake(day3TempX, thirdRowY, tempWidth, smaller + 1.0);
+	[day3Precip setTextAlignment: UITextAlignmentCenter];
+	[day3Precip setFont: [UIFont systemFontOfSize: smaller]];
+	[day3Precip setFrame: innerFrameDay3Precip];
 	
 	/*
 	// Date
@@ -176,7 +213,7 @@
 	CGRect innerFrameIcon = CGRectMake(iconX, inset, iconWidth, big + small + 2.0);
 	[iconImage setFrame: innerFrameIcon];
 	
-	// High
+	// Temp
 	CGRect innerFrame3 = CGRectMake(highX, inset, highWidth, big + 1.0);
 	[highLabel setFont: [UIFont systemFontOfSize: big]];
 	[highLabel setTextAlignment: UITextAlignmentCenter];

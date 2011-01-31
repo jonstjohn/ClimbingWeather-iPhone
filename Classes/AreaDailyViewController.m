@@ -18,6 +18,10 @@
 	UITabBarItem *tbi = [self tabBarItem];
 	[tbi setTitle: @"Daily"];
 	
+	// Add image
+	UIImage *i = [UIImage imageNamed:@"icon_calendar.png"];
+	[tbi setImage: i];
+	
 	days = [[NSMutableArray alloc] initWithObjects: nil];
 	[[self tableView] setRowHeight: 65.0];
 	
@@ -204,10 +208,10 @@
 	NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
 	[responseData release];
 	
-	NSLog(@"%@", responseString);
+	//NSLog(@"%@", responseString);
 	NSDictionary *daysJson = [responseString JSONValue];
 	
-	NSLog(@"Count: %i", [daysJson count]);
+	//NSLog(@"Count: %i", [daysJson count]);
 	[days removeAllObjects];
 	
 	//days = [daysJson objectForKey: @"f"];
@@ -215,16 +219,16 @@
 	NSArray *forecastJson = [daysJson objectForKey: @"f"];
 	
 	for (int i = 0; i < [forecastJson count]; i++) {
-		NSLog(@"Day # %i", i);
-		NSLog(@"%@", [[forecastJson objectAtIndex: i] objectForKey: @"dy"]);
+		//NSLog(@"Day # %i", i);
+		//NSLog(@"%@", [[forecastJson objectAtIndex: i] objectForKey: @"dy"]);
 		
 		[days addObject: [forecastJson objectAtIndex: i]];
 
 	}
 	
 	
-	NSLog(@"Reloading table");
-	NSLog(@"Days: %@", days);
+	NSLog(@"Reloading daily table");
+	//NSLog(@"Days: %@", days);
 	[[self tableView] reloadData];
 	
 }

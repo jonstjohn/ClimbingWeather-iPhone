@@ -23,7 +23,7 @@
 	[tbi setTitle: @"Favorites"];
 	
 	// Add image
-	UIImage *i = [UIImage imageNamed:@"btn_star_big_on.png"];
+	UIImage *i = [UIImage imageNamed:@"icon_star.png"];
 	
 	// Put image on tab
 	[tbi setImage: i];

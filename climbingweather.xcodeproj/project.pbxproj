@@ -93,6 +93,14 @@
 		608A58F012EC5B46003BCB84 /* tstorm2.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A58C112EC5B46003BCB84 /* tstorm2.png */; };
 		608A58F112EC5B46003BCB84 /* tstorm3.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A58C212EC5B46003BCB84 /* tstorm3.png */; };
 		608A59A312EFC58C003BCB84 /* AreasCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 608A59A212EFC58C003BCB84 /* AreasCell.m */; };
+		608DE1C312F4A7E700AE172C /* icon_calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 608DE1C212F4A7E700AE172C /* icon_calendar.png */; };
+		608DE1E012F4AA3D00AE172C /* icon_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 608DE1DF12F4AA3D00AE172C /* icon_time.png */; };
+		608DE1E612F4AF4800AE172C /* icon_blog.png in Resources */ = {isa = PBXBuildFile; fileRef = 608DE1E512F4AF4800AE172C /* icon_blog.png */; };
+		608DE1EC12F4EDB500AE172C /* icon_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 608DE1EB12F4EDB500AE172C /* icon_home.png */; };
+		608DE1F412F4EE0600AE172C /* icon_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 608DE1F312F4EE0600AE172C /* icon_star.png */; };
+		608DE1FA12F4EEF700AE172C /* 73-radar.png in Resources */ = {isa = PBXBuildFile; fileRef = 608DE1F912F4EEF700AE172C /* 73-radar.png */; };
+		608DE1FE12F6040000AE172C /* icon_magnify_glass.png in Resources */ = {isa = PBXBuildFile; fileRef = 608DE1FD12F6040000AE172C /* icon_magnify_glass.png */; };
+		608DE22812F60FCE00AE172C /* AreaHourlyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 608DE22712F60FCE00AE172C /* AreaHourlyCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -205,6 +213,15 @@
 		608A58C212EC5B46003BCB84 /* tstorm3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tstorm3.png; sourceTree = "<group>"; };
 		608A59A112EFC58C003BCB84 /* AreasCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreasCell.h; sourceTree = "<group>"; };
 		608A59A212EFC58C003BCB84 /* AreasCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreasCell.m; sourceTree = "<group>"; };
+		608DE1C212F4A7E700AE172C /* icon_calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_calendar.png; sourceTree = "<group>"; };
+		608DE1DF12F4AA3D00AE172C /* icon_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_time.png; sourceTree = "<group>"; };
+		608DE1E512F4AF4800AE172C /* icon_blog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_blog.png; sourceTree = "<group>"; };
+		608DE1EB12F4EDB500AE172C /* icon_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_home.png; sourceTree = "<group>"; };
+		608DE1F312F4EE0600AE172C /* icon_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_star.png; sourceTree = "<group>"; };
+		608DE1F912F4EEF700AE172C /* 73-radar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "73-radar.png"; sourceTree = "<group>"; };
+		608DE1FD12F6040000AE172C /* icon_magnify_glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_magnify_glass.png; sourceTree = "<group>"; };
+		608DE22612F60FCE00AE172C /* AreaHourlyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaHourlyCell.h; sourceTree = "<group>"; };
+		608DE22712F60FCE00AE172C /* AreaHourlyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaHourlyCell.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* climbingweather-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "climbingweather-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -233,6 +250,10 @@
 				608A550312E52FDD003BCB84 /* AreasViewController.m */,
 				608A59A112EFC58C003BCB84 /* AreasCell.h */,
 				608A59A212EFC58C003BCB84 /* AreasCell.m */,
+				608A566012E7D551003BCB84 /* AreaHourlyViewController.h */,
+				608A566112E7D551003BCB84 /* AreaHourlyViewController.m */,
+				608DE22612F60FCE00AE172C /* AreaHourlyCell.h */,
+				608DE22712F60FCE00AE172C /* AreaHourlyCell.m */,
 				608A549C12E38A6E003BCB84 /* JSON.h */,
 				608A549D12E38A6E003BCB84 /* NSObject+SBJSON.h */,
 				608A549E12E38A6E003BCB84 /* NSObject+SBJSON.m */,
@@ -258,8 +279,6 @@
 				608A566A12E7D567003BCB84 /* AreaMapViewController.m */,
 				608A562B12E7CEF7003BCB84 /* AreaTabBarController.h */,
 				608A562C12E7CEF7003BCB84 /* AreaTabBarController.m */,
-				608A566012E7D551003BCB84 /* AreaHourlyViewController.h */,
-				608A566112E7D551003BCB84 /* AreaHourlyViewController.m */,
 				608A56C612E92003003BCB84 /* FavoritesViewController.h */,
 				608A56C712E92003003BCB84 /* FavoritesViewController.m */,
 				608A56FA12E923AA003BCB84 /* SearchViewController.h */,
@@ -301,6 +320,13 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				608DE1FD12F6040000AE172C /* icon_magnify_glass.png */,
+				608DE1F912F4EEF700AE172C /* 73-radar.png */,
+				608DE1F312F4EE0600AE172C /* icon_star.png */,
+				608DE1EB12F4EDB500AE172C /* icon_home.png */,
+				608DE1E512F4AF4800AE172C /* icon_blog.png */,
+				608DE1DF12F4AA3D00AE172C /* icon_time.png */,
+				608DE1C212F4A7E700AE172C /* icon_calendar.png */,
 				608A589412EC5B46003BCB84 /* btn_star_big_off.png */,
 				608A589512EC5B46003BCB84 /* climbing.png */,
 				608A589612EC5B46003BCB84 /* cloudy1_night.png */,
@@ -492,6 +518,13 @@
 				608A58EF12EC5B46003BCB84 /* tstorm2_night.png in Resources */,
 				608A58F012EC5B46003BCB84 /* tstorm2.png in Resources */,
 				608A58F112EC5B46003BCB84 /* tstorm3.png in Resources */,
+				608DE1C312F4A7E700AE172C /* icon_calendar.png in Resources */,
+				608DE1E012F4AA3D00AE172C /* icon_time.png in Resources */,
+				608DE1E612F4AF4800AE172C /* icon_blog.png in Resources */,
+				608DE1EC12F4EDB500AE172C /* icon_home.png in Resources */,
+				608DE1F412F4EE0600AE172C /* icon_star.png in Resources */,
+				608DE1FA12F4EEF700AE172C /* 73-radar.png in Resources */,
+				608DE1FE12F6040000AE172C /* icon_magnify_glass.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +555,7 @@
 				608A56FD12E923AA003BCB84 /* SearchViewController.m in Sources */,
 				608A57AB12EA778F003BCB84 /* AreaDailyCell.m in Sources */,
 				608A59A312EFC58C003BCB84 /* AreasCell.m in Sources */,
+				608DE22812F60FCE00AE172C /* AreaHourlyCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,7 +23,7 @@
 	[tbi setTitle: @"Nearby Areas"];
 	
 	// Add image
-	UIImage *i = [UIImage imageNamed:@"ic_menu_mylocation.png"];
+	UIImage *i = [UIImage imageNamed:@"73-radar.png"];
 	
 	// Put image on tab
 	[tbi setImage: i];

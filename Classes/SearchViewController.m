@@ -23,7 +23,7 @@
 	[tbi setTitle: @"Search"];
 	
 	// Add image
-	UIImage *i = [UIImage imageNamed:@"ic_menu_search.png"];
+	UIImage *i = [UIImage imageNamed:@"icon_magnify_glass.png"];
 	
 	// Put image on tab
 	[tbi setImage: i];

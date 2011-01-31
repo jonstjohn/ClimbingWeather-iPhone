@@ -23,7 +23,7 @@
 	[tbi setTitle: @"Home"];
 	
 	// Add image
-	UIImage *i = [UIImage imageNamed:@"ic_menu_home.png"];
+	UIImage *i = [UIImage imageNamed:@"icon_home.png"];
 	
 	// Put image on tab
 	[tbi setImage: i];

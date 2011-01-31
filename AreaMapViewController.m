@@ -17,6 +17,9 @@
 	UITabBarItem *tbi = [self tabBarItem];
 	[tbi setTitle: @"Map"];
 	
+	UIImage *i = [UIImage imageNamed:@"icon_blog.png"];
+	[tbi setImage: i];
+	
 	return self;
 }
 

@@ -149,12 +149,17 @@
 	NSArray *forecast = [area objectForKey: @"f"];
 	NSDictionary *day1 = [forecast objectAtIndex: 0];
 	NSDictionary *day2 = [forecast objectAtIndex: 1];
+	NSDictionary *day3 = [forecast objectAtIndex: 2];
 	[[cell day1Symbol] setImage: [UIImage imageNamed: [NSString stringWithFormat: @"%@.png", [day1 objectForKey: @"sy"]]]];
-	[[cell day1High] setText: [NSString stringWithFormat: @"%@˚ / %@˚", [day1 objectForKey: @"hi"], [day1 objectForKey: @"l"]]];
+	[[cell day1Temp] setText: [NSString stringWithFormat: @"%@˚ / %@˚", [day1 objectForKey: @"hi"], [day1 objectForKey: @"l"]]];
+	//[[cell day1Precip] setText: @"100% / 100%"];
 	[[cell day1Precip] setText: [NSString stringWithFormat: @"%@%% / %@%%", [day1 objectForKey: @"pd"], [day1 objectForKey: @"pn"]]];
 	[[cell day2Symbol] setImage: [UIImage imageNamed: [NSString stringWithFormat: @"%@.png", [day2 objectForKey: @"sy"]]]];
-	[[cell day2High] setText: [NSString stringWithFormat: @"%@˚ / %@˚", [day2 objectForKey: @"hi"], [day2 objectForKey: @"l"]]];
+	[[cell day2Temp] setText: [NSString stringWithFormat: @"%@˚ / %@˚", [day2 objectForKey: @"hi"], [day2 objectForKey: @"l"]]];
 	[[cell day2Precip] setText: [NSString stringWithFormat: @"%@%% / %@%%", [day2 objectForKey: @"pd"], [day2 objectForKey: @"pn"]]];
+	[[cell day3Symbol] setImage: [UIImage imageNamed: [NSString stringWithFormat: @"%@.png", [day3 objectForKey: @"sy"]]]];
+	[[cell day3Temp] setText: [NSString stringWithFormat: @"%@˚ / %@˚", [day3 objectForKey: @"hi"], [day3 objectForKey: @"l"]]];
+	[[cell day3Precip] setText: [NSString stringWithFormat: @"%@%% / %@%%", [day3 objectForKey: @"pd"], [day3 objectForKey: @"pn"]]];
 	return cell;
 }
 
@@ -171,7 +176,7 @@
 	// Create tabBarController
 	UITabBarController *tabController = [[UITabBarController alloc] init];
 	
-	// Create two view controllers
+	// Create view controllers
 	UIViewController *vc1 = [[AreaDailyViewController alloc] init];
 	UIViewController *vc2 = [[AreaHourlyViewController alloc] init];
 	UIViewController *vc3 = [[AreaMapViewController alloc] init];
@@ -181,12 +186,12 @@
 	// Make an array that contains the two view controllers
 	NSArray *viewControllers = [NSArray arrayWithObjects: vc1, vc2, vc3, nil];
 	
+	// Attach to tab bar controller
+	[tabController setViewControllers: viewControllers];
+	
 	[vc1 release];
 	[vc2 release];
 	[vc3 release];
-	
-	// Attach to tab bar controller
-	[tabController setViewControllers: viewControllers];
 	
 	[[tabController navigationItem] setTitle: areaName];
 	

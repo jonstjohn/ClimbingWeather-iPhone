@@ -25,7 +25,7 @@
 	[tbi setTitle: @"By State"];
 	
 	// Add image
-	UIImage *i = [UIImage imageNamed:@"ic_menu_mapmode.png"];
+	UIImage *i = [UIImage imageNamed:@"icon_blog.png"];
 	
 	// Put image on tab
 	[tbi setImage: i];
