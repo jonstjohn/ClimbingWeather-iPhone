@@ -29,15 +29,7 @@
 	
 	// Put image on tab
 	[tbi setImage: i];
-	states = [[NSMutableArray alloc] 
-		initWithObjects: 
-			  [NSArray arrayWithObjects: @"AZ", @"Arizona", nil],
-			  [NSArray arrayWithObjects: @"CA", @"California", nil],
-			  [NSArray arrayWithObjects: @"WV", @"West Virginia", nil],
-			nil
-	];
-	//states = [NSArray arrayWithObjects: @"Arizona", @"California", @"Colorado", nil];
-	
+	states = [[NSMutableArray alloc] init];
 	
 	return self;
 }
@@ -46,6 +38,44 @@
 {
 	//[[[self navigationController] ] setTitle: @"Find Areas"];
 	[super viewDidLoad];
+	
+	requestUrl = @"http://www.climbingweather.com/api/state/list";
+	
+	// Check for cached data
+	sqlite3 *db = [self openDatabase];
+	char *sql = "SELECT value FROM cache WHERE cache_key = ? and expires > ?";
+	sqlite3_stmt *statement;
+	sqlite3_prepare_v2(db, sql, -1, &statement, NULL);
+	sqlite3_bind_text(statement, 1, [requestUrl UTF8String], -1, SQLITE_TRANSIENT);
+	sqlite3_bind_int(statement, 2, [[NSDate date] timeIntervalSince1970]);
+	
+	while(sqlite3_step(statement) == SQLITE_ROW) {
+		
+		NSLog(@"loading from cache");
+		char *cResponseString = (const char *) sqlite3_column_text(statement, 0);
+		NSString *responseString = [[[NSString alloc] initWithUTF8String: cResponseString] autorelease];
+		NSArray *stateData = [responseString JSONValue];
+		
+		[states removeAllObjects];
+		for (int i = 0; i < [stateData count]; i++) {
+			
+			[states addObject: [stateData objectAtIndex: i]];
+			
+		}
+		
+		[[self tableView] reloadData];
+		return;
+			
+	}
+	
+	responseData = [[NSMutableData data] retain];
+	
+	
+	
+	NSLog(@"URL: %@", requestUrl);
+	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: requestUrl]];
+	
+	[[NSURLConnection alloc] initWithRequest:request delegate:self];
 
 }
 
@@ -84,10 +114,19 @@
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"UITableViewCell"];
 	
 	if (!cell) {
-		cell = [[[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: @"UITableViewCell"] autorelease];
+		cell = [[[UITableViewCell alloc] initWithStyle: UITableViewCellStyleSubtitle reuseIdentifier: @"UITableViewCell"] autorelease];
 	}
 	
-	[[cell textLabel] setText: [[states objectAtIndex: [indexPath row]] objectAtIndex: 1]]; // @"test"];
+	NSString *label = @"area";
+	NSString *areaCount = [[states objectAtIndex: [indexPath row]] objectForKey: @"areas"];
+	if (![areaCount isEqualToString: @"1"]) {
+		label = [NSString stringWithFormat: @"%@s", label];
+	}
+	
+	[[cell textLabel] setText: [[states objectAtIndex: [indexPath row]] objectForKey: @"name"]];
+	[[cell detailTextLabel] setText: [NSString stringWithFormat: @" %@ %@", areaCount, label]];
+	
+	[cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
 	
 	return cell;
 }
@@ -97,25 +136,11 @@
 	NSLog(@"Clicked row at index path %@", indexPath);
 	
 	MyManager *sharedManager = [MyManager sharedManager];
-	NSString *stateCode = [[states objectAtIndex: [indexPath row]] objectAtIndex: 0];
+	NSString *stateCode = [[states objectAtIndex: [indexPath row]] objectForKey: @"code"];
 	[sharedManager setStateCode: stateCode];
-	[sharedManager setStateName: [[states objectAtIndex: [indexPath row]] objectAtIndex: 1]];
-	//[[[self tabBarController] navigationItem] setTitle: @"Find Areas"];
-	//[self presentModalViewController:[[AreasViewController alloc] initWithNibName:@"AreasViewController" bundle:nil] animated:NO];
+	[sharedManager setStateName: [[states objectAtIndex: [indexPath row]] objectForKey: @"name"]];
 	[[self navigationController] pushViewController: [[AreasViewController alloc] initWithNibName:@"AreasViewController" bundle:nil] animated: YES];
 	return;
-	
-	/*
-	responseData = [[NSMutableData data] retain];
-
-	
-	NSString *stateCode = [[states objectAtIndex: [indexPath row]] objectAtIndex: 0];
-	NSString *url = [NSString stringWithFormat: @"http://www.climbingweather.com/api/state/area/%@", stateCode];
-	NSLog(@"URL: %@", url);
-	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: url]];
-
-	[[NSURLConnection alloc] initWithRequest:request delegate:self];
-	*/
 
 }
 
@@ -149,29 +174,71 @@
 	[connection release];
 	
 	NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+	
+	// Cache response string
+	//MyManager *mgr = [MyManager sharedManager];
+	//sqlite3 *db = [mgr database];
+	
+	
+	sqlite3 *db = [self openDatabase];
+	
+	sqlite3_stmt *stmt;
+	const char *sql = "REPLACE INTO cache(cache_key, value, expires) VALUES (?, ?, ?)";
+	sqlite3_prepare_v2(db, sql, -1, &stmt, NULL);
+	sqlite3_bind_text(stmt, 1, [requestUrl UTF8String], -1, SQLITE_TRANSIENT);
+	sqlite3_bind_text(stmt, 2, [responseString UTF8String], -1, SQLITE_TRANSIENT);
+	sqlite3_bind_int(stmt, 3, [[NSDate date] timeIntervalSince1970] + 60*60*24); // cache for 24 hours
+	if (sqlite3_step(stmt) == SQLITE_DONE) {
+		NSLog(@"REPLACE INTO succeeded");
+	} else {
+		NSLog(@"ERROR SAVING: %s", sqlite3_errmsg(db));
+	}
+	sqlite3_finalize(stmt);
+
 	[responseData release];
 	
-	NSArray *areas = [responseString JSONValue];
+	NSArray *stateData = [responseString JSONValue];
 	
-	//NSLog("%@", areas);
 	[states removeAllObjects];
-	for (int i = 0; i < [areas count]; i++) {
-		//NSLog(@"%@", [[areas objectAtIndex: i] objectForKey: @"name"]);
-		[states addObject: [NSArray arrayWithObjects: [[areas objectAtIndex: i] objectForKey: @"name"], [[areas objectAtIndex: i] objectForKey: @"name"], nil]];
+	for (int i = 0; i < [stateData count]; i++) {
+		
+		[states addObject: [stateData objectAtIndex: i]];
+
 	}
 	
 	[[self tableView] reloadData];
 	
-	/*
-	NSArray *luckyNumbers = [responseString JSONValue];
+}
+
+- (id) openDatabase {
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *path = [paths objectAtIndex: 0];
 	
-	NSMutableString *text = [NSMutableString stringWithString:@"Lucky numbers:\n"];
+	NSString *fullPath = [path stringByAppendingPathComponent: @"climbingweather.db"];
 	
-	for (int i = 0; i < [luckyNumbers count]; i++)
-		[text appendFormat:@"%@\n", [luckyNumbers objectAtIndex:i]];
+	NSFileManager *fm = [NSFileManager defaultManager];
 	
-	label.text =  text;
-	 */
+	BOOL exists = [fm fileExistsAtPath: fullPath];
+	
+	if (exists) {
+		NSLog(@"%@ exists - opening", fullPath);
+	} else {
+		NSLog(@"%@ does not exist, copying and opening", fullPath);
+		NSString *pathForStartingDB = [[NSBundle mainBundle] pathForResource: @"climbingweather" ofType: @"db"];
+		BOOL success = [fm copyItemAtPath: pathForStartingDB toPath: fullPath error: NULL];
+		if (!success) {
+			NSLog(@"Database copy failed");
+		}
+	}
+	
+	// Open database file
+	sqlite3 *db;
+	const char *cFullPath = [fullPath cStringUsingEncoding: NSUTF8StringEncoding];
+	if (sqlite3_open(cFullPath, &db) != SQLITE_OK) {
+		NSLog(@"Unable to open db at %@", fullPath);
+	}
+	
+	return db;
 }
 
 

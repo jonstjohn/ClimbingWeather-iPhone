@@ -101,6 +101,8 @@
 		608DE1FA12F4EEF700AE172C /* 73-radar.png in Resources */ = {isa = PBXBuildFile; fileRef = 608DE1F912F4EEF700AE172C /* 73-radar.png */; };
 		608DE1FE12F6040000AE172C /* icon_magnify_glass.png in Resources */ = {isa = PBXBuildFile; fileRef = 608DE1FD12F6040000AE172C /* icon_magnify_glass.png */; };
 		608DE22812F60FCE00AE172C /* AreaHourlyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 608DE22712F60FCE00AE172C /* AreaHourlyCell.m */; };
+		608DE32B12FAD61100AE172C /* climbingweather.db in Resources */ = {isa = PBXBuildFile; fileRef = 608DE32A12FAD61100AE172C /* climbingweather.db */; };
+		608DE32F12FAD66E00AE172C /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 608DE32E12FAD66E00AE172C /* libsqlite3.0.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -222,6 +224,8 @@
 		608DE1FD12F6040000AE172C /* icon_magnify_glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_magnify_glass.png; sourceTree = "<group>"; };
 		608DE22612F60FCE00AE172C /* AreaHourlyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaHourlyCell.h; sourceTree = "<group>"; };
 		608DE22712F60FCE00AE172C /* AreaHourlyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaHourlyCell.m; sourceTree = "<group>"; };
+		608DE32A12FAD61100AE172C /* climbingweather.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = climbingweather.db; sourceTree = "<group>"; };
+		608DE32E12FAD66E00AE172C /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* climbingweather-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "climbingweather-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -233,6 +237,7 @@
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
+				608DE32F12FAD66E00AE172C /* libsqlite3.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +259,8 @@
 				608A566112E7D551003BCB84 /* AreaHourlyViewController.m */,
 				608DE22612F60FCE00AE172C /* AreaHourlyCell.h */,
 				608DE22712F60FCE00AE172C /* AreaHourlyCell.m */,
+				608A511312E34061003BCB84 /* StatesViewController.h */,
+				608A511412E34061003BCB84 /* StatesViewController.m */,
 				608A549C12E38A6E003BCB84 /* JSON.h */,
 				608A549D12E38A6E003BCB84 /* NSObject+SBJSON.h */,
 				608A549E12E38A6E003BCB84 /* NSObject+SBJSON.m */,
@@ -271,8 +278,6 @@
 				608A50C612E33CCD003BCB84 /* HomeViewController.m */,
 				608A50DC12E33CF5003BCB84 /* NearbyViewController.h */,
 				608A50DD12E33CF5003BCB84 /* NearbyViewController.m */,
-				608A511312E34061003BCB84 /* StatesViewController.h */,
-				608A511412E34061003BCB84 /* StatesViewController.m */,
 				608A551812E532F2003BCB84 /* MyManager.h */,
 				608A551912E532F2003BCB84 /* MyManager.m */,
 				608A566912E7D567003BCB84 /* AreaMapViewController.h */,
@@ -304,6 +309,7 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				608A51A512E38973003BCB84 /* Downloads */,
+				608DE32E12FAD66E00AE172C /* libsqlite3.0.dylib */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -320,6 +326,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				608DE32A12FAD61100AE172C /* climbingweather.db */,
 				608DE1FD12F6040000AE172C /* icon_magnify_glass.png */,
 				608DE1F912F4EEF700AE172C /* 73-radar.png */,
 				608DE1F312F4EE0600AE172C /* icon_star.png */,
@@ -525,6 +532,7 @@
 				608DE1F412F4EE0600AE172C /* icon_star.png in Resources */,
 				608DE1FA12F4EEF700AE172C /* 73-radar.png in Resources */,
 				608DE1FE12F6040000AE172C /* icon_magnify_glass.png in Resources */,
+				608DE32B12FAD61100AE172C /* climbingweather.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <sqlite3.h>
 
 
 @interface MyManager : NSObject {
@@ -14,6 +15,8 @@
 	NSString *stateName;
 	NSString *areaId;
 	NSString *areaName;
+	
+	sqlite3 *database;
 
 }
 
@@ -21,6 +24,7 @@
 @property (nonatomic, retain) NSString *stateName;
 @property (nonatomic, retain) NSString *areaId;
 @property (nonatomic, retain) NSString *areaName;
+@property (nonatomic, assign) sqlite3 *database;
 
 + (id) sharedManager;
 

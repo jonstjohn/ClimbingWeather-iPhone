@@ -14,7 +14,7 @@
 	NSMutableArray *states;
 	IBOutlet UITableView *myTable;
 	NSMutableData *responseData;
-
+	NSString *requestUrl;
 }
 
 @end
