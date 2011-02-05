@@ -10,6 +10,8 @@
 #import "AreaDailyViewController.h"
 #import "AreaHourlyViewController.h"
 #import "AreaMapViewController.h"
+#import "AreaDetailController.h"
+#import "AreaAveragesController.h"
 #import "MyManager.h"
 #import "AreasCell.h"
 
@@ -182,11 +184,12 @@
 	UIViewController *vc1 = [[AreaDailyViewController alloc] init];
 	UIViewController *vc2 = [[AreaHourlyViewController alloc] init];
 	UIViewController *vc3 = [[AreaMapViewController alloc] init];
-	//UIViewController *vc4 = [[FavoritesViewController alloc] init];
+	UIViewController *vc4 = [[AreaAveragesController alloc] init];
+	UIViewController *vc5 = [[AreaDetailController alloc] init];
 	
 	
 	// Make an array that contains the two view controllers
-	NSArray *viewControllers = [NSArray arrayWithObjects: vc1, vc2, vc3, nil];
+	NSArray *viewControllers = [NSArray arrayWithObjects: vc1, vc2, vc3, vc4, vc5, nil];
 	
 	// Attach to tab bar controller
 	[tabController setViewControllers: viewControllers];
@@ -194,6 +197,8 @@
 	[vc1 release];
 	[vc2 release];
 	[vc3 release];
+	[vc4 release];
+	[vc5 release];
 	
 	[[tabController navigationItem] setTitle: areaName];
 	

@@ -9,6 +9,7 @@
 #import "StatesViewController.h"
 #import "AreasViewController.h"
 #import "MyManager.h"
+#import "Cache.h"
 
 
 @implementation StatesViewController
@@ -36,25 +37,22 @@
 
 - (void) viewDidLoad
 {
-	//[[[self navigationController] ] setTitle: @"Find Areas"];
+
 	[super viewDidLoad];
 	
 	requestUrl = @"http://www.climbingweather.com/api/state/list";
 	
-	// Check for cached data
-	sqlite3 *db = [self openDatabase];
-	char *sql = "SELECT value FROM cache WHERE cache_key = ? and expires > ?";
-	sqlite3_stmt *statement;
-	sqlite3_prepare_v2(db, sql, -1, &statement, NULL);
-	sqlite3_bind_text(statement, 1, [requestUrl UTF8String], -1, SQLITE_TRANSIENT);
-	sqlite3_bind_int(statement, 2, [[NSDate date] timeIntervalSince1970]);
+	// Check cache for data
+	Cache *sharedCache = [Cache sharedCache];
 	
-	while(sqlite3_step(statement) == SQLITE_ROW) {
+	//[sharedCache clearAll];
+	
+	NSString *cacheString = [sharedCache get: requestUrl];
+	
+	// Found cache data
+	if (cacheString != nil) {
 		
-		NSLog(@"loading from cache");
-		char *cResponseString = (const char *) sqlite3_column_text(statement, 0);
-		NSString *responseString = [[[NSString alloc] initWithUTF8String: cResponseString] autorelease];
-		NSArray *stateData = [responseString JSONValue];
+		NSArray *stateData = [cacheString JSONValue];
 		
 		[states removeAllObjects];
 		for (int i = 0; i < [stateData count]; i++) {
@@ -65,16 +63,12 @@
 		
 		[[self tableView] reloadData];
 		return;
-			
+		
 	}
 	
+	// If we didn't find cached data, request
 	responseData = [[NSMutableData data] retain];
-	
-	
-	
-	NSLog(@"URL: %@", requestUrl);
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: requestUrl]];
-	
 	[[NSURLConnection alloc] initWithRequest:request delegate:self];
 
 }
@@ -175,26 +169,11 @@
 	
 	NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
 	
-	// Cache response string
-	//MyManager *mgr = [MyManager sharedManager];
-	//sqlite3 *db = [mgr database];
+	// Cache data, expire after 24 hours
+	Cache *sharedCache = [Cache sharedCache];
+	NSLog(@"Setting cache");
+	[sharedCache set: requestUrl withValue: responseString expiresOn: [[NSDate date] timeIntervalSince1970] + 60*60*24];
 	
-	
-	sqlite3 *db = [self openDatabase];
-	
-	sqlite3_stmt *stmt;
-	const char *sql = "REPLACE INTO cache(cache_key, value, expires) VALUES (?, ?, ?)";
-	sqlite3_prepare_v2(db, sql, -1, &stmt, NULL);
-	sqlite3_bind_text(stmt, 1, [requestUrl UTF8String], -1, SQLITE_TRANSIENT);
-	sqlite3_bind_text(stmt, 2, [responseString UTF8String], -1, SQLITE_TRANSIENT);
-	sqlite3_bind_int(stmt, 3, [[NSDate date] timeIntervalSince1970] + 60*60*24); // cache for 24 hours
-	if (sqlite3_step(stmt) == SQLITE_DONE) {
-		NSLog(@"REPLACE INTO succeeded");
-	} else {
-		NSLog(@"ERROR SAVING: %s", sqlite3_errmsg(db));
-	}
-	sqlite3_finalize(stmt);
-
 	[responseData release];
 	
 	NSArray *stateData = [responseString JSONValue];
@@ -209,38 +188,6 @@
 	[[self tableView] reloadData];
 	
 }
-
-- (id) openDatabase {
-	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-	NSString *path = [paths objectAtIndex: 0];
-	
-	NSString *fullPath = [path stringByAppendingPathComponent: @"climbingweather.db"];
-	
-	NSFileManager *fm = [NSFileManager defaultManager];
-	
-	BOOL exists = [fm fileExistsAtPath: fullPath];
-	
-	if (exists) {
-		NSLog(@"%@ exists - opening", fullPath);
-	} else {
-		NSLog(@"%@ does not exist, copying and opening", fullPath);
-		NSString *pathForStartingDB = [[NSBundle mainBundle] pathForResource: @"climbingweather" ofType: @"db"];
-		BOOL success = [fm copyItemAtPath: pathForStartingDB toPath: fullPath error: NULL];
-		if (!success) {
-			NSLog(@"Database copy failed");
-		}
-	}
-	
-	// Open database file
-	sqlite3 *db;
-	const char *cFullPath = [fullPath cStringUsingEncoding: NSUTF8StringEncoding];
-	if (sqlite3_open(cFullPath, &db) != SQLITE_OK) {
-		NSLog(@"Unable to open db at %@", fullPath);
-	}
-	
-	return db;
-}
-
 
 - (void)dealloc {
 	[states release];
