@@ -7,6 +7,7 @@
 //
 
 #import "FavoritesViewController.h"
+#import "Favorite.h"
 
 
 @implementation FavoritesViewController
@@ -40,22 +41,24 @@
 }
 
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-/*
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization.
-    }
-    return self;
-}
-*/
 
-/*
+- (id)initWithNibName:(NSString *)nibName bundle:(NSBundle *)bundle {
+	return [self init];
+}
+
+
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
+	// Get favorite areas from db
+	Favorite *sharedFavorite = [Favorite sharedFavorite];
+	areas = [sharedFavorite getAll];
+	NSLog(@"Areas: %@", areas);
+	
 }
-*/
+
 
 /*
 // Override to allow orientations other than the default portrait orientation.

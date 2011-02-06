@@ -14,6 +14,7 @@
 #import "AreaAveragesController.h"
 #import "MyManager.h"
 #import "AreasCell.h"
+#import "Favorite.h"
 
 @implementation AreasViewController
 
@@ -44,11 +45,28 @@
 	//states = [NSArray arrayWithObjects: @"Arizona", @"California", @"Colorado", nil];
 	*/
 	
+	/*
+	// Get tab bar item
+	UITabBarItem *tbi = [self tabBarItem];
+	
+	// Give it a label
+	[tbi setTitle: @"Favorites"];
+	
+	// Add image
+	UIImage *i = [UIImage imageNamed:@"icon_star.png"];
+	
+	// Put image on tab
+	[tbi setImage: i];
+	
+	[[self navigationItem] setTitle: @"Home"];
+	*/
+	
+	
 	MyManager *sharedManager = [MyManager sharedManager];
 	[[self navigationItem] setTitle: [sharedManager stateCode]];
 	areas = [[NSMutableArray alloc] initWithObjects: nil];
 	
-	[[self tableView] setRowHeight: 75.0];
+	[[self tableView] setRowHeight: 85.0];
 	
 	return self;
 }
@@ -70,8 +88,6 @@
 	
 	responseData = [[NSMutableData data] retain];
 	
-	
-	//NSString *stateCode = [[states objectAtIndex: [indexPath row]] objectAtIndex: 0];
 	NSString *url = [NSString stringWithFormat: @"http://www.climbingweather.com/api/state/area/%@?days=3", [sharedManager stateCode]];
 	NSLog(@"URL: %@", url);
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: url]];
@@ -98,18 +114,6 @@
 
 - (UITableViewCell *) tableView: (UITableView *) tableView cellForRowAtIndexPath: (NSIndexPath *) indexPath
 {
-	/*
-	NSLog(@"Displaying row: %i", [indexPath row]);
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"UITableViewCell"];
-	
-	if (!cell) {
-		cell = [[[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: @"UITableViewCell"] autorelease];
-	}
-	NSLog(@"%@", areas);
-	[[cell textLabel] setText: [[areas objectAtIndex: [indexPath row]] objectAtIndex: 1]]; // @"test"];
-	
-	return cell;
-	 */
 
 	AreasCell *cell = (AreasCell *)[tableView dequeueReusableCellWithIdentifier: @"AreasCell"];
 	
@@ -117,44 +121,29 @@
 		cell = [[[AreasCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: @"AreasCell"] autorelease];
 	}
 	
-	/*
-	NSLog(@"%@", [cell dayLabel]);
-	NSString *high = [[days objectAtIndex: [indexPath row]] objectForKey: @"hi"];
-	NSString *low = [[days objectAtIndex: [indexPath row]] objectForKey: @"l"];
-	NSString *conditions = [[days objectAtIndex: [indexPath row]] objectForKey: @"c"];
-	*/
-	
-	//NSArray *area = [NSArray arrayWithArray: [areas objectAtIndex: [indexPath row]]];
 	NSDictionary *area = [areas objectAtIndex: [indexPath row]];
 	
-	//[[cell areaName] setText: [[areas objectAtIndex: [indexPath row]] objectForKey: @"name"]]; // @"test"];
 	[[cell areaName] setText: [area objectForKey: @"name"]];
 	
-	/*
-	[[cell dateLabel] setText: [[days objectAtIndex: [indexPath row]] objectForKey: @"dd"]];
-	[[cell highLabel] setText: [NSString stringWithFormat: @"%@˚", high]];
-	[[cell lowLabel] setText: [NSString stringWithFormat: @"%@˚", low]];
-	[[cell precipDayLabel] setText: [NSString stringWithFormat: @"%@%%", [[days objectAtIndex: [indexPath row]] objectForKey: @"pd"]]];
-	[[cell precipNightLabel] setText: [NSString stringWithFormat: @"%@%%", [[days objectAtIndex: [indexPath row]] objectForKey: @"pn"]]];
-	[[cell windLabel] setText: [NSString stringWithFormat: @"%@ mph", [[days objectAtIndex: [indexPath row]] objectForKey: @"ws"]]];
-	[[cell humLabel] setText: [NSString stringWithFormat: @"%@%%", [[days objectAtIndex: [indexPath row]] objectForKey: @"h"]]];
-	[[cell conditionsLabel] setText: conditions];
-	if ([conditions length] == 0) {
-		[[cell conditionsLabel] setHidden: YES];
-	} else {
-		[[cell conditionsLabel] setHidden: NO];
+	Favorite *sharedFavorite = [Favorite sharedFavorite];
+	
+	NSString *imgSrc = @"btn_star_big_off.png";
+	if ([sharedFavorite exists: [area objectForKey: @"id"]]) {
+		imgSrc = @"btn_star_big_on.png";
 	}
-	 */
+	UIImage *btnImage = [UIImage imageNamed: imgSrc];
+	[[cell favoriteImage] setImage: btnImage forState: UIControlStateNormal];
+	[[cell favoriteImage] setTag: 1];
+	[[cell favoriteImage] addTarget:self action:@selector(buttonPressed:) forControlEvents:(UIControlEvents)UIControlEventTouchUpInside];
 	
-	//[[cell favoriteImage] setImage: [UIImage imageNamed: @"btn_star_big_off.png"]];
-	
+	//[[[cell favoriteImage] imageView] setImage: [UIImage imageNamed: @"icon_star.png"]];
+	//[[cell favoriteImage] addTarget];
 	NSArray *forecast = [area objectForKey: @"f"];
 	NSDictionary *day1 = [forecast objectAtIndex: 0];
 	NSDictionary *day2 = [forecast objectAtIndex: 1];
 	NSDictionary *day3 = [forecast objectAtIndex: 2];
 	[[cell day1Symbol] setImage: [UIImage imageNamed: [NSString stringWithFormat: @"%@.png", [day1 objectForKey: @"sy"]]]];
 	[[cell day1Temp] setText: [NSString stringWithFormat: @"%@˚ / %@˚", [day1 objectForKey: @"hi"], [day1 objectForKey: @"l"]]];
-	//[[cell day1Precip] setText: @"100% / 100%"];
 	[[cell day1Precip] setText: [NSString stringWithFormat: @"%@%% / %@%%", [day1 objectForKey: @"pd"], [day1 objectForKey: @"pn"]]];
 	[[cell day2Symbol] setImage: [UIImage imageNamed: [NSString stringWithFormat: @"%@.png", [day2 objectForKey: @"sy"]]]];
 	[[cell day2Temp] setText: [NSString stringWithFormat: @"%@˚ / %@˚", [day2 objectForKey: @"hi"], [day2 objectForKey: @"l"]]];
@@ -252,10 +241,58 @@
 	
 }
 
+- (IBAction) clickFavorite: (id) sender
+{
+	NSLog(@"clicked favorite");
+}
+
 
 - (void)dealloc {
 	[areas release];
     [super dealloc];
+}
+
+- (IBAction) buttonPressed: (id) sender
+{
+	NSLog(@"Pressed");
+	NSLog(@"%i", ((UIButton*)sender).tag);
+	
+	NSIndexPath *indexPath = [[self tableView] indexPathForCell:(UITableViewCell *)[[sender superview] superview]];
+	
+	NSString *areaId = [[areas objectAtIndex: [indexPath row]] objectForKey: @"id"];
+	NSString *name = [[areas objectAtIndex: [indexPath row]] objectForKey: @"name"];
+	
+	Favorite *sharedFavorite = [Favorite sharedFavorite];
+	
+	// If this is a favorite, remove
+	if ([sharedFavorite exists: areaId]) {
+		NSLog(@"Favorite exists");
+		[sharedFavorite remove: areaId];
+		UIImage *btnImage = [UIImage imageNamed: @"btn_star_big_off.png"];
+		[(UIButton *) sender setImage: btnImage forState: UIControlStateNormal];
+	// If isn't a favorite, add
+	} else {
+		NSLog(@"Favorite does not exist, add");
+		[sharedFavorite add: areaId withName: name];
+		UIImage *btnImage = [UIImage imageNamed: @"btn_star_big_on.png"];
+		[(UIButton *) sender setImage: btnImage forState: UIControlStateNormal];
+	}
+	NSLog(@"%@", areaId);
+	NSLog(@"%@", indexPath);
+	/*
+    switch ( ((UIButton*)sender).tag ){
+			
+		case 1:
+			<something>
+			break;
+		case 2:
+			<something else>
+				break;
+			
+		default:
+			<default something>
+    }
+	 */
 }
 
 

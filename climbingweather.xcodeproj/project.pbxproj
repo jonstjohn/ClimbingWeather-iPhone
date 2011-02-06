@@ -110,6 +110,8 @@
 		608DE47912FCF47D00AE172C /* AreaAveragesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 608DE47712FCF47D00AE172C /* AreaAveragesController.m */; };
 		608DE47A12FCF47D00AE172C /* AreaAverages.xib in Resources */ = {isa = PBXBuildFile; fileRef = 608DE47812FCF47D00AE172C /* AreaAverages.xib */; };
 		608DE49612FCF54200AE172C /* 16-line-chart.png in Resources */ = {isa = PBXBuildFile; fileRef = 608DE49512FCF54200AE172C /* 16-line-chart.png */; };
+		608DE56512FDFAC700AE172C /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = 608DE56412FDFAC700AE172C /* Favorite.m */; };
+		608DE57312FE024B00AE172C /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 608DE57212FE024B00AE172C /* Database.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -243,6 +245,10 @@
 		608DE47712FCF47D00AE172C /* AreaAveragesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaAveragesController.m; sourceTree = "<group>"; };
 		608DE47812FCF47D00AE172C /* AreaAverages.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AreaAverages.xib; path = Classes/AreaAverages.xib; sourceTree = "<group>"; };
 		608DE49512FCF54200AE172C /* 16-line-chart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "16-line-chart.png"; sourceTree = "<group>"; };
+		608DE56312FDFAC700AE172C /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favorite.h; sourceTree = "<group>"; };
+		608DE56412FDFAC700AE172C /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorite.m; sourceTree = "<group>"; };
+		608DE57112FE024B00AE172C /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
+		608DE57212FE024B00AE172C /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* climbingweather-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "climbingweather-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -422,6 +428,10 @@
 				608A551912E532F2003BCB84 /* MyManager.m */,
 				608DE3AC12FCDF0000AE172C /* Cache.h */,
 				608DE3AD12FCDF0000AE172C /* Cache.m */,
+				608DE56312FDFAC700AE172C /* Favorite.h */,
+				608DE56412FDFAC700AE172C /* Favorite.m */,
+				608DE57112FE024B00AE172C /* Database.h */,
+				608DE57212FE024B00AE172C /* Database.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -646,6 +656,8 @@
 				608DE3AE12FCDF0000AE172C /* Cache.m in Sources */,
 				608DE46A12FCF24A00AE172C /* AreaDetailController.m in Sources */,
 				608DE47912FCF47D00AE172C /* AreaAveragesController.m in Sources */,
+				608DE56512FDFAC700AE172C /* Favorite.m in Sources */,
+				608DE57312FE024B00AE172C /* Database.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

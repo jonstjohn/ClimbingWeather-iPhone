@@ -24,6 +24,8 @@
 @property (nonatomic, retain) NSString *stateName;
 @property (nonatomic, retain) NSString *areaId;
 @property (nonatomic, retain) NSString *areaName;
+@property (nonatomic, retain) NSString *areaListType;
+@property (nonatomic, retain) NSString *areaSearch;
 @property (nonatomic, assign) sqlite3 *database;
 
 + (id) sharedManager;

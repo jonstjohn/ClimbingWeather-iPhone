@@ -10,7 +10,7 @@
 
 
 @interface AreasCell : UITableViewCell {
-	UIImageView *favoriteImage;
+	UIButton *favoriteImage;
 	UILabel *areaName;
 	UIImageView *day1Symbol;
 	UILabel *day1Temp;
@@ -23,7 +23,7 @@
 	UILabel *day3Precip;
 }
 
-@property (nonatomic, retain) UIImageView *favoriteImage;
+@property (nonatomic, retain) UIButton *favoriteImage;
 @property (nonatomic, retain) UILabel *areaName;
 @property (nonatomic, retain) UIImageView *day1Symbol;
 @property (nonatomic, retain) UILabel *day1Temp;

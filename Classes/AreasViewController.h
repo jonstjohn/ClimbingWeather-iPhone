@@ -16,4 +16,6 @@
 	NSMutableData *responseData;
 }
 
+- (IBAction) clickFavorite: (id) sender;
+
 @end

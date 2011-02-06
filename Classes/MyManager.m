@@ -16,6 +16,8 @@ static MyManager *sharedMyManager = nil;
 @synthesize stateName;
 @synthesize areaId;
 @synthesize areaName;
+@synthesize areaListType;
+@synthesize areaSearch;
 @synthesize database;
 
 #pragma mark Singleton Methods

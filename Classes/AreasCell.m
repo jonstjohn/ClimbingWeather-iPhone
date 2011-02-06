@@ -28,12 +28,11 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
 		
-		/*
-        favoriteImage = [[UIImageView alloc] initWithFrame: CGRectZero];
+        favoriteImage = [[UIButton alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: favoriteImage];
-		[favoriteImage setContentMode: UIViewContentModeScaleAspectFit];
+		//[favoriteImage setContentMode: UIViewContentModeScaleAspectFit];
+		//[favoriteImage setUserInteractionEnabled: YES];
 		[favoriteImage release];
-		 */
 		
         areaName = [[UILabel alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: areaName];
@@ -92,25 +91,32 @@
 	
 	float inset = 10.0;
 	float columnSpacing = 3.0;
+	float rowSpacing = 5.0;
 	
-	float secondRowY = inset + 25.0;
+	float big = 18.0;
+	float small = 12.0;
+	float smaller = 10.0;
+	
+	float firstRowHeight = big + 12.0;
+	float secondRowY = inset + firstRowHeight + rowSpacing;
+	float secondRowHeight = small + 1.0;
 	float thirdRowY = secondRowY + 18.0;
 	
-	/*
-	float favoriteX = inset;
-	float favoriteWidth = 50.0;
+	float favoriteWidth = 30.0;
 	
+	/*
 	float areaNameX = favoriteX + favoriteWidth + columnSpacing;
 	float areaNameWidth = w - favoriteWidth - inset * 2.0 - 100.0;
-	 
 	*/
-	float areaNameX = inset;
-	float areaNameWidth = w - inset * 2.0;
+	float areaNameX = inset + favoriteWidth + columnSpacing * 2.0;
+	float areaNameWidth = w - columnSpacing * 2.0 - favoriteWidth - inset; // * 2.0;
+	
+	float favoriteX = inset;
 	
 	float symbolWidth = 25.0;
 	float tempWidth = 65.0;
 	
-	float day1SymbolX = areaNameX;
+	float day1SymbolX = inset;
 	float day1TempX = day1SymbolX + symbolWidth + columnSpacing;
 	
 	float day2SymbolX = day1TempX + tempWidth + columnSpacing;
@@ -132,18 +138,14 @@
 	float windWidth = 60.0;
 	*/
 	
-	float big = 16.0;
-	float small = 12.0;
-	float smaller = 10.0;
+
 	
 	// Favorite
-	/*
-	CGRect innerFrameIcon = CGRectMake(favoriteX, inset, favoriteWidth, big + small + 2.0);
+	CGRect innerFrameIcon = CGRectMake(favoriteX, inset, favoriteWidth, favoriteWidth);
 	[favoriteImage setFrame: innerFrameIcon];
-	*/
 	
 	// Area Name
-	CGRect innerFrameAreaName = CGRectMake(areaNameX, inset, areaNameWidth, big + 1.0);
+	CGRect innerFrameAreaName = CGRectMake(areaNameX, inset, areaNameWidth, firstRowHeight);
 	[areaName setFont: [UIFont systemFontOfSize: big]];
 	[areaName setTextAlignment: UITextAlignmentLeft];
 	[areaName setFrame: innerFrameAreaName];

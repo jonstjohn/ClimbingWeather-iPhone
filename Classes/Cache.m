@@ -7,6 +7,7 @@
 //
 
 #import "Cache.h"
+#import "Database.h"
 
 static Cache *mySharedCache = nil;
 
@@ -48,42 +49,11 @@ static Cache *mySharedCache = nil;
     [super dealloc];
 }
 
-- (sqlite3 *) openDatabase {
-	
-	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-	NSString *path = [paths objectAtIndex: 0];
-	
-	NSString *fullPath = [path stringByAppendingPathComponent: @"climbingweather.db"];
-	
-	NSFileManager *fm = [NSFileManager defaultManager];
-	
-	BOOL exists = [fm fileExistsAtPath: fullPath];
-	
-	if (exists) {
-		NSLog(@"%@ exists - opening", fullPath);
-	} else {
-		NSLog(@"%@ does not exist, copying and opening", fullPath);
-		NSString *pathForStartingDB = [[NSBundle mainBundle] pathForResource: @"climbingweather" ofType: @"db"];
-		BOOL success = [fm copyItemAtPath: pathForStartingDB toPath: fullPath error: NULL];
-		if (!success) {
-			NSLog(@"Database copy failed");
-		}
-	}
-	
-	// Open database file
-	sqlite3 *db;
-	const char *cFullPath = [fullPath cStringUsingEncoding: NSUTF8StringEncoding];
-	if (sqlite3_open(cFullPath, &db) != SQLITE_OK) {
-		NSLog(@"Unable to open db at %@", fullPath);
-	}
-	
-	return db;
-}
-
 - (NSString *) get: (NSString *) cacheKey {
 
 	// Check for cached data
-	sqlite3 *db = [self openDatabase];
+	Database *sharedDatabase = [Database sharedDatabase];
+	sqlite3 *db = [sharedDatabase open];
 	char *sql = "SELECT value FROM cache WHERE cache_key = ? and expires > ?";
 	sqlite3_stmt *statement;
 	sqlite3_prepare_v2(db, sql, -1, &statement, NULL);
@@ -95,10 +65,12 @@ static Cache *mySharedCache = nil;
 		NSLog(@"loading from cache");
 		char *cResponseString = (char *) sqlite3_column_text(statement, 0);
 		NSString *responseString = [[[NSString alloc] initWithUTF8String: cResponseString] autorelease];
-		sqlite3_close(db);
+		//sqlite3_close(db);
 		return responseString;
 		
 	}
+	
+	//sqlite3_close(db);
 	
 	return nil;
 	
@@ -106,7 +78,8 @@ static Cache *mySharedCache = nil;
 
 - (void) set: (NSString *) cacheKey withValue: (NSString *) value expiresOn: (int) expires {
 	
-	sqlite3 *db = [self openDatabase];
+	Database *sharedDatabase = [Database sharedDatabase];
+	sqlite3 *db = [sharedDatabase open];
 	
 	sqlite3_stmt *stmt;
 	const char *sql = "REPLACE INTO cache(cache_key, value, expires) VALUES (?, ?, ?)";
@@ -120,18 +93,19 @@ static Cache *mySharedCache = nil;
 		NSLog(@"ERROR SAVING: %s", sqlite3_errmsg(db));
 	}
 	sqlite3_finalize(stmt);
-	sqlite3_close(db);
+	//sqlite3_close(db);
 	
 }
 
 - (void) clearAll {
 	
-	sqlite3 *db = [self openDatabase];
+	Database *sharedDatabase = [Database sharedDatabase];
+	sqlite3 *db = [sharedDatabase open];
 	const char *sql = "DELETE FROM cache";
 	
 	char *db_err = "";
 	sqlite3_exec(db, sql, NULL, 0, &db_err);
-	sqlite3_close(db);
+	//sqlite3_close(db);
 
 }
 

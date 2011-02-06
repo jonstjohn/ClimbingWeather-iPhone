@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 
-@interface FavoritesViewController : UIViewController {
-
+@interface FavoritesViewController : UITableViewController {
+	NSMutableArray *areas;
+	IBOutlet UITableView *myTable;
+	NSMutableData *responseData;
 }
 
 @end
