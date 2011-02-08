@@ -7,7 +7,8 @@
 //
 
 #import "AreaMapViewController.h"
-
+#import "MapPoint.h"
+#import "MyManager.h"
 
 @implementation AreaMapViewController
 
@@ -20,9 +21,53 @@
 	UIImage *i = [UIImage imageNamed:@"icon_blog.png"];
 	[tbi setImage: i];
 	
+	locationManager = [[CLLocationManager alloc] init];
+	[locationManager setDelegate: self];
+	
+	[locationManager setDistanceFilter: kCLDistanceFilterNone];
+	[locationManager setDesiredAccuracy: kCLLocationAccuracyBest];
+	
+	[mapView setShowsUserLocation: YES];
+	
 	return self;
 }
 
+- (void) mapView: (MKMapView *) mv didAddAnnotationViews: (NSArray *) views
+{
+
+	MKAnnotationView *annotationView = [views objectAtIndex: 0];
+	id <MKAnnotation> mp = [annotationView annotation];
+	MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance([mp coordinate], 10000, 10000);
+	[mv setRegion: region animated: NO];
+}
+
+- (MKAnnotationView *) mapView: (MKMapView *) mv viewForAnnotation: (id <MKAnnotation>) annotation
+{
+	if ([mv userLocation] == annotation) {
+		return nil;
+	}
+	
+	NSString *identifier = @"climbing_area";
+	
+	MKAnnotationView *annotationView = [mv dequeueReusableAnnotationViewWithIdentifier:identifier];
+	if (annotationView == nil) {
+		annotationView = [[[MKAnnotationView alloc] initWithAnnotation:annotation
+													   reuseIdentifier:identifier]
+						  autorelease];
+		
+		[annotationView setImage: [UIImage imageNamed:@"climbing.png"]];
+		
+		[annotationView setCanShowCallout: YES];
+		/*
+		annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+		annotationView.leftCalloutAccessoryView = [[[UIImageView alloc]
+													initWithImage:[UIImage imageNamed:@"tree.png"]]
+												   autorelease];
+		 */
+		
+	}
+	return annotationView;
+}
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 /*
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -34,12 +79,23 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
+	// Send request for JSON data
+	MyManager *sharedManager = [MyManager sharedManager];
+	
+	responseData = [[NSMutableData data] retain];
+	
+	NSString *url = [NSString stringWithFormat: @"http://www.climbingweather.com/api/area/detail/%@", [sharedManager areaId]];
+	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: url]];
+	
+	[[NSURLConnection alloc] initWithRequest:request delegate:self];
+	
 }
-*/
+
 
 /*
 // Override to allow orientations other than the default portrait orientation.
@@ -60,6 +116,36 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+	[responseData setLength:0];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+	[responseData appendData:data];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+	NSLog(@"Connection failed: %@", [error description]);
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+	[connection release];
+	
+	NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+	[responseData release];
+	
+	NSDictionary *detail = [responseString JSONValue];
+	
+	CLLocationCoordinate2D coordinate;
+	coordinate.latitude = [[detail objectForKey: @"latitude"] floatValue];
+	coordinate.longitude = [[detail objectForKey: @"longitude"] floatValue];
+	MapPoint *mp = [[MapPoint alloc] initWithCoordinate: coordinate title: [detail objectForKey: @"name"] ];
+	[mapView addAnnotation: mp];
+	[mp release];
+	
+	
 }
 
 

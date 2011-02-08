@@ -112,6 +112,9 @@
 		608DE49612FCF54200AE172C /* 16-line-chart.png in Resources */ = {isa = PBXBuildFile; fileRef = 608DE49512FCF54200AE172C /* 16-line-chart.png */; };
 		608DE56512FDFAC700AE172C /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = 608DE56412FDFAC700AE172C /* Favorite.m */; };
 		608DE57312FE024B00AE172C /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 608DE57212FE024B00AE172C /* Database.m */; };
+		608DE64412FF85C600AE172C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608DE64312FF85C600AE172C /* CoreLocation.framework */; };
+		608DE66612FF88CE00AE172C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608DE66512FF88CE00AE172C /* MapKit.framework */; };
+		608DE66D1300CF0C00AE172C /* MapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 608DE66C1300CF0C00AE172C /* MapPoint.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -249,6 +252,10 @@
 		608DE56412FDFAC700AE172C /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorite.m; sourceTree = "<group>"; };
 		608DE57112FE024B00AE172C /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
 		608DE57212FE024B00AE172C /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
+		608DE64312FF85C600AE172C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		608DE66512FF88CE00AE172C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		608DE66B1300CF0C00AE172C /* MapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPoint.h; sourceTree = "<group>"; };
+		608DE66C1300CF0C00AE172C /* MapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPoint.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* climbingweather-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "climbingweather-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -261,6 +268,8 @@
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
 				608DE32F12FAD66E00AE172C /* libsqlite3.0.dylib in Frameworks */,
+				608DE64412FF85C600AE172C /* CoreLocation.framework in Frameworks */,
+				608DE66612FF88CE00AE172C /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +305,8 @@
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				608A51A512E38973003BCB84 /* Downloads */,
 				608DE32E12FAD66E00AE172C /* libsqlite3.0.dylib */,
+				608DE64312FF85C600AE172C /* CoreLocation.framework */,
+				608DE66512FF88CE00AE172C /* MapKit.framework */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -365,6 +376,7 @@
 				608A562B12E7CEF7003BCB84 /* AreaTabBarController.h */,
 				608A562C12E7CEF7003BCB84 /* AreaTabBarController.m */,
 				608A560212E7C9F3003BCB84 /* AreaDailyViewController.h */,
+				608A560312E7C9F3003BCB84 /* AreaDailyViewController.m */,
 				608A57A912EA778F003BCB84 /* AreaDailyCell.h */,
 				608A57AA12EA778F003BCB84 /* AreaDailyCell.m */,
 				608A550212E52FDD003BCB84 /* AreasViewController.h */,
@@ -375,7 +387,6 @@
 				608A566112E7D551003BCB84 /* AreaHourlyViewController.m */,
 				608DE22612F60FCE00AE172C /* AreaHourlyCell.h */,
 				608DE22712F60FCE00AE172C /* AreaHourlyCell.m */,
-				608A560312E7C9F3003BCB84 /* AreaDailyViewController.m */,
 				608DE46712FCF24A00AE172C /* AreaDetailController.h */,
 				608DE46812FCF24A00AE172C /* AreaDetailController.m */,
 				608DE47612FCF47D00AE172C /* AreaAveragesController.h */,
@@ -432,6 +443,8 @@
 				608DE56412FDFAC700AE172C /* Favorite.m */,
 				608DE57112FE024B00AE172C /* Database.h */,
 				608DE57212FE024B00AE172C /* Database.m */,
+				608DE66B1300CF0C00AE172C /* MapPoint.h */,
+				608DE66C1300CF0C00AE172C /* MapPoint.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -658,6 +671,7 @@
 				608DE47912FCF47D00AE172C /* AreaAveragesController.m in Sources */,
 				608DE56512FDFAC700AE172C /* Favorite.m in Sources */,
 				608DE57312FE024B00AE172C /* Database.m in Sources */,
+				608DE66D1300CF0C00AE172C /* MapPoint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
