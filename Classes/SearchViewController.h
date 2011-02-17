@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 
 
-@interface SearchViewController : UIViewController {
-
+@interface SearchViewController : UIViewController <UISearchBarDelegate> {
+	NSMutableArray *areas;
+	IBOutlet UITableView *myTable;
+	NSMutableData *responseData;
 }
+
+- (void) search: (NSString *) text;
 
 @end

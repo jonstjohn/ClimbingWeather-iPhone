@@ -115,6 +115,7 @@
 		608DE64412FF85C600AE172C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608DE64312FF85C600AE172C /* CoreLocation.framework */; };
 		608DE66612FF88CE00AE172C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608DE66512FF88CE00AE172C /* MapKit.framework */; };
 		608DE66D1300CF0C00AE172C /* MapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 608DE66C1300CF0C00AE172C /* MapPoint.m */; };
+		608DE80B130C01F400AE172C /* AreasTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 608DE80A130C01F400AE172C /* AreasTableViewDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -256,6 +257,8 @@
 		608DE66512FF88CE00AE172C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		608DE66B1300CF0C00AE172C /* MapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPoint.h; sourceTree = "<group>"; };
 		608DE66C1300CF0C00AE172C /* MapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPoint.m; sourceTree = "<group>"; };
+		608DE809130C01F400AE172C /* AreasTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreasTableViewDelegate.h; sourceTree = "<group>"; };
+		608DE80A130C01F400AE172C /* AreasTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreasTableViewDelegate.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* climbingweather-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "climbingweather-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -336,7 +339,6 @@
 				608A58A712EC5B46003BCB84 /* ic_menu_preferences.png */,
 				608A58A812EC5B46003BCB84 /* ic_menu_refresh.png */,
 				608A58A912EC5B46003BCB84 /* icon.png */,
-				608A56FC12E923AA003BCB84 /* SearchViewController.xib */,
 				608A56F812E9239B003BCB84 /* ic_menu_search.png */,
 				608A56F112E92344003BCB84 /* ic_menu_mapmode.png */,
 				608A56D712E921F7003BCB84 /* ic_menu_mylocation.png */,
@@ -349,6 +351,7 @@
 				608A560412E7C9F3003BCB84 /* AreaDailyViewController.xib */,
 				608A550412E52FDD003BCB84 /* AreasViewController.xib */,
 				608A511512E34061003BCB84 /* StatesViewController.xib */,
+				608A56FC12E923AA003BCB84 /* SearchViewController.xib */,
 				608A50C712E33CCD003BCB84 /* HomeViewController.xib */,
 				608A50DE12E33CF5003BCB84 /* NearbyViewController.xib */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
@@ -416,6 +419,8 @@
 		608DE46312FCF1D400AE172C /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				608DE809130C01F400AE172C /* AreasTableViewDelegate.h */,
+				608DE80A130C01F400AE172C /* AreasTableViewDelegate.m */,
 				608A511312E34061003BCB84 /* StatesViewController.h */,
 				608A511412E34061003BCB84 /* StatesViewController.m */,
 				1D3623240D0F684500981E51 /* climbingweatherAppDelegate.h */,
@@ -672,6 +677,7 @@
 				608DE56512FDFAC700AE172C /* Favorite.m in Sources */,
 				608DE57312FE024B00AE172C /* Database.m in Sources */,
 				608DE66D1300CF0C00AE172C /* MapPoint.m in Sources */,
+				608DE80B130C01F400AE172C /* AreasTableViewDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

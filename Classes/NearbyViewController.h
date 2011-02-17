@@ -7,10 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 
-@interface NearbyViewController : UIViewController {
-
+@interface NearbyViewController : UIViewController <CLLocationManagerDelegate>
+{
+	NSMutableArray *areas;
+	CLLocationManager *locationManager;
+	IBOutlet UITableView *myTable;
+	IBOutlet UIActivityIndicatorView *activityIndicator;
+	NSMutableData *responseData;
 }
+
+@property (nonatomic, retain) CLLocationManager *locationManager;  
+
+- (void)locationManager:(CLLocationManager *)manager
+    didUpdateToLocation:(CLLocation *)newLocation
+           fromLocation:(CLLocation *)oldLocation;
+
+- (void)locationManager:(CLLocationManager *)manager
+       didFailWithError:(NSError *)error;
+
+- (void) search: (NSString *) text;
 
 @end

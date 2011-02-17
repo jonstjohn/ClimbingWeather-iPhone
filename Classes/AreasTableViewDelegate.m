@@ -1,12 +1,12 @@
 //
-//  SearchViewController.m
+//  AreasTableViewDelegate.m
 //  climbingweather
 //
-//  Created by Jonathan StJohn on 1/20/11.
+//  Created by Jonathan StJohn on 2/16/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "SearchViewController.h"
+#import "AreasTableViewDelegate.h"
 
 #import "AreaDailyViewController.h"
 #import "AreaHourlyViewController.h"
@@ -17,158 +17,26 @@
 #import "AreasCell.h"
 #import "Favorite.h"
 
+@implementation AreasTableViewDelegate
 
-@implementation SearchViewController
+@synthesize areas;
 
-- (id) init
-{
-	// Call the super-class's designated initialize
-	[super initWithNibName: @"SearchViewController" bundle: nil];
-	
-	// Get tab bar item
-	UITabBarItem *tbi = [self tabBarItem];
-	
-	// Give it a label
-	[tbi setTitle: @"Search"];
-	
-	// Add image
-	UIImage *i = [UIImage imageNamed:@"icon_magnify_glass.png"];
-	
-	// Put image on tab
-	[tbi setImage: i];
+- (id) init {
 	
 	areas = [[NSMutableArray alloc] initWithObjects: nil];
-	
-	//[myTable setRowHeight: 85.0];
-	
-	[[self navigationItem] setTitle: @"Home"];
-	
-	//[myTable setDelegate: self];
-	//[myTable setDataSource: self];
-	return self;
-}
-
-- (void) viewDidAppear: (BOOL) animated
-{
-	[[self tabBarController] setTitle: @"Search"];
-	[[self navigationController] setNavigationBarHidden: NO];
-}
-
-// The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibName bundle:(NSBundle *)bundle {
-	return [self init];
-}
-
-
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-*/
-
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations.
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
-
-- (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc. that aren't in use.
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-
-- (void)dealloc {
-    [super dealloc];
-}
-
-- (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
-	[searchBar resignFirstResponder];
-	[self search: [searchBar text]];
-	NSLog(@"clicked");
-	NSLog(@"%@", [searchBar text]);
-}
-
-- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
-{
-	NSLog(@"end editing");
-	NSLog(@"%@", [searchBar text]);
-}
-
-- (void) search: (NSString *) text
-{
-    //[super viewDidLoad];
-	
-	//MyManager *sharedManager = [MyManager sharedManager];
-	//NSLog(@"Areas view state code is: %@", [sharedManager stateCode]);
-	
-	responseData = [[NSMutableData data] retain];
-	
-	NSString *url = [NSString stringWithFormat: @"http://www.climbingweather.com/api/area/search/%@?days=3", text];
-	NSLog(@"URL: %@", url);
-	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
-	
-	[[NSURLConnection alloc] initWithRequest:request delegate:self];
+	return [super init];
 	
 }
 
 - (NSInteger) tableView: (UITableView *) tableView numberOfRowsInSection: (NSInteger) section
 {
-	NSLog(@"sections");
+	NSLog(@"sections2");
 	return [areas count];
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-	[responseData setLength:0];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-	[responseData appendData:data];
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-	NSLog(@"Connection failed: %@", [error description]);
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-	[connection release];
-	
-	NSLog(@"Finished loading");
-	NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-	[responseData release];
-	
-	//NSLog(@"%@", responseString);
-	NSArray *areasJson = [responseString JSONValue];
-	
-	NSLog(@"Count: %i", [areasJson count]);
-	[areas removeAllObjects];
-	
-	for (int i = 0; i < [areasJson count]; i++) {
-		[areas addObject: [areasJson objectAtIndex: i]];
-	}
-	
-	NSLog(@"Table: %@", myTable);
-	[myTable setRowHeight: 85.0];
-	[myTable reloadData];
-	
-}
-
-
 - (UITableViewCell *) tableView: (UITableView *) tableView cellForRowAtIndexPath: (NSIndexPath *) indexPath
 {
-	NSLog(@"cellForRow");
+	NSLog(@"cellForRow2");
 	AreasCell *cell = (AreasCell *)[tableView dequeueReusableCellWithIdentifier: @"AreasCell"];
 	
 	if (!cell) {
@@ -245,9 +113,13 @@
 	
 	[[tabController navigationItem] setTitle: areaName];
 	
-	[[self navigationController] pushViewController: tabController animated: YES];
+	[(UINavigationController *)[[tableView window] rootViewController] pushViewController: tabController animated: YES];
 	
 }
 
+- (void) dealloc {
+	[areas dealloc];
+	[super dealloc];
+}
 
 @end
