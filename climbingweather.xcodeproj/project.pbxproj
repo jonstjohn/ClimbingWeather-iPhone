@@ -326,8 +326,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				608DE47812FCF47D00AE172C /* AreaAverages.xib */,
-				608DE32A12FAD61100AE172C /* climbingweather.db */,
+				608DE8CA130D68FD00AE172C /* xib */,
 				608DE46D12FCF36C00AE172C /* navicon */,
 				608A589412EC5B46003BCB84 /* btn_star_big_off.png */,
 				608A589512EC5B46003BCB84 /* climbing.png */,
@@ -343,19 +342,8 @@
 				608A56F112E92344003BCB84 /* ic_menu_mapmode.png */,
 				608A56D712E921F7003BCB84 /* ic_menu_mylocation.png */,
 				608A56CB12E920F7003BCB84 /* btn_star_big_on.png */,
-				608A56C812E92003003BCB84 /* FavoritesViewController.xib */,
 				608A56B712E91DC8003BCB84 /* ic_menu_home.png */,
 				608A56AC12E91B5E003BCB84 /* logo_top_center.png */,
-				608A566212E7D551003BCB84 /* AreaHourlyViewController.xib */,
-				608A566B12E7D567003BCB84 /* AreaMapViewController.xib */,
-				608A560412E7C9F3003BCB84 /* AreaDailyViewController.xib */,
-				608A550412E52FDD003BCB84 /* AreasViewController.xib */,
-				608A511512E34061003BCB84 /* StatesViewController.xib */,
-				608A56FC12E923AA003BCB84 /* SearchViewController.xib */,
-				608A50C712E33CCD003BCB84 /* HomeViewController.xib */,
-				608A50DE12E33CF5003BCB84 /* NearbyViewController.xib */,
-				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
-				608DE46912FCF24A00AE172C /* AreaDetailController.xib */,
 				8D1107310486CEB800E47090 /* climbingweather-Info.plist */,
 			);
 			name = Resources;
@@ -513,6 +501,26 @@
 				608DE1C212F4A7E700AE172C /* icon_calendar.png */,
 			);
 			name = navicon;
+			sourceTree = "<group>";
+		};
+		608DE8CA130D68FD00AE172C /* xib */ = {
+			isa = PBXGroup;
+			children = (
+				608A566212E7D551003BCB84 /* AreaHourlyViewController.xib */,
+				608A566B12E7D567003BCB84 /* AreaMapViewController.xib */,
+				608A560412E7C9F3003BCB84 /* AreaDailyViewController.xib */,
+				608A550412E52FDD003BCB84 /* AreasViewController.xib */,
+				608A511512E34061003BCB84 /* StatesViewController.xib */,
+				608A56FC12E923AA003BCB84 /* SearchViewController.xib */,
+				608A50C712E33CCD003BCB84 /* HomeViewController.xib */,
+				608A50DE12E33CF5003BCB84 /* NearbyViewController.xib */,
+				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
+				608DE46912FCF24A00AE172C /* AreaDetailController.xib */,
+				608A56C812E92003003BCB84 /* FavoritesViewController.xib */,
+				608DE47812FCF47D00AE172C /* AreaAverages.xib */,
+				608DE32A12FAD61100AE172C /* climbingweather.db */,
+			);
+			name = xib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

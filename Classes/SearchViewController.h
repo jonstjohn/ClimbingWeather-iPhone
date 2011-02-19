@@ -7,13 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AreasTableViewDelegate.h"
 
 
 @interface SearchViewController : UIViewController <UISearchBarDelegate> {
 	NSMutableArray *areas;
 	IBOutlet UITableView *myTable;
 	NSMutableData *responseData;
+	AreasTableViewDelegate *myTableDelegate;
 }
+
+@property (nonatomic, retain) AreasTableViewDelegate *myTableDelegate;
 
 - (void) search: (NSString *) text;
 

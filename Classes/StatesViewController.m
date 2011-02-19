@@ -133,7 +133,10 @@
 	NSString *stateCode = [[states objectAtIndex: [indexPath row]] objectForKey: @"code"];
 	[sharedManager setStateCode: stateCode];
 	[sharedManager setStateName: [[states objectAtIndex: [indexPath row]] objectForKey: @"name"]];
-	[[self navigationController] pushViewController: [[AreasViewController alloc] initWithNibName:@"AreasViewController" bundle:nil] animated: YES];
+	AreasViewController *controller = [[AreasViewController alloc] initWithNibName:@"AreasViewController" bundle:nil];
+	[controller setListType: @"state"];
+	[controller setListData: stateCode];
+	[[self navigationController] pushViewController:controller animated: YES];
 	return;
 
 }

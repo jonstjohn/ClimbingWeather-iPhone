@@ -10,11 +10,16 @@
 #import "JSON.h"
 
 
-@interface AreasViewController : UITableViewController {
-	NSMutableArray *areas;
+@interface AreasViewController : UIViewController {
+	//NSMutableArray *areas;
 	IBOutlet UITableView *myTable;
 	NSMutableData *responseData;
+	NSString *listType;
+	NSString *listData;
 }
+
+@property (nonatomic, retain) NSString *listType;
+@property (nonatomic, retain) NSString *listData;
 
 - (IBAction) clickFavorite: (id) sender;
 

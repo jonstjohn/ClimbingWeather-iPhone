@@ -8,18 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "AreasTableViewDelegate.h"
 
 
 @interface NearbyViewController : UIViewController <CLLocationManagerDelegate>
 {
-	NSMutableArray *areas;
+	//NSMutableArray *areas;
 	CLLocationManager *locationManager;
 	IBOutlet UITableView *myTable;
 	IBOutlet UIActivityIndicatorView *activityIndicator;
 	NSMutableData *responseData;
+	AreasTableViewDelegate *myTableDelegate;
 }
 
-@property (nonatomic, retain) CLLocationManager *locationManager;  
+@property (nonatomic, retain) CLLocationManager *locationManager; 
+@property (nonatomic, retain) AreasTableViewDelegate *myTableDelegate;
 
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation

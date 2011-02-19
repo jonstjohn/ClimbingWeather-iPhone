@@ -62,6 +62,7 @@
     
 	// Create tabBarController
 	UITabBarController *tabController = [[UITabBarController alloc] init];
+	[tabController setDelegate: self];
 	
 	// Create two view controllers
 	UIViewController *vc1 = [[HomeViewController alloc] init];
@@ -144,6 +145,14 @@
     /*
      Free up as much memory as possible by purging cached data objects that can be recreated (or reloaded from disk) later.
      */
+}
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+	NSLog(@"clicked tab");
+	//if ([viewController isKindOfClass: [NearbyViewController class]]) {
+	if ([tabBarController selectedIndex] == 1) {
+		NSLog(@"clicked nearby tab");
+	}
 }
 
 

@@ -20,6 +20,8 @@
 @implementation AreasTableViewDelegate
 
 @synthesize areas;
+@synthesize areasTableView;
+@synthesize responseData;
 
 - (id) init {
 	
@@ -115,6 +117,78 @@
 	
 	[(UINavigationController *)[[tableView window] rootViewController] pushViewController: tabController animated: YES];
 	
+}
+
+- (IBAction) buttonPressed: (id) sender
+{
+	UITableView *myTable = (UITableView *) [[[sender superview] superview] superview];
+	
+	NSIndexPath *indexPath = [myTable indexPathForCell:(UITableViewCell *)[[sender superview] superview]];
+	
+	
+	NSString *areaId = [[[self areas] objectAtIndex: [indexPath row]] objectForKey: @"id"];
+	NSString *name = [[[self areas] objectAtIndex: [indexPath row]] objectForKey: @"name"];
+	
+	Favorite *sharedFavorite = [Favorite sharedFavorite];
+	
+	// If this is a favorite, remove
+	if ([sharedFavorite exists: areaId]) {
+		
+		[sharedFavorite remove: areaId];
+		UIImage *btnImage = [UIImage imageNamed: @"btn_star_big_off.png"];
+		[(UIButton *) sender setImage: btnImage forState: UIControlStateNormal];
+		[btnImage release];
+		
+		// If isn't a favorite, add
+	} else {
+		
+		[sharedFavorite add: areaId withName: name];
+		UIImage *btnImage = [UIImage imageNamed: @"btn_star_big_on.png"];
+		[(UIButton *) sender setImage: btnImage forState: UIControlStateNormal];
+		[btnImage release];
+	}
+	
+	//[myTable release];
+	//[indexPath release];
+	//[sharedFavorite release];
+	
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+	[responseData setLength:0];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+	[responseData appendData:data];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+	NSLog(@"Connection failed: %@", [error description]);
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+	[connection release];
+	
+	NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+	[responseData release];
+	
+	NSArray *areasJson = [responseString JSONValue];
+	
+	//NSMutableArray *myAreas = [(AreasTableViewDelegate *) [myTable delegate] areas];
+	[areas removeAllObjects];
+	
+	for (int i = 0; i < [areasJson count]; i++) {
+		[areas addObject: [areasJson objectAtIndex: i]];
+	}
+	
+	// [activityIndicator setHidden: YES];
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"AreaDataLoaded" object:nil];
+	[areasTableView setHidden: NO];
+	
+	[areasTableView setRowHeight: 85.0];
+	[areasTableView reloadData];
+	
+	//NSLog(@"%@", [areasTableView rootController
 }
 
 - (void) dealloc {

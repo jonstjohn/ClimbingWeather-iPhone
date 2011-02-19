@@ -11,7 +11,7 @@
 
 @class StatesViewController;
 
-@interface climbingweatherAppDelegate : NSObject <UIApplicationDelegate> {
+@interface climbingweatherAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate> {
     
     UIWindow *window;
 	StatesViewController *statesViewController;

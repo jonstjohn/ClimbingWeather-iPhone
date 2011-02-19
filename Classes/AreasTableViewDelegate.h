@@ -11,8 +11,12 @@
 
 @interface AreasTableViewDelegate : NSObject <UITableViewDelegate, UITableViewDataSource> {
 	NSMutableArray *areas;
+	UITableView *areasTableView;
+	NSMutableData *responseData;
 }
 
 @property (nonatomic, retain) NSMutableArray *areas;
+@property (nonatomic, retain) UITableView *areasTableView;
+@property (nonatomic, retain) NSMutableData *responseData;
 
 @end
