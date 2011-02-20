@@ -28,6 +28,11 @@
 	return self;
 }
 
+- (void) viewDidAppear:(BOOL)animated
+{
+	[[self navigationController] setNavigationBarHidden: NO];
+}
+
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 /*
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {

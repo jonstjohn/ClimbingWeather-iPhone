@@ -8,17 +8,6 @@
 
 #import "NearbyViewController.h"
 
-#import "AreaDailyViewController.h"
-#import "AreaHourlyViewController.h"
-#import "AreaMapViewController.h"
-#import "AreaDetailController.h"
-#import "AreaAveragesController.h"
-#import "MyManager.h"
-#import "AreasCell.h"
-#import "Favorite.h"
-#import "AreasTableViewDelegate.h"
-
-
 @implementation NearbyViewController
 
 @synthesize locationManager;

@@ -8,16 +8,6 @@
 
 #import "SearchViewController.h"
 
-#import "AreaDailyViewController.h"
-#import "AreaHourlyViewController.h"
-#import "AreaMapViewController.h"
-#import "AreaDetailController.h"
-#import "AreaAveragesController.h"
-#import "MyManager.h"
-#import "AreasCell.h"
-#import "Favorite.h"
-
-
 @implementation SearchViewController
 
 @synthesize myTableDelegate;
@@ -39,26 +29,26 @@
 	// Put image on tab
 	[tbi setImage: i];
 	
-	areas = [[NSMutableArray alloc] initWithObjects: nil];
-	
-	[[self navigationItem] setTitle: @"Home"];
-	
 	// Create the table view delegate
 	myTableDelegate = [[AreasTableViewDelegate alloc] init];
+	
+	//[[self navigationItem] setTitle: @"Search"];
 	
 	return self;
 }
 
 - (void) viewDidAppear: (BOOL) animated
 {
-	[[self tabBarController] setTitle: @"Search"];
+	[[self tabBarController] setTitle: @"Search Areas"];
 	[[self navigationController] setNavigationBarHidden: NO];
 }
 
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
+/*
 - (id)initWithNibName:(NSString *)nibName bundle:(NSBundle *)bundle {
 	return [self init];
 }
+*/
 
 
 
@@ -134,6 +124,7 @@
 - (void)dealloc
 {    
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
+	[myTableDelegate dealloc];
 	[super dealloc];
 }
 

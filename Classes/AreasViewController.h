@@ -8,19 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import "JSON.h"
+#import "AreasTableViewDelegate.h"
 
 
 @interface AreasViewController : UIViewController {
-	//NSMutableArray *areas;
+
 	IBOutlet UITableView *myTable;
-	NSMutableData *responseData;
-	NSString *listType;
-	NSString *listData;
+	AreasTableViewDelegate *myTableDelegate;
+	
+	NSString *stateCode;
+	NSString *stateName;
+	
 }
 
-@property (nonatomic, retain) NSString *listType;
-@property (nonatomic, retain) NSString *listData;
+@property (nonatomic, retain) AreasTableViewDelegate *myTableDelegate;
 
-- (IBAction) clickFavorite: (id) sender;
+- (id) initWithStateCode: (NSString *) code name: (NSString *) name;
 
 @end

@@ -127,15 +127,20 @@
 
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath
 {
+	/*
 	NSLog(@"Clicked row at index path %@", indexPath);
 	
 	MyManager *sharedManager = [MyManager sharedManager];
+	
 	NSString *stateCode = [[states objectAtIndex: [indexPath row]] objectForKey: @"code"];
+	
 	[sharedManager setStateCode: stateCode];
 	[sharedManager setStateName: [[states objectAtIndex: [indexPath row]] objectForKey: @"name"]];
-	AreasViewController *controller = [[AreasViewController alloc] initWithNibName:@"AreasViewController" bundle:nil];
-	[controller setListType: @"state"];
-	[controller setListData: stateCode];
+	 */
+	
+	AreasViewController *controller = [[AreasViewController alloc] initWithStateCode: 
+									   [[states objectAtIndex: [indexPath row]] objectForKey: @"code"]
+										name: [[states objectAtIndex: [indexPath row]] objectForKey: @"name"]];
 	[[self navigationController] pushViewController:controller animated: YES];
 	return;
 

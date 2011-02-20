@@ -10,10 +10,9 @@
 #import "AreasTableViewDelegate.h"
 
 
-@interface SearchViewController : UIViewController <UISearchBarDelegate> {
-	NSMutableArray *areas;
+@interface SearchViewController : UIViewController <UISearchBarDelegate>
+{
 	IBOutlet UITableView *myTable;
-	NSMutableData *responseData;
 	AreasTableViewDelegate *myTableDelegate;
 }
 
