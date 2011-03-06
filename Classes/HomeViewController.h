@@ -10,7 +10,15 @@
 
 
 @interface HomeViewController : UIViewController {
+	IBOutlet UIButton *nearbyButton;
 
 }
+
+@property (nonatomic, retain) IBOutlet UIButton *nearbyButton;
+
+- (IBAction)showNearby: (id)sender;
+- (IBAction)showByState: (id)sender;
+- (IBAction)showFavorites: (id)sender;
+- (IBAction)showSearch: (id)sender;
 
 @end

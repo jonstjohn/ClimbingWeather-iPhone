@@ -40,12 +40,17 @@
 
 	[super viewDidLoad];
 	
-	requestUrl = @"http://www.climbingweather.com/api/state/list";
+	requestUrl = [NSString stringWithFormat: @"http://api.climbingweather.com/api/state/list?apiKey=android-%@", 
+				  [[UIDevice currentDevice] uniqueIdentifier]];
+	NSLog(@"%@", requestUrl);
+	
+	//NSLog(@"ID: iphone-%@", [[UIDevice currentDevice] uniqueIdentifier]);
 	
 	// Check cache for data
 	Cache *sharedCache = [Cache sharedCache];
 	
-	//[sharedCache clearAll];
+	// Disable caching
+	[sharedCache clearAll];
 	
 	NSString *cacheString = [sharedCache get: requestUrl];
 	
@@ -126,18 +131,7 @@
 }
 
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath
-{
-	/*
-	NSLog(@"Clicked row at index path %@", indexPath);
-	
-	MyManager *sharedManager = [MyManager sharedManager];
-	
-	NSString *stateCode = [[states objectAtIndex: [indexPath row]] objectForKey: @"code"];
-	
-	[sharedManager setStateCode: stateCode];
-	[sharedManager setStateName: [[states objectAtIndex: [indexPath row]] objectForKey: @"name"]];
-	 */
-	
+{	
 	AreasViewController *controller = [[AreasViewController alloc] initWithStateCode: 
 									   [[states objectAtIndex: [indexPath row]] objectForKey: @"code"]
 										name: [[states objectAtIndex: [indexPath row]] objectForKey: @"name"]];
@@ -176,6 +170,7 @@
 	[connection release];
 	
 	NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+	NSLog(responseString);
 	
 	// Cache data, expire after 24 hours
 	Cache *sharedCache = [Cache sharedCache];
@@ -183,6 +178,9 @@
 	[sharedCache set: requestUrl withValue: responseString expiresOn: [[NSDate date] timeIntervalSince1970] + 60*60*24];
 	
 	[responseData release];
+	
+	//NSDictionary *data = [responseString JSONValue];
+	//NSArray *stateData = [data objectForKey: @"result"];
 	
 	NSArray *stateData = [responseString JSONValue];
 	

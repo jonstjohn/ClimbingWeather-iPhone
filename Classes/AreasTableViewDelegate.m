@@ -170,9 +170,13 @@
 	[connection release];
 	
 	NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+	NSLog(responseString);
 	[responseData release];
 	
-	NSArray *areasJson = [responseString JSONValue];
+	//NSArray *areasJson = [responseString JSONValue];
+	
+	NSDictionary *data = [responseString JSONValue];
+	NSArray *areasJson = [data objectForKey: @"results"];
 	
 	//NSMutableArray *myAreas = [(AreasTableViewDelegate *) [myTable delegate] areas];
 	[areas removeAllObjects];

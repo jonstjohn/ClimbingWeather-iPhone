@@ -89,7 +89,8 @@
 	
 	responseData = [[NSMutableData data] retain];
 	
-	NSString *url = [NSString stringWithFormat: @"http://www.climbingweather.com/api/area/detail/%@", [sharedManager areaId]];
+	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/detail/%@?apiKey=android-%@",
+					 [sharedManager areaId], [[UIDevice currentDevice] uniqueIdentifier]];
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: url]];
 	
 	[[NSURLConnection alloc] initWithRequest:request delegate:self];

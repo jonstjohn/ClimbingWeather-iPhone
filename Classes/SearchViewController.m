@@ -108,7 +108,8 @@
 {
 	[myTableDelegate setResponseData: [[NSMutableData data] retain]];
 	
-	NSString *url = [NSString stringWithFormat: @"http://www.climbingweather.com/api/area/search/%@?days=3", text];
+	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/LIST/%@?days=3&apiKey=android-",
+					 text, [[UIDevice currentDevice] uniqueIdentifier]];
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
 	
 	[[NSURLConnection alloc] initWithRequest:request delegate: myTableDelegate];

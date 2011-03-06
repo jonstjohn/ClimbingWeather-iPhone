@@ -115,7 +115,8 @@
 	
 	responseData = [[NSMutableData data] retain];
 	
-	NSString *url = [NSString stringWithFormat: @"http://www.climbingweather.com/api/area/hourly/%@", [sharedManager areaId]];
+	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/hourly/%@?apiKey=android-%@",
+					 [sharedManager areaId], [[UIDevice currentDevice] uniqueIdentifier]];
 	NSLog(@"URL: %@", url);
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: url]];
 	
@@ -221,6 +222,10 @@
 	[responseData release];
 	
 	NSDictionary *json = [responseString JSONValue];
+	
+	//NSDictionary *data = [responseString JSONValue];
+	//NSDictionary *json = [data objectForKey: @"results"];
+	
 	
 	[days removeAllObjects];
 	

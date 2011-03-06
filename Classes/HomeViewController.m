@@ -80,6 +80,25 @@
     // e.g. self.myOutlet = nil;
 }
 
+- (IBAction) showNearby: (id) sender
+{
+	[[self tabBarController] setSelectedIndex: 1];
+}
+
+- (IBAction) showByState: (id) sender
+{
+	[[self tabBarController] setSelectedIndex: 2];
+}
+
+- (IBAction) showFavorites: (id) sender
+{
+	[[self tabBarController] setSelectedIndex: 3];
+}
+
+- (IBAction) showSearch: (id) sender
+{
+	[[self tabBarController] setSelectedIndex: 4];
+}
 
 - (void)dealloc {
     [super dealloc];

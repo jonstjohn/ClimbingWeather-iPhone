@@ -21,6 +21,7 @@
 #pragma mark -
 #pragma mark Application lifecycle
 
+/*
 - (id) init {
 
 	[super init];
@@ -57,6 +58,7 @@
 	return self;
 		
 }
+ */
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
@@ -147,6 +149,7 @@
      */
 }
 
+/*
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
 	NSLog(@"clicked tab");
 	//if ([viewController isKindOfClass: [NearbyViewController class]]) {
@@ -154,6 +157,7 @@
 		NSLog(@"clicked nearby tab");
 	}
 }
+ */
 
 
 - (void)dealloc {

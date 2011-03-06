@@ -109,7 +109,7 @@
 
 	CLLocationCoordinate2D coord = [newLocation coordinate];
 	
-	[self search: [NSString stringWithFormat: @"ll=%.5f,%.5f", coord.latitude, coord.longitude]];
+	[self search: [NSString stringWithFormat: @"%.5f,%.5f", coord.latitude, coord.longitude]];
 	
 }
 
@@ -123,7 +123,8 @@
 {
 	[myTableDelegate setResponseData: [[NSMutableData data] retain]];
 	
-	NSString *url = [NSString stringWithFormat: @"http://www.climbingweather.com/api/area/search/%@?days=3", text];
+	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/list/%@?days=3&apiKey=android-%@",
+					 text, [[UIDevice currentDevice] uniqueIdentifier]];
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
 	
 	[[NSURLConnection alloc] initWithRequest:request delegate: myTableDelegate];
