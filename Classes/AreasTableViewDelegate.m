@@ -170,15 +170,11 @@
 	[connection release];
 	
 	NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-	NSLog(responseString);
 	[responseData release];
-	
-	//NSArray *areasJson = [responseString JSONValue];
 	
 	NSDictionary *data = [responseString JSONValue];
 	NSArray *areasJson = [data objectForKey: @"results"];
 	
-	//NSMutableArray *myAreas = [(AreasTableViewDelegate *) [myTable delegate] areas];
 	[areas removeAllObjects];
 	
 	for (int i = 0; i < [areasJson count]; i++) {
@@ -192,7 +188,7 @@
 	[areasTableView setRowHeight: 85.0];
 	[areasTableView reloadData];
 	
-	//NSLog(@"%@", [areasTableView rootController
+	[responseString release];
 }
 
 - (void) dealloc {

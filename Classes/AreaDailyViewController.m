@@ -108,13 +108,11 @@
 	
 	// Send request for JSON data
 	MyManager *sharedManager = [MyManager sharedManager];
-	NSLog(@"Daily view area id is: %@", [sharedManager areaId]);
 	
 	responseData = [[NSMutableData data] retain];
 	
 	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/daily/%@?apiKey=android-%@",
 					 [sharedManager areaId], [[UIDevice currentDevice] uniqueIdentifier]];
-	NSLog(@"URL: %@", url);
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: url]];
 	
 	[[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -130,16 +128,11 @@
 
 - (UITableViewCell *) tableView: (UITableView *) tableView cellForRowAtIndexPath: (NSIndexPath *) indexPath
 {
-	//NSLog(@"Displaying row: %i", [indexPath row]);
-	//NSLog(@"Displaying: %@", days);
-	
-	//if ([indexPath row] == [[0]]
 	AreaDailyCell *cell = (AreaDailyCell *)[tableView dequeueReusableCellWithIdentifier: @"AreaDailyCell"];
 	
 	if (!cell) {
 		cell = [[[AreaDailyCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: @"AreaDailyCell"] autorelease];
 	}
-	NSLog(@"%@", [cell dayLabel]);
 	NSString *high = [[days objectAtIndex: [indexPath row]] objectForKey: @"hi"];
 	NSString *low = [[days objectAtIndex: [indexPath row]] objectForKey: @"l"];
 	NSString *conditions = [[days objectAtIndex: [indexPath row]] objectForKey: @"c"];
@@ -210,34 +203,22 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
 	[connection release];
 	
-	NSLog(@"Finished loading");
 	NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
 	[responseData release];
-	
-	//NSLog(@"%@", responseString);
-	//NSDictionary *daysJson = [responseString JSONValue];
 	
 	NSDictionary *data = [responseString JSONValue];
 	NSDictionary *daysJson = [data objectForKey: @"results"];
 	
-	//NSLog(@"Count: %i", [daysJson count]);
 	[days removeAllObjects];
-	
-	//days = [daysJson objectForKey: @"f"];
 	
 	NSArray *forecastJson = [daysJson objectForKey: @"f"];
 	
 	for (int i = 0; i < [forecastJson count]; i++) {
-		//NSLog(@"Day # %i", i);
-		//NSLog(@"%@", [[forecastJson objectAtIndex: i] objectForKey: @"dy"]);
-		
 		[days addObject: [forecastJson objectAtIndex: i]];
-
 	}
 	
+	[responseString release];
 	
-	NSLog(@"Reloading daily table");
-	//NSLog(@"Days: %@", days);
 	[[self tableView] reloadData];
 	
 }

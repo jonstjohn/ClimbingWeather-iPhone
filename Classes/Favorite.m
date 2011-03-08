@@ -41,6 +41,7 @@ static Favorite *mySharedFavorite = nil;
     return self;
 }
 - (id)init {
+	areas = [[NSMutableArray alloc] init];
 	return [super init];
 }
 - (void)dealloc {
@@ -54,15 +55,12 @@ static Favorite *mySharedFavorite = nil;
 	sqlite3 *db = [sharedDatabase open];
 	
 	char *sql = "SELECT area_id FROM favorite WHERE area_id = ?";
-	NSLog(@"%s", sql);
 	sqlite3_stmt *statement;
 	sqlite3_prepare_v2(db, sql, -1, &statement, NULL);
-	//sqlite3_bind_text(statement, 1, [areaId UTF8String], -1, SQLITE_TRANSIENT);
 	sqlite3_bind_int(statement, 1, [areaId intValue]);
 	
 	while(sqlite3_step(statement) == SQLITE_ROW) {
 		
-		//sqlite3_close(db);
 		return YES;
 		
 	}
@@ -115,22 +113,23 @@ static Favorite *mySharedFavorite = nil;
 	
 }
 
-- (NSMutableArray *) getAll {
+- (NSMutableArray *) getAll
+{
 	Database *sharedDatabase = [Database sharedDatabase];
 	sqlite3 *db = [sharedDatabase open];
 	
 	char *sql = "SELECT area_id, name FROM favorite ORDER BY name ASC";
-	NSLog(@"%s", sql);
 	sqlite3_stmt *statement;
 	sqlite3_prepare_v2(db, sql, -1, &statement, NULL);
 	
-	NSMutableArray *areas = [[NSMutableArray alloc] init];
+	[areas removeAllObjects];
+	
 	while(sqlite3_step(statement) == SQLITE_ROW) {
 		
 		char *cAreaId = (char *) sqlite3_column_text(statement, 0);
 		char *cName = (char *) sqlite3_column_text(statement, 1);
-		NSString *areaId = [[[NSString alloc] initWithUTF8String: cAreaId] autorelease];
-		NSString *name = [[[NSString alloc] initWithUTF8String: cName] autorelease];
+		NSString *areaId = [NSString stringWithUTF8String: cAreaId];
+		NSString *name = [NSString stringWithUTF8String: cName];
 		
 		
 		[areas addObject: 
@@ -140,12 +139,12 @@ static Favorite *mySharedFavorite = nil;
 				nil
 			 ]
 		 ];
+		
 		//char *cResponseString = (char *) sqlite3_column_text(statement, 0);
 		//sqlite3_close(db);
 		//return YES;
 		
 	}
-	
 	return areas;
 }
 

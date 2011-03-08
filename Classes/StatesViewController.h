@@ -10,9 +10,9 @@
 #import "JSON.h"
 
 
-@interface StatesViewController : UITableViewController {
+@interface StatesViewController : UITableViewController
+{
 	NSMutableArray *states;
-	IBOutlet UITableView *myTable;
 	NSMutableData *responseData;
 	NSString *requestUrl;
 }

@@ -7,16 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <sqlite3.h>
-
-@class StatesViewController;
 
 @interface climbingweatherAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate> {
     
     UIWindow *window;
-	StatesViewController *statesViewController;
-	
-	sqlite3_stmt *statement;
 
 }
 

@@ -11,7 +11,6 @@
 
 @interface FavoritesViewController : UITableViewController {
 	NSMutableArray *areas;
-	IBOutlet UITableView *myTable;
 	NSMutableData *responseData;
 }
 

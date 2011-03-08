@@ -13,11 +13,13 @@
 
 @interface NearbyViewController : UIViewController <CLLocationManagerDelegate>
 {
-	//NSMutableArray *areas;
 	CLLocationManager *locationManager;
+	CLLocation *lastLocation;
+	
 	IBOutlet UITableView *myTable;
 	IBOutlet UIActivityIndicatorView *activityIndicator;
-	NSMutableData *responseData;
+	
+	//NSMutableData *responseData;
 	AreasTableViewDelegate *myTableDelegate;
 }
 

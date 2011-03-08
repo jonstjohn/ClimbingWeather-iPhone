@@ -11,6 +11,7 @@
 @implementation SearchViewController
 
 @synthesize myTableDelegate;
+@synthesize initialSearch;
 
 - (id) init
 {
@@ -34,6 +35,8 @@
 	
 	//[[self navigationItem] setTitle: @"Search"];
 	
+	initialSearch = [[NSString alloc] init];
+	
 	return self;
 }
 
@@ -41,6 +44,12 @@
 {
 	[[self tabBarController] setTitle: @"Search Areas"];
 	[[self navigationController] setNavigationBarHidden: NO];
+	
+	if (initialSearch != nil) {
+		[searchInput setText: initialSearch];
+		[self search: initialSearch];
+		initialSearch = nil;
+	}
 }
 
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -85,6 +94,7 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+	myTable = nil;
 }
 
 
@@ -108,7 +118,7 @@
 {
 	[myTableDelegate setResponseData: [[NSMutableData data] retain]];
 	
-	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/LIST/%@?days=3&apiKey=android-",
+	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/list/%@?days=3&apiKey=android-",
 					 text, [[UIDevice currentDevice] uniqueIdentifier]];
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
 	
@@ -125,7 +135,9 @@
 - (void)dealloc
 {    
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	[myTableDelegate dealloc];
+	[myTableDelegate release];
+	[initialSearch release];
+	[searchInput release];
 	[super dealloc];
 }
 

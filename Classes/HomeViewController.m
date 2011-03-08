@@ -38,7 +38,6 @@
 {
 	[[self tabBarController] setTitle: @"Home"];
 	[[self navigationController] setNavigationBarHidden: YES];
-	//[[self tabBarController] setHidesBottomBarWhenPushed: YES];
 }
 
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -78,6 +77,15 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+- (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+	[searchBar resignFirstResponder];
+	NSString *searchBarText = [NSString stringWithFormat: @"%@", [searchBar text]];
+	[[[[self tabBarController] viewControllers] objectAtIndex: 4] setInitialSearch: searchBarText];
+	[searchBarText release];
+	[[self tabBarController] setSelectedIndex: 4];
 }
 
 - (IBAction) showNearby: (id) sender

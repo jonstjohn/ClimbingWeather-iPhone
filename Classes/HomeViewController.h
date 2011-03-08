@@ -9,12 +9,9 @@
 #import <UIKit/UIKit.h>
 
 
-@interface HomeViewController : UIViewController {
-	IBOutlet UIButton *nearbyButton;
-
+@interface HomeViewController : UIViewController <UISearchBarDelegate>
+{
 }
-
-@property (nonatomic, retain) IBOutlet UIButton *nearbyButton;
 
 - (IBAction)showNearby: (id)sender;
 - (IBAction)showByState: (id)sender;

@@ -28,14 +28,13 @@
 	// Add image
 	UIImage *i = [UIImage imageNamed:@"73-radar.png"];
 	
-	//areas = [[NSMutableArray alloc] initWithObjects: nil];
-	
 	// Put image on tab
 	[tbi setImage: i];
 	
 	if (self != nil) {
-        self.locationManager = [[[CLLocationManager alloc] init] autorelease];
-        self.locationManager.delegate = self; // send loc updates to myself
+		locationManager = [[CLLocationManager alloc] init];
+		[locationManager setDelegate: self];
+		[locationManager setDistanceFilter: 5000];
     }
 	
 	// Create the table view delegate
@@ -62,10 +61,14 @@
 	[[self tabBarController] setTitle: @"Nearby Areas"];
 	[[self navigationController] setNavigationBarHidden: NO];
 	
-	[[self locationManager] startUpdatingLocation];
-	[activityIndicator setHidden: NO];
-	[activityIndicator startAnimating];
-	[myTable setHidden: YES];
+	// If there is no last location, start updating location
+	//if ([locationManager location] == nil) {
+	if (lastLocation == nil) {
+		[locationManager startUpdatingLocation];
+		[activityIndicator setHidden: NO];
+		[activityIndicator startAnimating];
+		[myTable setHidden: YES];
+	}
 }
 
 
@@ -97,6 +100,7 @@
 }
 
 - (void)viewDidUnload {
+	lastLocation = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -106,9 +110,8 @@
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation
 {
-
+	lastLocation = newLocation;
 	CLLocationCoordinate2D coord = [newLocation coordinate];
-	
 	[self search: [NSString stringWithFormat: @"%.5f,%.5f", coord.latitude, coord.longitude]];
 	
 }
@@ -123,7 +126,7 @@
 {
 	[myTableDelegate setResponseData: [[NSMutableData data] retain]];
 	
-	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/list/%@?days=3&apiKey=android-%@",
+	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/list/%@?days=3&apiKey=android-%@&maxResults=20",
 					 text, [[UIDevice currentDevice] uniqueIdentifier]];
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
 	
@@ -131,15 +134,16 @@
 	
 }
 
-- (void) dataLoaded:(NSNotification *)notification{
-	
+- (void) dataLoaded:(NSNotification *) notification
+{	
     [activityIndicator setHidden: YES];
 	
 }
 
 - (void)dealloc {
-	[[self locationManager] dealloc];
+	[locationManager release];
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
+	[myTableDelegate release];
     [super dealloc];
 }
 

@@ -30,21 +30,19 @@
 	
 	// Put image on tab
 	[tbi setImage: i];
+	
+	// Initialize states
 	states = [[NSMutableArray alloc] init];
 	
+	// Initialize request url
+	requestUrl = [[NSString alloc] initWithFormat: @"http://api.climbingweather.com/api/state/list?apiKey=android-%@", 
+				  [[UIDevice currentDevice] uniqueIdentifier]];
 	return self;
 }
 
 - (void) viewDidLoad
 {
-
 	[super viewDidLoad];
-	
-	requestUrl = [NSString stringWithFormat: @"http://api.climbingweather.com/api/state/list?apiKey=android-%@", 
-				  [[UIDevice currentDevice] uniqueIdentifier]];
-	NSLog(@"%@", requestUrl);
-	
-	//NSLog(@"ID: iphone-%@", [[UIDevice currentDevice] uniqueIdentifier]);
 	
 	// Check cache for data
 	Cache *sharedCache = [Cache sharedCache];
@@ -170,17 +168,12 @@
 	[connection release];
 	
 	NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-	NSLog(responseString);
 	
 	// Cache data, expire after 24 hours
 	Cache *sharedCache = [Cache sharedCache];
-	NSLog(@"Setting cache");
 	[sharedCache set: requestUrl withValue: responseString expiresOn: [[NSDate date] timeIntervalSince1970] + 60*60*24];
 	
 	[responseData release];
-	
-	//NSDictionary *data = [responseString JSONValue];
-	//NSArray *stateData = [data objectForKey: @"result"];
 	
 	NSArray *stateData = [responseString JSONValue];
 	
@@ -191,11 +184,14 @@
 
 	}
 	
+	[responseString release];
 	[[self tableView] reloadData];
 	
 }
 
 - (void)dealloc {
+	[states release];
+	[responseData release];
 	[states release];
     [super dealloc];
 }

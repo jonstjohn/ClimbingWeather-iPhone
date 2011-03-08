@@ -21,44 +21,6 @@
 #pragma mark -
 #pragma mark Application lifecycle
 
-/*
-- (id) init {
-
-	[super init];
-	
-	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-	NSString *path = [paths objectAtIndex: 0];
-	
-	NSString *fullPath = [path stringByAppendingPathComponent: @"climbingweather.db"];
-	
-	NSFileManager *fm = [NSFileManager defaultManager];
-	
-	BOOL exists = [fm fileExistsAtPath: fullPath];
-	
-	if (exists) {
-		NSLog(@"%@ exists - opening", fullPath);
-	} else {
-		NSLog(@"%@ does not exist, copying and opening", fullPath);
-		NSString *pathForStartingDB = [[NSBundle mainBundle] pathForResource: @"climbingweather" ofType: @"db"];
-		BOOL success = [fm copyItemAtPath: pathForStartingDB toPath: fullPath error: NULL];
-		if (!success) {
-			NSLog(@"Database copy failed");
-		}
-	}
-	
-	MyManager *sharedManager = [MyManager sharedManager];
-	sqlite3 *database = [sharedManager database];
-	
-	// Open database file
-	const char *cFullPath = [fullPath cStringUsingEncoding: NSUTF8StringEncoding];
-	if (sqlite3_open(cFullPath, &database) != SQLITE_OK) {
-		NSLog(@"Unable to open db at %@", fullPath);
-	}
-	
-	return self;
-		
-}
- */
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
@@ -139,7 +101,6 @@
      */
 }
 
-
 #pragma mark -
 #pragma mark Memory management
 
@@ -148,17 +109,6 @@
      Free up as much memory as possible by purging cached data objects that can be recreated (or reloaded from disk) later.
      */
 }
-
-/*
-- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
-	NSLog(@"clicked tab");
-	//if ([viewController isKindOfClass: [NearbyViewController class]]) {
-	if ([tabBarController selectedIndex] == 1) {
-		NSLog(@"clicked nearby tab");
-	}
-}
- */
-
 
 - (void)dealloc {
 	[window release];

@@ -127,11 +127,9 @@
 {
 	AreaHourlyCell *cell = (AreaHourlyCell *)[tableView dequeueReusableCellWithIdentifier: @"AreaHourlyCell"];
 	
-	//NSLog(@"Table: %@", [indexPath row]);
 	if (!cell) {
 		cell = [[[AreaHourlyCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: @"AreaHourlyCell"] autorelease];
 	}
-	//NSLog(@"Row: %@", [indexPath row]);
 	NSArray *hours = [[days objectAtIndex: [indexPath section]] objectForKey: @"f"];
 	NSString *temp = [[hours objectAtIndex: [indexPath row]] objectForKey: @"t"];
 	NSString *sky = [[hours objectAtIndex: [indexPath row]] objectForKey: @"sk"];
@@ -223,10 +221,6 @@
 	
 	NSDictionary *json = [responseString JSONValue];
 	
-	//NSDictionary *data = [responseString JSONValue];
-	//NSDictionary *json = [data objectForKey: @"results"];
-	
-	
 	[days removeAllObjects];
 	
 	NSArray *forecastJson = [json objectForKey: @"f"];
@@ -243,11 +237,11 @@
 		NSString *dy = [[forecastJson objectAtIndex: i] objectForKey: @"dy"];
 
 		if (![daysData objectForKey: dy]) {
-			[daysData setObject: [[NSMutableArray alloc] initWithObjects: nil] forKey: dy];
-			NSLog(@"Added");
+			[daysData setObject: [[[NSMutableArray alloc] initWithObjects: nil] autorelease] forKey: dy];
 			[daysTemp addObject: dy];
 		}
 		[[daysData objectForKey: dy] addObject: [forecastJson objectAtIndex: i]];
+		[dy release];
 		
 	}
 	
@@ -255,7 +249,7 @@
 	for (int i = 0; i < [daysTemp count]; i++) {
 		
 		[days addObject: [
-						  [NSDictionary alloc] initWithObjectsAndKeys: 
+						  [[NSDictionary alloc] autorelease] initWithObjectsAndKeys: 
 						  [daysTemp objectAtIndex: i], @"n", 
 						  [daysData objectForKey: [daysTemp objectAtIndex: i]], @"f", nil
 						  ]];
@@ -263,6 +257,7 @@
 	}
 	
 	[daysTemp release];
+	[responseString release];
 	
 	[[self tableView] reloadData];
 	

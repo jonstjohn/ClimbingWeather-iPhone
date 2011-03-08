@@ -54,7 +54,6 @@
 	Favorite *sharedFavorite = [Favorite sharedFavorite];
 	areas = [sharedFavorite getAll];
 	[[self tableView] reloadData];
-	NSLog(@"Areas: %@", areas);
 }
 
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -66,26 +65,25 @@
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-	
-	/*
-	// Get favorite areas from db
-	Favorite *sharedFavorite = [Favorite sharedFavorite];
-	areas = [sharedFavorite getAll];
-	NSLog(@"Areas: %@", areas);
-	 */
-	
 }
 
 - (NSInteger) tableView: (UITableView *) tableView numberOfRowsInSection: (NSInteger) section
 {
+	NSLog(@"number of rows in section: %@", areas);
 	return [areas count];
 }
 
 - (UITableViewCell *) tableView: (UITableView *) tableView cellForRowAtIndexPath: (NSIndexPath *) indexPath
 {
-	
+	NSLog(@"cell for row at index");
+	if (areas == nil) {
+		NSLog(@"Areas is nil");
+	}
+	NSLog(@"cell for row at index path: %@", areas);
+	NSLog(@"Areas retain: %i", [areas retainCount]);
 	AreasCell *cell = (AreasCell *)[tableView dequeueReusableCellWithIdentifier: @"AreasCell"];
 	
 	if (!cell) {
@@ -192,14 +190,13 @@
 
 
 - (void)dealloc {
+	[areas release];
+	[responseData release];
     [super dealloc];
 }
 
 - (IBAction) buttonPressed: (id) sender
 {
-	NSLog(@"Pressed");
-	NSLog(@"%i", ((UIButton*)sender).tag);
-	
 	NSIndexPath *indexPath = [[self tableView] indexPathForCell:(UITableViewCell *)[[sender superview] superview]];
 	
 	NSString *areaId = [[areas objectAtIndex: [indexPath row]] objectForKey: @"area_id"];
@@ -209,35 +206,17 @@
 	
 	// If this is a favorite, remove
 	if ([sharedFavorite exists: areaId]) {
-		NSLog(@"Favorite exists");
 		[sharedFavorite remove: areaId];
 		UIImage *btnImage = [UIImage imageNamed: @"btn_star_big_off.png"];
 		[(UIButton *) sender setImage: btnImage forState: UIControlStateNormal];
 		// If isn't a favorite, add
 	} else {
-		NSLog(@"Favorite does not exist, add");
 		[sharedFavorite add: areaId withName: name];
 		UIImage *btnImage = [UIImage imageNamed: @"btn_star_big_on.png"];
 		[(UIButton *) sender setImage: btnImage forState: UIControlStateNormal];
 	}
-	NSLog(@"%@", areaId);
-	NSLog(@"%@", indexPath);
 	areas = [sharedFavorite getAll];
 	[[self tableView] reloadData];
-	/*
-	 switch ( ((UIButton*)sender).tag ){
-	 
-	 case 1:
-	 <something>
-	 break;
-	 case 2:
-	 <something else>
-	 break;
-	 
-	 default:
-	 <default something>
-	 }
-	 */
 }
 
 

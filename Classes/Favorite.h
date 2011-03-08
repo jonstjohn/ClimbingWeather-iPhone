@@ -10,6 +10,7 @@
 
 
 @interface Favorite : NSObject {
+	NSMutableArray *areas;
 
 }
 
