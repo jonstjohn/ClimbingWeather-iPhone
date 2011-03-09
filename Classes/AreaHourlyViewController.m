@@ -111,13 +111,11 @@
 {
 	// Send request for JSON data
 	MyManager *sharedManager = [MyManager sharedManager];
-	NSLog(@"Hourly view area id is: %@", [sharedManager areaId]);
 	
 	responseData = [[NSMutableData data] retain];
 	
 	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/hourly/%@?apiKey=android-%@",
 					 [sharedManager areaId], [[UIDevice currentDevice] uniqueIdentifier]];
-	NSLog(@"URL: %@", url);
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: url]];
 	
 	[[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -155,7 +153,6 @@
 - (CGFloat) tableView: (UITableView *) tableView heightForRowAtIndexPath: (NSIndexPath *) indexPath
 {
 	NSArray *hours = [[days objectAtIndex: [indexPath section]] objectForKey: @"f"];
-	NSLog(@"Conditions: %@", [[hours objectAtIndex: [indexPath row]] objectForKey: @"c"]);
 	if ([[[hours objectAtIndex: [indexPath row]] objectForKey: @"c"] length] == 0) {
 		return 53.0;
 	} else {
@@ -226,18 +223,17 @@
 	NSArray *forecastJson = [json objectForKey: @"f"];
 	
 	// Dictionary with keys 'dy' (day) and values array of forecast dictionary
-	NSMutableDictionary *daysData = [[[NSMutableDictionary alloc] init] autorelease];
+	NSMutableDictionary *daysData = [NSMutableDictionary dictionaryWithCapacity: 0];
 	
 	// Temporary place to store day order
-	NSMutableArray *daysTemp = [[NSMutableArray alloc] initWithObjects: nil];
-	
+	NSMutableArray *daysTemp = [NSMutableArray arrayWithCapacity: 0];
 	
 	for (int i = 0; i < [forecastJson count]; i++) {
 		
 		NSString *dy = [[forecastJson objectAtIndex: i] objectForKey: @"dy"];
 
 		if (![daysData objectForKey: dy]) {
-			[daysData setObject: [[[NSMutableArray alloc] initWithObjects: nil] autorelease] forKey: dy];
+			[daysData setObject: [NSMutableArray arrayWithCapacity: 0] forKey: dy];
 			[daysTemp addObject: dy];
 		}
 		[[daysData objectForKey: dy] addObject: [forecastJson objectAtIndex: i]];
@@ -249,14 +245,14 @@
 	for (int i = 0; i < [daysTemp count]; i++) {
 		
 		[days addObject: [
-						  [[NSDictionary alloc] autorelease] initWithObjectsAndKeys: 
+						  NSDictionary dictionaryWithObjectsAndKeys:
 						  [daysTemp objectAtIndex: i], @"n", 
 						  [daysData objectForKey: [daysTemp objectAtIndex: i]], @"f", nil
-						  ]];
+						  ]
+		];
 		
 	}
 	
-	[daysTemp release];
 	[responseString release];
 	
 	[[self tableView] reloadData];
@@ -272,6 +268,8 @@
 */
 
 - (void)dealloc {
+	[days release];
+	[responseData release];
     [super dealloc];
 }
 

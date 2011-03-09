@@ -113,6 +113,7 @@
 	lastLocation = newLocation;
 	CLLocationCoordinate2D coord = [newLocation coordinate];
 	[self search: [NSString stringWithFormat: @"%.5f,%.5f", coord.latitude, coord.longitude]];
+	[locationManager stopUpdatingLocation]; // for now, just stop updating after initial
 	
 }
 

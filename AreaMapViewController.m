@@ -39,6 +39,7 @@
 	id <MKAnnotation> mp = [annotationView annotation];
 	MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance([mp coordinate], 10000, 10000);
 	[mv setRegion: region animated: NO];
+	[mv setHidden: NO];
 }
 
 - (MKAnnotationView *) mapView: (MKMapView *) mv viewForAnnotation: (id <MKAnnotation>) annotation
@@ -58,13 +59,6 @@
 		[annotationView setImage: [UIImage imageNamed:@"climbing.png"]];
 		
 		[annotationView setCanShowCallout: YES];
-		/*
-		annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-		annotationView.leftCalloutAccessoryView = [[[UIImageView alloc]
-													initWithImage:[UIImage imageNamed:@"tree.png"]]
-												   autorelease];
-		 */
-		
 	}
 	return annotationView;
 }
@@ -94,6 +88,8 @@
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: url]];
 	
 	[[NSURLConnection alloc] initWithRequest:request delegate:self];
+	
+	[mapView setHidden: YES];
 	
 }
 
@@ -146,11 +142,16 @@
 	[mapView addAnnotation: mp];
 	[mp release];
 	
+	[responseString release];
+	
 	
 }
 
 
 - (void)dealloc {
+	[responseData release];
+	//[window release];
+	[locationManager release];
     [super dealloc];
 }
 

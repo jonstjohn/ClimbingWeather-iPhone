@@ -158,7 +158,6 @@
 
 - (CGFloat) tableView: (UITableView *) tableView heightForRowAtIndexPath: (NSIndexPath *) indexPath
 {
-	NSLog(@"Conditions: %@", [[days objectAtIndex: [indexPath row]] objectForKey: @"c"]);
 	if ([[[days objectAtIndex: [indexPath row]] objectForKey: @"c"] length] == 0) {
 		return 53.0;
 	} else {
@@ -225,6 +224,8 @@
 
 
 - (void)dealloc {
+	[days release];
+	[responseData release];
     [super dealloc];
 }
 
