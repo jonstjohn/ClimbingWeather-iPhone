@@ -28,7 +28,7 @@
 	UITabBarController *tabController = [[UITabBarController alloc] init];
 	[tabController setDelegate: self];
 	
-	// Create two view controllers
+	// Create view controllers
 	UIViewController *vc1 = [[HomeViewController alloc] init];
 	UIViewController *vc2 = [[NearbyViewController alloc] init];
 	UIViewController *vc3 = [[StatesViewController alloc] init];

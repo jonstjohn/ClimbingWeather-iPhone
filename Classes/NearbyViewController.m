@@ -10,8 +10,8 @@
 
 @implementation NearbyViewController
 
-@synthesize locationManager;
-@synthesize myTableDelegate;
+//@synthesize locationManager;
+//@synthesize myTableDelegate;
 
 - (id) init
 {
@@ -35,6 +35,7 @@
 		locationManager = [[CLLocationManager alloc] init];
 		[locationManager setDelegate: self];
 		[locationManager setDistanceFilter: 5000];
+		[locationManager setDesiredAccuracy: kCLLocationAccuracyThreeKilometers];
     }
 	
 	// Create the table view delegate
@@ -60,17 +61,15 @@
 	[super viewDidAppear: animated];
 	[[self tabBarController] setTitle: @"Nearby Areas"];
 	[[self navigationController] setNavigationBarHidden: NO];
-	
-	// If there is no last location, start updating location
-	//if ([locationManager location] == nil) {
-	if (lastLocation == nil) {
-		[locationManager startUpdatingLocation];
-		[activityIndicator setHidden: NO];
-		[activityIndicator startAnimating];
-		[myTable setHidden: YES];
-	}
 }
 
+- (void) refreshResults
+{
+	
+	[activityIndicator setHidden: NO];
+	[activityIndicator startAnimating];
+	[myTable setHidden: YES];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -79,6 +78,19 @@
 	[myTable setDataSource: myTableDelegate];
 	[myTableDelegate setAreasTableView: myTable];
 	
+	[locationManager startUpdatingLocation];
+	
+	/*
+	UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] 
+										   initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+										   target:self 
+										   action:@selector(showNewEventViewController)];
+	[[self navigationItem] setRightBarButtonItem: rightBarButtonItem animated: NO];
+	 
+	//[[self navigationItem] setTitle: @"Test"];
+	NSLog(@"%@", [self tabBarItem
+				  ]);
+	*/
 	[[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(dataLoaded:)
                                                  name:@"AreaDataLoaded" object:nil];
@@ -100,7 +112,6 @@
 }
 
 - (void)viewDidUnload {
-	lastLocation = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -110,11 +121,7 @@
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation
 {
-	lastLocation = newLocation;
-	CLLocationCoordinate2D coord = [newLocation coordinate];
-	[self search: [NSString stringWithFormat: @"%.5f,%.5f", coord.latitude, coord.longitude]];
-	[locationManager stopUpdatingLocation]; // for now, just stop updating after initial
-	
+		[self search: [NSString stringWithFormat: @"%.5f,%.5f", newLocation.coordinate.latitude, newLocation.coordinate.longitude]];
 }
 
 - (void)locationManager:(CLLocationManager *)manager
@@ -139,6 +146,11 @@
 {	
     [activityIndicator setHidden: YES];
 	
+}
+
+- (IBAction) clickRefresh: (id) sender
+{
+	[self refreshResults];
 }
 
 - (void)dealloc {

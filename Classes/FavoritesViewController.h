@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AreasTableViewDelegate.h"
 
 
-@interface FavoritesViewController : UITableViewController {
-	NSMutableArray *areas;
-	NSMutableData *responseData;
+@interface FavoritesViewController : UIViewController {
+
+	IBOutlet UITableView *myTable;
+	IBOutlet UIActivityIndicatorView *activityIndicator;
+	
+	AreasTableViewDelegate *myTableDelegate;
 }
 
 @end

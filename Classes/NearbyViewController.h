@@ -14,17 +14,15 @@
 @interface NearbyViewController : UIViewController <CLLocationManagerDelegate>
 {
 	CLLocationManager *locationManager;
-	CLLocation *lastLocation;
 	
 	IBOutlet UITableView *myTable;
 	IBOutlet UIActivityIndicatorView *activityIndicator;
 	
-	//NSMutableData *responseData;
 	AreasTableViewDelegate *myTableDelegate;
 }
 
-@property (nonatomic, retain) CLLocationManager *locationManager; 
-@property (nonatomic, retain) AreasTableViewDelegate *myTableDelegate;
+//@property (nonatomic, retain) CLLocationManager *locationManager; 
+//@property (nonatomic, retain) AreasTableViewDelegate *myTableDelegate;
 
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation
@@ -34,5 +32,8 @@
        didFailWithError:(NSError *)error;
 
 - (void) search: (NSString *) text;
+
+- (void) refreshResults;
+- (IBAction)clickRefresh: (id)sender;
 
 @end

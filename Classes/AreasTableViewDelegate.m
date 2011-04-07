@@ -32,13 +32,11 @@
 
 - (NSInteger) tableView: (UITableView *) tableView numberOfRowsInSection: (NSInteger) section
 {
-	NSLog(@"sections2");
 	return [areas count];
 }
 
 - (UITableViewCell *) tableView: (UITableView *) tableView cellForRowAtIndexPath: (NSIndexPath *) indexPath
 {
-	NSLog(@"cellForRow2");
 	AreasCell *cell = (AreasCell *)[tableView dequeueReusableCellWithIdentifier: @"AreasCell"];
 	
 	if (!cell) {
@@ -81,9 +79,7 @@
 }
 
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath
-{
-	NSLog(@"Clicked row at index path %@", indexPath);
-	
+{	
 	MyManager *sharedManager = [MyManager sharedManager];
 	NSString *areaName = [[areas objectAtIndex: [indexPath row]] objectForKey: @"name"];
 	sharedManager.areaName = areaName;
@@ -170,6 +166,7 @@
 	[connection release];
 	
 	NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+	
 	[responseData release];
 	
 	NSDictionary *data = [responseString JSONValue];
@@ -192,7 +189,9 @@
 }
 
 - (void) dealloc {
-	[areas dealloc];
+	[areasTableView release];
+	[areas release];
+	[responseData release];
 	[super dealloc];
 }
 
