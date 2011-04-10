@@ -86,6 +86,12 @@
     // e.g. self.myOutlet = nil;
 }
 
+- (void)viewWillAppear:(BOOL)animated  
+{  
+    NSIndexPath *tableSelection = [myTable indexPathForSelectedRow];  
+    [myTable deselectRowAtIndexPath:tableSelection animated:NO];  
+}
+
 - (void) dataLoaded:(NSNotification *)notification{
 	
     //[activityIndicator setHidden: YES];

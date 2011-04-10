@@ -98,7 +98,11 @@
 	myTable = nil;
 }
 
-
+- (void)viewWillAppear:(BOOL)animated  
+{  
+    NSIndexPath *tableSelection = [myTable indexPathForSelectedRow];  
+    [myTable deselectRowAtIndexPath:tableSelection animated:NO];  
+}  
 
 
 - (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar

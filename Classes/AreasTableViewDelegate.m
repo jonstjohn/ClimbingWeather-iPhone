@@ -54,12 +54,11 @@
 		imgSrc = @"btn_star_big_on.png";
 	}
 	UIImage *btnImage = [UIImage imageNamed: imgSrc];
+
 	[[cell favoriteImage] setImage: btnImage forState: UIControlStateNormal];
 	[[cell favoriteImage] setTag: 1];
 	[[cell favoriteImage] addTarget:self action:@selector(buttonPressed:) forControlEvents:(UIControlEvents)UIControlEventTouchUpInside];
 	
-	//[[[cell favoriteImage] imageView] setImage: [UIImage imageNamed: @"icon_star.png"]];
-	//[[cell favoriteImage] addTarget];
 	NSArray *forecast = [area objectForKey: @"f"];
 	NSDictionary *day1 = [forecast objectAtIndex: 0];
 	NSDictionary *day2 = [forecast objectAtIndex: 1];
@@ -168,6 +167,7 @@
 	
 	NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
 	
+	[areasTableView setSeparatorStyle: UITableViewCellSeparatorStyleSingleLine];
 	[responseData release];
 	
 	NSDictionary *data = [responseString JSONValue];

@@ -11,7 +11,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
-	<string>ic_launcher.png</string>
+	<string>ic_launcher57.png</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.climbingweather.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>

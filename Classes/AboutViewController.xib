@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1056</int>
-		<string key="IBDocument.SystemVersion">10J567</string>
+		<string key="IBDocument.SystemVersion">10J869</string>
 		<string key="IBDocument.InterfaceBuilderVersion">823</string>
 		<string key="IBDocument.AppKitVersion">1038.35</string>
-		<string key="IBDocument.HIToolboxVersion">462.00</string>
+		<string key="IBDocument.HIToolboxVersion">461.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">132</string>
@@ -54,13 +54,21 @@
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string type="base64-UTF8" key="IBUIText">VmVyc2lvbiAxLjAKCsKpIENsaW1iaW5nV2VhdGhlci5jb20gMjAxMQoKQ2xpbWJpbmdXZWF0aGVyLmNv
+						<bool key="IBUIEditable">NO</bool>
+						<string type="base64-UTF8" key="IBUIText">VmVyc2lvbiAxLjAgCsKpIENsaW1iaW5nV2VhdGhlci5jb20gMjAxMQoKQ2xpbWJpbmdXZWF0aGVyLmNv
 bSBhbmQgdGhlIENsaW1iaW5nV2VhdGhlci5jb20gbG9nb3MgYXJlIHRyYWRlbWFya3Mgb2YgQ2xpbWJp
 bmdXZWF0aGVyLmNvbS4gQWxsIHJpZ2h0cyByZXNlcnZlZC4KClRoYW5rcyBmb3IgdXNpbmcgdGhlIG1v
 YmlsZSBhcHBzIGFuZCB3ZWJzaXRlISBTZW5kIHlvdXIgaWRlYXMgYW5kIGZlZWRiYWNrIHRocm91Z2gg
 dGhlIHdlYnNpdGUhCgpEaXNjbGFpbWVyOiBDbGltYmluZyBpcyBhIGRhbmdlcm91cyBhY3Rpdml0eSBh
 bmQgd2VhdGhlciBpcyB1bnByZWRpY3RhYmxlLiBXZWF0aGVyIGZvcmVjYXN0cyBhcmUgb2Z0ZW4gaW5u
-YWN1cmF0ZS4gQ2xpbWIgYXQgeW91ciBvd24gcmlzay4</string>
+YWN1cmF0ZS4gQ2xpbWIgYXQgeW91ciBvd24gcmlzay4KClNwZWNpYWwgdGhhbmtzIHRvIEdseXBoaXNo
+LmNvbSBhbmQgVGhlIFdvcmtpbmcgR3JvdXAgKFRXRykgYXQgdGhld29ya2luZ2dyb3VwLmNhIGZvciB0
+aGUgaWNvbnMgdXNlZCBpbiB0aGlzIGFwcC4</string>
+						<object class="NSFont" key="IBUIFont">
+							<string key="NSName">Helvetica</string>
+							<double key="NSSize">14</double>
+							<int key="NSfFlags">16</int>
+						</object>
 						<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 							<int key="IBUIAutocapitalizationType">2</int>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>

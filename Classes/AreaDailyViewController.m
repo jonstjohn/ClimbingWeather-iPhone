@@ -155,6 +155,7 @@
 	}
 	
 	[[cell iconImage] setImage: [UIImage imageNamed: [[days objectAtIndex: [indexPath row]] objectForKey: @"sy"]]];
+	[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 	return cell;
 }
 

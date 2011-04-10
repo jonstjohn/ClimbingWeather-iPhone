@@ -149,6 +149,7 @@
 	}
 	
 	[[cell iconImage] setImage: [UIImage imageNamed: [[hours objectAtIndex: [indexPath row]] objectForKey: @"sy"]]];
+	[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 	return cell;
 }
 

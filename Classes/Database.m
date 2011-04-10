@@ -58,15 +58,9 @@ static Database *mySharedDatabase = nil;
 	
 	BOOL exists = [fm fileExistsAtPath: fullPath];
 	
-	if (exists) {
-		NSLog(@"%@ exists - opening", fullPath);
-	} else {
-		NSLog(@"%@ does not exist, copying and opening", fullPath);
+	if (!exists) {
 		NSString *pathForStartingDB = [[NSBundle mainBundle] pathForResource: @"climbingweather" ofType: @"db"];
-		BOOL success = [fm copyItemAtPath: pathForStartingDB toPath: fullPath error: NULL];
-		if (!success) {
-			NSLog(@"Database copy failed");
-		}
+		[fm copyItemAtPath: pathForStartingDB toPath: fullPath error: NULL];
 	}
 	
 	if (database == nil) {

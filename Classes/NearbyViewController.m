@@ -78,6 +78,7 @@
 	[myTable setDataSource: myTableDelegate];
 	[myTableDelegate setAreasTableView: myTable];
 	
+	[myTable setSeparatorStyle: UITableViewCellSeparatorStyleNone];
 	[locationManager startUpdatingLocation];
 	
 	/*
@@ -110,6 +111,12 @@
     
     // Release any cached data, images, etc. that aren't in use.
 }
+
+- (void)viewWillAppear:(BOOL)animated  
+{  
+    NSIndexPath *tableSelection = [myTable indexPathForSelectedRow];  
+    [myTable deselectRowAtIndexPath:tableSelection animated:NO];  
+}  
 
 - (void)viewDidUnload {
     [super viewDidUnload];

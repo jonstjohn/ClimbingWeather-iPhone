@@ -93,6 +93,7 @@
 	[myTable setDelegate: myTableDelegate];
 	[myTable setDataSource: myTableDelegate];
 	[myTableDelegate setAreasTableView: myTable];
+	[myTable setSeparatorStyle: UITableViewCellSeparatorStyleNone];
 	
 }
 
@@ -116,6 +117,12 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
+
+- (void)viewWillAppear:(BOOL)animated  
+{  
+    NSIndexPath *tableSelection = [myTable indexPathForSelectedRow];  
+    [myTable deselectRowAtIndexPath:tableSelection animated:NO];  
+}  
 
 - (void) dataLoaded:(NSNotification *) notification
 {	

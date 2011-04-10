@@ -127,13 +127,14 @@
 		608DE66612FF88CE00AE172C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608DE66512FF88CE00AE172C /* MapKit.framework */; };
 		608DE66D1300CF0C00AE172C /* MapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 608DE66C1300CF0C00AE172C /* MapPoint.m */; };
 		608DE80B130C01F400AE172C /* AreasTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 608DE80A130C01F400AE172C /* AreasTableViewDelegate.m */; };
+		60D99C171352415500B238D5 /* ic_launcher57.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D99C161352415500B238D5 /* ic_launcher57.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* climbingweatherAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = climbingweatherAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* climbingweatherAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = climbingweatherAppDelegate.m; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* ClimbnWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClimbnWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28A0AAE50D9B0CCF005BE974 /* climbingweather_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = climbingweather_Prefix.pch; sourceTree = "<group>"; };
@@ -284,6 +285,7 @@
 		608DE66C1300CF0C00AE172C /* MapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPoint.m; sourceTree = "<group>"; };
 		608DE809130C01F400AE172C /* AreasTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreasTableViewDelegate.h; sourceTree = "<group>"; };
 		608DE80A130C01F400AE172C /* AreasTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreasTableViewDelegate.m; sourceTree = "<group>"; };
+		60D99C161352415500B238D5 /* ic_launcher57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher57.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* climbingweather-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "climbingweather-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -318,7 +320,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* ClimbnWeather.app */,
+				1D6058910D05DD3D006BFB54 /* Weather.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -351,6 +353,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				60D99C161352415500B238D5 /* ic_launcher57.png */,
 				608DE8CA130D68FD00AE172C /* xib */,
 				608DE46D12FCF36C00AE172C /* navicon */,
 				608A589412EC5B46003BCB84 /* btn_star_big_off.png */,
@@ -579,7 +582,7 @@
 			);
 			name = climbingweather;
 			productName = climbingweather;
-			productReference = 1D6058910D05DD3D006BFB54 /* ClimbnWeather.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* Weather.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -695,6 +698,7 @@
 				6087B65413522ECB00C3044B /* icon_blog2.png in Resources */,
 				6087B65A1352361C00C3044B /* 190-bank.png in Resources */,
 				6087B67B13523B0A00C3044B /* world.png in Resources */,
+				60D99C171352415500B238D5 /* ic_launcher57.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -753,7 +757,7 @@
 				GCC_PREFIX_HEADER = climbingweather_Prefix.pch;
 				INFOPLIST_FILE = "climbingweather-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
-				PRODUCT_NAME = ClimbnWeather;
+				PRODUCT_NAME = Weather;
 			};
 			name = Debug;
 		};
