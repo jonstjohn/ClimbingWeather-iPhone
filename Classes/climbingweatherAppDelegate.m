@@ -12,6 +12,7 @@
 #import "StatesViewController.h"
 #import "FavoritesViewController.h"
 #import "SearchViewController.h"
+#import "MoreViewController.h"
 #import "MyManager.h"
 
 @implementation climbingweatherAppDelegate
@@ -34,6 +35,7 @@
 	UIViewController *vc3 = [[StatesViewController alloc] init];
 	UIViewController *vc4 = [[FavoritesViewController alloc] init];
 	UIViewController *vc5 = [[SearchViewController alloc] init];
+	//UIViewController *vc6 = [[MoreViewController alloc] init];
 	
 	
 	// Make an array that contains the two view controllers
@@ -44,6 +46,7 @@
 	[vc3 release];
 	[vc4 release];
 	[vc5 release];
+	//[vc6 release];
 	
 	// Attach to tab bar controller
 	[tabController setViewControllers: viewControllers];

@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 
 
-@interface HomeViewController : UIViewController <UISearchBarDelegate>
+@interface HomeViewController : UIViewController <UITextViewDelegate>
 {
 }
 
 - (IBAction)showNearby: (id)sender;
 - (IBAction)showByState: (id)sender;
 - (IBAction)showFavorites: (id)sender;
-- (IBAction)showSearch: (id)sender;
+- (IBAction)showSettings: (id)sender;
 
 @end

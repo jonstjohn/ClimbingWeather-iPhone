@@ -21,6 +21,7 @@
 	UIImage *i = [UIImage imageNamed:@"icon_blog.png"];
 	[tbi setImage: i];
 	
+	/*
 	locationManager = [[CLLocationManager alloc] init];
 	[locationManager setDelegate: self];
 	
@@ -28,6 +29,7 @@
 	[locationManager setDesiredAccuracy: kCLLocationAccuracyBest];
 	
 	[mapView setShowsUserLocation: YES];
+	*/
 	
 	return self;
 }
@@ -52,14 +54,15 @@
 	
 	MKAnnotationView *annotationView = [mv dequeueReusableAnnotationViewWithIdentifier:identifier];
 	if (annotationView == nil) {
-		annotationView = [[[MKAnnotationView alloc] initWithAnnotation:annotation
-													   reuseIdentifier:identifier]
-						  autorelease];
-		
+		NSLog(@"Creating new annotation view");
+		annotationView = [[[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier] autorelease];
 		[annotationView setImage: [UIImage imageNamed:@"climbing.png"]];
 		
 		[annotationView setCanShowCallout: YES];
+	} else {
+		NSLog(@"Using existing annotation view");
 	}
+	[identifier release];
 	return annotationView;
 }
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -128,6 +131,7 @@
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+	
 	[connection release];
 	
 	NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
@@ -150,8 +154,7 @@
 
 - (void)dealloc {
 	[responseData release];
-	//[window release];
-	[locationManager release];
+	//[locationManager release];
     [super dealloc];
 }
 

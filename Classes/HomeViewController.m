@@ -7,6 +7,9 @@
 //
 
 #import "HomeViewController.h"
+#import "SettingsViewController.h"
+#import "AboutViewController.h"
+#import "SearchViewController.h"
 
 
 @implementation HomeViewController
@@ -79,14 +82,24 @@
     // e.g. self.myOutlet = nil;
 }
 
+/*
 - (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
 	[searchBar resignFirstResponder];
 	NSString *searchBarText = [NSString stringWithFormat: @"%@", [searchBar text]];
+	
+	
+	//SearchViewController *svc = [[SearchViewController alloc] init];
+	//[svc setInitialSearch: searchBarText];
+	//[[self navigationController] pushViewController: svc animated: NO];
+	
+	
 	[[[[self tabBarController] viewControllers] objectAtIndex: 4] setInitialSearch: searchBarText];
 	[searchBarText release];
 	[[self tabBarController] setSelectedIndex: 4];
+	
 }
+*/
 
 - (IBAction) showNearby: (id) sender
 {
@@ -103,9 +116,43 @@
 	[[self tabBarController] setSelectedIndex: 3];
 }
 
-- (IBAction) showSearch: (id) sender
-{
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+	[textField resignFirstResponder];
+	NSString *searchBarText = [NSString stringWithFormat: @"%@", [textField text]];
+	
+	/*
+	 SearchViewController *svc = [[SearchViewController alloc] init];
+	 [svc setInitialSearch: searchBarText];
+	 [[self navigationController] pushViewController: svc animated: NO];
+	 */
+	
+	[[[[self tabBarController] viewControllers] objectAtIndex: 4] setInitialSearch: searchBarText];
+	//[searchBarText release];
 	[[self tabBarController] setSelectedIndex: 4];
+	return YES;
+}
+
+- (IBAction) showSettings: (id) sender
+{
+	//MoreViewController *moreVc = [[MoreViewController alloc] init];
+	//[[self navigationController] pushViewController: moreVc animated: NO];
+	// Create tabBarController
+	UITabBarController *tabController = [[[UITabBarController alloc] init] autorelease];
+	
+	// Create view controllers
+	UIViewController *vc1 = [[AboutViewController alloc] init];
+	UIViewController *vc2 = [[SettingsViewController alloc] init];
+	
+	// Make an array that contains the two view controllers
+	NSArray *viewControllers = [NSArray arrayWithObjects: vc1, vc2, nil];
+	
+	// Attach to tab bar controller
+	[tabController setViewControllers: viewControllers];
+	
+	[vc1 release];
+	[vc2 release];
+	
+	[[self navigationController] pushViewController: tabController animated: NO];
 }
 
 - (void)dealloc {

@@ -19,6 +19,7 @@
 	NSString *initialSearch;
 }
 
+
 @property (nonatomic, retain) AreasTableViewDelegate *myTableDelegate;
 @property (nonatomic, retain) NSString *initialSearch;
 

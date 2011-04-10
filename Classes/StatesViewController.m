@@ -26,7 +26,7 @@
 	[tbi setTitle: @"By State"];
 	
 	// Add image
-	UIImage *i = [UIImage imageNamed:@"icon_blog.png"];
+	UIImage *i = [UIImage imageNamed:@"190-bank.png"];
 	
 	// Put image on tab
 	[tbi setImage: i];

@@ -75,6 +75,7 @@
 	[[cell day3Precip] setText: [NSString stringWithFormat: @"%@%% / %@%%", [day3 objectForKey: @"pd"], [day3 objectForKey: @"pn"]]];
 	
 	[cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
+
 	return cell;
 }
 
@@ -93,12 +94,12 @@
 	UIViewController *vc1 = [[AreaDailyViewController alloc] init];
 	UIViewController *vc2 = [[AreaHourlyViewController alloc] init];
 	UIViewController *vc3 = [[AreaMapViewController alloc] init];
-	UIViewController *vc4 = [[AreaAveragesController alloc] init];
-	UIViewController *vc5 = [[AreaDetailController alloc] init];
+	//UIViewController *vc4 = [[AreaAveragesController alloc] init];
+	//UIViewController *vc5 = [[AreaDetailController alloc] init];
 	
 	
 	// Make an array that contains the two view controllers
-	NSArray *viewControllers = [NSArray arrayWithObjects: vc1, vc2, vc3, vc4, vc5, nil];
+	NSArray *viewControllers = [NSArray arrayWithObjects: vc1, vc2, vc3, nil];
 	
 	// Attach to tab bar controller
 	[tabController setViewControllers: viewControllers];
@@ -106,8 +107,8 @@
 	[vc1 release];
 	[vc2 release];
 	[vc3 release];
-	[vc4 release];
-	[vc5 release];
+	//[vc4 release];
+	//[vc5 release];
 	
 	[[tabController navigationItem] setTitle: areaName];
 	

@@ -47,14 +47,16 @@
 	
 	Favorite *sharedFavorite = [Favorite sharedFavorite];
 	NSMutableArray *areas = [sharedFavorite getAll];
+	
+	if ([areas count] == 0) {
+		return;
+	}
 	NSMutableArray *areaIds = [[NSMutableArray alloc] init];
 	
 	for (int i = 0; i < [areas count]; i++) {
 		[areaIds addObject: [[areas objectAtIndex: i] objectForKey: @"area_id"]];
 	}
 	NSString *areaIdStr = [areaIds componentsJoinedByString:@","];
-	NSLog(@"Area ids: %@", areaIdStr);
-	
 	
 	/*
 	 [[NSNotificationCenter defaultCenter] addObserver:self
@@ -63,9 +65,10 @@
 	 */
 	
 	[myTableDelegate setResponseData: [[NSMutableData data] retain]];
-	
-	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/list/ids-%@?days=3&apiKey=android-%@",
-					 areaIdStr, [[UIDevice currentDevice] uniqueIdentifier]];
+	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+	NSString *tempUnit = [NSString stringWithFormat: @"%@", [[prefs stringForKey: @"tempUnit"] isEqualToString: @"c"] ? @"c" : @"f"];
+	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/list/ids-%@?days=3&apiKey=android-%@&tempUnit=%@",
+					 areaIdStr, [[UIDevice currentDevice] uniqueIdentifier], tempUnit];
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
 	
 	[[NSURLConnection alloc] initWithRequest:request delegate: myTableDelegate];

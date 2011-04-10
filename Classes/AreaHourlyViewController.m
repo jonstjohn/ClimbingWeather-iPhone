@@ -114,8 +114,10 @@
 	
 	responseData = [[NSMutableData data] retain];
 	
-	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/hourly/%@?apiKey=android-%@",
-					 [sharedManager areaId], [[UIDevice currentDevice] uniqueIdentifier]];
+	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+	NSString *tempUnit = [NSString stringWithFormat: @"%@", [[prefs stringForKey: @"tempUnit"] isEqualToString: @"c"] ? @"c" : @"f"];
+	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/hourly/%@?apiKey=android-%@&tempUnit=%@",
+					 [sharedManager areaId], [[UIDevice currentDevice] uniqueIdentifier], tempUnit];
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: url]];
 	
 	[[NSURLConnection alloc] initWithRequest:request delegate:self];

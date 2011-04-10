@@ -13,14 +13,11 @@
 
 @interface AreaMapViewController : UIViewController <CLLocationManagerDelegate> {
 	
-	//UIWindow *window;
-	CLLocationManager *locationManager;
+	//CLLocationManager *locationManager;
 	IBOutlet MKMapView *mapView;
 	IBOutlet UIActivityIndicatorView *activityIndicator;
 	NSMutableData *responseData;
 
 }
-
-//@property (nonatomic, retain) IBOutlet UIWindow *window;
 
 @end

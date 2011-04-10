@@ -12,7 +12,18 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
+		6057F052134EA8F700D04516 /* 28-star.png in Resources */ = {isa = PBXBuildFile; fileRef = 6057F051134EA8F700D04516 /* 28-star.png */; };
+		6057F05C134FE23B00D04516 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6057F05A134FE23A00D04516 /* MoreViewController.m */; };
+		6057F05D134FE23B00D04516 /* MoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6057F05B134FE23A00D04516 /* MoreViewController.xib */; };
 		60807EE313240AC9004A60C0 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60807EE213240AC9004A60C0 /* MainWindow.xib */; };
+		6087B4FE135140FC00C3044B /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6087B4FC135140FB00C3044B /* SettingsViewController.m */; };
+		6087B4FF135140FC00C3044B /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6087B4FD135140FB00C3044B /* SettingsViewController.xib */; };
+		6087B5051351410900C3044B /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6087B5031351410900C3044B /* AboutViewController.m */; };
+		6087B5061351410900C3044B /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6087B5041351410900C3044B /* AboutViewController.xib */; };
+		6087B6381352031C00C3044B /* icon_information.png in Resources */ = {isa = PBXBuildFile; fileRef = 6087B6371352031C00C3044B /* icon_information.png */; };
+		6087B65413522ECB00C3044B /* icon_blog2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6087B65313522ECB00C3044B /* icon_blog2.png */; };
+		6087B65A1352361C00C3044B /* 190-bank.png in Resources */ = {isa = PBXBuildFile; fileRef = 6087B6591352361C00C3044B /* 190-bank.png */; };
+		6087B67B13523B0A00C3044B /* world.png in Resources */ = {isa = PBXBuildFile; fileRef = 6087B67A13523B0A00C3044B /* world.png */; };
 		608A50C812E33CCD003BCB84 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 608A50C612E33CCD003BCB84 /* HomeViewController.m */; };
 		608A50C912E33CCD003BCB84 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 608A50C712E33CCD003BCB84 /* HomeViewController.xib */; };
 		608A50DF12E33CF5003BCB84 /* NearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 608A50DD12E33CF5003BCB84 /* NearbyViewController.m */; };
@@ -122,12 +133,26 @@
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* climbingweatherAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = climbingweatherAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* climbingweatherAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = climbingweatherAppDelegate.m; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* climbingweather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = climbingweather.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* ClimbnWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClimbnWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28A0AAE50D9B0CCF005BE974 /* climbingweather_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = climbingweather_Prefix.pch; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6057F051134EA8F700D04516 /* 28-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "28-star.png"; sourceTree = "<group>"; };
+		6057F059134FE23A00D04516 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
+		6057F05A134FE23A00D04516 /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
+		6057F05B134FE23A00D04516 /* MoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreViewController.xib; sourceTree = "<group>"; };
 		60807EE213240AC9004A60C0 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		6087B4FB135140FB00C3044B /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		6087B4FC135140FB00C3044B /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		6087B4FD135140FB00C3044B /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		6087B5021351410900C3044B /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		6087B5031351410900C3044B /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		6087B5041351410900C3044B /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
+		6087B6371352031C00C3044B /* icon_information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_information.png; sourceTree = "<group>"; };
+		6087B65313522ECB00C3044B /* icon_blog2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_blog2.png; sourceTree = "<group>"; };
+		6087B6591352361C00C3044B /* 190-bank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "190-bank.png"; sourceTree = "<group>"; };
+		6087B67A13523B0A00C3044B /* world.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = world.png; sourceTree = "<group>"; };
 		608A50C512E33CCD003BCB84 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		608A50C612E33CCD003BCB84 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		608A50C712E33CCD003BCB84 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HomeViewController.xib; path = Classes/HomeViewController.xib; sourceTree = "<group>"; };
@@ -293,7 +318,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* climbingweather.app */,
+				1D6058910D05DD3D006BFB54 /* ClimbnWeather.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -333,12 +358,14 @@
 				608DE46C12FCF25A00AE172C /* symbol */,
 				608A58A312EC5B46003BCB84 /* ic_launcher.png */,
 				608A58A412EC5B46003BCB84 /* ic_menu_compass.png */,
+				6087B65313522ECB00C3044B /* icon_blog2.png */,
 				608A58A512EC5B46003BCB84 /* ic_menu_info_details.png */,
 				608A58A612EC5B46003BCB84 /* ic_menu_more.png */,
 				608A58A712EC5B46003BCB84 /* ic_menu_preferences.png */,
 				608A58A812EC5B46003BCB84 /* ic_menu_refresh.png */,
 				608A58A912EC5B46003BCB84 /* icon.png */,
 				608A56F812E9239B003BCB84 /* ic_menu_search.png */,
+				6087B67A13523B0A00C3044B /* world.png */,
 				608A56F112E92344003BCB84 /* ic_menu_mapmode.png */,
 				608A56D712E921F7003BCB84 /* ic_menu_mylocation.png */,
 				608A56CB12E920F7003BCB84 /* btn_star_big_on.png */,
@@ -421,6 +448,15 @@
 				608A50C612E33CCD003BCB84 /* HomeViewController.m */,
 				608A50DC12E33CF5003BCB84 /* NearbyViewController.h */,
 				608A50DD12E33CF5003BCB84 /* NearbyViewController.m */,
+				6057F059134FE23A00D04516 /* MoreViewController.h */,
+				6057F05A134FE23A00D04516 /* MoreViewController.m */,
+				6057F05B134FE23A00D04516 /* MoreViewController.xib */,
+				6087B4FB135140FB00C3044B /* SettingsViewController.h */,
+				6087B4FC135140FB00C3044B /* SettingsViewController.m */,
+				6087B4FD135140FB00C3044B /* SettingsViewController.xib */,
+				6087B5021351410900C3044B /* AboutViewController.h */,
+				6087B5031351410900C3044B /* AboutViewController.m */,
+				6087B5041351410900C3044B /* AboutViewController.xib */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -490,6 +526,9 @@
 		608DE46D12FCF36C00AE172C /* navicon */ = {
 			isa = PBXGroup;
 			children = (
+				6087B6591352361C00C3044B /* 190-bank.png */,
+				6087B6371352031C00C3044B /* icon_information.png */,
+				6057F051134EA8F700D04516 /* 28-star.png */,
 				608DE49512FCF54200AE172C /* 16-line-chart.png */,
 				608DE46E12FCF38D00AE172C /* 20-gear2.png */,
 				608DE1FD12F6040000AE172C /* icon_magnify_glass.png */,
@@ -540,7 +579,7 @@
 			);
 			name = climbingweather;
 			productName = climbingweather;
-			productReference = 1D6058910D05DD3D006BFB54 /* climbingweather.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* ClimbnWeather.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -648,6 +687,14 @@
 				608DE47A12FCF47D00AE172C /* AreaAverages.xib in Resources */,
 				608DE49612FCF54200AE172C /* 16-line-chart.png in Resources */,
 				60807EE313240AC9004A60C0 /* MainWindow.xib in Resources */,
+				6057F052134EA8F700D04516 /* 28-star.png in Resources */,
+				6057F05D134FE23B00D04516 /* MoreViewController.xib in Resources */,
+				6087B4FF135140FC00C3044B /* SettingsViewController.xib in Resources */,
+				6087B5061351410900C3044B /* AboutViewController.xib in Resources */,
+				6087B6381352031C00C3044B /* icon_information.png in Resources */,
+				6087B65413522ECB00C3044B /* icon_blog2.png in Resources */,
+				6087B65A1352361C00C3044B /* 190-bank.png in Resources */,
+				6087B67B13523B0A00C3044B /* world.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,6 +733,9 @@
 				608DE57312FE024B00AE172C /* Database.m in Sources */,
 				608DE66D1300CF0C00AE172C /* MapPoint.m in Sources */,
 				608DE80B130C01F400AE172C /* AreasTableViewDelegate.m in Sources */,
+				6057F05C134FE23B00D04516 /* MoreViewController.m in Sources */,
+				6087B4FE135140FC00C3044B /* SettingsViewController.m in Sources */,
+				6087B5051351410900C3044B /* AboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,7 +753,7 @@
 				GCC_PREFIX_HEADER = climbingweather_Prefix.pch;
 				INFOPLIST_FILE = "climbingweather-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
-				PRODUCT_NAME = climbingweather;
+				PRODUCT_NAME = ClimbnWeather;
 			};
 			name = Debug;
 		};
