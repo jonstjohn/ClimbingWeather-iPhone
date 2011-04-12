@@ -21,22 +21,11 @@
 	UIImage *i = [UIImage imageNamed:@"icon_blog.png"];
 	[tbi setImage: i];
 	
-	/*
-	locationManager = [[CLLocationManager alloc] init];
-	[locationManager setDelegate: self];
-	
-	[locationManager setDistanceFilter: kCLDistanceFilterNone];
-	[locationManager setDesiredAccuracy: kCLLocationAccuracyBest];
-	
-	[mapView setShowsUserLocation: YES];
-	*/
-	
 	return self;
 }
 
 - (void) mapView: (MKMapView *) mv didAddAnnotationViews: (NSArray *) views
 {
-
 	MKAnnotationView *annotationView = [views objectAtIndex: 0];
 	id <MKAnnotation> mp = [annotationView annotation];
 	MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance([mp coordinate], 10000, 10000);
@@ -45,24 +34,20 @@
 }
 
 - (MKAnnotationView *) mapView: (MKMapView *) mv viewForAnnotation: (id <MKAnnotation>) annotation
-{
+{	
 	if ([mv userLocation] == annotation) {
 		return nil;
 	}
 	
-	NSString *identifier = @"climbing_area";
+	NSString *identifier = [NSString stringWithFormat: @"climbing_area"];
 	
 	MKAnnotationView *annotationView = [mv dequeueReusableAnnotationViewWithIdentifier:identifier];
 	if (annotationView == nil) {
-		NSLog(@"Creating new annotation view");
 		annotationView = [[[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier] autorelease];
 		[annotationView setImage: [UIImage imageNamed:@"climbing.png"]];
 		
 		[annotationView setCanShowCallout: YES];
-	} else {
-		NSLog(@"Using existing annotation view");
 	}
-	[identifier release];
 	return annotationView;
 }
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -80,6 +65,15 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+	[mapView setHidden: YES];
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
 	
 	// Send request for JSON data
 	MyManager *sharedManager = [MyManager sharedManager];
@@ -88,14 +82,12 @@
 	
 	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/detail/%@?apiKey=android-%@",
 					 [sharedManager areaId], [[UIDevice currentDevice] uniqueIdentifier]];
+	NSLog(@"%@", url);
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: url]];
 	
 	[[NSURLConnection alloc] initWithRequest:request delegate:self];
 	
-	[mapView setHidden: YES];
-	
 }
-
 
 /*
 // Override to allow orientations other than the default portrait orientation.
@@ -144,10 +136,10 @@
 	coordinate.longitude = [[detail objectForKey: @"longitude"] floatValue];
 	MapPoint *mp = [[MapPoint alloc] initWithCoordinate: coordinate title: [detail objectForKey: @"name"] ];
 	[mapView addAnnotation: mp];
+	
 	[mp release];
 	
 	[responseString release];
-	
 	
 }
 

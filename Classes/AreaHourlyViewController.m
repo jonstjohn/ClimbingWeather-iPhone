@@ -107,6 +107,14 @@
 	[[self navigationController] setNavigationBarHidden: NO];
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+	[days removeAllObjects];
+	[[self tableView] reloadData];
+	[activityIndicator startAnimating];
+	[activityIndicator setHidden: NO];
+}
+
 - (void) viewDidAppear:(BOOL)animated
 {
 	// Send request for JSON data
@@ -240,7 +248,7 @@
 			[daysTemp addObject: dy];
 		}
 		[[daysData objectForKey: dy] addObject: [forecastJson objectAtIndex: i]];
-		[dy release];
+		//[dy release];
 		
 	}
 	
@@ -258,6 +266,8 @@
 	
 	[responseString release];
 	
+	[activityIndicator setHidden: YES];
+	[activityIndicator stopAnimating];
 	[[self tableView] reloadData];
 	
 }

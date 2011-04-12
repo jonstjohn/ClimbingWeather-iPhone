@@ -28,9 +28,29 @@
 	return self;
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+	[days removeAllObjects];
+	[[self tableView] reloadData];
+	
+}
+
 - (void) viewDidAppear:(BOOL)animated
 {
 	[[self navigationController] setNavigationBarHidden: NO];
+	
+	// Send request for JSON data
+	MyManager *sharedManager = [MyManager sharedManager];
+	
+	responseData = [[NSMutableData data] retain];
+	
+	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+	NSString *tempUnit = [NSString stringWithFormat: @"%@", [[prefs stringForKey: @"tempUnit"] isEqualToString: @"c"] ? @"c" : @"f"];
+	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/daily/%@?apiKey=android-%@&tempUnit=%@",
+					 [sharedManager areaId], [[UIDevice currentDevice] uniqueIdentifier], tempUnit];
+	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: url]];
+	
+	[[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -105,7 +125,7 @@
 	[containerView addSubview: windLabel];
 	
 	[[self tableView] setTableHeaderView: containerView];
-	
+	/*
 	// Send request for JSON data
 	MyManager *sharedManager = [MyManager sharedManager];
 	
@@ -118,6 +138,7 @@
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: url]];
 	
 	[[NSURLConnection alloc] initWithRequest:request delegate:self];
+	 */
 	
 	[[self navigationController] setNavigationBarHidden: NO];
 	

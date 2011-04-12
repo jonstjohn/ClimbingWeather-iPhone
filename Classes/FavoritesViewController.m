@@ -31,8 +31,6 @@
 	
 	[[self navigationItem] setTitle: @"Home"];
 	
-	//[[self tableView] setRowHeight: 85.0];
-	
 	// Create the table view delegate
 	myTableDelegate = [[AreasTableViewDelegate alloc] init];
 	
@@ -49,6 +47,7 @@
 	NSMutableArray *areas = [sharedFavorite getAll];
 	
 	if ([areas count] == 0) {
+		[myTableDelegate clearAll];
 		return;
 	}
 	NSMutableArray *areaIds = [[NSMutableArray alloc] init];
@@ -58,11 +57,9 @@
 	}
 	NSString *areaIdStr = [areaIds componentsJoinedByString:@","];
 	
-	/*
 	 [[NSNotificationCenter defaultCenter] addObserver:self
 	 selector:@selector(dataLoaded:)
 	 name:@"AreaDataLoaded" object:nil];
-	 */
 	
 	[myTableDelegate setResponseData: [[NSMutableData data] retain]];
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
@@ -70,6 +67,10 @@
 	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/list/ids-%@?days=3&apiKey=android-%@&tempUnit=%@",
 					 areaIdStr, [[UIDevice currentDevice] uniqueIdentifier], tempUnit];
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+	
+	[activityIndicator startAnimating];
+	[activityIndicator setHidden: NO];
+	[myTable setHidden: YES];
 	
 	[[NSURLConnection alloc] initWithRequest:request delegate: myTableDelegate];
 	

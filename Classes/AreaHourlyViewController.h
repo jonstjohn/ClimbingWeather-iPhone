@@ -12,6 +12,7 @@
 @interface AreaHourlyViewController : UITableViewController {
 	NSMutableArray *days;
 	IBOutlet UITableView *myTable;
+	IBOutlet UIActivityIndicatorView *activityIndicator;
 	NSMutableData *responseData;
 }
 

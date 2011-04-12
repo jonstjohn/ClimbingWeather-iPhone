@@ -61,6 +61,17 @@
 	[super viewDidAppear: animated];
 	[[self tabBarController] setTitle: @"Nearby Areas"];
 	[[self navigationController] setNavigationBarHidden: NO];
+	
+	[locationManager startUpdatingLocation];
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(dataLoaded:)
+                                                 name:@"AreaDataLoaded" object:nil];
+}
+
+- (void) viewDidDisappear:(BOOL)animated
+{
+	[locationManager stopUpdatingLocation];
 }
 
 - (void) refreshResults
@@ -79,22 +90,13 @@
 	[myTableDelegate setAreasTableView: myTable];
 	
 	[myTable setSeparatorStyle: UITableViewCellSeparatorStyleNone];
+/*
 	[locationManager startUpdatingLocation];
 	
-	/*
-	UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] 
-										   initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
-										   target:self 
-										   action:@selector(showNewEventViewController)];
-	[[self navigationItem] setRightBarButtonItem: rightBarButtonItem animated: NO];
-	 
-	//[[self navigationItem] setTitle: @"Test"];
-	NSLog(@"%@", [self tabBarItem
-				  ]);
-	*/
 	[[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(dataLoaded:)
                                                  name:@"AreaDataLoaded" object:nil];
+*/
 }
 
 /*
@@ -134,7 +136,7 @@
 - (void)locationManager:(CLLocationManager *)manager
 	   didFailWithError:(NSError *)error
 {
-	NSLog(@"Error: %@", [error description]);
+	NSLog(@"Location update error: %@", [error description]);
 }
 
 - (void) search: (NSString *) text

@@ -86,29 +86,36 @@
 	NSString *areaId = [[areas objectAtIndex: [indexPath row]] objectForKey: @"id"];
 	sharedManager.areaId = areaId;
 	
-	// Create tabBarController
-	UITabBarController *tabController = [[UITabBarController alloc] init];
+	// Create or retrieve tab bar controller
+	if (tabController == nil) {
 	
-	// Create view controllers
-	UIViewController *vc1 = [[AreaDailyViewController alloc] init];
-	UIViewController *vc2 = [[AreaHourlyViewController alloc] init];
-	UIViewController *vc3 = [[AreaMapViewController alloc] init];
-	//UIViewController *vc4 = [[AreaAveragesController alloc] init];
-	//UIViewController *vc5 = [[AreaDetailController alloc] init];
+		// Create tabBarController
+		//UITabBarController *tabController = [[UITabBarController alloc] init];
+		tabController = [[UITabBarController alloc] init];
+		
+		// Create view controllers
+		UIViewController *vc1 = [[AreaDailyViewController alloc] init];
+		UIViewController *vc2 = [[AreaHourlyViewController alloc] init];
+		UIViewController *vc3 = [[AreaMapViewController alloc] init];
+		//UIViewController *vc4 = [[AreaAveragesController alloc] init];
+		//UIViewController *vc5 = [[AreaDetailController alloc] init];
+		
+		
+		// Make an array that contains the two view controllers
+		NSArray *viewControllers = [NSArray arrayWithObjects: vc1, vc2, vc3, nil];
+		
+		// Attach to tab bar controller
+		[tabController setViewControllers: viewControllers];
+		
+		[vc1 release];
+		[vc2 release];
+		[vc3 release];
+		//[vc4 release];
+		//[vc5 release];
+		
+	}
 	
-	
-	// Make an array that contains the two view controllers
-	NSArray *viewControllers = [NSArray arrayWithObjects: vc1, vc2, vc3, nil];
-	
-	// Attach to tab bar controller
-	[tabController setViewControllers: viewControllers];
-	
-	[vc1 release];
-	[vc2 release];
-	[vc3 release];
-	//[vc4 release];
-	//[vc5 release];
-	
+	[tabController setSelectedIndex: 0];
 	[[tabController navigationItem] setTitle: areaName];
 	
 	[(UINavigationController *)[[tableView window] rootViewController] pushViewController: tabController animated: YES];
@@ -189,10 +196,16 @@
 	[responseString release];
 }
 
+- (void) clearAll {
+	[areas removeAllObjects];
+	[areasTableView reloadData];
+}
+
 - (void) dealloc {
 	[areasTableView release];
 	[areas release];
 	[responseData release];
+	[tabController release];
 	[super dealloc];
 }
 

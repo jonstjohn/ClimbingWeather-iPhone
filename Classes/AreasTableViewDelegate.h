@@ -13,7 +13,10 @@
 	NSMutableArray *areas;
 	UITableView *areasTableView;
 	NSMutableData *responseData;
+	UITabBarController *tabController;
 }
+
+-(void) clearAll;
 
 @property (nonatomic, retain) NSMutableArray *areas;
 @property (nonatomic, retain) UITableView *areasTableView;
