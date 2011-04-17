@@ -14,7 +14,9 @@
 @interface AreasViewController : UIViewController {
 
 	IBOutlet UITableView *myTable;
+	IBOutlet UIActivityIndicatorView *activityIndicator;
 	AreasTableViewDelegate *myTableDelegate;
+	BOOL showStates;
 	
 	NSString *stateCode;
 	NSString *stateName;
@@ -24,5 +26,5 @@
 @property (nonatomic, retain) AreasTableViewDelegate *myTableDelegate;
 
 - (id) initWithStateCode: (NSString *) code name: (NSString *) name;
-
+- (void) setShowStates: (BOOL) show;
 @end

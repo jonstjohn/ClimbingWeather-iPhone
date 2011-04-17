@@ -26,6 +26,7 @@
 - (id) init {
 	
 	areas = [[NSMutableArray alloc] initWithObjects: nil];
+	showStates = NO;
 	return [super init];
 	
 }
@@ -45,7 +46,11 @@
 	
 	NSDictionary *area = [areas objectAtIndex: [indexPath row]];
 	
-	[[cell areaName] setText: [area objectForKey: @"name"]];
+	if (showStates) {
+		[[cell areaName] setText: [NSString stringWithFormat: @"%@ (%@)", [area objectForKey: @"name"], [area objectForKey: @"state"]]];
+	} else {
+		[[cell areaName] setText: [area objectForKey: @"name"]];
+	}
 	
 	Favorite *sharedFavorite = [Favorite sharedFavorite];
 	
@@ -199,6 +204,11 @@
 - (void) clearAll {
 	[areas removeAllObjects];
 	[areasTableView reloadData];
+}
+
+- (void) setShowStates:(BOOL)show
+{
+	showStates = show;
 }
 
 - (void) dealloc {

@@ -77,7 +77,6 @@
 		608A58D512EC5B46003BCB84 /* ic_menu_more.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A58A612EC5B46003BCB84 /* ic_menu_more.png */; };
 		608A58D612EC5B46003BCB84 /* ic_menu_preferences.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A58A712EC5B46003BCB84 /* ic_menu_preferences.png */; };
 		608A58D712EC5B46003BCB84 /* ic_menu_refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A58A812EC5B46003BCB84 /* ic_menu_refresh.png */; };
-		608A58D812EC5B46003BCB84 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A58A912EC5B46003BCB84 /* icon.png */; };
 		608A58D912EC5B46003BCB84 /* light_rain.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A58AA12EC5B46003BCB84 /* light_rain.png */; };
 		608A58DA12EC5B46003BCB84 /* mist_night.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A58AB12EC5B46003BCB84 /* mist_night.png */; };
 		608A58DB12EC5B46003BCB84 /* mist.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A58AC12EC5B46003BCB84 /* mist.png */; };
@@ -128,6 +127,13 @@
 		608DE66D1300CF0C00AE172C /* MapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 608DE66C1300CF0C00AE172C /* MapPoint.m */; };
 		608DE80B130C01F400AE172C /* AreasTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 608DE80A130C01F400AE172C /* AreasTableViewDelegate.m */; };
 		60D99C171352415500B238D5 /* ic_launcher57.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D99C161352415500B238D5 /* ic_launcher57.png */; };
+		60D99DF413547C6100B238D5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D99DF313547C6100B238D5 /* Icon.png */; };
+		60D99E081355268400B238D5 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D99E071355268400B238D5 /* Icon@2x.png */; };
+		60D99E0A1355279200B238D5 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 60D99E091355279200B238D5 /* iTunesArtwork */; };
+		60D99E0C135527E100B238D5 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D99E0B135527E100B238D5 /* Icon-72.png */; };
+		60D99E0E1355285600B238D5 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D99E0D1355285600B238D5 /* Icon-Small.png */; };
+		60D99E101355289800B238D5 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D99E0F1355289800B238D5 /* Icon-Small-50.png */; };
+		60D99E12135528D000B238D5 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D99E11135528D000B238D5 /* Icon-Small@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -143,6 +149,7 @@
 		6057F059134FE23A00D04516 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
 		6057F05A134FE23A00D04516 /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
 		6057F05B134FE23A00D04516 /* MoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreViewController.xib; sourceTree = "<group>"; };
+		6077042A135697170085464F /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		60807EE213240AC9004A60C0 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		6087B4FB135140FB00C3044B /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		6087B4FC135140FB00C3044B /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
@@ -226,7 +233,6 @@
 		608A58A612EC5B46003BCB84 /* ic_menu_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_menu_more.png; sourceTree = "<group>"; };
 		608A58A712EC5B46003BCB84 /* ic_menu_preferences.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_menu_preferences.png; sourceTree = "<group>"; };
 		608A58A812EC5B46003BCB84 /* ic_menu_refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_menu_refresh.png; sourceTree = "<group>"; };
-		608A58A912EC5B46003BCB84 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		608A58AA12EC5B46003BCB84 /* light_rain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = light_rain.png; sourceTree = "<group>"; };
 		608A58AB12EC5B46003BCB84 /* mist_night.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mist_night.png; sourceTree = "<group>"; };
 		608A58AC12EC5B46003BCB84 /* mist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mist.png; sourceTree = "<group>"; };
@@ -286,6 +292,13 @@
 		608DE809130C01F400AE172C /* AreasTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreasTableViewDelegate.h; sourceTree = "<group>"; };
 		608DE80A130C01F400AE172C /* AreasTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreasTableViewDelegate.m; sourceTree = "<group>"; };
 		60D99C161352415500B238D5 /* ic_launcher57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher57.png; sourceTree = "<group>"; };
+		60D99DF313547C6100B238D5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		60D99E071355268400B238D5 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		60D99E091355279200B238D5 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		60D99E0B135527E100B238D5 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		60D99E0D1355285600B238D5 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		60D99E0F1355289800B238D5 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
+		60D99E11135528D000B238D5 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* climbingweather-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "climbingweather-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -337,6 +350,7 @@
 				608DE32E12FAD66E00AE172C /* libsqlite3.0.dylib */,
 				608DE64312FF85C600AE172C /* CoreLocation.framework */,
 				608DE66512FF88CE00AE172C /* MapKit.framework */,
+				6077042A135697170085464F /* Entitlements.plist */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -353,6 +367,13 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				60D99E11135528D000B238D5 /* Icon-Small@2x.png */,
+				60D99E0F1355289800B238D5 /* Icon-Small-50.png */,
+				60D99E0B135527E100B238D5 /* Icon-72.png */,
+				60D99E0D1355285600B238D5 /* Icon-Small.png */,
+				60D99E091355279200B238D5 /* iTunesArtwork */,
+				60D99E071355268400B238D5 /* Icon@2x.png */,
+				60D99DF313547C6100B238D5 /* Icon.png */,
 				60D99C161352415500B238D5 /* ic_launcher57.png */,
 				608DE8CA130D68FD00AE172C /* xib */,
 				608DE46D12FCF36C00AE172C /* navicon */,
@@ -366,7 +387,6 @@
 				608A58A612EC5B46003BCB84 /* ic_menu_more.png */,
 				608A58A712EC5B46003BCB84 /* ic_menu_preferences.png */,
 				608A58A812EC5B46003BCB84 /* ic_menu_refresh.png */,
-				608A58A912EC5B46003BCB84 /* icon.png */,
 				608A56F812E9239B003BCB84 /* ic_menu_search.png */,
 				6087B67A13523B0A00C3044B /* world.png */,
 				608A56F112E92344003BCB84 /* ic_menu_mapmode.png */,
@@ -651,7 +671,6 @@
 				608A58D512EC5B46003BCB84 /* ic_menu_more.png in Resources */,
 				608A58D612EC5B46003BCB84 /* ic_menu_preferences.png in Resources */,
 				608A58D712EC5B46003BCB84 /* ic_menu_refresh.png in Resources */,
-				608A58D812EC5B46003BCB84 /* icon.png in Resources */,
 				608A58D912EC5B46003BCB84 /* light_rain.png in Resources */,
 				608A58DA12EC5B46003BCB84 /* mist_night.png in Resources */,
 				608A58DB12EC5B46003BCB84 /* mist.png in Resources */,
@@ -699,6 +718,13 @@
 				6087B65A1352361C00C3044B /* 190-bank.png in Resources */,
 				6087B67B13523B0A00C3044B /* world.png in Resources */,
 				60D99C171352415500B238D5 /* ic_launcher57.png in Resources */,
+				60D99DF413547C6100B238D5 /* Icon.png in Resources */,
+				60D99E081355268400B238D5 /* Icon@2x.png in Resources */,
+				60D99E0A1355279200B238D5 /* iTunesArtwork in Resources */,
+				60D99E0C135527E100B238D5 /* Icon-72.png in Resources */,
+				60D99E0E1355285600B238D5 /* Icon-Small.png in Resources */,
+				60D99E101355289800B238D5 /* Icon-Small-50.png in Resources */,
+				60D99E12135528D000B238D5 /* Icon-Small@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -750,6 +776,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = "~/Documents/climbingweather/Entitlements.plist";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -765,14 +792,51 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = "~/Documents/climbingweather/Entitlements.plist";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = climbingweather_Prefix.pch;
 				INFOPLIST_FILE = "climbingweather-Info.plist";
-				PRODUCT_NAME = climbingweather;
+				PRODUCT_NAME = ClimbWeather;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
+		};
+		60770416135696090085464F /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+			};
+			name = Distribution;
+		};
+		60770417135696090085464F /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = "~/Documents/climbingweather/Entitlements.plist";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = climbingweather_Prefix.pch;
+				INFOPLIST_FILE = "climbingweather-Info.plist";
+				PRODUCT_NAME = ClimbWeather;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Distribution;
 		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -797,6 +861,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -809,6 +874,7 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
+				60770417135696090085464F /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -818,6 +884,7 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+				60770416135696090085464F /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

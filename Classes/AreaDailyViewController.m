@@ -30,6 +30,7 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
+	[super viewWillAppear: animated];
 	[days removeAllObjects];
 	[[self tableView] reloadData];
 	
@@ -37,7 +38,11 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
+	[super viewDidAppear: animated];
 	[[self navigationController] setNavigationBarHidden: NO];
+	
+	[activityIndicator setHidesWhenStopped: NO];
+	[activityIndicator startAnimating];
 	
 	// Send request for JSON data
 	MyManager *sharedManager = [MyManager sharedManager];
@@ -46,23 +51,12 @@
 	
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 	NSString *tempUnit = [NSString stringWithFormat: @"%@", [[prefs stringForKey: @"tempUnit"] isEqualToString: @"c"] ? @"c" : @"f"];
-	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/daily/%@?apiKey=android-%@&tempUnit=%@",
+	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/daily/%@?apiKey=iphone-%@&tempUnit=%@",
 					 [sharedManager areaId], [[UIDevice currentDevice] uniqueIdentifier], tempUnit];
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: url]];
 	
 	[[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
-
-// The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-/*
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization.
-    }
-    return self;
-}
-*/
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
@@ -125,20 +119,7 @@
 	[containerView addSubview: windLabel];
 	
 	[[self tableView] setTableHeaderView: containerView];
-	/*
-	// Send request for JSON data
-	MyManager *sharedManager = [MyManager sharedManager];
 	
-	responseData = [[NSMutableData data] retain];
-	
-	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-	NSString *tempUnit = [NSString stringWithFormat: @"%@", [[prefs stringForKey: @"tempUnit"] isEqualToString: @"c"] ? @"c" : @"f"];
-	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/daily/%@?apiKey=android-%@&tempUnit=%@",
-					 [sharedManager areaId], [[UIDevice currentDevice] uniqueIdentifier], tempUnit];
-	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: url]];
-	
-	[[NSURLConnection alloc] initWithRequest:request delegate:self];
-	 */
 	
 	[[self navigationController] setNavigationBarHidden: NO];
 	
@@ -242,6 +223,7 @@
 	
 	[responseString release];
 	
+	[activityIndicator setHidden: YES];
 	[[self tableView] reloadData];
 	
 }

@@ -12,6 +12,7 @@
 @interface AreaDailyViewController : UITableViewController {
 	NSMutableArray *days;
 	IBOutlet UITableView *myTable;
+	IBOutlet UIActivityIndicatorView *activityIndicator;
 	NSMutableData *responseData;
 }
 

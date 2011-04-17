@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="1"/>
+			<integer value="12"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -61,7 +61,7 @@
 						<float key="IBUISectionHeaderHeight">22</float>
 						<float key="IBUISectionFooterHeight">22</float>
 					</object>
-					<object class="IBUIActivityIndicatorView" id="641262105">
+					<object class="IBUIActivityIndicatorView" id="733913673">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{280, 35}, {20, 20}}</string>
@@ -120,6 +120,14 @@
 					</object>
 					<int key="connectionID">11</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">activityIndicator</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="733913673"/>
+					</object>
+					<int key="connectionID">13</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -136,7 +144,7 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="964134169"/>
-							<reference ref="641262105"/>
+							<reference ref="733913673"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -158,7 +166,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">12</int>
-						<reference key="object" ref="641262105"/>
+						<reference key="object" ref="733913673"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</object>
@@ -208,7 +216,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">12</int>
+			<int key="maxID">13</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -225,7 +233,7 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>UIProgressView</string>
+							<string>UIActivityIndicatorView</string>
 							<string>UITableView</string>
 						</object>
 					</object>
@@ -240,7 +248,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
 								<string key="name">activityIndicator</string>
-								<string key="candidateClassName">UIProgressView</string>
+								<string key="candidateClassName">UIActivityIndicatorView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">myTable</string>
@@ -367,14 +375,6 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBFrameworkSource</string>
 						<string key="minorKey">UIKit.framework/Headers/UIActivityIndicatorView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">UIProgressView</string>
-					<string key="superclassName">UIView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBFrameworkSource</string>
-						<string key="minorKey">UIKit.framework/Headers/UIProgressView.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">

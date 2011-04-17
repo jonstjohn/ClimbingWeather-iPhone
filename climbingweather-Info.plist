@@ -10,10 +10,19 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
-	<key>CFBundleIconFile</key>
-	<string>ic_launcher57.png</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.climbingweather.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.climbingweather.cw</string>
+	<key>CFBundleIconFile</key>
+	<string>Icon.png</string>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>Icon.png</string>
+		<string>Icon@2x.png</string>
+		<string>Icon-72.png</string>
+		<string>Icon-Small-50.png</string>
+		<string>Icon-Small.png</string>
+		<string>Icon-Small@2x.png</string>
+	</array>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -28,7 +37,5 @@
 	<false/>
 	<key>NSMainNibFile</key>
 	<string>MainWindow</string>
-	<key>UIPrerenderedIcon</key>
-	<true/>
 </dict>
 </plist>

@@ -62,6 +62,9 @@
 	[[self tabBarController] setTitle: @"Nearby Areas"];
 	[[self navigationController] setNavigationBarHidden: NO];
 	
+	[activityIndicator setHidesWhenStopped: NO];
+	[activityIndicator startAnimating];
+	
 	[locationManager startUpdatingLocation];
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self
@@ -72,6 +75,7 @@
 - (void) viewDidDisappear:(BOOL)animated
 {
 	[locationManager stopUpdatingLocation];
+	[super viewDidDisappear: animated];
 }
 
 - (void) refreshResults
@@ -142,10 +146,11 @@
 - (void) search: (NSString *) text
 {
 	[myTableDelegate setResponseData: [[NSMutableData data] retain]];
+	[myTableDelegate setShowStates: YES];
 	
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 	NSString *tempUnit = [NSString stringWithFormat: @"%@", [[prefs stringForKey: @"tempUnit"] isEqualToString: @"c"] ? @"c" : @"f"];
-	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/list/%@?days=3&apiKey=android-%@&maxResults=20&tempUnit=%@",
+	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/list/%@?days=3&apiKey=iphone-%@&maxResults=20&tempUnit=%@",
 					 text, [[UIDevice currentDevice] uniqueIdentifier], tempUnit];
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
 	

@@ -137,25 +137,29 @@
 	//MoreViewController *moreVc = [[MoreViewController alloc] init];
 	//[[self navigationController] pushViewController: moreVc animated: NO];
 	// Create tabBarController
-	UITabBarController *tabController = [[[UITabBarController alloc] init] autorelease];
+	if (settingsTab == nil) {
+		//UITabBarController *tabController = [[[UITabBarController alloc] init] autorelease];
+		settingsTab = [[UITabBarController alloc] init];
 	
-	// Create view controllers
-	UIViewController *vc1 = [[AboutViewController alloc] init];
-	UIViewController *vc2 = [[SettingsViewController alloc] init];
+		// Create view controllers
+		UIViewController *vc1 = [[AboutViewController alloc] init];
+		UIViewController *vc2 = [[SettingsViewController alloc] init];
 	
-	// Make an array that contains the two view controllers
-	NSArray *viewControllers = [NSArray arrayWithObjects: vc1, vc2, nil];
+		// Make an array that contains the two view controllers
+		NSArray *viewControllers = [NSArray arrayWithObjects: vc1, vc2, nil];
 	
-	// Attach to tab bar controller
-	[tabController setViewControllers: viewControllers];
+		// Attach to tab bar controller
+		[settingsTab setViewControllers: viewControllers];
 	
-	[vc1 release];
-	[vc2 release];
-	
-	[[self navigationController] pushViewController: tabController animated: NO];
+		[vc1 release];
+		[vc2 release];
+	}
+
+	[[self navigationController] pushViewController: settingsTab animated: NO];
 }
 
 - (void)dealloc {
+	[settingsTab release];
     [super dealloc];
 }
 

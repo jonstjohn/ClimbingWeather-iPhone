@@ -27,6 +27,8 @@
 	
 	// Create the table view delegate
 	myTableDelegate = [[AreasTableViewDelegate alloc] init];
+	
+	showStates = NO;
 		
 	return self;
 }
@@ -52,16 +54,20 @@
 											 selector:@selector(dataLoaded:)
                                                  name:@"AreaDataLoaded" object:nil];
 	
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
 	[myTableDelegate setResponseData: [[NSMutableData data] retain]];
+	[myTableDelegate setShowStates: showStates];
 	
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 	NSString *tempUnit = [NSString stringWithFormat: @"%@", [[prefs stringForKey: @"tempUnit"] isEqualToString: @"c"] ? @"c" : @"f"];
-	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/list/%@?days=3&apiKey=android-%@&tempUnit=%@",
+	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/list/%@?days=3&apiKey=iphone-%@&tempUnit=%@",
 					 stateCode, [[UIDevice currentDevice] uniqueIdentifier], tempUnit];
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
 	
 	[[NSURLConnection alloc] initWithRequest:request delegate: myTableDelegate];
-	
 }
 
 /*
@@ -94,8 +100,13 @@
 
 - (void) dataLoaded:(NSNotification *)notification{
 	
-    //[activityIndicator setHidden: YES];
+    [activityIndicator setHidden: YES];
 	
+}
+
+- (void) setShowStates:(BOOL)show
+{
+	showStates = show;
 }
 
 - (void)dealloc {

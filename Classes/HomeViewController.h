@@ -11,6 +11,7 @@
 
 @interface HomeViewController : UIViewController <UITextViewDelegate>
 {
+	UITabBarController *settingsTab;
 }
 
 - (IBAction)showNearby: (id)sender;

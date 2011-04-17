@@ -40,6 +40,7 @@
 - (void) viewDidAppear: (BOOL) animated
 {
 	[super viewDidAppear: animated];
+
 	[[self tabBarController] setTitle: @"Favorites"];
 	[[self navigationController] setNavigationBarHidden: NO];
 	
@@ -62,14 +63,16 @@
 	 name:@"AreaDataLoaded" object:nil];
 	
 	[myTableDelegate setResponseData: [[NSMutableData data] retain]];
+	[myTableDelegate setShowStates: YES];
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 	NSString *tempUnit = [NSString stringWithFormat: @"%@", [[prefs stringForKey: @"tempUnit"] isEqualToString: @"c"] ? @"c" : @"f"];
-	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/list/ids-%@?days=3&apiKey=android-%@&tempUnit=%@",
+	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/list/ids-%@?days=3&apiKey=iphone-%@&tempUnit=%@",
 					 areaIdStr, [[UIDevice currentDevice] uniqueIdentifier], tempUnit];
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
 	
+	[activityIndicator setHidesWhenStopped: NO];
 	[activityIndicator startAnimating];
-	[activityIndicator setHidden: NO];
+	
 	[myTable setHidden: YES];
 	
 	[[NSURLConnection alloc] initWithRequest:request delegate: myTableDelegate];

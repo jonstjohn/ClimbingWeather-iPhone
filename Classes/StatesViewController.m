@@ -35,7 +35,7 @@
 	states = [[NSMutableArray alloc] init];
 	
 	// Initialize request url
-	requestUrl = [[NSString alloc] initWithFormat: @"http://api.climbingweather.com/api/state/list?apiKey=android-%@", 
+	requestUrl = [[NSString alloc] initWithFormat: @"http://api.climbingweather.com/api/state/list?apiKey=iphone-%@", 
 				  [[UIDevice currentDevice] uniqueIdentifier]];
 	return self;
 }
@@ -133,6 +133,7 @@
 	AreasViewController *controller = [[AreasViewController alloc] initWithStateCode: 
 									   [[states objectAtIndex: [indexPath row]] objectForKey: @"code"]
 										name: [[states objectAtIndex: [indexPath row]] objectForKey: @"name"]];
+	[controller setShowStates: NO];
 	[[self navigationController] pushViewController:controller animated: YES];
 	return;
 

@@ -14,6 +14,7 @@
 	UITableView *areasTableView;
 	NSMutableData *responseData;
 	UITabBarController *tabController;
+	BOOL showStates;
 }
 
 -(void) clearAll;
@@ -21,5 +22,7 @@
 @property (nonatomic, retain) NSMutableArray *areas;
 @property (nonatomic, retain) UITableView *areasTableView;
 @property (nonatomic, retain) NSMutableData *responseData;
+
+- (void) setShowStates: (BOOL) show;
 
 @end
