@@ -36,7 +36,7 @@
 	
 	// Initialize request url
 	requestUrl = [[NSString alloc] initWithFormat: @"http://api.climbingweather.com/api/state/list?apiKey=iphone-%@", 
-				  [[UIDevice currentDevice] uniqueIdentifier]];
+				  [[UIDevice currentDevice ]identifierForVendor]];
 	return self;
 }
 
@@ -81,12 +81,6 @@
 	[[self tabBarController] setTitle: @"US States"];
 	[[self navigationController] setNavigationBarHidden: NO];
 }
-
-// The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibName bundle:(NSBundle *)bundle {
-	return [self init];
-}
-
 
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView {

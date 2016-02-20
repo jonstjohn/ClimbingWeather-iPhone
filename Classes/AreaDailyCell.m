@@ -108,12 +108,12 @@
 	// Day
 	CGRect innerFrame1 = CGRectMake(dayX, inset, dayWidth, big + 1.0);
 	[dayLabel setFont: [UIFont systemFontOfSize: big]];
-	[dayLabel setTextAlignment: UITextAlignmentCenter];
+    dayLabel.textAlignment = NSTextAlignmentCenter;
 	[dayLabel setFrame: innerFrame1];
 	
 	// Date
 	CGRect innerFrame2 = CGRectMake(dayX, secondRowY, dayWidth, small + 1.0);
-	[dateLabel setTextAlignment: UITextAlignmentCenter];
+    dateLabel.textAlignment = NSTextAlignmentCenter;
 	[dateLabel setFont: [UIFont systemFontOfSize: small]];
 	[dateLabel setFrame: innerFrame2];
 	
@@ -124,43 +124,43 @@
 	// High
 	CGRect innerFrame3 = CGRectMake(highX, inset, highWidth, big + 1.0);
 	[highLabel setFont: [UIFont systemFontOfSize: big]];
-	[highLabel setTextAlignment: UITextAlignmentCenter];
+    highLabel.textAlignment = NSTextAlignmentCenter;
 	[highLabel setFrame: innerFrame3];
 	
 	// Low
 	CGRect innerFrameLow = CGRectMake(highX, secondRowY, highWidth, small + 1.0);
 	[lowLabel setFont: [UIFont systemFontOfSize: small]];
-	[lowLabel setTextAlignment: UITextAlignmentCenter];
+    lowLabel.textAlignment = NSTextAlignmentCenter;
 	[lowLabel setFrame: innerFrameLow];
 	
 	// Precip Day
 	CGRect innerFramePrecipDay = CGRectMake(precipX, inset, precipWidth, big + 1.0);
 	[precipDayLabel setFont: [UIFont systemFontOfSize: big]];
-	[precipDayLabel setTextAlignment: UITextAlignmentCenter];
+    precipDayLabel.textAlignment = NSTextAlignmentCenter;
 	[precipDayLabel setFrame: innerFramePrecipDay];
 	
 	// Precip Night
 	CGRect innerFramePrecipNight = CGRectMake(precipX, secondRowY, precipWidth, small + 1.0);
 	[precipNightLabel setFont: [UIFont systemFontOfSize: small]];
-	[precipNightLabel setTextAlignment: UITextAlignmentCenter];
+    precipNightLabel.textAlignment = NSTextAlignmentCenter;
 	[precipNightLabel setFrame: innerFramePrecipNight];
 	
 	// Wind
 	CGRect innerFrameWind = CGRectMake(windX, inset, windWidth, big + 1.0);
 	[windLabel setFont: [UIFont systemFontOfSize: big]];
-	[windLabel setTextAlignment: UITextAlignmentCenter];
+    windLabel.textAlignment = NSTextAlignmentCenter;
 	[windLabel setFrame: innerFrameWind];
 	
 	// Humidity
 	CGRect innerFrameHum = CGRectMake(windX, secondRowY, windWidth, small + 1.0);
 	[humLabel setFont: [UIFont systemFontOfSize: small]];
-	[humLabel setTextAlignment: UITextAlignmentCenter];
+    humLabel.textAlignment = NSTextAlignmentCenter;
 	[humLabel setFrame: innerFrameHum];
 	
 	// Conditions
 	CGRect innerFrameConditions = CGRectMake(dayX + 5.0, thirdRowY, w, small + 1.0);
 	[conditionsLabel setFont: [UIFont systemFontOfSize: small]];
-	[conditionsLabel setTextAlignment: UITextAlignmentLeft];
+    conditionsLabel.textAlignment = NSTextAlignmentCenter;
 	[conditionsLabel setFrame: innerFrameConditions];
 	
 }

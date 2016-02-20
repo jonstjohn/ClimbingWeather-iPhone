@@ -126,6 +126,7 @@
 		608DE66612FF88CE00AE172C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608DE66512FF88CE00AE172C /* MapKit.framework */; };
 		608DE66D1300CF0C00AE172C /* MapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 608DE66C1300CF0C00AE172C /* MapPoint.m */; };
 		608DE80B130C01F400AE172C /* AreasTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 608DE80A130C01F400AE172C /* AreasTableViewDelegate.m */; };
+		6095679E1C78AC8B002CD30F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6095679D1C78AC8B002CD30F /* Default-568h@2x.png */; };
 		60D99C171352415500B238D5 /* ic_launcher57.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D99C161352415500B238D5 /* ic_launcher57.png */; };
 		60D99DF413547C6100B238D5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D99DF313547C6100B238D5 /* Icon.png */; };
 		60D99E081355268400B238D5 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D99E071355268400B238D5 /* Icon@2x.png */; };
@@ -291,6 +292,7 @@
 		608DE66C1300CF0C00AE172C /* MapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPoint.m; sourceTree = "<group>"; };
 		608DE809130C01F400AE172C /* AreasTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreasTableViewDelegate.h; sourceTree = "<group>"; };
 		608DE80A130C01F400AE172C /* AreasTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreasTableViewDelegate.m; sourceTree = "<group>"; };
+		6095679D1C78AC8B002CD30F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		60D99C161352415500B238D5 /* ic_launcher57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher57.png; sourceTree = "<group>"; };
 		60D99DF313547C6100B238D5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		60D99E071355268400B238D5 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				6095679D1C78AC8B002CD30F /* Default-568h@2x.png */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -610,6 +613,8 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "climbingweather" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
@@ -696,6 +701,7 @@
 				608A58EF12EC5B46003BCB84 /* tstorm2_night.png in Resources */,
 				608A58F012EC5B46003BCB84 /* tstorm2.png in Resources */,
 				608A58F112EC5B46003BCB84 /* tstorm3.png in Resources */,
+				6095679E1C78AC8B002CD30F /* Default-568h@2x.png in Resources */,
 				608DE1C312F4A7E700AE172C /* icon_calendar.png in Resources */,
 				608DE1E012F4AA3D00AE172C /* icon_time.png in Resources */,
 				608DE1E612F4AF4800AE172C /* icon_blog.png in Resources */,
@@ -776,14 +782,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_ENTITLEMENTS = "~/Documents/climbingweather/Entitlements.plist";
+				CODE_SIGN_ENTITLEMENTS = "~/projects/ClimbingWeather-iPhone/Entitlements.plist";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = climbingweather_Prefix.pch;
 				INFOPLIST_FILE = "climbingweather-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				PRODUCT_NAME = Weather;
 			};
 			name = Debug;
@@ -792,13 +798,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_ENTITLEMENTS = "~/Documents/climbingweather/Entitlements.plist";
+				CODE_SIGN_ENTITLEMENTS = "~/projects/ClimbingWeather-iPhone/Entitlements.plist";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = climbingweather_Prefix.pch;
 				INFOPLIST_FILE = "climbingweather-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				PRODUCT_NAME = ClimbWeather;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -824,13 +831,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_ENTITLEMENTS = "~/Documents/climbingweather/Entitlements.plist";
+				CODE_SIGN_ENTITLEMENTS = "~/projects/ClimbingWeather-iPhone/Entitlements.plist";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = climbingweather_Prefix.pch;
 				INFOPLIST_FILE = "climbingweather-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				PRODUCT_NAME = ClimbWeather;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";

@@ -22,8 +22,9 @@
 	UIImage *i = [UIImage imageNamed:@"icon_calendar.png"];
 	[tbi setImage: i];
 	
-	days = [[NSMutableArray alloc] initWithObjects: nil];
-	[[self tableView] setRowHeight: 65.0];
+	days = [[NSMutableArray alloc] init];
+	[dailyTableView setRowHeight: 65.0];
+    
 	
 	return self;
 }
@@ -32,7 +33,7 @@
 {
 	[super viewWillAppear: animated];
 	[days removeAllObjects];
-	[[self tableView] reloadData];
+	[dailyTableView reloadData];
 	
 }
 
@@ -52,7 +53,7 @@
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 	NSString *tempUnit = [NSString stringWithFormat: @"%@", [[prefs stringForKey: @"tempUnit"] isEqualToString: @"c"] ? @"c" : @"f"];
 	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/daily/%@?apiKey=iphone-%@&tempUnit=%@",
-					 [sharedManager areaId], [[UIDevice currentDevice] uniqueIdentifier], tempUnit];
+					 [sharedManager areaId], [[UIDevice currentDevice] identifierForVendor], tempUnit];
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: url]];
 	
 	[[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -94,31 +95,31 @@
 	[dayLabel setText: @"Forecast"];
 	[dayLabel setBackgroundColor:[UIColor clearColor]];
 	[dayLabel setFont: [UIFont systemFontOfSize: fontSize]];
-	[dayLabel setTextAlignment: UITextAlignmentCenter];
+    dayLabel.textAlignment = NSTextAlignmentCenter;
 	[containerView addSubview: dayLabel];
 	
 	UILabel *highLabel = [[[UILabel alloc] initWithFrame: CGRectMake(highX, inset, highWidth, fontSize)] autorelease];
 	[highLabel setText: @"High/Low"];
 	[highLabel setBackgroundColor:[UIColor clearColor]];
 	[highLabel setFont: [UIFont systemFontOfSize: fontSize]];
-	[highLabel setTextAlignment: UITextAlignmentCenter];
+    highLabel.textAlignment = NSTextAlignmentCenter;
 	[containerView addSubview: highLabel];
 	
 	UILabel *precipLabel = [[[UILabel alloc] initWithFrame: CGRectMake(precipX, inset, precipWidth, fontSize)] autorelease];
 	[precipLabel setText: @"Precip"];
 	[precipLabel setBackgroundColor:[UIColor clearColor]];
 	[precipLabel setFont: [UIFont systemFontOfSize: fontSize]];
-	[precipLabel setTextAlignment: UITextAlignmentCenter];
+    precipLabel.textAlignment = NSTextAlignmentCenter;
 	[containerView addSubview: precipLabel];
 	
 	UILabel *windLabel = [[[UILabel alloc] initWithFrame: CGRectMake(windX, inset, windWidth, fontSize)] autorelease];
 	[windLabel setText: @"Wind/Hum"];
 	[windLabel setBackgroundColor:[UIColor clearColor]];
 	[windLabel setFont: [UIFont systemFontOfSize: fontSize]];
-	[windLabel setTextAlignment: UITextAlignmentCenter];
+    windLabel.textAlignment = NSTextAlignmentCenter;
 	[containerView addSubview: windLabel];
 	
-	[[self tableView] setTableHeaderView: containerView];
+	[dailyTableView setTableHeaderView: containerView];
 	
 	
 	[[self navigationController] setNavigationBarHidden: NO];
@@ -224,7 +225,7 @@
 	[responseString release];
 	
 	[activityIndicator setHidden: YES];
-	[[self tableView] reloadData];
+	[dailyTableView reloadData];
 	
 }
 

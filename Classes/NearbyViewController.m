@@ -45,9 +45,9 @@
 }
 
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibName bundle:(NSBundle *)bundle {
-	return [self init];
-}
+//- (id)initWithNibName:(NSString *)nibName bundle:(NSBundle *)bundle {
+//	return [self init];
+//}
 
 
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
@@ -151,7 +151,7 @@
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 	NSString *tempUnit = [NSString stringWithFormat: @"%@", [[prefs stringForKey: @"tempUnit"] isEqualToString: @"c"] ? @"c" : @"f"];
 	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/list/%@?days=3&apiKey=iphone-%@&maxResults=20&tempUnit=%@",
-					 text, [[UIDevice currentDevice] uniqueIdentifier], tempUnit];
+					 text, [[UIDevice currentDevice] identifierForVendor], tempUnit];
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
 	
 	[[NSURLConnection alloc] initWithRequest:request delegate: myTableDelegate];
