@@ -151,7 +151,7 @@
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 	NSString *tempUnit = [NSString stringWithFormat: @"%@", [[prefs stringForKey: @"tempUnit"] isEqualToString: @"c"] ? @"c" : @"f"];
 	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/list/%@?days=3&apiKey=iphone-%@&maxResults=20&tempUnit=%@",
-					 text, [[UIDevice currentDevice] identifierForVendor], tempUnit];
+					 text, [[[UIDevice currentDevice] identifierForVendor] UUIDString], tempUnit];
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
 	
 	[[NSURLConnection alloc] initWithRequest:request delegate: myTableDelegate];

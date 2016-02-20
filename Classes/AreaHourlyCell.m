@@ -71,7 +71,7 @@
 	[super layoutSubviews];
 	
 	CGRect bounds = [[self contentView] bounds];
-	float h = bounds.size.height;
+	//float h = bounds.size.height;
 	float w = bounds.size.width;
 	//float valueWidth = 200.0;
 	
@@ -117,7 +117,7 @@
 	
 	// Time
 	CGRect innerFrameTime = CGRectMake(timeX, timeY, timeWidth, timeRowHeight);
-	[timeLabel setTextAlignment: UITextAlignmentCenter];
+    timeLabel.textAlignment = NSTextAlignmentCenter;
 	[timeLabel setFont: [UIFont systemFontOfSize: small]];
 	[timeLabel setFrame: innerFrameTime];
 	
@@ -128,37 +128,37 @@
 	// Temp
 	CGRect innerFrameTemp = CGRectMake(highX, inset, highWidth, tempRowHeight);
 	[tempLabel setFont: [UIFont systemFontOfSize: big]];
-	[tempLabel setTextAlignment: UITextAlignmentCenter];
+    tempLabel.textAlignment = NSTextAlignmentCenter;
 	[tempLabel setFrame: innerFrameTemp];
 	
 	// Sky
 	CGRect innerFrameSky = CGRectMake(highX, secondRowY, highWidth, skyRowHeight);
 	[skyLabel setFont: [UIFont systemFontOfSize: small]];
-	[skyLabel setTextAlignment: UITextAlignmentCenter];
+    skyLabel.textAlignment = NSTextAlignmentCenter;
 	[skyLabel setFrame: innerFrameSky];
 	
 	// Precip Day
 	CGRect innerFramePrecip = CGRectMake(precipX, timeY, precipWidth, timeRowHeight);
 	[precipLabel setFont: [UIFont systemFontOfSize: big]];
-	[precipLabel setTextAlignment: UITextAlignmentCenter];
+    precipLabel.textAlignment = NSTextAlignmentCenter;
 	[precipLabel setFrame: innerFramePrecip];
 	
 	// Wind
 	CGRect innerFrameWind = CGRectMake(windX, inset, windWidth, tempRowHeight);
 	[windLabel setFont: [UIFont systemFontOfSize: big]];
-	[windLabel setTextAlignment: UITextAlignmentCenter];
+    windLabel.textAlignment = NSTextAlignmentCenter;
 	[windLabel setFrame: innerFrameWind];
 	
 	// Humidity
 	CGRect innerFrameHum = CGRectMake(windX, secondRowY, windWidth, skyRowHeight);
 	[humLabel setFont: [UIFont systemFontOfSize: small]];
-	[humLabel setTextAlignment: UITextAlignmentCenter];
+    humLabel.textAlignment = NSTextAlignmentCenter;
 	[humLabel setFrame: innerFrameHum];
 	
 	// Conditions
 	CGRect innerFrameConditions = CGRectMake(timeX + 5.0, thirdRowY, w, conditionsRowHeight);
 	[conditionsLabel setFont: [UIFont systemFontOfSize: small]];
-	[conditionsLabel setTextAlignment: UITextAlignmentLeft];
+    conditionsLabel.textAlignment = NSTextAlignmentLeft;
 	[conditionsLabel setFrame: innerFrameConditions];
 	
 }

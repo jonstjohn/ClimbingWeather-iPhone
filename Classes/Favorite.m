@@ -31,10 +31,10 @@ static Favorite *mySharedFavorite = nil;
 - (id)retain {
     return self;
 }
-- (unsigned)retainCount {
-    return UINT_MAX; //denotes an object that cannot be released
+- (NSUInteger)retainCount {
+    return NSUIntegerMax; //denotes an object that cannot be released
 }
-- (void)release {
+- (oneway void)release {
     // never release
 }
 - (id)autorelease {

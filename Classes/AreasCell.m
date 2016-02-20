@@ -85,7 +85,7 @@
 	[super layoutSubviews];
 	
 	CGRect bounds = [[self contentView] bounds];
-	float h = bounds.size.height;
+	//float h = bounds.size.height;
 	float w = bounds.size.width;
 	//float valueWidth = 200.0;
 	
@@ -99,7 +99,7 @@
 	
 	float firstRowHeight = big + 12.0;
 	float secondRowY = inset + firstRowHeight + rowSpacing;
-	float secondRowHeight = small + 1.0;
+	//float secondRowHeight = small + 1.0;
 	float thirdRowY = secondRowY + 18.0;
 	
 	float favoriteWidth = 30.0;
@@ -147,7 +147,7 @@
 	// Area Name
 	CGRect innerFrameAreaName = CGRectMake(areaNameX, inset, areaNameWidth, firstRowHeight);
 	[areaName setFont: [UIFont systemFontOfSize: big]];
-	[areaName setTextAlignment: UITextAlignmentLeft];
+    areaName.textAlignment = NSTextAlignmentLeft;
 	[areaName setFrame: innerFrameAreaName];
 	
 	// Day 1 Symbol
@@ -158,13 +158,13 @@
 	// Day 1 Temp
 	CGRect innerFrameDay1Temp = CGRectMake(day1TempX, secondRowY, tempWidth, small + 1.0);
 	//[day1Temp setBackgroundColor: [UIColor purpleColor]];
-	[day1Temp setTextAlignment: UITextAlignmentCenter];
+    day1Temp.textAlignment = NSTextAlignmentCenter;
 	[day1Temp setFont: [UIFont systemFontOfSize: small]];
 	[day1Temp setFrame: innerFrameDay1Temp];
 	
 	// Day 1 Precip
 	CGRect innerFrameDay1Precip = CGRectMake(day1TempX, thirdRowY, tempWidth, smaller + 1.0);
-	[day1Precip setTextAlignment: UITextAlignmentCenter];
+    day1Precip.textAlignment = NSTextAlignmentCenter;
 	[day1Precip setFont: [UIFont systemFontOfSize: smaller]];
 	[day1Precip setFrame: innerFrameDay1Precip];
 	
@@ -176,13 +176,13 @@
 	// Day 2 Temp
 	CGRect innerFrameDay2Temp = CGRectMake(day2TempX, secondRowY, tempWidth, small + 1.0);
 	//[day2Temp setBackgroundColor: [UIColor purpleColor]];
-	[day2Temp setTextAlignment: UITextAlignmentCenter];
+    day2Temp.textAlignment = NSTextAlignmentCenter;
 	[day2Temp setFont: [UIFont systemFontOfSize: small]];
 	[day2Temp setFrame: innerFrameDay2Temp];
 	
 	// Day 2 Precip
 	CGRect innerFrameDay2Precip = CGRectMake(day2TempX, thirdRowY, tempWidth, smaller + 1.0);
-	[day2Precip setTextAlignment: UITextAlignmentCenter];
+    day2Precip.textAlignment = NSTextAlignmentCenter;
 	[day2Precip setFont: [UIFont systemFontOfSize: smaller]];
 	[day2Precip setFrame: innerFrameDay2Precip];
 	
@@ -194,13 +194,13 @@
 	// Day 3 Temp
 	CGRect innerFrameDay3Temp = CGRectMake(day3TempX, secondRowY, tempWidth, small + 1.0);
 	//[day3Temp setBackgroundColor: [UIColor purpleColor]];
-	[day3Temp setTextAlignment: UITextAlignmentCenter];
+    day3Temp.textAlignment = NSTextAlignmentCenter;
 	[day3Temp setFont: [UIFont systemFontOfSize: small]];
 	[day3Temp setFrame: innerFrameDay3Temp];
 	
 	// Day 3 Precip
 	CGRect innerFrameDay3Precip = CGRectMake(day3TempX, thirdRowY, tempWidth, smaller + 1.0);
-	[day3Precip setTextAlignment: UITextAlignmentCenter];
+    day3Precip.textAlignment = NSTextAlignmentCenter;
 	[day3Precip setFont: [UIFont systemFontOfSize: smaller]];
 	[day3Precip setFrame: innerFrameDay3Precip];
 	

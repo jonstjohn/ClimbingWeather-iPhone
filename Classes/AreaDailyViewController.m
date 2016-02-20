@@ -53,7 +53,7 @@
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 	NSString *tempUnit = [NSString stringWithFormat: @"%@", [[prefs stringForKey: @"tempUnit"] isEqualToString: @"c"] ? @"c" : @"f"];
 	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/daily/%@?apiKey=iphone-%@&tempUnit=%@",
-					 [sharedManager areaId], [[UIDevice currentDevice] identifierForVendor], tempUnit];
+					 [sharedManager areaId], [[[UIDevice currentDevice] identifierForVendor] UUIDString], tempUnit];
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: url]];
 	
 	[[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -211,7 +211,7 @@
 	NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
 	[responseData release];
 	
-	NSDictionary *data = [responseString JSONValue];
+	NSDictionary *data = (NSDictionary *)[responseString JSONValue];
 	NSDictionary *daysJson = [data objectForKey: @"results"];
 	
 	[days removeAllObjects];
