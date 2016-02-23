@@ -11,6 +11,8 @@
 
 @implementation Database
 
+@synthesize database;
+
 static Database *mySharedDatabase = nil;
 
 #pragma mark Singleton Methods

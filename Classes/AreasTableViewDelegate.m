@@ -129,7 +129,7 @@
 
 - (IBAction) buttonPressed: (id) sender
 {
-	UITableView *myTable = (UITableView *) [[[sender superview] superview] superview];
+	UITableView *myTable = (UITableView *) [[[[sender superview] superview] superview] superview];
 	
 	NSIndexPath *indexPath = [myTable indexPathForCell:(UITableViewCell *)[[sender superview] superview]];
 	
@@ -145,7 +145,6 @@
 		[sharedFavorite remove: areaId];
 		UIImage *btnImage = [UIImage imageNamed: @"btn_star_big_off.png"];
 		[(UIButton *) sender setImage: btnImage forState: UIControlStateNormal];
-		[btnImage release];
 		
 		// If isn't a favorite, add
 	} else {
@@ -153,7 +152,6 @@
 		[sharedFavorite add: areaId withName: name];
 		UIImage *btnImage = [UIImage imageNamed: @"btn_star_big_on.png"];
 		[(UIButton *) sender setImage: btnImage forState: UIControlStateNormal];
-		[btnImage release];
 	}
 	
 	//[myTable release];

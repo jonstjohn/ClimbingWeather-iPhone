@@ -160,7 +160,7 @@
 	// Conditions
 	CGRect innerFrameConditions = CGRectMake(dayX + 5.0, thirdRowY, w, small + 1.0);
 	[conditionsLabel setFont: [UIFont systemFontOfSize: small]];
-    conditionsLabel.textAlignment = NSTextAlignmentCenter;
+    conditionsLabel.textAlignment = NSTextAlignmentLeft;
 	[conditionsLabel setFrame: innerFrameConditions];
 	
 }

@@ -35,7 +35,7 @@ static Cache *mySharedCache = nil;
 - (NSUInteger)retainCount {
     return NSUIntegerMax; //denotes an object that cannot be released
 }
-- (void)release {
+- (oneway void)release {
     // never release
 }
 - (id)autorelease {
