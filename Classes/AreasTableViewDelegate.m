@@ -25,7 +25,7 @@
 
 - (id) init {
 	
-	areas = [[NSMutableArray alloc] initWithObjects: nil];
+	areas = [[NSMutableArray alloc] init];
 	showStates = NO;
 	return [super init];
 	
