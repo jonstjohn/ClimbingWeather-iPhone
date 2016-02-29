@@ -17,7 +17,7 @@
             <userGuides>
                 <userLayoutGuide location="108" affinity="minY"/>
                 <userLayoutGuide location="374" affinity="minY"/>
-                <userLayoutGuide location="215" affinity="maxX"/>
+                <userLayoutGuide location="214" affinity="maxX"/>
                 <userLayoutGuide location="275" affinity="minX"/>
                 <userLayoutGuide location="180" affinity="minX"/>
                 <userLayoutGuide location="132" affinity="minX"/>
@@ -26,27 +26,10 @@
                 <imageView userInteractionEnabled="NO" contentMode="center" image="logo_top_center.png" translatesAutoresizingMaskIntoConstraints="NO" id="4">
                     <rect key="frame" x="60" y="11" width="200" height="200"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8">
-                    <rect key="frame" x="0.0" y="308" width="320" height="27"/>
-                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                    <inset key="titleEdgeInsets" minX="67" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <inset key="imageEdgeInsets" minX="39" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="Nearby Areas" image="73-radar.png">
-                        <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="highlighted">
-                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="showNearby:" destination="-1" eventType="touchUpInside" id="13"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9">
                     <rect key="frame" x="0.0" y="345" width="320" height="22"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                    <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <inset key="titleEdgeInsets" minX="24" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="By State" image="190-bank.png">
                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -58,27 +41,10 @@
                         <action selector="showByState:" destination="-1" eventType="touchUpInside" id="14"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10">
-                    <rect key="frame" x="0.0" y="377" width="320" height="26"/>
-                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                    <inset key="titleEdgeInsets" minX="34" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <inset key="imageEdgeInsets" minX="13" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="Favorites" image="28-star.png">
-                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="highlighted">
-                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="showFavorites:" destination="-1" eventType="touchUpInside" id="15"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19">
                     <rect key="frame" x="0.0" y="270" width="320" height="28"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                    <inset key="titleEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <inset key="imageEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="About / Settings" image="20-gear2.png">
                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -101,31 +67,57 @@
                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="icon_magnify_glass.png" translatesAutoresizingMaskIntoConstraints="NO" id="25">
                     <rect key="frame" x="267" y="215" width="30" height="30"/>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10">
+                    <rect key="frame" x="0.0" y="375" width="320" height="26"/>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Favorites" image="28-star.png">
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="showFavorites:" destination="-1" eventType="touchUpInside" id="15"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8">
+                    <rect key="frame" x="0.0" y="306" width="320" height="27"/>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="Nearby Areas" image="73-radar.png">
+                        <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="showNearby:" destination="-1" eventType="touchUpInside" id="13"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="9" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="26t-8Q-gqx"/>
-                <constraint firstItem="19" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="2bw-lP-mAb"/>
-                <constraint firstItem="10" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="D6c-pw-dT4"/>
-                <constraint firstAttribute="trailing" secondItem="10" secondAttribute="trailing" id="EMQ-i8-iiI"/>
-                <constraint firstItem="10" firstAttribute="top" secondItem="9" secondAttribute="bottom" constant="10" id="ETJ-4U-dVN"/>
-                <constraint firstItem="25" firstAttribute="centerY" secondItem="24" secondAttribute="centerY" id="FJo-aS-DSZ"/>
-                <constraint firstItem="8" firstAttribute="top" secondItem="19" secondAttribute="bottom" constant="10" id="It1-Ic-JDW"/>
-                <constraint firstItem="10" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="MYo-F8-kuL"/>
-                <constraint firstItem="19" firstAttribute="top" secondItem="24" secondAttribute="bottom" constant="25" id="Q6o-Us-XL5"/>
-                <constraint firstItem="24" firstAttribute="centerY" secondItem="1" secondAttribute="centerY" id="RMi-hj-nj7"/>
-                <constraint firstAttribute="trailing" secondItem="9" secondAttribute="trailing" id="XCa-fU-JpE"/>
-                <constraint firstItem="24" firstAttribute="top" secondItem="4" secondAttribute="bottom" constant="4" id="Yca-YQ-4yt"/>
-                <constraint firstAttribute="trailing" secondItem="19" secondAttribute="trailing" id="ZiE-76-Bh2"/>
-                <constraint firstAttribute="trailing" secondItem="8" secondAttribute="trailing" id="aTW-SS-9aK"/>
-                <constraint firstItem="25" firstAttribute="leading" secondItem="24" secondAttribute="trailing" constant="8" id="bQ2-mU-TlW"/>
-                <constraint firstItem="8" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="bwB-LV-Gei"/>
-                <constraint firstItem="9" firstAttribute="top" secondItem="8" secondAttribute="bottom" constant="10" id="fRF-cU-XES"/>
-                <constraint firstItem="8" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="kwW-jh-r5r"/>
-                <constraint firstItem="24" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="rLf-Fs-GXM"/>
-                <constraint firstItem="19" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="smb-ZY-NoR"/>
-                <constraint firstItem="4" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="wCg-hF-cgg"/>
-                <constraint firstItem="9" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="y8j-e4-n6B"/>
+                <constraint firstItem="10" firstAttribute="top" secondItem="9" secondAttribute="bottom" constant="10" id="2oQ-ME-iXq"/>
+                <constraint firstItem="9" firstAttribute="trailing" secondItem="8" secondAttribute="trailing" id="3yL-dH-JC9"/>
+                <constraint firstItem="9" firstAttribute="top" secondItem="8" secondAttribute="bottom" constant="10" id="9PF-QI-byt"/>
+                <constraint firstItem="25" firstAttribute="leading" secondItem="24" secondAttribute="trailing" constant="8" symbolic="YES" id="DKP-2T-qQd"/>
+                <constraint firstItem="25" firstAttribute="top" secondItem="24" secondAttribute="top" id="Fl8-SW-OXW"/>
+                <constraint firstItem="8" firstAttribute="top" secondItem="19" secondAttribute="bottom" constant="10" id="GHP-Tg-Ha4"/>
+                <constraint firstItem="24" firstAttribute="centerX" secondItem="19" secondAttribute="centerX" id="JUb-0A-fk4"/>
+                <constraint firstItem="9" firstAttribute="leading" secondItem="8" secondAttribute="leading" id="MnC-Gp-NRO"/>
+                <constraint firstItem="10" firstAttribute="leading" secondItem="9" secondAttribute="leading" id="NJW-Ql-kjU"/>
+                <constraint firstItem="19" firstAttribute="top" secondItem="25" secondAttribute="bottom" constant="25" id="axv-ru-5F3"/>
+                <constraint firstItem="19" firstAttribute="trailing" secondItem="8" secondAttribute="trailing" id="b1b-WO-b20"/>
+                <constraint firstItem="24" firstAttribute="top" secondItem="4" secondAttribute="bottom" constant="4" id="cAx-7s-w9B"/>
+                <constraint firstItem="19" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="eU6-Xv-Amq"/>
+                <constraint firstItem="4" firstAttribute="centerX" secondItem="24" secondAttribute="centerX" id="i5t-VM-pZG"/>
+                <constraint firstItem="10" firstAttribute="trailing" secondItem="9" secondAttribute="trailing" id="uqJ-QD-ASC"/>
+                <constraint firstItem="4" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="xH4-0q-91m"/>
+                <constraint firstItem="19" firstAttribute="leading" secondItem="8" secondAttribute="leading" id="zdU-Mg-JN0"/>
+                <constraint firstItem="24" firstAttribute="centerY" secondItem="1" secondAttribute="centerY" id="zdm-vA-GP9"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="353" y="258"/>

@@ -53,18 +53,11 @@
 	}
 }
 
-// The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-/*
-- (id)initWithNibName:(NSString *)nibName bundle:(NSBundle *)bundle {
-	return [self init];
-}
-*/
-
-
-
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationController.navigationBar.translucent = NO;
 	
 	[myTable setDelegate: myTableDelegate];
 	[myTable setDataSource: myTableDelegate];

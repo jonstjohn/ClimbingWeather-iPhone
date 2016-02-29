@@ -210,7 +210,7 @@
 		608A56F812E9239B003BCB84 /* ic_menu_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_menu_search.png; sourceTree = "<group>"; };
 		608A56FA12E923AA003BCB84 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		608A56FB12E923AA003BCB84 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
-		608A56FC12E923AA003BCB84 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SearchViewController.xib; path = Classes/SearchViewController.xib; sourceTree = "<group>"; };
+		608A56FC12E923AA003BCB84 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		608A57A912EA778F003BCB84 /* AreaDailyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaDailyCell.h; sourceTree = "<group>"; };
 		608A57AA12EA778F003BCB84 /* AreaDailyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaDailyCell.m; sourceTree = "<group>"; };
 		608A589412EC5B46003BCB84 /* btn_star_big_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_star_big_off.png; sourceTree = "<group>"; };
@@ -470,6 +470,7 @@
 				608A56C712E92003003BCB84 /* FavoritesViewController.m */,
 				608A56FA12E923AA003BCB84 /* SearchViewController.h */,
 				608A56FB12E923AA003BCB84 /* SearchViewController.m */,
+				608A56FC12E923AA003BCB84 /* SearchViewController.xib */,
 				608A50C512E33CCD003BCB84 /* HomeViewController.h */,
 				608A50C612E33CCD003BCB84 /* HomeViewController.m */,
 				608A50DC12E33CF5003BCB84 /* NearbyViewController.h */,
@@ -576,7 +577,6 @@
 				608A560412E7C9F3003BCB84 /* AreaDailyViewController.xib */,
 				608A550412E52FDD003BCB84 /* AreasViewController.xib */,
 				608A511512E34061003BCB84 /* StatesViewController.xib */,
-				608A56FC12E923AA003BCB84 /* SearchViewController.xib */,
 				608A50C712E33CCD003BCB84 /* HomeViewController.xib */,
 				608A50DE12E33CF5003BCB84 /* NearbyViewController.xib */,
 				608DE46912FCF24A00AE172C /* AreaDetailController.xib */,
