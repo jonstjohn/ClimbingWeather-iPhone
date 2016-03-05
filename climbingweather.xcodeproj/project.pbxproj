@@ -167,7 +167,7 @@
 		608A50C712E33CCD003BCB84 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HomeViewController.xib; path = Classes/HomeViewController.xib; sourceTree = "<group>"; };
 		608A50DC12E33CF5003BCB84 /* NearbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyViewController.h; sourceTree = "<group>"; };
 		608A50DD12E33CF5003BCB84 /* NearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyViewController.m; sourceTree = "<group>"; };
-		608A50DE12E33CF5003BCB84 /* NearbyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = NearbyViewController.xib; path = Classes/NearbyViewController.xib; sourceTree = "<group>"; };
+		608A50DE12E33CF5003BCB84 /* NearbyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearbyViewController.xib; sourceTree = "<group>"; };
 		608A511312E34061003BCB84 /* StatesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatesViewController.h; sourceTree = "<group>"; };
 		608A511412E34061003BCB84 /* StatesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatesViewController.m; sourceTree = "<group>"; };
 		608A511512E34061003BCB84 /* StatesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = StatesViewController.xib; path = Classes/StatesViewController.xib; sourceTree = "<group>"; };
@@ -475,6 +475,7 @@
 				608A50C612E33CCD003BCB84 /* HomeViewController.m */,
 				608A50DC12E33CF5003BCB84 /* NearbyViewController.h */,
 				608A50DD12E33CF5003BCB84 /* NearbyViewController.m */,
+				608A50DE12E33CF5003BCB84 /* NearbyViewController.xib */,
 				6057F059134FE23A00D04516 /* MoreViewController.h */,
 				6057F05A134FE23A00D04516 /* MoreViewController.m */,
 				6057F05B134FE23A00D04516 /* MoreViewController.xib */,
@@ -578,7 +579,6 @@
 				608A550412E52FDD003BCB84 /* AreasViewController.xib */,
 				608A511512E34061003BCB84 /* StatesViewController.xib */,
 				608A50C712E33CCD003BCB84 /* HomeViewController.xib */,
-				608A50DE12E33CF5003BCB84 /* NearbyViewController.xib */,
 				608DE46912FCF24A00AE172C /* AreaDetailController.xib */,
 				608A56C812E92003003BCB84 /* FavoritesViewController.xib */,
 				608DE47812FCF47D00AE172C /* AreaAverages.xib */,

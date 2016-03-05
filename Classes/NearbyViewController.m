@@ -64,6 +64,10 @@
 	
 	[activityIndicator setHidesWhenStopped: NO];
 	[activityIndicator startAnimating];
+    
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
+        [locationManager requestWhenInUseAuthorization];
+    }
 	
 	[locationManager startUpdatingLocation];
 	
@@ -88,6 +92,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationController.navigationBar.translucent = NO;
 
 	[myTable setDelegate: myTableDelegate];
 	[myTable setDataSource: myTableDelegate];
@@ -130,11 +136,9 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (void)locationManager:(CLLocationManager *)manager
-    didUpdateToLocation:(CLLocation *)newLocation
-           fromLocation:(CLLocation *)oldLocation
-{
-		[self search: [NSString stringWithFormat: @"%.5f,%.5f", newLocation.coordinate.latitude, newLocation.coordinate.longitude]];
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    CLLocation *location = [locations lastObject];
+    [self search: [NSString stringWithFormat: @"%.5f,%.5f", location.coordinate.latitude, location.coordinate.longitude]];
 }
 
 - (void)locationManager:(CLLocationManager *)manager
