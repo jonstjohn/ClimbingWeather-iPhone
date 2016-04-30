@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WHD-vk-8Hf">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Home-->
+        <scene sceneID="76v-PR-LwB">
+            <objects>
+                <viewController id="oL2-F4-yek" userLabel="Home" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NoG-ST-DxQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="QEw-lq-fRM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4pG-Q5-A0k">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" ambiguous="YES" misplaced="YES" image="logo_top_center.png" translatesAutoresizingMaskIntoConstraints="NO" id="FBJ-ip-7tI">
+                                <rect key="frame" x="200" y="89" width="200" height="200"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhh-tE-D6b">
+                                <rect key="frame" x="140" y="423" width="320" height="22"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="By State" image="190-bank.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" image="190-bank.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wzr-TF-mtm">
+                                <rect key="frame" x="140" y="348" width="320" height="28"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="About / Settings" image="20-gear2.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter area name or zip code" minimumFontSize="20" background="icon_magnify_glass.png" translatesAutoresizingMaskIntoConstraints="NO" id="1Ed-je-Egy">
+                                <rect key="frame" x="201" y="293" width="198" height="30"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                            </textField>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" image="icon_magnify_glass.png" translatesAutoresizingMaskIntoConstraints="NO" id="spz-DI-vX1">
+                                <rect key="frame" x="407" y="293" width="30" height="30"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OwV-Wp-q1G">
+                                <rect key="frame" x="140" y="453" width="320" height="26"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Favorites" image="28-star.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sq8-6m-fYo">
+                                <rect key="frame" x="140" y="384" width="320" height="27"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Nearby Areas" image="73-radar.png">
+                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bhh-tE-D6b" firstAttribute="trailing" secondItem="sq8-6m-fYo" secondAttribute="trailing" id="1R5-AB-PWo"/>
+                            <constraint firstItem="OwV-Wp-q1G" firstAttribute="top" secondItem="bhh-tE-D6b" secondAttribute="bottom" constant="10" id="5O7-kJ-NC0"/>
+                            <constraint firstItem="1Ed-je-Egy" firstAttribute="top" secondItem="FBJ-ip-7tI" secondAttribute="bottom" constant="4" id="7dH-7m-gka"/>
+                            <constraint firstItem="OwV-Wp-q1G" firstAttribute="trailing" secondItem="bhh-tE-D6b" secondAttribute="trailing" id="AQR-WD-Wfc"/>
+                            <constraint firstItem="Wzr-TF-mtm" firstAttribute="trailing" secondItem="sq8-6m-fYo" secondAttribute="trailing" id="Fz1-w4-jaI"/>
+                            <constraint firstItem="FBJ-ip-7tI" firstAttribute="centerX" secondItem="1Ed-je-Egy" secondAttribute="centerX" id="Tdy-fP-IAU"/>
+                            <constraint firstItem="spz-DI-vX1" firstAttribute="leading" secondItem="1Ed-je-Egy" secondAttribute="trailing" constant="8" symbolic="YES" id="Tqy-Gm-DKJ"/>
+                            <constraint firstItem="Wzr-TF-mtm" firstAttribute="leading" secondItem="sq8-6m-fYo" secondAttribute="leading" id="WAD-cB-wg6"/>
+                            <constraint firstItem="bhh-tE-D6b" firstAttribute="top" secondItem="sq8-6m-fYo" secondAttribute="bottom" constant="10" id="fSf-Gk-G4f"/>
+                            <constraint firstItem="1Ed-je-Egy" firstAttribute="centerX" secondItem="Wzr-TF-mtm" secondAttribute="centerX" id="iW5-Zz-0v4"/>
+                            <constraint firstItem="Wzr-TF-mtm" firstAttribute="top" secondItem="spz-DI-vX1" secondAttribute="bottom" constant="25" id="nXB-MX-J9c"/>
+                            <constraint firstItem="sq8-6m-fYo" firstAttribute="top" secondItem="Wzr-TF-mtm" secondAttribute="bottom" constant="10" id="pFV-Js-oK4"/>
+                            <constraint firstItem="bhh-tE-D6b" firstAttribute="leading" secondItem="sq8-6m-fYo" secondAttribute="leading" id="qx4-X2-BZK"/>
+                            <constraint firstItem="OwV-Wp-q1G" firstAttribute="leading" secondItem="bhh-tE-D6b" secondAttribute="leading" id="rSZ-bI-z7B"/>
+                            <constraint firstItem="spz-DI-vX1" firstAttribute="top" secondItem="1Ed-je-Egy" secondAttribute="top" id="wis-cM-gYK"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="icon_home.png" id="TUY-zx-5dT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0y5-FH-hfr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="345" y="-391"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="5Im-Gb-pYP">
+            <objects>
+                <tableViewController id="amD-YN-8sb" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="APM-7D-MkK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="1GZ-H7-jVa">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1GZ-H7-jVa" id="WUG-Dv-ogW">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="amD-YN-8sb" id="WR3-Eq-fZO"/>
+                            <outlet property="delegate" destination="amD-YN-8sb" id="SKb-bc-RjG"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="aXc-Sh-KMC"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P3x-hw-D7a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1291" y="303"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="JwA-M4-Gl2">
+            <objects>
+                <tabBarController id="WHD-vk-8Hf" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="KHO-jd-zrU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="oL2-F4-yek" kind="relationship" relationship="viewControllers" id="Y4q-fx-Pu4"/>
+                        <segue destination="gIC-wh-oK7" kind="relationship" relationship="viewControllers" id="2ID-24-jIp"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hEg-ar-B12" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-475" y="-60"/>
+        </scene>
+        <!--Nearby-->
+        <scene sceneID="S0g-ns-znX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gIC-wh-oK7" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Nearby" image="73-radar.png" id="eau-C2-xLt"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4Cq-Qj-v6Q">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="amD-YN-8sb" kind="relationship" relationship="rootViewController" id="NKs-sI-q9E"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Dc-W7-JrO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="479" y="303"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="190-bank.png" width="26" height="22"/>
+        <image name="20-gear2.png" width="26" height="28"/>
+        <image name="28-star.png" width="26" height="26"/>
+        <image name="73-radar.png" width="27" height="27"/>
+        <image name="icon_home.png" width="30" height="30"/>
+        <image name="icon_magnify_glass.png" width="30" height="30"/>
+        <image name="logo_top_center.png" width="200" height="200"/>
+    </resources>
+</document>

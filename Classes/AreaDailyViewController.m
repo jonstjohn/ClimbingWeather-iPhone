@@ -34,7 +34,6 @@
 	[super viewWillAppear: animated];
 	[days removeAllObjects];
 	[dailyTableView reloadData];
-	
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -123,7 +122,6 @@
 	
 	
 	[[self navigationController] setNavigationBarHidden: NO];
-	
 }
 
 - (NSInteger) tableView: (UITableView *) tableView numberOfRowsInSection: (NSInteger) section

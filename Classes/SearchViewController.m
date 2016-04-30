@@ -56,8 +56,6 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.navigationController.navigationBar.translucent = NO;
 	
 	[myTable setDelegate: myTableDelegate];
 	[myTable setDataSource: myTableDelegate];

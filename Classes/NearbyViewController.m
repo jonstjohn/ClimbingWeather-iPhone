@@ -17,7 +17,7 @@
 {
 	
 	// Call the super-class's designated initialize
-	self = [super initWithNibName: @"NearbyViewController" bundle: nil];
+	self = [super initWithNibName: @"AreasViewController" bundle: nil];
 	
 	// Get tab bar item
 	UITabBarItem *tbi = [self tabBarItem];
@@ -44,22 +44,8 @@
 	return self;
 }
 
-// The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-//- (id)initWithNibName:(NSString *)nibName bundle:(NSBundle *)bundle {
-//	return [self init];
-//}
-
-
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView {
-	[super loadView];
-}
-
-
-- (void) viewDidAppear: (BOOL) animated
-{
+- (void) viewDidAppear: (BOOL) animated {
 	[super viewDidAppear: animated];
-	[[self tabBarController] setTitle: @"Nearby Areas"];
 	[[self navigationController] setNavigationBarHidden: NO];
 	
 	[activityIndicator setHidesWhenStopped: NO];
@@ -92,14 +78,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.navigationController.navigationBar.translucent = NO;
 
 	[myTable setDelegate: myTableDelegate];
 	[myTable setDataSource: myTableDelegate];
 	[myTableDelegate setAreasTableView: myTable];
 	
 	[myTable setSeparatorStyle: UITableViewCellSeparatorStyleNone];
+    
 /*
 	[locationManager startUpdatingLocation];
 	
@@ -127,13 +112,14 @@
 - (void)viewWillAppear:(BOOL)animated  
 {  
     NSIndexPath *tableSelection = [myTable indexPathForSelectedRow];  
-    [myTable deselectRowAtIndexPath:tableSelection animated:NO];  
-}  
+    [myTable deselectRowAtIndexPath:tableSelection animated:NO];
+    [[self tabBarController] setTitle: @"Nearby Areas"];
+    [super viewWillAppear: animated];
+}
 
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+- (void)viewWillDisappear:(BOOL)animated {
+    [[self tabBarController] setTitle: @" "];
+    [super viewWillDisappear:animated];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
