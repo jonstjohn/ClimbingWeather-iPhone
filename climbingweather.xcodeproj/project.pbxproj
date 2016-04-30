@@ -13,6 +13,9 @@
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		6048728B1CD459080075B335 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6048728A1CD459080075B335 /* Main.storyboard */; };
 		6048728E1CD45AA30075B335 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6048728D1CD45AA30075B335 /* AppDelegate.swift */; };
+		604872CA1CD46BD00075B335 /* NearbyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604872C91CD46BD00075B335 /* NearbyTableViewController.swift */; };
+		604872CD1CD46C660075B335 /* AreaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604872CB1CD46C660075B335 /* AreaTableViewCell.swift */; };
+		604872CE1CD46C660075B335 /* AreaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 604872CC1CD46C660075B335 /* AreaTableViewCell.xib */; };
 		6057F052134EA8F700D04516 /* 28-star.png in Resources */ = {isa = PBXBuildFile; fileRef = 6057F051134EA8F700D04516 /* 28-star.png */; };
 		6057F05C134FE23B00D04516 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6057F05A134FE23A00D04516 /* MoreViewController.m */; };
 		6057F05D134FE23B00D04516 /* MoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6057F05B134FE23A00D04516 /* MoreViewController.xib */; };
@@ -149,6 +152,9 @@
 		6048728A1CD459080075B335 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6048728C1CD45AA20075B335 /* climbingweather-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "climbingweather-Bridging-Header.h"; sourceTree = "<group>"; };
 		6048728D1CD45AA30075B335 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		604872C91CD46BD00075B335 /* NearbyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyTableViewController.swift; sourceTree = "<group>"; };
+		604872CB1CD46C660075B335 /* AreaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaTableViewCell.swift; sourceTree = "<group>"; };
+		604872CC1CD46C660075B335 /* AreaTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AreaTableViewCell.xib; sourceTree = "<group>"; };
 		6057F051134EA8F700D04516 /* 28-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "28-star.png"; sourceTree = "<group>"; };
 		6057F059134FE23A00D04516 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
 		6057F05A134FE23A00D04516 /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
@@ -348,6 +354,9 @@
 			children = (
 				6048728D1CD45AA30075B335 /* AppDelegate.swift */,
 				6048728A1CD459080075B335 /* Main.storyboard */,
+				604872C91CD46BD00075B335 /* NearbyTableViewController.swift */,
+				604872CB1CD46C660075B335 /* AreaTableViewCell.swift */,
+				604872CC1CD46C660075B335 /* AreaTableViewCell.xib */,
 				6095679D1C78AC8B002CD30F /* Default-568h@2x.png */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -682,6 +691,7 @@
 				608A58CF12EC5B46003BCB84 /* fog_night.png in Resources */,
 				608A58D012EC5B46003BCB84 /* fog.png in Resources */,
 				608A58D112EC5B46003BCB84 /* hail.png in Resources */,
+				604872CE1CD46C660075B335 /* AreaTableViewCell.xib in Resources */,
 				608A58D212EC5B46003BCB84 /* ic_launcher.png in Resources */,
 				608A58D312EC5B46003BCB84 /* ic_menu_compass.png in Resources */,
 				608A58D412EC5B46003BCB84 /* ic_menu_info_details.png in Resources */,
@@ -756,6 +766,7 @@
 			files = (
 				1D3623260D0F684500981E51 /* climbingweatherAppDelegate.m in Sources */,
 				608A50C812E33CCD003BCB84 /* HomeViewController.m in Sources */,
+				604872CA1CD46BD00075B335 /* NearbyTableViewController.swift in Sources */,
 				608A50DF12E33CF5003BCB84 /* NearbyViewController.m in Sources */,
 				608A511612E34061003BCB84 /* StatesViewController.m in Sources */,
 				608A54A712E38A6E003BCB84 /* NSObject+SBJSON.m in Sources */,
@@ -766,6 +777,7 @@
 				608A54AB12E38A6E003BCB84 /* SBJsonWriter.m in Sources */,
 				608A550512E52FDD003BCB84 /* AreasViewController.m in Sources */,
 				608A551A12E532F2003BCB84 /* MyManager.m in Sources */,
+				604872CD1CD46C660075B335 /* AreaTableViewCell.swift in Sources */,
 				608A560512E7C9F3003BCB84 /* AreaDailyViewController.m in Sources */,
 				608A562D12E7CEF7003BCB84 /* AreaTabBarController.m in Sources */,
 				608A566312E7D551003BCB84 /* AreaHourlyViewController.m in Sources */,
