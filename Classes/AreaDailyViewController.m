@@ -52,7 +52,7 @@
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 	NSString *tempUnit = [NSString stringWithFormat: @"%@", [[prefs stringForKey: @"tempUnit"] isEqualToString: @"c"] ? @"c" : @"f"];
 	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/daily/%@?apiKey=iphone-%@&tempUnit=%@",
-					 [sharedManager areaId], [[UIDevice currentDevice] uniqueIdentifier], tempUnit];
+					 [sharedManager areaId], [[UIDevice currentDevice] identifierForVendor], tempUnit];
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: url]];
 	
 	[[NSURLConnection alloc] initWithRequest:request delegate:self];

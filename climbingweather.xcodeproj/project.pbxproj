@@ -3,15 +3,21 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1D3623260D0F684500981E51 /* climbingweatherAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* climbingweatherAppDelegate.m */; };
-		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
+		603764E71B7BBAC60012C757 /* CWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 603764E61B7BBAC60012C757 /* CWAppDelegate.m */; };
+		603764E91B7BBBB00012C757 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 603764E81B7BBBB00012C757 /* Main.storyboard */; };
+		603764EB1B7BBDC30012C757 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 603764EA1B7BBDC30012C757 /* Images.xcassets */; };
+		603764F11B7BC1120012C757 /* NearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603764F01B7BC1120012C757 /* NearViewController.swift */; };
+		603764F51B7BC2930012C757 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603764F41B7BC2930012C757 /* AppDelegate.swift */; };
+		603764F71B7BCFBB0012C757 /* StateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603764F61B7BCFBB0012C757 /* StateViewController.swift */; };
+		603764F91B7CCEAF0012C757 /* AreaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603764F81B7CCEAF0012C757 /* AreaCell.swift */; };
 		6057F052134EA8F700D04516 /* 28-star.png in Resources */ = {isa = PBXBuildFile; fileRef = 6057F051134EA8F700D04516 /* 28-star.png */; };
 		6057F05C134FE23B00D04516 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6057F05A134FE23A00D04516 /* MoreViewController.m */; };
 		6057F05D134FE23B00D04516 /* MoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6057F05B134FE23A00D04516 /* MoreViewController.xib */; };
@@ -134,6 +140,8 @@
 		60D99E0E1355285600B238D5 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D99E0D1355285600B238D5 /* Icon-Small.png */; };
 		60D99E101355289800B238D5 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D99E0F1355289800B238D5 /* Icon-Small-50.png */; };
 		60D99E12135528D000B238D5 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D99E11135528D000B238D5 /* Icon-Small@2x.png */; };
+		60E9D67F1B82D9A900F80027 /* AreaForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E9D67E1B82D9A900F80027 /* AreaForecastCell.swift */; };
+		60E9D6811B82DA5D00F80027 /* AreaForecastCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E9D6801B82DA5D00F80027 /* AreaForecastCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -144,7 +152,15 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28A0AAE50D9B0CCF005BE974 /* climbingweather_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = climbingweather_Prefix.pch; sourceTree = "<group>"; };
-		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		603764E51B7BBAC60012C757 /* CWAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWAppDelegate.h; sourceTree = "<group>"; };
+		603764E61B7BBAC60012C757 /* CWAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWAppDelegate.m; sourceTree = "<group>"; };
+		603764E81B7BBBB00012C757 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		603764EA1B7BBDC30012C757 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = climbingweather/Images.xcassets; sourceTree = "<group>"; };
+		603764EC1B7BC0960012C757 /* climbingweather-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "climbingweather-Bridging-Header.h"; sourceTree = "<group>"; };
+		603764F01B7BC1120012C757 /* NearViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearViewController.swift; sourceTree = "<group>"; };
+		603764F41B7BC2930012C757 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		603764F61B7BCFBB0012C757 /* StateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateViewController.swift; sourceTree = "<group>"; };
+		603764F81B7CCEAF0012C757 /* AreaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaCell.swift; sourceTree = "<group>"; };
 		6057F051134EA8F700D04516 /* 28-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "28-star.png"; sourceTree = "<group>"; };
 		6057F059134FE23A00D04516 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
 		6057F05A134FE23A00D04516 /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
@@ -299,6 +315,8 @@
 		60D99E0D1355285600B238D5 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
 		60D99E0F1355289800B238D5 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
 		60D99E11135528D000B238D5 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		60E9D67E1B82D9A900F80027 /* AreaForecastCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaForecastCell.swift; sourceTree = "<group>"; };
+		60E9D6801B82DA5D00F80027 /* AreaForecastCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaForecastCollectionView.swift; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* climbingweather-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "climbingweather-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -326,6 +344,8 @@
 				608DE46212FCF1BD00AE172C /* JSON */,
 				608DE46312FCF1D400AE172C /* Home */,
 				608DE46412FCF21900AE172C /* Util */,
+				603764E51B7BBAC60012C757 /* CWAppDelegate.h */,
+				603764E61B7BBAC60012C757 /* CWAppDelegate.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -341,6 +361,10 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				603764FA1B7CCED00012C757 /* CustomCells */,
+				603764F41B7BC2930012C757 /* AppDelegate.swift */,
+				603764E81B7BBBB00012C757 /* Main.storyboard */,
+				603764EF1B7BC0B50012C757 /* Controllers */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -351,6 +375,7 @@
 				608DE64312FF85C600AE172C /* CoreLocation.framework */,
 				608DE66512FF88CE00AE172C /* MapKit.framework */,
 				6077042A135697170085464F /* Entitlements.plist */,
+				603764EC1B7BC0960012C757 /* climbingweather-Bridging-Header.h */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -359,7 +384,6 @@
 			isa = PBXGroup;
 			children = (
 				28A0AAE50D9B0CCF005BE974 /* climbingweather_Prefix.pch */,
-				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -367,6 +391,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				603764EA1B7BBDC30012C757 /* Images.xcassets */,
 				60D99E11135528D000B238D5 /* Icon-Small@2x.png */,
 				60D99E0F1355289800B238D5 /* Icon-Small-50.png */,
 				60D99E0B135527E100B238D5 /* Icon-72.png */,
@@ -407,6 +432,25 @@
 				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		603764EF1B7BC0B50012C757 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				603764F01B7BC1120012C757 /* NearViewController.swift */,
+				603764F61B7BCFBB0012C757 /* StateViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		603764FA1B7CCED00012C757 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				603764F81B7CCEAF0012C757 /* AreaCell.swift */,
+				60E9D67E1B82D9A900F80027 /* AreaForecastCell.swift */,
+				60E9D6801B82DA5D00F80027 /* AreaForecastCollectionView.swift */,
+			);
+			name = CustomCells;
 			sourceTree = "<group>";
 		};
 		608DE45B12FCF18600AE172C /* Area */ = {
@@ -610,8 +654,13 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0640;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "climbingweather" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -636,12 +685,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				608A50C912E33CCD003BCB84 /* HomeViewController.xib in Resources */,
+				603764EB1B7BBDC30012C757 /* Images.xcassets in Resources */,
 				608A50E012E33CF5003BCB84 /* NearbyViewController.xib in Resources */,
 				608A511712E34061003BCB84 /* StatesViewController.xib in Resources */,
 				608A550612E52FDD003BCB84 /* AreasViewController.xib in Resources */,
 				608A560612E7C9F3003BCB84 /* AreaDailyViewController.xib in Resources */,
 				608A566412E7D551003BCB84 /* AreaHourlyViewController.xib in Resources */,
 				608A566D12E7D567003BCB84 /* AreaMapViewController.xib in Resources */,
+				603764E91B7BBBB00012C757 /* Main.storyboard in Resources */,
 				608A56AD12E91B5E003BCB84 /* logo_top_center.png in Resources */,
 				608A56B812E91DC8003BCB84 /* ic_menu_home.png in Resources */,
 				608A56CA12E92003003BCB84 /* FavoritesViewController.xib in Resources */,
@@ -735,14 +786,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				603764E71B7BBAC60012C757 /* CWAppDelegate.m in Sources */,
 				1D3623260D0F684500981E51 /* climbingweatherAppDelegate.m in Sources */,
 				608A50C812E33CCD003BCB84 /* HomeViewController.m in Sources */,
 				608A50DF12E33CF5003BCB84 /* NearbyViewController.m in Sources */,
+				603764F91B7CCEAF0012C757 /* AreaCell.swift in Sources */,
 				608A511612E34061003BCB84 /* StatesViewController.m in Sources */,
 				608A54A712E38A6E003BCB84 /* NSObject+SBJSON.m in Sources */,
 				608A54A812E38A6E003BCB84 /* NSString+SBJSON.m in Sources */,
 				608A54A912E38A6E003BCB84 /* SBJsonBase.m in Sources */,
+				60E9D67F1B82D9A900F80027 /* AreaForecastCell.swift in Sources */,
 				608A54AA12E38A6E003BCB84 /* SBJsonParser.m in Sources */,
 				608A54AB12E38A6E003BCB84 /* SBJsonWriter.m in Sources */,
 				608A550512E52FDD003BCB84 /* AreasViewController.m in Sources */,
@@ -757,14 +810,18 @@
 				608A59A312EFC58C003BCB84 /* AreasCell.m in Sources */,
 				608DE22812F60FCE00AE172C /* AreaHourlyCell.m in Sources */,
 				608DE3AE12FCDF0000AE172C /* Cache.m in Sources */,
+				603764F71B7BCFBB0012C757 /* StateViewController.swift in Sources */,
 				608DE46A12FCF24A00AE172C /* AreaDetailController.m in Sources */,
 				608DE47912FCF47D00AE172C /* AreaAveragesController.m in Sources */,
 				608DE56512FDFAC700AE172C /* Favorite.m in Sources */,
 				608DE57312FE024B00AE172C /* Database.m in Sources */,
 				608DE66D1300CF0C00AE172C /* MapPoint.m in Sources */,
+				603764F11B7BC1120012C757 /* NearViewController.swift in Sources */,
 				608DE80B130C01F400AE172C /* AreasTableViewDelegate.m in Sources */,
 				6057F05C134FE23B00D04516 /* MoreViewController.m in Sources */,
+				60E9D6811B82DA5D00F80027 /* AreaForecastCollectionView.swift in Sources */,
 				6087B4FE135140FC00C3044B /* SettingsViewController.m in Sources */,
+				603764F51B7BC2930012C757 /* AppDelegate.swift in Sources */,
 				6087B5051351410900C3044B /* AboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -776,6 +833,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "~/Documents/climbingweather/Entitlements.plist";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -783,8 +843,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = climbingweather_Prefix.pch;
 				INFOPLIST_FILE = "climbingweather-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Weather;
+				SWIFT_OBJC_BRIDGING_HEADER = "climbingweather-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -792,6 +855,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "~/Documents/climbingweather/Entitlements.plist";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
@@ -799,9 +865,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = climbingweather_Prefix.pch;
 				INFOPLIST_FILE = "climbingweather-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = ClimbWeather;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "climbingweather-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -809,7 +878,6 @@
 		60770416135696090085464F /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -824,6 +892,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "~/Documents/climbingweather/Entitlements.plist";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
@@ -831,9 +902,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = climbingweather_Prefix.pch;
 				INFOPLIST_FILE = "climbingweather-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = ClimbWeather;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "climbingweather-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Distribution;
@@ -841,11 +915,11 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = iphoneos;
 			};
@@ -854,7 +928,6 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;

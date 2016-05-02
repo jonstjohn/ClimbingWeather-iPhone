@@ -36,7 +36,7 @@
 	
 	// Initialize request url
 	requestUrl = [[NSString alloc] initWithFormat: @"http://api.climbingweather.com/api/state/list?apiKey=iphone-%@", 
-				  [[UIDevice currentDevice] uniqueIdentifier]];
+				  [[UIDevice currentDevice] identifierForVendor]];
 	return self;
 }
 
