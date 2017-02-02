@@ -51,6 +51,10 @@
 	[sharedCache clearAll];
 	
 	NSString *cacheString = [sharedCache get: requestUrl];
+    
+    UIEdgeInsets adjustForTabbarInsets = UIEdgeInsetsMake(0, 0, CGRectGetHeight(self.tabBarController.tabBar.frame), 0);
+    self.tableView.contentInset = adjustForTabbarInsets;
+    self.tableView.scrollIndicatorInsets = adjustForTabbarInsets;
 	
 	// Found cache data
 	if (cacheString != nil) {

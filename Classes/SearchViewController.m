@@ -66,6 +66,10 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(dataLoaded:)
                                                  name:@"AreaDataLoaded" object:nil];
+    
+    UIEdgeInsets adjustForTabbarInsets = UIEdgeInsetsMake(0, 0, CGRectGetHeight(self.tabBarController.tabBar.frame), 0);
+    [myTable setContentInset: adjustForTabbarInsets];
+    [myTable setScrollIndicatorInsets: adjustForTabbarInsets];
 }
 
 

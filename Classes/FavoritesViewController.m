@@ -89,6 +89,10 @@
 	[myTable setDataSource: myTableDelegate];
 	[myTableDelegate setAreasTableView: myTable];
 	[myTable setSeparatorStyle: UITableViewCellSeparatorStyleNone];
+    
+    UIEdgeInsets adjustForTabbarInsets = UIEdgeInsetsMake(0, 0, CGRectGetHeight(self.tabBarController.tabBar.frame), 0);
+    [myTable setContentInset: adjustForTabbarInsets];
+    [myTable setScrollIndicatorInsets: adjustForTabbarInsets];
 	
 }
 
