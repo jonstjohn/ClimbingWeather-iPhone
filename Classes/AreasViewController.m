@@ -22,7 +22,7 @@
 - (id) init
 {
 	// Call the super-class's designated initialize
-	[super initWithNibName: @"AreasViewController" bundle: nil];
+	if (!(self = [super initWithNibName: @"AreasViewController" bundle: nil])) return nil;
 	
 	//MyManager *sharedManager = [MyManager sharedManager];
 	[[self navigationItem] setTitle: stateCode];
@@ -60,7 +60,7 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
-	[myTableDelegate setResponseData: [[NSMutableData data] retain]];
+	[myTableDelegate setResponseData: [NSMutableData data]];
 	[myTableDelegate setShowStates: showStates];
 	
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
@@ -111,8 +111,5 @@
 	showStates = show;
 }
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 @end

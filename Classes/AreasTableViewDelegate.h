@@ -19,9 +19,9 @@
 
 -(void) clearAll;
 
-@property (nonatomic, retain) NSMutableArray *areas;
-@property (nonatomic, retain) UITableView *areasTableView;
-@property (nonatomic, retain) NSMutableData *responseData;
+@property (nonatomic, strong) NSMutableArray *areas;
+@property (nonatomic, strong) UITableView *areasTableView;
+@property (nonatomic, strong) NSMutableData *responseData;
 
 - (void) setShowStates: (BOOL) show;
 

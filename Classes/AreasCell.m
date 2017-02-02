@@ -32,50 +32,39 @@
 		[[self contentView] addSubview: favoriteImage];
 		//[favoriteImage setContentMode: UIViewContentModeScaleAspectFit];
 		//[favoriteImage setUserInteractionEnabled: YES];
-		[favoriteImage release];
 		
         areaName = [[UILabel alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: areaName];
-		[areaName release];
 		
         day1Symbol = [[UIImageView alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: day1Symbol];
 		[day1Symbol setContentMode: UIViewContentModeScaleAspectFit];
-		[day1Symbol release];
 		
         day1Temp = [[UILabel alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: day1Temp];
-		[day1Temp release];
 		
         day1Precip = [[UILabel alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: day1Precip];
-		[day1Precip release];
 		
         day2Symbol = [[UIImageView alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: day2Symbol];
 		[day2Symbol setContentMode: UIViewContentModeScaleAspectFit];
-		[day2Symbol release];
 		
         day2Temp = [[UILabel alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: day2Temp];
-		[day2Temp release];
 		
         day2Precip = [[UILabel alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: day2Precip];
-		[day2Precip release];
 		
         day3Symbol = [[UIImageView alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: day3Symbol];
 		[day3Symbol setContentMode: UIViewContentModeScaleAspectFit];
-		[day3Symbol release];
 		
         day3Temp = [[UILabel alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: day3Temp];
-		[day3Temp release];
 		
         day3Precip = [[UILabel alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: day3Precip];
-		[day3Precip release];
     }
     return self;
 }
@@ -218,9 +207,6 @@
 }
 
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 @end

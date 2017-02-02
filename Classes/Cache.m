@@ -24,29 +24,14 @@ static Cache *mySharedCache = nil;
     return mySharedCache;
 }
 + (Cache *)allocWithZone:(NSZone *)zone {
-    return [mySharedCache retain];
+    return mySharedCache;
 }
 - (id)copyWithZone:(NSZone *)zone {
     return self;
 }
-- (id)retain {
-    return self;
-}
-- (NSUInteger)retainCount {
-    return NSUIntegerMax; //denotes an object that cannot be released
-}
-- (oneway void)release {
-    // never release
-}
-- (id)autorelease {
-    return self;
-}
+
 - (id)init {
 	return [super init];
-}
-- (void)dealloc {
-    // Should never be called, but just here for clarity really.
-    [super dealloc];
 }
 
 - (NSString *) get: (NSString *) cacheKey {
@@ -64,7 +49,7 @@ static Cache *mySharedCache = nil;
 		
 		NSLog(@"loading from cache");
 		char *cResponseString = (char *) sqlite3_column_text(statement, 0);
-		NSString *responseString = [[[NSString alloc] initWithUTF8String: cResponseString] autorelease];
+		NSString *responseString = [[NSString alloc] initWithUTF8String: cResponseString];
 		//sqlite3_close(db);
 		return responseString;
 		

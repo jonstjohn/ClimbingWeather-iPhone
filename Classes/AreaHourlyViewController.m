@@ -9,6 +9,7 @@
 #import "AreaHourlyViewController.h"
 #import "AreaHourlyCell.h"
 #import "MyManager.h"
+#import "JSON.h"
 
 
 @implementation AreaHourlyViewController
@@ -70,31 +71,31 @@
 	float rowHeight = fontSize + inset * 2.0;
 	
 	// Set table header
-	UIView *containerView = [[[UIView alloc] initWithFrame: CGRectMake(0, 0, 300, rowHeight)] autorelease];
+	UIView *containerView = [[UIView alloc] initWithFrame: CGRectMake(0, 0, 300, rowHeight)];
 	[containerView setBackgroundColor: [[UIColor lightGrayColor] colorWithAlphaComponent: 0.5]];
 	//[containerView setAlpha: 0.75];
-	UILabel *dayLabel = [[[UILabel alloc] initWithFrame: CGRectMake(dayX, inset, dayWidth, fontSize)] autorelease];
+	UILabel *dayLabel = [[UILabel alloc] initWithFrame: CGRectMake(dayX, inset, dayWidth, fontSize)];
 	[dayLabel setText: @"Forecast"];
 	[dayLabel setBackgroundColor:[UIColor clearColor]];
 	[dayLabel setFont: [UIFont systemFontOfSize: fontSize]];
     dayLabel.textAlignment = NSTextAlignmentCenter;
 	[containerView addSubview: dayLabel];
 	
-	UILabel *highLabel = [[[UILabel alloc] initWithFrame: CGRectMake(highX, inset, highWidth, fontSize)] autorelease];
+	UILabel *highLabel = [[UILabel alloc] initWithFrame: CGRectMake(highX, inset, highWidth, fontSize)];
 	[highLabel setText: @"Temp/Sky"];
 	[highLabel setBackgroundColor:[UIColor clearColor]];
 	[highLabel setFont: [UIFont systemFontOfSize: fontSize]];
     highLabel.textAlignment = NSTextAlignmentCenter;
 	[containerView addSubview: highLabel];
 	
-	UILabel *precipLabel = [[[UILabel alloc] initWithFrame: CGRectMake(precipX, inset, precipWidth, fontSize)] autorelease];
+	UILabel *precipLabel = [[UILabel alloc] initWithFrame: CGRectMake(precipX, inset, precipWidth, fontSize)];
 	[precipLabel setText: @"Precip"];
 	[precipLabel setBackgroundColor:[UIColor clearColor]];
 	[precipLabel setFont: [UIFont systemFontOfSize: fontSize]];
     precipLabel.textAlignment = NSTextAlignmentCenter;
 	[containerView addSubview: precipLabel];
 	
-	UILabel *windLabel = [[[UILabel alloc] initWithFrame: CGRectMake(windX, inset, windWidth, fontSize)] autorelease];
+	UILabel *windLabel = [[UILabel alloc] initWithFrame: CGRectMake(windX, inset, windWidth, fontSize)];
 	[windLabel setText: @"Wind/Hum"];
 	[windLabel setBackgroundColor:[UIColor clearColor]];
 	[windLabel setFont: [UIFont systemFontOfSize: fontSize]];
@@ -120,7 +121,7 @@
 	// Send request for JSON data
 	MyManager *sharedManager = [MyManager sharedManager];
 	
-	responseData = [[NSMutableData data] retain];
+	responseData = [NSMutableData data];
 	
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 	NSString *tempUnit = [NSString stringWithFormat: @"%@", [[prefs stringForKey: @"tempUnit"] isEqualToString: @"c"] ? @"c" : @"f"];
@@ -136,7 +137,7 @@
 	AreaHourlyCell *cell = (AreaHourlyCell *)[tableView dequeueReusableCellWithIdentifier: @"AreaHourlyCell"];
 	
 	if (!cell) {
-		cell = [[[AreaHourlyCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: @"AreaHourlyCell"] autorelease];
+		cell = [[AreaHourlyCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: @"AreaHourlyCell"];
 	}
 	NSArray *hours = [[days objectAtIndex: [indexPath section]] objectForKey: @"f"];
 	NSString *temp = [[hours objectAtIndex: [indexPath row]] objectForKey: @"t"];
@@ -222,10 +223,8 @@
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-	[connection release];
 	
 	NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-	[responseData release];
 	
 	NSDictionary *json = (NSDictionary *)[responseString JSONValue];
 	
@@ -264,7 +263,6 @@
 		
 	}
 	
-	[responseString release];
 	
 	[activityIndicator setHidden: YES];
 	[activityIndicator stopAnimating];
@@ -280,11 +278,6 @@
        'f': [{}, {}, {}]
 */
 
-- (void)dealloc {
-	[days release];
-	[responseData release];
-    [super dealloc];
-}
 
 
 @end

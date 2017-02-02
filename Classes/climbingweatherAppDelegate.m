@@ -41,11 +41,6 @@
 	// Make an array that contains the two view controllers
 	NSArray *viewControllers = [NSArray arrayWithObjects: vc1, vc2, vc3, vc4, vc5, nil];
 	
-	[vc1 release];
-	[vc2 release];
-	[vc3 release];
-	[vc4 release];
-	[vc5 release];
 	//[vc6 release];
 	
 	// Attach to tab bar controller
@@ -58,8 +53,6 @@
 	[navController setNavigationBarHidden: YES];
 	[window setRootViewController: navController];
 	
-	[tabController release];
-	[navController release];
 	
     [self.window makeKeyAndVisible];
 
@@ -113,10 +106,6 @@
      */
 }
 
-- (void)dealloc {
-	[window release];
-	[super dealloc];
-}
 
 
 @end

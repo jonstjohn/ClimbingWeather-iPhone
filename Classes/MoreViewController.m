@@ -14,7 +14,7 @@
 - (id) init
 {
 	// Call the super-class's designated initialize
-	[super initWithNibName: @"MoreViewController" bundle: nil];
+	if (!(self = [super initWithNibName: @"MoreViewController" bundle: nil])) return nil;
 	
 	// Get tab bar item
 	UITabBarItem *tbi = [self tabBarItem];
@@ -85,9 +85,6 @@
 }
 
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 @end

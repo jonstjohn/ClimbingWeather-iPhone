@@ -22,18 +22,18 @@
 	UIImageView *iconImage;
 }
 
-@property (nonatomic, retain) UILabel *dayLabel;
-@property (nonatomic, retain) UILabel *dateLabel;
-@property (nonatomic, retain) UILabel *highLabel;
-@property (nonatomic, retain) UILabel *lowLabel;
+@property (nonatomic, strong) UILabel *dayLabel;
+@property (nonatomic, strong) UILabel *dateLabel;
+@property (nonatomic, strong) UILabel *highLabel;
+@property (nonatomic, strong) UILabel *lowLabel;
 
-@property (nonatomic, retain) UILabel *precipDayLabel;
-@property (nonatomic, retain) UILabel *precipNightLabel;
-@property (nonatomic, retain) UILabel *windLabel;
-@property (nonatomic, retain) UILabel *humLabel;
+@property (nonatomic, strong) UILabel *precipDayLabel;
+@property (nonatomic, strong) UILabel *precipNightLabel;
+@property (nonatomic, strong) UILabel *windLabel;
+@property (nonatomic, strong) UILabel *humLabel;
 
-@property (nonatomic, retain) UILabel *conditionsLabel;
-@property (nonatomic, retain) UIImageView *iconImage;
+@property (nonatomic, strong) UILabel *conditionsLabel;
+@property (nonatomic, strong) UIImageView *iconImage;
 
 
 @end

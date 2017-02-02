@@ -16,6 +16,7 @@
 #import "MyManager.h"
 #import "AreasCell.h"
 #import "Favorite.h"
+#import "JSON.h"
 
 @implementation AreasTableViewDelegate
 
@@ -41,7 +42,7 @@
 	AreasCell *cell = (AreasCell *)[tableView dequeueReusableCellWithIdentifier: @"AreasCell"];
 	
 	if (!cell) {
-		cell = [[[AreasCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: @"AreasCell"] autorelease];
+		cell = [[AreasCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: @"AreasCell"];
 	}
 	
 	NSDictionary *area = [areas objectAtIndex: [indexPath row]];
@@ -112,9 +113,6 @@
 		// Attach to tab bar controller
 		[tabController setViewControllers: viewControllers];
 		
-		[vc1 release];
-		[vc2 release];
-		[vc3 release];
 		//[vc4 release];
 		//[vc5 release];
 		
@@ -173,12 +171,10 @@
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-	[connection release];
 	
 	NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
 	
 	[areasTableView setSeparatorStyle: UITableViewCellSeparatorStyleSingleLine];
-	[responseData release];
 	
 	NSDictionary *data = [responseString JSONValue];
 	NSArray *areasJson = [data objectForKey: @"results"];
@@ -196,7 +192,6 @@
 	[areasTableView setRowHeight: 85.0];
 	[areasTableView reloadData];
 	
-	[responseString release];
 }
 
 - (void) clearAll {
@@ -209,12 +204,5 @@
 	showStates = show;
 }
 
-- (void) dealloc {
-	[areasTableView release];
-	[areas release];
-	[responseData release];
-	[tabController release];
-	[super dealloc];
-}
 
 @end

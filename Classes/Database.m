@@ -24,29 +24,14 @@ static Database *mySharedDatabase = nil;
     return mySharedDatabase;
 }
 + (Database *)allocWithZone:(NSZone *)zone {
-    return [mySharedDatabase retain];
+    return mySharedDatabase;
 }
 - (id)copyWithZone:(NSZone *)zone {
     return self;
 }
-- (id)retain {
-    return self;
-}
-- (NSUInteger)retainCount {
-    return NSUIntegerMax; //denotes an object that cannot be released
-}
-- (oneway void)release {
-    // never release
-}
-- (id)autorelease {
-    return self;
-}
+
 - (id)init {
 	return [super init];
-}
-- (void)dealloc {
-    // Should never be called, but just here for clarity really.
-    [super dealloc];
 }
 
 - (sqlite3 *) open {

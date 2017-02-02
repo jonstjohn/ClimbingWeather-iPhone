@@ -28,40 +28,31 @@
 		
         dayLabel = [[UILabel alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: dayLabel];
-		[dayLabel release];
 		
         timeLabel = [[UILabel alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: timeLabel];
-		[timeLabel release];
 		
         tempLabel = [[UILabel alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: tempLabel];
-		[tempLabel release];
 		
         skyLabel = [[UILabel alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: skyLabel];
-		[skyLabel release];
 		
         precipLabel = [[UILabel alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: precipLabel];
-		[precipLabel release];
 		
         windLabel = [[UILabel alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: windLabel];
-		[windLabel release];
 		
         humLabel = [[UILabel alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: humLabel];
-		[humLabel release];
 		
         conditionsLabel = [[UILabel alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: conditionsLabel];
-		[conditionsLabel release];
 		
         iconImage = [[UIImageView alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: iconImage];
 		[iconImage setContentMode: UIViewContentModeScaleAspectFit];
-		[iconImage release];
     }
     return self;
 }
@@ -171,9 +162,6 @@
 }
 
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 @end

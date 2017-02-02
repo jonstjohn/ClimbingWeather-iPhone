@@ -16,7 +16,7 @@
 - (id) init
 {
 	// Call the super-class's designated initialize
-	[super initWithNibName: @"SearchViewController" bundle: nil];
+	if (!(self = [super initWithNibName: @"SearchViewController" bundle: nil])) return nil;
 	
 	// Get tab bar item
 	UITabBarItem *tbi = [self tabBarItem];
@@ -114,7 +114,7 @@
 
 - (void) search: (NSString *) text
 {
-	[myTableDelegate setResponseData: [[NSMutableData data] retain]];
+	[myTableDelegate setResponseData: [NSMutableData data]];
 	[myTableDelegate setShowStates: YES];
 	
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
@@ -136,10 +136,6 @@
 - (void)dealloc
 {    
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	[myTableDelegate release];
-	[initialSearch release];
-	[searchInput release];
-	[super dealloc];
 }
 
 

@@ -149,7 +149,7 @@
 
 - (void) search: (NSString *) text
 {
-	[myTableDelegate setResponseData: [[NSMutableData data] retain]];
+	[myTableDelegate setResponseData: [NSMutableData data]];
 	[myTableDelegate setShowStates: YES];
 	
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
@@ -174,10 +174,7 @@
 }
 
 - (void)dealloc {
-	[locationManager release];
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	[myTableDelegate release];
-    [super dealloc];
 }
 
 

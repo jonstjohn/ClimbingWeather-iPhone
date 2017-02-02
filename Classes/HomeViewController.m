@@ -17,7 +17,7 @@
 - (id) init
 {
 	// Call the super-class's designated initialize
-	[super initWithNibName: @"HomeViewController" bundle: nil];
+	if (!(self = [super initWithNibName: @"HomeViewController" bundle: nil])) return nil;
 	
 	// Get tab bar item
 	UITabBarItem *tbi = [self tabBarItem];
@@ -151,17 +151,11 @@
 		// Attach to tab bar controller
 		[settingsTab setViewControllers: viewControllers];
 	
-		[vc1 release];
-		[vc2 release];
 	}
 
 	[[self navigationController] pushViewController: settingsTab animated: NO];
 }
 
-- (void)dealloc {
-	[settingsTab release];
-    [super dealloc];
-}
 
 
 @end

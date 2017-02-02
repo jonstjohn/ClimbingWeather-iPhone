@@ -14,7 +14,7 @@
 - (id) init
 {
 	// Call the super-class's designated initialize
-	[super initWithNibName: @"SettingsViewController" bundle: nil];
+	if (!(self = [super initWithNibName: @"SettingsViewController" bundle: nil])) return nil;
 	
 	// Get tab bar item
 	UITabBarItem *tbi = [self tabBarItem];
@@ -100,9 +100,6 @@
 }
 
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 @end

@@ -15,16 +15,11 @@
 
 - (id) initWithCoordinate: (CLLocationCoordinate2D) c title: (NSString *) t
 {
-	[super init];
+	if (!(self = [super init])) return nil;
 	coordinate = c;
 	[self setTitle: t];
 	return self;
 }
 
-- (void) dealloc
-{
-	[title release];
-	[super dealloc];
-}
 
 @end

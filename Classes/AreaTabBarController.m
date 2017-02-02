@@ -23,7 +23,6 @@
 	// Make an array that contains the two view controllers
 	NSArray *viewControllers = [NSArray arrayWithObjects: vc1, nil]; // , vc2, vc3, nil];
 	
-	[vc1 release];
 	//[vc2 release];
 	//[vc3 release];
 	
@@ -85,9 +84,6 @@
 }
 
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 @end

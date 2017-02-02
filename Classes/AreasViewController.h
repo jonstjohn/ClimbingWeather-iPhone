@@ -23,7 +23,7 @@
 	
 }
 
-@property (nonatomic, retain) AreasTableViewDelegate *myTableDelegate;
+@property (nonatomic, strong) AreasTableViewDelegate *myTableDelegate;
 
 - (id) initWithStateCode: (NSString *) code name: (NSString *) name;
 - (void) setShowStates: (BOOL) show;

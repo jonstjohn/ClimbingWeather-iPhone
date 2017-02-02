@@ -23,16 +23,16 @@
 	UILabel *day3Precip;
 }
 
-@property (nonatomic, retain) UIButton *favoriteImage;
-@property (nonatomic, retain) UILabel *areaName;
-@property (nonatomic, retain) UIImageView *day1Symbol;
-@property (nonatomic, retain) UILabel *day1Temp;
-@property (nonatomic, retain) UILabel *day1Precip;
-@property (nonatomic, retain) UIImageView *day2Symbol;
-@property (nonatomic, retain) UILabel *day2Temp;
-@property (nonatomic, retain) UILabel *day2Precip;
-@property (nonatomic, retain) UIImageView *day3Symbol;
-@property (nonatomic, retain) UILabel *day3Temp;
-@property (nonatomic, retain) UILabel *day3Precip;
+@property (nonatomic, strong) UIButton *favoriteImage;
+@property (nonatomic, strong) UILabel *areaName;
+@property (nonatomic, strong) UIImageView *day1Symbol;
+@property (nonatomic, strong) UILabel *day1Temp;
+@property (nonatomic, strong) UILabel *day1Precip;
+@property (nonatomic, strong) UIImageView *day2Symbol;
+@property (nonatomic, strong) UILabel *day2Temp;
+@property (nonatomic, strong) UILabel *day2Precip;
+@property (nonatomic, strong) UIImageView *day3Symbol;
+@property (nonatomic, strong) UILabel *day3Temp;
+@property (nonatomic, strong) UILabel *day3Precip;
 
 @end

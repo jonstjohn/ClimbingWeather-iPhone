@@ -28,46 +28,36 @@
     if (self) {
         dayLabel = [[UILabel alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: dayLabel];
-		[dayLabel release];
 		
         dateLabel = [[UILabel alloc] initWithFrame: CGRectZero];
 		//[[dateLabel adjustsFontSizeToFitWidth: : 12.0];
 		
 		[[self contentView] addSubview: dateLabel];
-		[dateLabel release];
 		
         highLabel = [[UILabel alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: highLabel];
-		[highLabel release];
 		
         lowLabel = [[UILabel alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: lowLabel];
-		[lowLabel release];
 		
         precipDayLabel = [[UILabel alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: precipDayLabel];
-		[precipDayLabel release];
 		
         precipNightLabel = [[UILabel alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: precipNightLabel];
-		[precipNightLabel release];
 		
         windLabel = [[UILabel alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: windLabel];
-		[windLabel release];
 		
         humLabel = [[UILabel alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: humLabel];
-		[humLabel release];
 		
         conditionsLabel = [[UILabel alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: conditionsLabel];
-		[conditionsLabel release];
 		
         iconImage = [[UIImageView alloc] initWithFrame: CGRectZero];
 		[[self contentView] addSubview: iconImage];
 		[iconImage setContentMode: UIViewContentModeScaleAspectFit];
-		[iconImage release];
     }
     return self;
 }
@@ -174,9 +164,6 @@
 }
 
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 @end

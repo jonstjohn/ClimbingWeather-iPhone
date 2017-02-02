@@ -9,6 +9,7 @@
 #import "AreaDailyViewController.h"
 #import "MyManager.h"
 #import "AreaDailyCell.h"
+#import "JSON.h"
 
 @implementation AreaDailyViewController
 
@@ -48,7 +49,7 @@
 	// Send request for JSON data
 	MyManager *sharedManager = [MyManager sharedManager];
 	
-	responseData = [[NSMutableData data] retain];
+	responseData = [NSMutableData data];
 	
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 	NSString *tempUnit = [NSString stringWithFormat: @"%@", [[prefs stringForKey: @"tempUnit"] isEqualToString: @"c"] ? @"c" : @"f"];
@@ -88,31 +89,31 @@
 	float rowHeight = fontSize + inset * 2.0;
 	
 	// Set table header
-	UIView *containerView = [[[UIView alloc] initWithFrame: CGRectMake(0, 0, 300, rowHeight)] autorelease];
+	UIView *containerView = [[UIView alloc] initWithFrame: CGRectMake(0, 0, 300, rowHeight)];
 	[containerView setBackgroundColor: [[UIColor lightGrayColor] colorWithAlphaComponent: 0.5]];
 	//[containerView setAlpha: 0.75];
-	UILabel *dayLabel = [[[UILabel alloc] initWithFrame: CGRectMake(dayX, inset, dayWidth, fontSize)] autorelease];
+	UILabel *dayLabel = [[UILabel alloc] initWithFrame: CGRectMake(dayX, inset, dayWidth, fontSize)];
 	[dayLabel setText: @"Forecast"];
 	[dayLabel setBackgroundColor:[UIColor clearColor]];
 	[dayLabel setFont: [UIFont systemFontOfSize: fontSize]];
     dayLabel.textAlignment = NSTextAlignmentCenter;
 	[containerView addSubview: dayLabel];
 	
-	UILabel *highLabel = [[[UILabel alloc] initWithFrame: CGRectMake(highX, inset, highWidth, fontSize)] autorelease];
+	UILabel *highLabel = [[UILabel alloc] initWithFrame: CGRectMake(highX, inset, highWidth, fontSize)];
 	[highLabel setText: @"High/Low"];
 	[highLabel setBackgroundColor:[UIColor clearColor]];
 	[highLabel setFont: [UIFont systemFontOfSize: fontSize]];
     highLabel.textAlignment = NSTextAlignmentCenter;
 	[containerView addSubview: highLabel];
 	
-	UILabel *precipLabel = [[[UILabel alloc] initWithFrame: CGRectMake(precipX, inset, precipWidth, fontSize)] autorelease];
+	UILabel *precipLabel = [[UILabel alloc] initWithFrame: CGRectMake(precipX, inset, precipWidth, fontSize)];
 	[precipLabel setText: @"Precip"];
 	[precipLabel setBackgroundColor:[UIColor clearColor]];
 	[precipLabel setFont: [UIFont systemFontOfSize: fontSize]];
     precipLabel.textAlignment = NSTextAlignmentCenter;
 	[containerView addSubview: precipLabel];
 	
-	UILabel *windLabel = [[[UILabel alloc] initWithFrame: CGRectMake(windX, inset, windWidth, fontSize)] autorelease];
+	UILabel *windLabel = [[UILabel alloc] initWithFrame: CGRectMake(windX, inset, windWidth, fontSize)];
 	[windLabel setText: @"Wind/Hum"];
 	[windLabel setBackgroundColor:[UIColor clearColor]];
 	[windLabel setFont: [UIFont systemFontOfSize: fontSize]];
@@ -136,7 +137,7 @@
 	AreaDailyCell *cell = (AreaDailyCell *)[tableView dequeueReusableCellWithIdentifier: @"AreaDailyCell"];
 	
 	if (!cell) {
-		cell = [[[AreaDailyCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: @"AreaDailyCell"] autorelease];
+		cell = [[AreaDailyCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier: @"AreaDailyCell"];
 	}
 	NSString *high = [[days objectAtIndex: [indexPath row]] objectForKey: @"hi"];
 	NSString *low = [[days objectAtIndex: [indexPath row]] objectForKey: @"l"];
@@ -206,10 +207,8 @@
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-	[connection release];
 	
 	NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-	[responseData release];
 	
 	NSDictionary *data = (NSDictionary *)[responseString JSONValue];
 	NSDictionary *daysJson = [data objectForKey: @"results"];
@@ -222,7 +221,6 @@
 		[days addObject: [forecastJson objectAtIndex: i]];
 	}
 	
-	[responseString release];
 	
 	[activityIndicator setHidden: YES];
 	[dailyTableView reloadData];
@@ -230,11 +228,6 @@
 }
 
 
-- (void)dealloc {
-	[days release];
-	[responseData release];
-    [super dealloc];
-}
 
 
 @end

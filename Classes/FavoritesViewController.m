@@ -15,7 +15,7 @@
 - (id) init
 {
 	// Call the super-class's designated initialize
-	[super initWithNibName: @"FavoritesViewController" bundle: nil];
+	if (!(self = [super initWithNibName: @"FavoritesViewController" bundle: nil])) return nil;
 	
 	// Get tab bar item
 	UITabBarItem *tbi = [self tabBarItem];
@@ -62,7 +62,7 @@
 	 selector:@selector(dataLoaded:)
 	 name:@"AreaDataLoaded" object:nil];
 	
-	[myTableDelegate setResponseData: [[NSMutableData data] retain]];
+	[myTableDelegate setResponseData: [NSMutableData data]];
 	[myTableDelegate setShowStates: YES];
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 	NSString *tempUnit = [NSString stringWithFormat: @"%@", [[prefs stringForKey: @"tempUnit"] isEqualToString: @"c"] ? @"c" : @"f"];
@@ -77,7 +77,6 @@
 	
 	[[NSURLConnection alloc] initWithRequest:request delegate: myTableDelegate];
 	
-	[areaIds release];
 	
 }
 
@@ -129,8 +128,6 @@
 
 - (void)dealloc {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	[myTableDelegate release];
-    [super dealloc];
 }
 
 @end

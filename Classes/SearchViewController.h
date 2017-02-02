@@ -20,8 +20,8 @@
 }
 
 
-@property (nonatomic, retain) AreasTableViewDelegate *myTableDelegate;
-@property (nonatomic, retain) NSString *initialSearch;
+@property (nonatomic, strong) AreasTableViewDelegate *myTableDelegate;
+@property (nonatomic, strong) NSString *initialSearch;
 
 - (void) search: (NSString *) text;
 

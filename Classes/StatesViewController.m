@@ -17,7 +17,7 @@
 - (id) init
 {
 	// Call the super-class's designated initialize
-	[super initWithNibName: @"StatesViewController" bundle: nil];
+	if (!(self = [super initWithNibName: @"StatesViewController" bundle: nil])) return nil;
 	
 	// Get tab bar item
 	UITabBarItem *tbi = [self tabBarItem];
@@ -70,7 +70,7 @@
 	}
 	
 	// If we didn't find cached data, request
-	responseData = [[NSMutableData data] retain];
+	responseData = [NSMutableData data];
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString: requestUrl]];
 	[[NSURLConnection alloc] initWithRequest:request delegate:self];
 
@@ -105,7 +105,7 @@
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"UITableViewCell"];
 	
 	if (!cell) {
-		cell = [[[UITableViewCell alloc] initWithStyle: UITableViewCellStyleSubtitle reuseIdentifier: @"UITableViewCell"] autorelease];
+		cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleSubtitle reuseIdentifier: @"UITableViewCell"];
 	}
 	
 	NSString *label = @"area";
@@ -160,7 +160,6 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
 	
-	[connection release];
 	
 	NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
 	
@@ -168,7 +167,6 @@
 	Cache *sharedCache = [Cache sharedCache];
 	[sharedCache set: requestUrl withValue: responseString expiresOn: [[NSDate date] timeIntervalSince1970] + 60*60*24];
 	
-	[responseData release];
 	
 	NSArray *stateData = [responseString JSONValue];
 	
@@ -179,17 +177,10 @@
 
 	}
 	
-	[responseString release];
 	[[self tableView] reloadData];
 	
 }
 
-- (void)dealloc {
-	[states release];
-	[responseData release];
-	[states release];
-    [super dealloc];
-}
 
 
 @end

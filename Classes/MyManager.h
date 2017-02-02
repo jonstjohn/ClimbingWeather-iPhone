@@ -20,12 +20,12 @@
 
 }
 
-@property (nonatomic, retain) NSString *stateCode;
-@property (nonatomic, retain) NSString *stateName;
-@property (nonatomic, retain) NSString *areaId;
-@property (nonatomic, retain) NSString *areaName;
-@property (nonatomic, retain) NSString *areaListType;
-@property (nonatomic, retain) NSString *areaSearch;
+@property (nonatomic, strong) NSString *stateCode;
+@property (nonatomic, strong) NSString *stateName;
+@property (nonatomic, strong) NSString *areaId;
+@property (nonatomic, strong) NSString *areaName;
+@property (nonatomic, strong) NSString *areaListType;
+@property (nonatomic, strong) NSString *areaSearch;
 @property (nonatomic, assign) sqlite3 *database;
 
 + (id) sharedManager;

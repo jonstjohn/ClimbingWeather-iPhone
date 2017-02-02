@@ -29,23 +29,12 @@ static MyManager *sharedMyManager = nil;
     return sharedMyManager;
 }
 + (id)allocWithZone:(NSZone *)zone {
-    return [[self sharedManager] retain];
+    return [self sharedManager];
 }
 - (id)copyWithZone:(NSZone *)zone {
     return self;
 }
-- (id)retain {
-    return self;
-}
-- (NSUInteger)retainCount {
-    return NSIntegerMax; //denotes an object that cannot be released
-}
-- (oneway void)release {
-    // never release
-}
-- (id)autorelease {
-    return self;
-}
+
 - (id)init {
 	return [super init];
 	/*
@@ -55,11 +44,6 @@ static MyManager *sharedMyManager = nil;
 	 
     return self;
 	 */
-}
-- (void)dealloc {
-    // Should never be called, but just here for clarity really.
-    [stateCode release];
-    [super dealloc];
 }
 
 @end

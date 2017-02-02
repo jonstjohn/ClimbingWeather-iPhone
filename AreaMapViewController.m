@@ -9,6 +9,7 @@
 #import "AreaMapViewController.h"
 #import "MapPoint.h"
 #import "MyManager.h"
+#import "JSON.h"
 
 @implementation AreaMapViewController
 
@@ -43,7 +44,7 @@
 	
 	MKAnnotationView *annotationView = [mv dequeueReusableAnnotationViewWithIdentifier:identifier];
 	if (annotationView == nil) {
-		annotationView = [[[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier] autorelease];
+		annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
 		[annotationView setImage: [UIImage imageNamed:@"climbing.png"]];
 		
 		[annotationView setCanShowCallout: YES];
@@ -78,7 +79,7 @@
 	// Send request for JSON data
 	MyManager *sharedManager = [MyManager sharedManager];
 	
-	responseData = [[NSMutableData data] retain];
+	responseData = [NSMutableData data];
 	
 	NSString *url = [NSString stringWithFormat: @"http://api.climbingweather.com/api/area/detail/%@?apiKey=iphone-%@",
 					 [sharedManager areaId], [[[UIDevice currentDevice] identifierForVendor] UUIDString]];
@@ -123,10 +124,8 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
 	
-	[connection release];
 	
 	NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-	[responseData release];
 	
 	NSDictionary *detail = [responseString JSONValue];
 	
@@ -136,18 +135,11 @@
 	MapPoint *mp = [[MapPoint alloc] initWithCoordinate: coordinate title: [detail objectForKey: @"name"] ];
 	[mapView addAnnotation: mp];
 	
-	[mp release];
 	
-	[responseString release];
 	
 }
 
 
-- (void)dealloc {
-	[responseData release];
-	//[locationManager release];
-    [super dealloc];
-}
 
 
 @end
