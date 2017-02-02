@@ -3,6 +3,40 @@ build/*
 *.pbxuser
 *.mode1v3
 
+*.idea
+*.pyc
+.DS_Store
+_Store
+*.swp
+*~.nib
+
+*.gcno
+*.orig
+
+build/
+
+*.pbxuser
+*.perspective
+*.perspectivev3A
+xcuserdata
+XcodeCoverage/env.sh
+register_key.private
+register_key.public
+test_blacklist.json
+
+sudoUITests/test.py
+git.log
+
+*.dSYM.zip
+*.ipa
+*.mobileprovision
+
+# fastlane specific
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
 # old skool
 .svn
 
