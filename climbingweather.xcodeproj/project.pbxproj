@@ -14,6 +14,8 @@
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		3458CCD89E79670AAF8484F4 /* Pods_climbingweather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5BA8E83BE629AEA5BCC8E8D /* Pods_climbingweather.framework */; };
 		6053B5E81E43CE5100798BC1 /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6053B5E71E43CE5100798BC1 /* Area.swift */; };
+		6053B5F21E452DF900798BC1 /* ClimbWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6053B5F11E452DF900798BC1 /* ClimbWeatherTests.swift */; };
+		6053B5FA1E452E2200798BC1 /* AreasTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6053B5E91E451D7600798BC1 /* AreasTests.swift */; };
 		6057F052134EA8F700D04516 /* 28-star.png in Resources */ = {isa = PBXBuildFile; fileRef = 6057F051134EA8F700D04516 /* 28-star.png */; };
 		6057F05C134FE23B00D04516 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6057F05A134FE23A00D04516 /* MoreViewController.m */; };
 		6057F05D134FE23B00D04516 /* MoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6057F05B134FE23A00D04516 /* MoreViewController.xib */; };
@@ -140,6 +142,16 @@
 		60D99E12135528D000B238D5 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D99E11135528D000B238D5 /* Icon-Small@2x.png */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		6053B5F41E452DF900798BC1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D6058900D05DD3D006BFB54;
+			remoteInfo = climbingweather;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		120DBC54ECE1324BDA54C2C6 /* Pods-climbingweather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-climbingweather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-climbingweather/Pods-climbingweather.debug.xcconfig"; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -152,6 +164,10 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6053B5E61E43CE5000798BC1 /* climbingweather-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "climbingweather-Bridging-Header.h"; sourceTree = "<group>"; };
 		6053B5E71E43CE5100798BC1 /* Area.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
+		6053B5E91E451D7600798BC1 /* AreasTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AreasTests.swift; path = ../UnitTests/AreasTests.swift; sourceTree = "<group>"; };
+		6053B5EF1E452DF900798BC1 /* ClimbWeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClimbWeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6053B5F11E452DF900798BC1 /* ClimbWeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimbWeatherTests.swift; sourceTree = "<group>"; };
+		6053B5F31E452DF900798BC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6057F051134EA8F700D04516 /* 28-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "28-star.png"; sourceTree = "<group>"; };
 		6057F059134FE23A00D04516 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
 		6057F05A134FE23A00D04516 /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
@@ -329,6 +345,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6053B5EC1E452DF900798BC1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -348,17 +371,19 @@
 			isa = PBXGroup;
 			children = (
 				1D6058910D05DD3D006BFB54 /* Weather.app */,
+				6053B5EF1E452DF900798BC1 /* ClimbWeatherTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		29B97314FDCFA39411CA2CEA = {
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
 				6095679D1C78AC8B002CD30F /* Default-568h@2x.png */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
+				6053B5F01E452DF900798BC1 /* ClimbWeatherTests */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				608A51A512E38973003BCB84 /* Downloads */,
@@ -434,6 +459,16 @@
 				6053B5E61E43CE5000798BC1 /* climbingweather-Bridging-Header.h */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		6053B5F01E452DF900798BC1 /* ClimbWeatherTests */ = {
+			isa = PBXGroup;
+			children = (
+				6053B5E91E451D7600798BC1 /* AreasTests.swift */,
+				6053B5F11E452DF900798BC1 /* ClimbWeatherTests.swift */,
+				6053B5F31E452DF900798BC1 /* Info.plist */,
+			);
+			path = ClimbWeatherTests;
 			sourceTree = "<group>";
 		};
 		608DE45B12FCF18600AE172C /* Area */ = {
@@ -645,17 +680,42 @@
 			productReference = 1D6058910D05DD3D006BFB54 /* Weather.app */;
 			productType = "com.apple.product-type.application";
 		};
+		6053B5EE1E452DF900798BC1 /* ClimbWeatherTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6053B5F61E452DF900798BC1 /* Build configuration list for PBXNativeTarget "ClimbWeatherTests" */;
+			buildPhases = (
+				6053B5EB1E452DF900798BC1 /* Sources */,
+				6053B5EC1E452DF900798BC1 /* Frameworks */,
+				6053B5ED1E452DF900798BC1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6053B5F51E452DF900798BC1 /* PBXTargetDependency */,
+			);
+			name = ClimbWeatherTests;
+			productName = ClimbWeatherTests;
+			productReference = 6053B5EF1E452DF900798BC1 /* ClimbWeatherTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = 5QHC9PP5E3;
 						LastSwiftMigration = 0820;
+					};
+					6053B5EE1E452DF900798BC1 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 5QHC9PP5E3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 1D6058900D05DD3D006BFB54;
 					};
 				};
 			};
@@ -670,12 +730,13 @@
 				German,
 				en,
 			);
-			mainGroup = 29B97314FDCFA39411CA2CEA;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* climbingweather */,
+				6053B5EE1E452DF900798BC1 /* ClimbWeatherTests */,
 			);
 		};
 /* End PBXProject section */
@@ -780,6 +841,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6053B5ED1E452DF900798BC1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -870,7 +938,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6053B5EB1E452DF900798BC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6053B5FA1E452E2200798BC1 /* AreasTests.swift in Sources */,
+				6053B5F21E452DF900798BC1 /* ClimbWeatherTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6053B5F51E452DF900798BC1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D6058900D05DD3D006BFB54 /* climbingweather */;
+			targetProxy = 6053B5F41E452DF900798BC1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
@@ -933,6 +1018,112 @@
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
+		};
+		6053B5F71E452DF900798BC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 5QHC9PP5E3;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = ClimbWeatherTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.climbingweather.ClimbWeatherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weather.app/Weather";
+			};
+			name = Debug;
+		};
+		6053B5F81E452DF900798BC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 5QHC9PP5E3;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = ClimbWeatherTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.climbingweather.ClimbWeatherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weather.app/Weather";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6053B5F91E452DF900798BC1 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 5QHC9PP5E3;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = ClimbWeatherTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.climbingweather.ClimbWeatherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weather.app/Weather";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Distribution;
 		};
 		60770416135696090085464F /* Distribution */ = {
 			isa = XCBuildConfiguration;
@@ -1068,6 +1259,15 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		6053B5F61E452DF900798BC1 /* Build configuration list for PBXNativeTarget "ClimbWeatherTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6053B5F71E452DF900798BC1 /* Debug */,
+				6053B5F81E452DF900798BC1 /* Release */,
+				6053B5F91E452DF900798BC1 /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "climbingweather" */ = {
 			isa = XCConfigurationList;
