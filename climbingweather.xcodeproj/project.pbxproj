@@ -12,6 +12,7 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
+		3458CCD89E79670AAF8484F4 /* Pods_climbingweather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5BA8E83BE629AEA5BCC8E8D /* Pods_climbingweather.framework */; };
 		6053B5E81E43CE5100798BC1 /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6053B5E71E43CE5100798BC1 /* Area.swift */; };
 		6057F052134EA8F700D04516 /* 28-star.png in Resources */ = {isa = PBXBuildFile; fileRef = 6057F051134EA8F700D04516 /* 28-star.png */; };
 		6057F05C134FE23B00D04516 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6057F05A134FE23A00D04516 /* MoreViewController.m */; };
@@ -140,6 +141,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		120DBC54ECE1324BDA54C2C6 /* Pods-climbingweather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-climbingweather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-climbingweather/Pods-climbingweather.debug.xcconfig"; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* climbingweatherAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = climbingweatherAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* climbingweatherAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = climbingweatherAppDelegate.m; sourceTree = "<group>"; };
@@ -307,6 +309,9 @@
 		60D99E0F1355289800B238D5 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
 		60D99E11135528D000B238D5 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* climbingweather-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "climbingweather-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		A47F2573F5EE65D5EF77735B /* Pods-climbingweather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-climbingweather.release.xcconfig"; path = "Pods/Target Support Files/Pods-climbingweather/Pods-climbingweather.release.xcconfig"; sourceTree = "<group>"; };
+		A5BA8E83BE629AEA5BCC8E8D /* Pods_climbingweather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_climbingweather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1713432848AF9D41A8C2F34 /* Pods-climbingweather.distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-climbingweather.distribution.xcconfig"; path = "Pods/Target Support Files/Pods-climbingweather/Pods-climbingweather.distribution.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,6 +325,7 @@
 				608DE32F12FAD66E00AE172C /* libsqlite3.0.dylib in Frameworks */,
 				608DE64412FF85C600AE172C /* CoreLocation.framework in Frameworks */,
 				608DE66612FF88CE00AE172C /* MapKit.framework in Frameworks */,
+				3458CCD89E79670AAF8484F4 /* Pods_climbingweather.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,7 +352,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+		29B97314FDCFA39411CA2CEA = {
 			isa = PBXGroup;
 			children = (
 				6095679D1C78AC8B002CD30F /* Default-568h@2x.png */,
@@ -360,6 +366,7 @@
 				608DE64312FF85C600AE172C /* CoreLocation.framework */,
 				608DE66512FF88CE00AE172C /* MapKit.framework */,
 				6077042A135697170085464F /* Entitlements.plist */,
+				9800F519063C99F66A4E3FA4 /* Pods */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -415,6 +422,7 @@
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
+				A5BA8E83BE629AEA5BCC8E8D /* Pods_climbingweather.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -604,6 +612,16 @@
 			name = xib;
 			sourceTree = "<group>";
 		};
+		9800F519063C99F66A4E3FA4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				120DBC54ECE1324BDA54C2C6 /* Pods-climbingweather.debug.xcconfig */,
+				A47F2573F5EE65D5EF77735B /* Pods-climbingweather.release.xcconfig */,
+				E1713432848AF9D41A8C2F34 /* Pods-climbingweather.distribution.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -611,9 +629,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "climbingweather" */;
 			buildPhases = (
+				B3494D191140BF29E3FF56CF /* [CP] Check Pods Manifest.lock */,
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+				FAA08EF0DFC661491D5CAA45 /* [CP] Embed Pods Frameworks */,
+				B24ADE1D0744251C30CDE9F2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -649,7 +670,8 @@
 				German,
 				en,
 			);
-			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			mainGroup = 29B97314FDCFA39411CA2CEA;
+			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -760,6 +782,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B24ADE1D0744251C30CDE9F2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-climbingweather/Pods-climbingweather-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B3494D191140BF29E3FF56CF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FAA08EF0DFC661491D5CAA45 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-climbingweather/Pods-climbingweather-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1D60588E0D05DD3D006BFB54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -805,6 +875,7 @@
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 120DBC54ECE1324BDA54C2C6 /* Pods-climbingweather.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -835,6 +906,7 @@
 		};
 		1D6058950D05DD3E006BFB54 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A47F2573F5EE65D5EF77735B /* Pods-climbingweather.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -894,6 +966,7 @@
 		};
 		60770417135696090085464F /* Distribution */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1713432848AF9D41A8C2F34 /* Pods-climbingweather.distribution.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
