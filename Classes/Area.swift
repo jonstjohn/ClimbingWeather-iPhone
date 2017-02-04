@@ -9,40 +9,70 @@
 import Foundation
 
 struct Area {
+    let id: Int
     let name: String
-    let areas: Int
-    let code: String
+    let state: String
+    let daily: [ForecastDay]?
+    let hourly: [ForecastHour]?
 }
 
 struct Areas {
     
     var areas = [Area]()
     
-    public init?(jsonStr: String) {
+    public init?(dailyJsonStr: String) {
         
-        guard let data = jsonStr.data(using: .utf8) else {
+        guard let data = dailyJsonStr.data(using: .utf8) else {
             return nil
         }
         
-        self.init(jsonData: data)
+        self.init(dailyJsonData: data)
         
     }
     
-    public init?(jsonData: Data) {
+    public init?(dailyJsonData: Data) {
         
-        let json = try? JSONSerialization.jsonObject(with: jsonData, options: [])
-        guard let jsonAreas = json as? [[String: String]] else {
+        let json = try? JSONSerialization.jsonObject(with: dailyJsonData, options: [])
+        
+        guard let result = json as? [String: Any] else {
+            return nil
+        }
+        
+        guard let status = result["status"] as? String else {
+            return nil
+        }
+        
+        guard status == "OK" else {
+            return nil
+        }
+        
+        guard let jsonAreas = result["results"] as? [[String: Any]] else {
             return nil
         }
         
         for jsonArea in jsonAreas {
-            if let name = jsonArea["name"],
-                let areasFromJson = jsonArea["areas"],
-                let areaCount = Int(areasFromJson),
-                let code = jsonArea["code"] {
-                self.areas.append(Area(name: name, areas: areaCount, code: code))
+            if let id = jsonArea["id"] as? Int,
+                let name = jsonArea["name"] as? String,
+                let state = jsonArea["state"] as? String {
+                self.areas.append(Area(id: id, name: name, state: state, daily: nil, hourly: nil))
             }
         }
         
+    }
+    
+    static func fetchDaily(search: String, completion: @escaping (Areas) -> Void) {
+        
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        
+        if let searchURL = URL(string: "http://api.climbingweather.com/api/area/list/cottonwood?days=3&apiKey=iphone-VALID&tempUnit=F") {
+            
+            session.dataTask(with: searchURL, completionHandler: { (data, response, error) -> Void in
+                
+                if let data = data, let areas = Areas(dailyJsonData: data) {
+                    completion(areas)
+                }
+                
+            }).resume()
+        }
     }
 }

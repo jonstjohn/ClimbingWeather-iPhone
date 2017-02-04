@@ -16,6 +16,9 @@
 		6053B5E81E43CE5100798BC1 /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6053B5E71E43CE5100798BC1 /* Area.swift */; };
 		6053B5F21E452DF900798BC1 /* ClimbWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6053B5F11E452DF900798BC1 /* ClimbWeatherTests.swift */; };
 		6053B5FA1E452E2200798BC1 /* AreasTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6053B5E91E451D7600798BC1 /* AreasTests.swift */; };
+		6053B5FC1E4530DC00798BC1 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6053B5FB1E4530DC00798BC1 /* State.swift */; };
+		6053B5FE1E45314A00798BC1 /* StatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6053B5FD1E45314A00798BC1 /* StatesTests.swift */; };
+		6053B6001E45325B00798BC1 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6053B5FF1E45325B00798BC1 /* Forecast.swift */; };
 		6057F052134EA8F700D04516 /* 28-star.png in Resources */ = {isa = PBXBuildFile; fileRef = 6057F051134EA8F700D04516 /* 28-star.png */; };
 		6057F05C134FE23B00D04516 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6057F05A134FE23A00D04516 /* MoreViewController.m */; };
 		6057F05D134FE23B00D04516 /* MoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6057F05B134FE23A00D04516 /* MoreViewController.xib */; };
@@ -168,6 +171,9 @@
 		6053B5EF1E452DF900798BC1 /* ClimbWeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClimbWeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6053B5F11E452DF900798BC1 /* ClimbWeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimbWeatherTests.swift; sourceTree = "<group>"; };
 		6053B5F31E452DF900798BC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6053B5FB1E4530DC00798BC1 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		6053B5FD1E45314A00798BC1 /* StatesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatesTests.swift; sourceTree = "<group>"; };
+		6053B5FF1E45325B00798BC1 /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		6057F051134EA8F700D04516 /* 28-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "28-star.png"; sourceTree = "<group>"; };
 		6057F059134FE23A00D04516 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
 		6057F05A134FE23A00D04516 /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
@@ -457,6 +463,8 @@
 			children = (
 				6053B5E71E43CE5100798BC1 /* Area.swift */,
 				6053B5E61E43CE5000798BC1 /* climbingweather-Bridging-Header.h */,
+				6053B5FB1E4530DC00798BC1 /* State.swift */,
+				6053B5FF1E45325B00798BC1 /* Forecast.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -464,8 +472,9 @@
 		6053B5F01E452DF900798BC1 /* ClimbWeatherTests */ = {
 			isa = PBXGroup;
 			children = (
-				6053B5E91E451D7600798BC1 /* AreasTests.swift */,
 				6053B5F11E452DF900798BC1 /* ClimbWeatherTests.swift */,
+				6053B5E91E451D7600798BC1 /* AreasTests.swift */,
+				6053B5FD1E45314A00798BC1 /* StatesTests.swift */,
 				6053B5F31E452DF900798BC1 /* Info.plist */,
 			);
 			path = ClimbWeatherTests;
@@ -917,6 +926,7 @@
 				608A551A12E532F2003BCB84 /* MyManager.m in Sources */,
 				608A560512E7C9F3003BCB84 /* AreaDailyViewController.m in Sources */,
 				608A562D12E7CEF7003BCB84 /* AreaTabBarController.m in Sources */,
+				6053B5FC1E4530DC00798BC1 /* State.swift in Sources */,
 				608A566312E7D551003BCB84 /* AreaHourlyViewController.m in Sources */,
 				608A566C12E7D567003BCB84 /* AreaMapViewController.m in Sources */,
 				608A56C912E92003003BCB84 /* FavoritesViewController.m in Sources */,
@@ -924,6 +934,7 @@
 				608A57AB12EA778F003BCB84 /* AreaDailyCell.m in Sources */,
 				608A59A312EFC58C003BCB84 /* AreasCell.m in Sources */,
 				608DE22812F60FCE00AE172C /* AreaHourlyCell.m in Sources */,
+				6053B6001E45325B00798BC1 /* Forecast.swift in Sources */,
 				608DE3AE12FCDF0000AE172C /* Cache.m in Sources */,
 				608DE46A12FCF24A00AE172C /* AreaDetailController.m in Sources */,
 				608DE47912FCF47D00AE172C /* AreaAveragesController.m in Sources */,
@@ -942,6 +953,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6053B5FE1E45314A00798BC1 /* StatesTests.swift in Sources */,
 				6053B5FA1E452E2200798BC1 /* AreasTests.swift in Sources */,
 				6053B5F21E452DF900798BC1 /* ClimbWeatherTests.swift in Sources */,
 			);
