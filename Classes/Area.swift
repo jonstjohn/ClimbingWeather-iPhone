@@ -54,10 +54,62 @@ struct Areas {
             if let id = jsonArea["id"] as? Int,
                 let name = jsonArea["name"] as? String,
                 let state = jsonArea["state"] as? String {
-                self.areas.append(Area(id: id, name: name, state: state, daily: nil, hourly: nil))
+                
+                let forecastDaily = jsonArea["f"] as? [[String: String]]
+                self.areas.append(Area(id: id, name: name, state: state, daily: self.parseDaily(dailies: forecastDaily), hourly: nil))
             }
         }
         
+    }
+    
+    private func parseDaily(dailies: [[String: String]]?) -> [ForecastDay]? {
+        
+        guard let dailies = dailies else {
+            return nil
+        }
+        
+        var days = [ForecastDay]()
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        for daily in dailies {
+            if let dateStr = daily["d"], let date = dateFormatter.date(from: dateStr) {
+                
+                var high: Int?
+                if let hi = daily["hi"] {
+                    high = Int(hi)
+                }
+                
+                var low: Int?
+                if let lo = daily["l"] {
+                    low = Int(lo)
+                }
+                
+                var precipChanceDay: Int?
+                if let pd = daily["pd"] {
+                    precipChanceDay = Int(pd)
+                }
+                
+                var precipChanceNight: Int?
+                if let pn = daily["pn"] {
+                    precipChanceNight = Int(pn)
+                }
+                
+                var symbol: Symbol?
+                if let sym = daily["sy"] {
+                    symbol = Symbol(rawValue: sym)
+                }
+                
+                let day = ForecastDay(
+                    date: date, day: nil, dateFormatted: nil,
+                    high: high, low: low, precipitation: nil,
+                    precipitationChanceDay: precipChanceDay, precipitationChanceNight: precipChanceNight,
+                    symbol: symbol, humidity: nil)
+                days.append(day)
+            }
+        }
+        return days
     }
     
     static func fetchDaily(search: String, completion: @escaping (Areas) -> Void) {

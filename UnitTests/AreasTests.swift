@@ -31,6 +31,20 @@ class AreasTests: XCTestCase {
         XCTAssertEqual(areas?.areas[0].name, "Big Cottonwood Canyon")
         XCTAssertEqual(areas?.areas[0].id, 713)
         XCTAssertEqual(areas?.areas[0].state, "UT")
+        
+        let daily = areas?.areas[0].daily
+        XCTAssertNotNil(daily)
+        XCTAssertEqual(daily!.count, 3)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        XCTAssertEqual(dateFormatter.string(from: daily![0].date), "2017-02-03")
+        
+        XCTAssertEqual(daily![0].high, 40)
+        XCTAssertEqual(daily![0].low, 28)
+        XCTAssertEqual(daily![0].precipitationChanceDay, 56)
+        XCTAssertEqual(daily![0].precipitationChanceNight, 83)
+        XCTAssertEqual(daily![0].symbol, Symbol.snow4)
     }
     
     func test_invalidJson() {
