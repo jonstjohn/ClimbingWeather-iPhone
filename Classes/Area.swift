@@ -112,11 +112,12 @@ struct Areas {
         return days
     }
     
-    static func fetchDaily(search: String, completion: @escaping (Areas) -> Void) {
+    // TODO - implement search term / criteria, API key, units, maybe even days
+    static func fetchDaily(search: Search, completion: @escaping (Areas) -> Void) {
         
         let session = URLSession(configuration: URLSessionConfiguration.default)
         
-        if let searchURL = URL(string: "http://api.climbingweather.com/api/area/list/cottonwood?days=3&apiKey=iphone-VALID&tempUnit=F") {
+        if let searchURL = APIUrl().searchURL(search: search).url {
             
             session.dataTask(with: searchURL, completionHandler: { (data, response, error) -> Void in
                 

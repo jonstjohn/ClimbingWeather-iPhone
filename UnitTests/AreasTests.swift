@@ -55,7 +55,7 @@ class AreasTests: XCTestCase {
     func test_fetchDaily() {
         let ex = expectation(description: "Wait for load.")
         var areas: Areas?
-        Areas.fetchDaily(search: "blah") { (fetchedAreas) in
+        Areas.fetchDaily(search: .Term("cottonwood")) { (fetchedAreas) in
             areas = fetchedAreas
             ex.fulfill()
         }
