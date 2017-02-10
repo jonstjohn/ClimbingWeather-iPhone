@@ -8,37 +8,80 @@
 
 import Foundation
 
+/**
+ * Location
+ */
 struct Location {
     let latitude: String
     let longitude: String
 }
 
+/**
+ * Search types for use with API searches
+ */
 enum Search {
     case Term(String)
     case Location(Location)
     case State(String)
-    
 }
 
+/**
+ * Temperature units
+ */
+enum TempUnits {
+    case Celsius
+    case Fahrenheit
+    
+    func asParameter() -> String {
+        switch self {
+        case .Celsius:
+            return "C"
+        case .Fahrenheit:
+            return "F"
+        }
+    }
+}
+
+/**
+ * APIUrl describe an API URL that can be used in a request
+ */
 struct APIUrl {
     
+    // Preferences
+    var preferences: PreferencesProtocol
+    
+    // Basic URL information
     let scheme = "http"
     let host = "api.climbingweather.com"
     let base = "/api"
     
-    var myurl: URLComponents {
-        return url(withPath: "yo", queryItems: nil)
+    // Custom paths
+    let searchPath = "/area/list"
+    let statePath = "/state/list"
+    let areaDailyPath = "/area/daily"
+    let areaHourlyPath = "/area/hourly"
+    
+    // Constants
+    let apiKeyKey = "apiKey"
+    let tempUnitKey = "tempUnit"
+    
+    init(preferences: PreferencesProtocol = Preferences()) {
+        self.preferences = preferences
     }
     
+    /**
+     * Generate a URL using a path and query parameters
+     */
     func url(withPath path:String, queryItems: [URLQueryItem]?) -> URLComponents {
+        
         var url = URLComponents()
         url.scheme = self.scheme
         url.host = self.host
-        url.path = base + "/" + path
+        url.path = base + path
         
         var qItems = [
-            URLQueryItem(name: "apiKey", value: "iphone-VALID"),
-            URLQueryItem(name: "tempUnit", value: "F")
+            URLQueryItem(name: self.apiKeyKey, value: preferences.apiKey),
+            URLQueryItem(name: self.tempUnitKey, value: preferences.tempUnits.asParameter())
         ]
         
         if let items = queryItems {
@@ -50,18 +93,32 @@ struct APIUrl {
         return url
     }
     
-    func searchURL(search: Search) -> URLComponents {
+    /**
+     * Generate a search URL
+     */
+    func searchURL(search: Search, days: Int = 3) -> URLComponents {
         
         let queryItems = [
-            URLQueryItem(name: "days", value: "3"),
+            URLQueryItem(name: "days", value: String(days)),
             ]
-        let path = "area/list/"
         switch search {
         case .Term(let term), .State(let term):
-            return url(withPath: path + term, queryItems: queryItems)
+            return url(withPath: self.searchPath + "/" + term, queryItems: queryItems)
         case .Location(let location):
-            return url(withPath: path + String(format: "%@,%@", location.latitude, location.longitude), queryItems: queryItems)
+            return url(withPath: self.searchPath + "/" + String(format: "%@,%@", location.latitude, location.longitude), queryItems: queryItems)
             
         }
+    }
+    
+    func stateURL() -> URLComponents {
+        return url(withPath: self.statePath, queryItems: nil)
+    }
+    
+    func areaDailyUrl(areaId: Int) -> URLComponents {
+        return url(withPath: self.areaDailyPath + "/" + String(areaId), queryItems: nil)
+    }
+    
+    func areaHourlyUrl(areaId: Int) -> URLComponents {
+        return url(withPath: self.areaHourlyPath + "/" + String(areaId), queryItems: nil)
     }
 }

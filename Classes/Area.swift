@@ -14,6 +14,76 @@ struct Area {
     let state: String
     let daily: [ForecastDay]?
     let hourly: [ForecastHour]?
+    
+    public init(id: Int, name: String, state: String, daily: [ForecastDay]?, hourly: [ForecastHour]?) {
+        self.id = id
+        self.name = name
+        self.state = state
+        self.daily = daily
+        self.hourly = hourly
+    }
+    
+    public init?(id: Int, dailyJsonData: Data) {
+        
+        let json = try? JSONSerialization.jsonObject(with: dailyJsonData, options: [])
+        
+        guard let result = json as? [String: Any],
+            let status = result["status"] as? String,
+            status == "OK",
+            let jsonArea = result["results"] as? [String: Any],
+            let name = jsonArea["n"] as? String else {
+            return nil
+        }
+        
+        self.id = id
+        self.name = name
+        self.state = "" // TODO
+            
+        let forecastDaily = jsonArea["f"] as? [[String: Any]]
+        self.daily = ForecastDay.parseDaily(dailies: forecastDaily)
+        self.hourly = nil
+
+        
+    }
+    
+    public init?(id: Int, hourlyJsonData: Data) {
+
+        let json = try? JSONSerialization.jsonObject(with: hourlyJsonData, options: [])
+        
+        guard let result = json as? [String: Any],
+            let name = result["n"] as? String else {
+                return nil
+        }
+        
+        self.id = id
+        self.name = name
+        self.state = "" // TODO
+        
+        let forecastHourly = result["f"] as? [[String: Any]]
+        self.hourly = ForecastHour.parseHourly(hourlies: forecastHourly)
+        self.daily = nil
+        
+    }
+    
+    /**
+     * Fetch daily forecast for area
+     */
+    static func fetchDaily(id: Int, completion: @escaping (Area) -> Void) {
+        
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        
+        if let searchURL = APIUrl().areaDailyUrl(areaId: id).url {
+            
+            session.dataTask(with: searchURL, completionHandler: { (data, response, error) -> Void in
+                
+                if let data = data, let area = Area(id: id, dailyJsonData: data) {
+                    completion(area)
+                }
+                
+            }).resume()
+        }
+    }
+    
 }
 
 struct Areas {
@@ -56,60 +126,12 @@ struct Areas {
                 let state = jsonArea["state"] as? String {
                 
                 let forecastDaily = jsonArea["f"] as? [[String: String]]
-                self.areas.append(Area(id: id, name: name, state: state, daily: self.parseDaily(dailies: forecastDaily), hourly: nil))
+                let daily = ForecastDay.parseDaily(dailies: forecastDaily)
+                let area = Area(id: id, name: name, state: state, daily: daily, hourly: nil)
+                self.areas.append(area)
             }
         }
         
-    }
-    
-    private func parseDaily(dailies: [[String: String]]?) -> [ForecastDay]? {
-        
-        guard let dailies = dailies else {
-            return nil
-        }
-        
-        var days = [ForecastDay]()
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        
-        for daily in dailies {
-            if let dateStr = daily["d"], let date = dateFormatter.date(from: dateStr) {
-                
-                var high: Int?
-                if let hi = daily["hi"] {
-                    high = Int(hi)
-                }
-                
-                var low: Int?
-                if let lo = daily["l"] {
-                    low = Int(lo)
-                }
-                
-                var precipChanceDay: Int?
-                if let pd = daily["pd"] {
-                    precipChanceDay = Int(pd)
-                }
-                
-                var precipChanceNight: Int?
-                if let pn = daily["pn"] {
-                    precipChanceNight = Int(pn)
-                }
-                
-                var symbol: Symbol?
-                if let sym = daily["sy"] {
-                    symbol = Symbol(rawValue: sym)
-                }
-                
-                let day = ForecastDay(
-                    date: date, day: nil, dateFormatted: nil,
-                    high: high, low: low, precipitation: nil,
-                    precipitationChanceDay: precipChanceDay, precipitationChanceNight: precipChanceNight,
-                    symbol: symbol, humidity: nil)
-                days.append(day)
-            }
-        }
-        return days
     }
     
     // TODO - implement search term / criteria, API key, units, maybe even days

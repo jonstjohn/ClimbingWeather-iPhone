@@ -50,7 +50,7 @@ struct States {
         
         let session = URLSession(configuration: URLSessionConfiguration.default)
         
-        if let searchURL = URL(string: "http://api.climbingweather.com/api/state/list?apiKey=iphone-VALID") {
+        if let searchURL = APIUrl().stateURL().url {
             
             session.dataTask(with: searchURL, completionHandler: { (data, response, error) -> Void in
                 

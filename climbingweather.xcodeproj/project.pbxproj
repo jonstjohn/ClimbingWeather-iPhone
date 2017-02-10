@@ -20,6 +20,7 @@
 		6053B5FE1E45314A00798BC1 /* StatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6053B5FD1E45314A00798BC1 /* StatesTests.swift */; };
 		6053B6001E45325B00798BC1 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6053B5FF1E45325B00798BC1 /* Forecast.swift */; };
 		6053B6031E48F64C00798BC1 /* CWApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6053B6021E48F64C00798BC1 /* CWApi.swift */; };
+		6053B6051E49442700798BC1 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6053B6041E49442700798BC1 /* Preference.swift */; };
 		6057F052134EA8F700D04516 /* 28-star.png in Resources */ = {isa = PBXBuildFile; fileRef = 6057F051134EA8F700D04516 /* 28-star.png */; };
 		6057F05C134FE23B00D04516 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6057F05A134FE23A00D04516 /* MoreViewController.m */; };
 		6057F05D134FE23B00D04516 /* MoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6057F05B134FE23A00D04516 /* MoreViewController.xib */; };
@@ -176,6 +177,7 @@
 		6053B5FD1E45314A00798BC1 /* StatesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatesTests.swift; sourceTree = "<group>"; };
 		6053B5FF1E45325B00798BC1 /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		6053B6021E48F64C00798BC1 /* CWApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWApi.swift; sourceTree = "<group>"; };
+		6053B6041E49442700798BC1 /* Preference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
 		6057F051134EA8F700D04516 /* 28-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "28-star.png"; sourceTree = "<group>"; };
 		6057F059134FE23A00D04516 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
 		6057F05A134FE23A00D04516 /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
@@ -468,6 +470,7 @@
 				6053B5E61E43CE5000798BC1 /* climbingweather-Bridging-Header.h */,
 				6053B5FB1E4530DC00798BC1 /* State.swift */,
 				6053B5FF1E45325B00798BC1 /* Forecast.swift */,
+				6053B6041E49442700798BC1 /* Preference.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -957,6 +960,7 @@
 				6057F05C134FE23B00D04516 /* MoreViewController.m in Sources */,
 				6087B4FE135140FC00C3044B /* SettingsViewController.m in Sources */,
 				6053B5E81E43CE5100798BC1 /* Area.swift in Sources */,
+				6053B6051E49442700798BC1 /* Preference.swift in Sources */,
 				6087B5051351410900C3044B /* AboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1292,6 +1296,7 @@
 				6053B5F91E452DF900798BC1 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "climbingweather" */ = {
 			isa = XCConfigurationList;
