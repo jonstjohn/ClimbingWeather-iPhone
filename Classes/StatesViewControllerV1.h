@@ -10,7 +10,7 @@
 #import "JSON.h"
 
 
-@interface StatesViewController : UITableViewController
+@interface StatesViewControllerV1 : UITableViewController
 {
 	NSMutableArray *states;
 	NSMutableData *responseData;

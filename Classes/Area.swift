@@ -84,6 +84,25 @@ struct Area {
         }
     }
     
+    /**
+     * Fetch hourly forecast for area
+     */
+    static func fetchHourly(id: Int, completion: @escaping (Area) -> Void) {
+        
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        
+        if let searchURL = APIUrl().areaHourlyUrl(areaId: id).url {
+            
+            session.dataTask(with: searchURL, completionHandler: { (data, response, error) -> Void in
+                
+                if let data = data, let area = Area(id: id, hourlyJsonData: data) {
+                    completion(area)
+                }
+                
+            }).resume()
+        }
+    }
+    
 }
 
 struct Areas {

@@ -9,11 +9,12 @@
 #import "climbingweatherAppDelegate.h"
 #import "HomeViewController.h"
 #import "NearbyViewController.h"
-#import "StatesViewController.h"
+#import "StatesViewControllerV1.h"
 #import "FavoritesViewController.h"
 #import "SearchViewController.h"
 #import "MoreViewController.h"
 #import "MyManager.h"
+#import "climbingweather-swift.h"
 
 @implementation climbingweatherAppDelegate
 
@@ -32,11 +33,13 @@
 	// Create view controllers
 	UIViewController *vc1 = [[HomeViewController alloc] init];
 	UIViewController *vc2 = [[NearbyViewController alloc] init];
-	UIViewController *vc3 = [[StatesViewController alloc] init];
+    
+    UIViewController *vc3 = [[StatesViewController alloc] init];
+    UITabBarItem *tbi3 = [[UITabBarItem alloc] initWithTitle: @"By State" image: [UIImage imageNamed:@"190-bank.png"] selectedImage: [UIImage imageNamed: @"190-bank.png"]];
+    vc3.tabBarItem = tbi3;
+    
 	UIViewController *vc4 = [[FavoritesViewController alloc] init];
 	UIViewController *vc5 = [[SearchViewController alloc] init];
-	//UIViewController *vc6 = [[MoreViewController alloc] init];
-	
 	
 	// Make an array that contains the two view controllers
 	NSArray *viewControllers = [NSArray arrayWithObjects: vc1, vc2, vc3, vc4, vc5, nil];

@@ -193,6 +193,18 @@ class AreasHourlyTests: XCTestCase {
         XCTAssertNil(area)
     }
     
+    func test_fetchArea() {
+        let ex = expectation(description: "Wait for load.")
+        var area: Area?
+        Area.fetchHourly(id: 3) { (fetchedArea) in
+            area = fetchedArea
+            ex.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
+        XCTAssertNotNil(area)
+    }
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.

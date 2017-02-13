@@ -6,18 +6,18 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "StatesViewController.h"
+#import "StatesViewControllerV1.h"
 #import "AreasViewController.h"
 #import "MyManager.h"
 #import "Cache.h"
 
 
-@implementation StatesViewController
+@implementation StatesViewControllerV1
 
 - (id) init
 {
 	// Call the super-class's designated initialize
-	if (!(self = [super initWithNibName: @"StatesViewController" bundle: nil])) return nil;
+	if (!(self = [super initWithNibName: @"StatesViewControllerV1" bundle: nil])) return nil;
 	
 	// Get tab bar item
 	UITabBarItem *tbi = [self tabBarItem];
