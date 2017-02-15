@@ -7,7 +7,7 @@
 //
 
 #import "StatesViewControllerV1.h"
-#import "AreasViewController.h"
+#import "AreasViewControllerV1.h"
 #import "MyManager.h"
 #import "Cache.h"
 
@@ -128,7 +128,7 @@
 
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath
 {	
-	AreasViewController *controller = [[AreasViewController alloc] initWithStateCode: 
+	AreasViewControllerV1 *controller = [[AreasViewControllerV1 alloc] initWithStateCode:
 									   [[states objectAtIndex: [indexPath row]] objectForKey: @"code"]
 										name: [[states objectAtIndex: [indexPath row]] objectForKey: @"name"]];
 	[controller setShowStates: NO];

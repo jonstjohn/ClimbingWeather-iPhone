@@ -11,7 +11,7 @@
 #import "AreasTableViewDelegate.h"
 
 
-@interface AreasViewController : UIViewController {
+@interface AreasViewControllerV1 : UIViewController {
 
 	IBOutlet UITableView *myTable;
 	IBOutlet UIActivityIndicatorView *activityIndicator;

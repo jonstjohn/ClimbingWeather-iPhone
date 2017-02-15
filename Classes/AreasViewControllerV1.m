@@ -6,9 +6,9 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "AreasViewController.h"
+#import "AreasViewControllerV1.h"
 
-@implementation AreasViewController
+@implementation AreasViewControllerV1
 
 @synthesize myTableDelegate;
 

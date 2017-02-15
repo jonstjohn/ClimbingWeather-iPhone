@@ -65,11 +65,11 @@ import UIKit
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        //let state = self.states[indexPath.row]
+        let controller = AreasViewController()
         let state = self.states[indexPath.row]
-        if let controller = AreasViewController(stateCode: state.code, name: state.name) {
-            controller.setShowStates(false)
-            self.navigationController?.pushViewController(controller, animated: true)
-        }
+        controller.search = Search.State(state)
+        self.navigationController?.pushViewController(controller, animated: true)
         
     }
     

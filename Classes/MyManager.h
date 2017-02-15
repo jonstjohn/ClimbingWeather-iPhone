@@ -28,6 +28,6 @@
 @property (nonatomic, strong) NSString *areaSearch;
 @property (nonatomic, assign) sqlite3 *database;
 
-+ (id) sharedManager;
++ (MyManager *) sharedManager;
 
 @end

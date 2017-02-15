@@ -22,7 +22,7 @@ struct Location {
 enum Search {
     case Term(String)
     case Location(Location)
-    case State(String)
+    case State(State)
 }
 
 /**
@@ -102,7 +102,9 @@ struct APIUrl {
             URLQueryItem(name: "days", value: String(days)),
             ]
         switch search {
-        case .Term(let term), .State(let term):
+        case .State(let state):
+            return url(withPath: self.searchPath + "/" + state.code, queryItems: queryItems)
+        case .Term(let term):
             return url(withPath: self.searchPath + "/" + term, queryItems: queryItems)
         case .Location(let location):
             return url(withPath: self.searchPath + "/" + String(format: "%@,%@", location.latitude, location.longitude), queryItems: queryItems)
