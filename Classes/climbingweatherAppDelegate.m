@@ -30,10 +30,21 @@
 	UITabBarController *tabController = [[UITabBarController alloc] init];
 	[tabController setDelegate: self];
 	
+    //
 	// Create view controllers
-	UIViewController *vc1 = [[HomeViewController alloc] init];
-	UIViewController *vc2 = [[NearbyViewController alloc] init];
+    //
     
+	UIViewController *vc1 = [[HomeViewController alloc] init];
+	//UIViewController *vc2 = [[NearbyViewController alloc] init];
+    
+    // Nearby areas
+    AreasViewController *vc2 = [[AreasViewController alloc] init];
+    [vc2 setSearchAsLocationWithLatitude:@"37.7397" longitude:@"-119.5730"];
+    
+    UITabBarItem *tbi2 = [[UITabBarItem alloc] initWithTitle: @"Nearby Areas" image: [UIImage imageNamed:@"190-bank.png"] selectedImage: [UIImage imageNamed: @"73-radar.png"]];
+    vc2.tabBarItem = tbi2;
+    
+    // States
     UIViewController *vc3 = [[StatesViewController alloc] init];
     UITabBarItem *tbi3 = [[UITabBarItem alloc] initWithTitle: @"By State" image: [UIImage imageNamed:@"190-bank.png"] selectedImage: [UIImage imageNamed: @"190-bank.png"]];
     vc3.tabBarItem = tbi3;

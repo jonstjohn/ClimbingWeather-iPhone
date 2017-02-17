@@ -6,6 +6,5 @@ target 'climbingweather' do
   use_frameworks!
 
   # Pods for climbingweather
-  pod 'Gloss', '~> 1.2'
 
 end

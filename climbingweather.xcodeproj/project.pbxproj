@@ -163,8 +163,8 @@
 /* Begin PBXFileReference section */
 		120DBC54ECE1324BDA54C2C6 /* Pods-climbingweather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-climbingweather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-climbingweather/Pods-climbingweather.debug.xcconfig"; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D3623240D0F684500981E51 /* climbingweatherAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = climbingweatherAppDelegate.h; sourceTree = "<group>"; };
-		1D3623250D0F684500981E51 /* climbingweatherAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = climbingweatherAppDelegate.m; sourceTree = "<group>"; };
+		1D3623240D0F684500981E51 /* climbingweatherAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = climbingweatherAppDelegate.h; path = Classes/climbingweatherAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* climbingweatherAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = climbingweatherAppDelegate.m; path = Classes/climbingweatherAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* ClimbingWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClimbingWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -396,6 +396,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				1D3623240D0F684500981E51 /* climbingweatherAppDelegate.h */,
+				1D3623250D0F684500981E51 /* climbingweatherAppDelegate.m */,
 				6053B5E61E43CE5000798BC1 /* climbingweather-Bridging-Header.h */,
 				6053B66D1E4E073400798BC1 /* Controllers */,
 				6095679D1C78AC8B002CD30F /* Default-568h@2x.png */,
@@ -562,8 +564,6 @@
 				608DE80A130C01F400AE172C /* AreasTableViewDelegate.m */,
 				608A511312E34061003BCB84 /* StatesViewControllerV1.h */,
 				608A511412E34061003BCB84 /* StatesViewControllerV1.m */,
-				1D3623240D0F684500981E51 /* climbingweatherAppDelegate.h */,
-				1D3623250D0F684500981E51 /* climbingweatherAppDelegate.m */,
 				608A56C612E92003003BCB84 /* FavoritesViewController.h */,
 				608A56C712E92003003BCB84 /* FavoritesViewController.m */,
 				608A56FA12E923AA003BCB84 /* SearchViewController.h */,
@@ -1025,7 +1025,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = climbingweather_Prefix.pch;
 				INFOPLIST_FILE = "climbingweather-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.climbingweather.cw;
 				PRODUCT_NAME = ClimbingWeather;
@@ -1054,7 +1054,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = climbingweather_Prefix.pch;
 				INFOPLIST_FILE = "climbingweather-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.climbingweather.cw;
 				PRODUCT_NAME = ClimbWeather;
@@ -1220,7 +1220,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = climbingweather_Prefix.pch;
 				INFOPLIST_FILE = "climbingweather-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.climbingweather.cw;
 				PRODUCT_NAME = ClimbWeather;

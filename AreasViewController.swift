@@ -13,6 +13,7 @@ import UIKit
     
     var search: Search?
     var areas = [Area]()
+    var locationManager: CLLocationManager?
     
     override func viewDidLoad() {
         
@@ -34,17 +35,89 @@ import UIKit
         self.tabBarController?.title = "Areas"
         self.navigationController?.isNavigationBarHidden = false
         
-        if let search = search {
-            Areas.fetchDaily(search: search, completion: { (areas) in
-                self.areas = areas.areas
-            
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            })
+        self.updateSearch()
+        
+        // For location search, always update location on view appear
+        if self.isLocationSearch() {
+            self.updateLocation()
         }
         
         super.viewWillAppear(animated)
+    }
+    
+    func updateSearch() {
+        if let search = search {
+            switch search {
+            case .Location:
+                // do some location update stuff
+                fallthrough
+            case .State, .Term:
+                Areas.fetchDaily(search: search, completion: { (areas) in
+                    self.areas = areas.areas
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                })
+            }
+        }
+    }
+    
+    func checkLocationAuthorization(manager: CLLocationManager) {
+        let authStatus = CLLocationManager.authorizationStatus()
+        
+        // Ensure status is not restricted or denied
+        guard ![.restricted, .denied].contains(authStatus) else {
+            return
+        }
+        switch CLLocationManager.authorizationStatus() {
+        case .denied, .restricted:
+            return
+        case .notDetermined:
+            manager.requestWhenInUseAuthorization()
+        case .authorizedAlways, .authorizedWhenInUse:
+            break
+        }
+    }
+    
+    func setupLocationManager() {
+        if self.locationManager == nil {
+            self.locationManager = CLLocationManager()
+            locationManager?.delegate = self
+        }
+    }
+    
+    func updateLocation() {
+        
+        self.setupLocationManager()
+        
+        guard let locationManager = self.locationManager else {
+            return
+        }
+        
+        self.checkLocationAuthorization(manager: locationManager)
+        
+        locationManager.requestLocation()
+    }
+    
+    func isLocationSearch() -> Bool {
+        guard let search = self.search else {
+            return false
+        }
+        
+        switch search {
+        case .Location:
+            return true
+        default:
+            return false
+        }
+    }
+    func setSearchAsState(name: String, code: String, areas: Int) {
+        self.search = .State(State(name: name, areas: areas, code: code))
+    }
+    
+    func setSearchAsLocation(latitude: String, longitude: String) {
+        self.search = .Location(Location(latitude: latitude, longitude: longitude))
     }
     
     // MARK: - Table view data source
@@ -138,4 +211,19 @@ import UIKit
         }
     }
  
+}
+
+extension AreasViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        if let location = locations.last {
+            let coordinate = location.coordinate
+            self.search = Search.Location(Location(latitude: String(coordinate.latitude), longitude: String(coordinate.longitude)))
+            self.updateSearch()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Location manager failed with \(error)")
+    }
 }
