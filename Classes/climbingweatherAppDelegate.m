@@ -35,13 +35,12 @@
     //
     
 	UIViewController *vc1 = [[HomeViewController alloc] init];
-	//UIViewController *vc2 = [[NearbyViewController alloc] init];
     
     // Nearby areas
     AreasViewController *vc2 = [[AreasViewController alloc] init];
     [vc2 setSearchAsLocationWithLatitude:@"37.7397" longitude:@"-119.5730"];
     
-    UITabBarItem *tbi2 = [[UITabBarItem alloc] initWithTitle: @"Nearby Areas" image: [UIImage imageNamed:@"190-bank.png"] selectedImage: [UIImage imageNamed: @"73-radar.png"]];
+    UITabBarItem *tbi2 = [[UITabBarItem alloc] initWithTitle: @"Nearby Areas" image: [UIImage imageNamed:@"73-radar.png"] selectedImage: [UIImage imageNamed: @"73-radar.png"]];
     vc2.tabBarItem = tbi2;
     
     // States
@@ -49,7 +48,12 @@
     UITabBarItem *tbi3 = [[UITabBarItem alloc] initWithTitle: @"By State" image: [UIImage imageNamed:@"190-bank.png"] selectedImage: [UIImage imageNamed: @"190-bank.png"]];
     vc3.tabBarItem = tbi3;
     
-	UIViewController *vc4 = [[FavoritesViewController alloc] init];
+    // Favorites
+    AreasViewController *vc4 = [[AreasViewController alloc] init];
+    UITabBarItem *tbi4 = [[UITabBarItem alloc] initWithTitle: @"Favorites" image: [UIImage imageNamed:@"icon_star.png"] selectedImage: [UIImage imageNamed: @"icon_star.png"]];
+    vc4.tabBarItem = tbi4;
+    [vc4 setSearchAsFavorites];
+	//UIViewController *vc4 = [[FavoritesViewController alloc] init];
 	UIViewController *vc5 = [[SearchViewController alloc] init];
 	
 	// Make an array that contains the two view controllers

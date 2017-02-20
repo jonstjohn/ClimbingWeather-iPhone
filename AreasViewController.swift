@@ -35,31 +35,27 @@ import UIKit
         self.tabBarController?.title = "Areas"
         self.navigationController?.isNavigationBarHidden = false
         
-        self.updateSearch()
-        
         // For location search, always update location on view appear
         if self.isLocationSearch() {
             self.updateLocation()
+        } else if self.isAreasSearch() {
+            self.updateFavorites()
         }
         
         super.viewWillAppear(animated)
+        
+        self.updateSearch()
     }
     
     func updateSearch() {
         if let search = search {
-            switch search {
-            case .Location:
-                // do some location update stuff
-                fallthrough
-            case .State, .Term:
-                Areas.fetchDaily(search: search, completion: { (areas) in
-                    self.areas = areas.areas
-                    
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                })
-            }
+            Areas.fetchDaily(search: search, completion: { (areas) in
+                self.areas = areas.areas
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            })
         }
     }
     
@@ -100,6 +96,17 @@ import UIKit
         locationManager.requestLocation()
     }
     
+    func updateFavorites() {
+        
+        guard let favoriteAreas = Favorite.shared()?.getAll() else {
+            return
+        }
+        
+        let areaIds = favoriteAreas.flatMap({$0 as? [String: String]}).flatMap({$0["area_id"]}).flatMap({Int($0)})
+        self.search = .Areas(areaIds)
+
+    }
+    
     func isLocationSearch() -> Bool {
         guard let search = self.search else {
             return false
@@ -112,12 +119,30 @@ import UIKit
             return false
         }
     }
+    
+    func isAreasSearch() -> Bool {
+        guard let search = self.search else {
+            return false
+        }
+        
+        switch search {
+        case .Areas:
+            return true
+        default:
+            return false
+        }
+    }
+    
     func setSearchAsState(name: String, code: String, areas: Int) {
         self.search = .State(State(name: name, areas: areas, code: code))
     }
     
     func setSearchAsLocation(latitude: String, longitude: String) {
         self.search = .Location(Location(latitude: latitude, longitude: longitude))
+    }
+    
+    func setSearchAsFavorites() {
+        self.search = .Areas([])
     }
     
     // MARK: - Table view data source

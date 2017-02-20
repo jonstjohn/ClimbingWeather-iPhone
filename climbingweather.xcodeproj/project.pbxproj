@@ -374,8 +374,6 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				6053B6011E48F62C00798BC1 /* API */,
-				6053B5E51E43CE3300798BC1 /* Model */,
 				608DE45B12FCF18600AE172C /* Area */,
 				608DE46212FCF1BD00AE172C /* JSON */,
 				608DE46312FCF1D400AE172C /* Home */,
@@ -401,6 +399,8 @@
 				6053B5E61E43CE5000798BC1 /* climbingweather-Bridging-Header.h */,
 				6053B66D1E4E073400798BC1 /* Controllers */,
 				6095679D1C78AC8B002CD30F /* Default-568h@2x.png */,
+				6053B6011E48F62C00798BC1 /* API */,
+				6053B5E51E43CE3300798BC1 /* Model */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -482,6 +482,7 @@
 				6053B6041E49442700798BC1 /* Preference.swift */,
 			);
 			name = Model;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		6053B5F01E452DF900798BC1 /* ClimbWeatherTests */ = {
@@ -501,6 +502,7 @@
 				6053B6021E48F64C00798BC1 /* CWApi.swift */,
 			);
 			name = API;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		6053B66D1E4E073400798BC1 /* Controllers */ = {

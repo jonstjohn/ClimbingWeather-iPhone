@@ -23,6 +23,7 @@ enum Search {
     case Term(String)
     case Location(Location)
     case State(State)
+    case Areas([Int])
 }
 
 /**
@@ -35,9 +36,9 @@ enum TempUnits {
     func asParameter() -> String {
         switch self {
         case .Celsius:
-            return "C"
+            return "c"
         case .Fahrenheit:
-            return "F"
+            return "f"
         }
     }
 }
@@ -108,7 +109,8 @@ struct APIUrl {
             return url(withPath: self.searchPath + "/" + term, queryItems: queryItems)
         case .Location(let location):
             return url(withPath: self.searchPath + "/" + String(format: "%@,%@", location.latitude, location.longitude), queryItems: queryItems)
-            
+        case .Areas(let areaIds):
+            return url(withPath: self.searchPath + "/ids-" + areaIds.map({String($0)}).joined(separator: ","), queryItems: queryItems)
         }
     }
     
