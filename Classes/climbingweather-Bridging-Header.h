@@ -9,3 +9,5 @@
 #import "AreaHourlyViewController.h"
 #import "AreaMapViewController.h"
 #import "MyManager.h"
+#import "HomeViewController.h"
+#import "SearchViewController.h"
