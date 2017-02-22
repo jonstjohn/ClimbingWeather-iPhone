@@ -55,7 +55,6 @@
 		608A566D12E7D567003BCB84 /* AreaMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 608A566B12E7D567003BCB84 /* AreaMapViewController.xib */; };
 		608A56AD12E91B5E003BCB84 /* logo_top_center.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A56AC12E91B5E003BCB84 /* logo_top_center.png */; };
 		608A56B812E91DC8003BCB84 /* ic_menu_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A56B712E91DC8003BCB84 /* ic_menu_home.png */; };
-		608A56CA12E92003003BCB84 /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 608A56C812E92003003BCB84 /* FavoritesViewController.xib */; };
 		608A56CC12E920F7003BCB84 /* btn_star_big_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A56CB12E920F7003BCB84 /* btn_star_big_on.png */; };
 		608A56D812E921F7003BCB84 /* ic_menu_mylocation.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A56D712E921F7003BCB84 /* ic_menu_mylocation.png */; };
 		608A56F212E92344003BCB84 /* ic_menu_mapmode.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A56F112E92344003BCB84 /* ic_menu_mapmode.png */; };
@@ -226,7 +225,6 @@
 		608A566B12E7D567003BCB84 /* AreaMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AreaMapViewController.xib; sourceTree = "<group>"; };
 		608A56AC12E91B5E003BCB84 /* logo_top_center.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_top_center.png; sourceTree = "<group>"; };
 		608A56B712E91DC8003BCB84 /* ic_menu_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_menu_home.png; sourceTree = "<group>"; };
-		608A56C812E92003003BCB84 /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FavoritesViewController.xib; path = Classes/FavoritesViewController.xib; sourceTree = "<group>"; };
 		608A56CB12E920F7003BCB84 /* btn_star_big_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_star_big_on.png; sourceTree = "<group>"; };
 		608A56D712E921F7003BCB84 /* ic_menu_mylocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_menu_mylocation.png; sourceTree = "<group>"; };
 		608A56F112E92344003BCB84 /* ic_menu_mapmode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_menu_mapmode.png; sourceTree = "<group>"; };
@@ -653,7 +651,6 @@
 				608A511512E34061003BCB84 /* StatesViewController.xib */,
 				608A50C712E33CCD003BCB84 /* HomeViewController.xib */,
 				608DE46912FCF24A00AE172C /* AreaDetailController.xib */,
-				608A56C812E92003003BCB84 /* FavoritesViewController.xib */,
 				608DE47812FCF47D00AE172C /* AreaAverages.xib */,
 				608DE32A12FAD61100AE172C /* climbingweather.db */,
 				60807EE213240AC9004A60C0 /* MainWindow.xib */,
@@ -769,7 +766,6 @@
 				608A566D12E7D567003BCB84 /* AreaMapViewController.xib in Resources */,
 				608A56AD12E91B5E003BCB84 /* logo_top_center.png in Resources */,
 				608A56B812E91DC8003BCB84 /* ic_menu_home.png in Resources */,
-				608A56CA12E92003003BCB84 /* FavoritesViewController.xib in Resources */,
 				608A56CC12E920F7003BCB84 /* btn_star_big_on.png in Resources */,
 				608A56D812E921F7003BCB84 /* ic_menu_mylocation.png in Resources */,
 				608A56F212E92344003BCB84 /* ic_menu_mapmode.png in Resources */,
