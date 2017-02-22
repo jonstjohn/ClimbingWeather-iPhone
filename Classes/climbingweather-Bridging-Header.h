@@ -4,7 +4,6 @@
 
 #import "AreasViewControllerV1.h"
 #import "AreasCell.h"
-#import "Favorite.h"
 #import "AreaDailyViewController.h"
 #import "AreaHourlyViewController.h"
 #import "AreaMapViewController.h"

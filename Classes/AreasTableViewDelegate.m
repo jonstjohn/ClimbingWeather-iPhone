@@ -15,7 +15,6 @@
 #import "AreaAveragesController.h"
 #import "MyManager.h"
 #import "AreasCell.h"
-#import "Favorite.h"
 #import "JSON.h"
 
 @implementation AreasTableViewDelegate
@@ -53,17 +52,17 @@
 		[[cell areaName] setText: [area objectForKey: @"name"]];
 	}
 	
-	Favorite *sharedFavorite = [Favorite sharedFavorite];
-	
-	NSString *imgSrc = @"btn_star_big_off.png";
-	if ([sharedFavorite exists: [area objectForKey: @"id"]]) {
-		imgSrc = @"btn_star_big_on.png";
-	}
-	UIImage *btnImage = [UIImage imageNamed: imgSrc];
-
-	[[cell favoriteImage] setImage: btnImage forState: UIControlStateNormal];
-	[[cell favoriteImage] setTag: 1];
-	[[cell favoriteImage] addTarget:self action:@selector(buttonPressed:) forControlEvents:(UIControlEvents)UIControlEventTouchUpInside];
+//	Favorite *sharedFavorite = [Favorite sharedFavorite];
+//	
+//	NSString *imgSrc = @"btn_star_big_off.png";
+//	if ([sharedFavorite exists: [area objectForKey: @"id"]]) {
+//		imgSrc = @"btn_star_big_on.png";
+//	}
+//	UIImage *btnImage = [UIImage imageNamed: imgSrc];
+//
+//	[[cell favoriteImage] setImage: btnImage forState: UIControlStateNormal];
+//	[[cell favoriteImage] setTag: 1];
+//	[[cell favoriteImage] addTarget:self action:@selector(buttonPressed:) forControlEvents:(UIControlEvents)UIControlEventTouchUpInside];
 	
 	NSArray *forecast = [area objectForKey: @"f"];
 	NSDictionary *day1 = [forecast objectAtIndex: 0];
@@ -127,30 +126,30 @@
 
 - (IBAction) buttonPressed: (id) sender
 {
-	UITableView *myTable = (UITableView *) [[[[sender superview] superview] superview] superview];
-	
-	NSIndexPath *indexPath = [myTable indexPathForCell:(UITableViewCell *)[[sender superview] superview]];
-	
-	
-	NSString *areaId = [[[self areas] objectAtIndex: [indexPath row]] objectForKey: @"id"];
-	NSString *name = [[[self areas] objectAtIndex: [indexPath row]] objectForKey: @"name"];
-	
-	Favorite *sharedFavorite = [Favorite sharedFavorite];
-	
-	// If this is a favorite, remove
-	if ([sharedFavorite exists: areaId]) {
-		
-		[sharedFavorite remove: areaId];
-		UIImage *btnImage = [UIImage imageNamed: @"btn_star_big_off.png"];
-		[(UIButton *) sender setImage: btnImage forState: UIControlStateNormal];
-		
-		// If isn't a favorite, add
-	} else {
-		
-		[sharedFavorite add: areaId withName: name];
-		UIImage *btnImage = [UIImage imageNamed: @"btn_star_big_on.png"];
-		[(UIButton *) sender setImage: btnImage forState: UIControlStateNormal];
-	}
+//	UITableView *myTable = (UITableView *) [[[[sender superview] superview] superview] superview];
+//	
+//	NSIndexPath *indexPath = [myTable indexPathForCell:(UITableViewCell *)[[sender superview] superview]];
+//	
+//	
+//	NSString *areaId = [[[self areas] objectAtIndex: [indexPath row]] objectForKey: @"id"];
+//	NSString *name = [[[self areas] objectAtIndex: [indexPath row]] objectForKey: @"name"];
+//	
+//	Favorite *sharedFavorite = [Favorite sharedFavorite];
+//	
+//	// If this is a favorite, remove
+//	if ([sharedFavorite exists: areaId]) {
+//		
+//		[sharedFavorite remove: areaId];
+//		UIImage *btnImage = [UIImage imageNamed: @"btn_star_big_off.png"];
+//		[(UIButton *) sender setImage: btnImage forState: UIControlStateNormal];
+//		
+//		// If isn't a favorite, add
+//	} else {
+//		
+//		[sharedFavorite add: areaId withName: name];
+//		UIImage *btnImage = [UIImage imageNamed: @"btn_star_big_on.png"];
+//		[(UIButton *) sender setImage: btnImage forState: UIControlStateNormal];
+//	}
 	
 	//[myTable release];
 	//[indexPath release];

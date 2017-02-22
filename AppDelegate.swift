@@ -25,7 +25,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     let searchTabImage = UIImage(named: "icon_magnify_glass.png")
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
-        // Override point for customization after application launch.
+
+        self.setupDatabase()
+        self.setupWindow()
+        
+        return true
+        
+    }
+    
+    func setupDatabase() {
+        let areas = CWDatabase.sharedInstance?.favorites()
+        print(areas)
+    }
+    
+    func setupWindow() {
         
         let tabController = UITabBarController()
         tabController.delegate = self
@@ -54,60 +67,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         window?.rootViewController = navController
         
         self.window?.makeKeyAndVisible()
-        
-        return true
-        
-//        // Create tabBarController
-//        UITabBarController *tabController = [[UITabBarController alloc] init];
-//        [tabController setDelegate: self];
-//        
-//        //
-//        // Create view controllers
-//        //
-//        
-//        UIViewController *vc1 = [[HomeViewController alloc] init];
-//        
-//        // Nearby areas
-//        AreasViewController *vc2 = [[AreasViewController alloc] init];
-//        [vc2 setSearchAsLocationWithLatitude:@"37.7397" longitude:@"-119.5730"];
-//        
-//        UITabBarItem *tbi2 = [[UITabBarItem alloc] initWithTitle: @"Nearby Areas" image: [UIImage imageNamed:@"73-radar.png"] selectedImage: [UIImage imageNamed: @"73-radar.png"]];
-//        vc2.tabBarItem = tbi2;
-//        
-//        // States
-//        UIViewController *vc3 = [[StatesViewController alloc] init];
-//        UITabBarItem *tbi3 = [[UITabBarItem alloc] initWithTitle: @"By State" image: [UIImage imageNamed:@"190-bank.png"] selectedImage: [UIImage imageNamed: @"190-bank.png"]];
-//        vc3.tabBarItem = tbi3;
-//        
-//        // Favorites
-//        AreasViewController *vc4 = [[AreasViewController alloc] init];
-//        UITabBarItem *tbi4 = [[UITabBarItem alloc] initWithTitle: @"Favorites" image: [UIImage imageNamed:@"icon_star.png"] selectedImage: [UIImage imageNamed: @"icon_star.png"]];
-//        vc4.tabBarItem = tbi4;
-//        [vc4 setSearchAsFavorites];
-//        //UIViewController *vc4 = [[FavoritesViewController alloc] init];
-//        UIViewController *vc5 = [[SearchViewController alloc] init];
-//        
-//        // Make an array that contains the two view controllers
-//        NSArray *viewControllers = [NSArray arrayWithObjects: vc1, vc2, vc3, vc4, vc5, nil];
-//        
-//        //[vc6 release];
-//        
-//        // Attach to tab bar controller
-//        [tabController setViewControllers: viewControllers];
-//        [[tabController navigationItem] setTitle: @"Find Areas"];
-//        
-//        
-//        // Setup navigation controller
-//        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController: tabController];
-//        [navController setNavigationBarHidden: YES];
-//        [window setRootViewController: navController];
-//        
-//        
-//        [self.window makeKeyAndVisible];
-//        
-//        return YES;
-        
-        
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

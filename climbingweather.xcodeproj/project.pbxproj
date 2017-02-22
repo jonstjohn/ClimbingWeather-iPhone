@@ -11,8 +11,8 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		3458CCD89E79670AAF8484F4 /* Pods_climbingweather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5BA8E83BE629AEA5BCC8E8D /* Pods_climbingweather.framework */; };
+		6009BF8C1E5CE4FC0021A13B /* CWDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6009BF8B1E5CE4FC0021A13B /* CWDatabase.swift */; };
 		602D73EE1E5BFDA800925A58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602D73ED1E5BFDA800925A58 /* AppDelegate.swift */; };
-		603D94A11E50BB6900AFB1FF /* StatesViewControllerV1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 603D94A01E50BB6900AFB1FF /* StatesViewControllerV1.xib */; };
 		603D94A31E50BBAF00AFB1FF /* StatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D94A21E50BBAF00AFB1FF /* StatesViewController.swift */; };
 		603D94A51E527D3400AFB1FF /* AreasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D94A41E527D3400AFB1FF /* AreasViewController.swift */; };
 		6053B5E81E43CE5100798BC1 /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6053B5E71E43CE5100798BC1 /* Area.swift */; };
@@ -39,7 +39,6 @@
 		608A50C912E33CCD003BCB84 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 608A50C712E33CCD003BCB84 /* HomeViewController.xib */; };
 		608A50DF12E33CF5003BCB84 /* NearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 608A50DD12E33CF5003BCB84 /* NearbyViewController.m */; };
 		608A50E012E33CF5003BCB84 /* NearbyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 608A50DE12E33CF5003BCB84 /* NearbyViewController.xib */; };
-		608A511612E34061003BCB84 /* StatesViewControllerV1.m in Sources */ = {isa = PBXBuildFile; fileRef = 608A511412E34061003BCB84 /* StatesViewControllerV1.m */; };
 		608A511712E34061003BCB84 /* StatesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 608A511512E34061003BCB84 /* StatesViewController.xib */; };
 		608A54A712E38A6E003BCB84 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 608A549E12E38A6E003BCB84 /* NSObject+SBJSON.m */; };
 		608A54A812E38A6E003BCB84 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 608A54A012E38A6E003BCB84 /* NSString+SBJSON.m */; };
@@ -58,7 +57,6 @@
 		608A566D12E7D567003BCB84 /* AreaMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 608A566B12E7D567003BCB84 /* AreaMapViewController.xib */; };
 		608A56AD12E91B5E003BCB84 /* logo_top_center.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A56AC12E91B5E003BCB84 /* logo_top_center.png */; };
 		608A56B812E91DC8003BCB84 /* ic_menu_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A56B712E91DC8003BCB84 /* ic_menu_home.png */; };
-		608A56C912E92003003BCB84 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 608A56C712E92003003BCB84 /* FavoritesViewController.m */; };
 		608A56CA12E92003003BCB84 /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 608A56C812E92003003BCB84 /* FavoritesViewController.xib */; };
 		608A56CC12E920F7003BCB84 /* btn_star_big_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A56CB12E920F7003BCB84 /* btn_star_big_on.png */; };
 		608A56D812E921F7003BCB84 /* ic_menu_mylocation.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A56D712E921F7003BCB84 /* ic_menu_mylocation.png */; };
@@ -131,7 +129,6 @@
 		608DE47912FCF47D00AE172C /* AreaAveragesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 608DE47712FCF47D00AE172C /* AreaAveragesController.m */; };
 		608DE47A12FCF47D00AE172C /* AreaAverages.xib in Resources */ = {isa = PBXBuildFile; fileRef = 608DE47812FCF47D00AE172C /* AreaAverages.xib */; };
 		608DE49612FCF54200AE172C /* 16-line-chart.png in Resources */ = {isa = PBXBuildFile; fileRef = 608DE49512FCF54200AE172C /* 16-line-chart.png */; };
-		608DE56512FDFAC700AE172C /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = 608DE56412FDFAC700AE172C /* Favorite.m */; };
 		608DE57312FE024B00AE172C /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 608DE57212FE024B00AE172C /* Database.m */; };
 		608DE64412FF85C600AE172C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608DE64312FF85C600AE172C /* CoreLocation.framework */; };
 		608DE66612FF88CE00AE172C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608DE66512FF88CE00AE172C /* MapKit.framework */; };
@@ -166,8 +163,8 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28A0AAE50D9B0CCF005BE974 /* climbingweather_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = climbingweather_Prefix.pch; sourceTree = "<group>"; };
+		6009BF8B1E5CE4FC0021A13B /* CWDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWDatabase.swift; sourceTree = "<group>"; };
 		602D73ED1E5BFDA800925A58 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		603D94A01E50BB6900AFB1FF /* StatesViewControllerV1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StatesViewControllerV1.xib; path = Classes/StatesViewControllerV1.xib; sourceTree = "<group>"; };
 		603D94A21E50BBAF00AFB1FF /* StatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatesViewController.swift; path = Controllers/StatesViewController.swift; sourceTree = "<group>"; };
 		603D94A41E527D3400AFB1FF /* AreasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreasViewController.swift; sourceTree = "<group>"; };
 		6053B5E61E43CE5000798BC1 /* climbingweather-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "climbingweather-Bridging-Header.h"; path = "Classes/climbingweather-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -203,8 +200,6 @@
 		608A50DC12E33CF5003BCB84 /* NearbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyViewController.h; sourceTree = "<group>"; };
 		608A50DD12E33CF5003BCB84 /* NearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyViewController.m; sourceTree = "<group>"; };
 		608A50DE12E33CF5003BCB84 /* NearbyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearbyViewController.xib; sourceTree = "<group>"; };
-		608A511312E34061003BCB84 /* StatesViewControllerV1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatesViewControllerV1.h; sourceTree = "<group>"; };
-		608A511412E34061003BCB84 /* StatesViewControllerV1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatesViewControllerV1.m; sourceTree = "<group>"; };
 		608A511512E34061003BCB84 /* StatesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = StatesViewController.xib; path = Classes/StatesViewController.xib; sourceTree = "<group>"; };
 		608A51A512E38973003BCB84 /* Downloads */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Downloads; path = /Users/jonstjohn/Downloads; sourceTree = "<absolute>"; };
 		608A549C12E38A6E003BCB84 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
@@ -236,8 +231,6 @@
 		608A566B12E7D567003BCB84 /* AreaMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AreaMapViewController.xib; sourceTree = "<group>"; };
 		608A56AC12E91B5E003BCB84 /* logo_top_center.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_top_center.png; sourceTree = "<group>"; };
 		608A56B712E91DC8003BCB84 /* ic_menu_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_menu_home.png; sourceTree = "<group>"; };
-		608A56C612E92003003BCB84 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
-		608A56C712E92003003BCB84 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
 		608A56C812E92003003BCB84 /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FavoritesViewController.xib; path = Classes/FavoritesViewController.xib; sourceTree = "<group>"; };
 		608A56CB12E920F7003BCB84 /* btn_star_big_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_star_big_on.png; sourceTree = "<group>"; };
 		608A56D712E921F7003BCB84 /* ic_menu_mylocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_menu_mylocation.png; sourceTree = "<group>"; };
@@ -317,8 +310,6 @@
 		608DE47712FCF47D00AE172C /* AreaAveragesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaAveragesController.m; sourceTree = "<group>"; };
 		608DE47812FCF47D00AE172C /* AreaAverages.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AreaAverages.xib; path = Classes/AreaAverages.xib; sourceTree = "<group>"; };
 		608DE49512FCF54200AE172C /* 16-line-chart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "16-line-chart.png"; sourceTree = "<group>"; };
-		608DE56312FDFAC700AE172C /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favorite.h; sourceTree = "<group>"; };
-		608DE56412FDFAC700AE172C /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorite.m; sourceTree = "<group>"; };
 		608DE57112FE024B00AE172C /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
 		608DE57212FE024B00AE172C /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
 		608DE64312FF85C600AE172C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -391,10 +382,10 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				6009BF8B1E5CE4FC0021A13B /* CWDatabase.swift */,
 				602D73ED1E5BFDA800925A58 /* AppDelegate.swift */,
 				6053B5E61E43CE5000798BC1 /* climbingweather-Bridging-Header.h */,
 				6053B66D1E4E073400798BC1 /* Controllers */,
-				6095679D1C78AC8B002CD30F /* Default-568h@2x.png */,
 				6053B6011E48F62C00798BC1 /* API */,
 				6053B5E51E43CE3300798BC1 /* Model */,
 				080E96DDFE201D6D7F000001 /* Classes */,
@@ -425,6 +416,7 @@
 			isa = PBXGroup;
 			children = (
 				60A75D8D1E419A7C005EEE1F /* Images.xcassets */,
+				6095679D1C78AC8B002CD30F /* Default-568h@2x.png */,
 				60D99E11135528D000B238D5 /* Icon-Small@2x.png */,
 				60D99E0F1355289800B238D5 /* Icon-Small-50.png */,
 				60D99E0B135527E100B238D5 /* Icon-72.png */,
@@ -559,10 +551,6 @@
 			children = (
 				608DE809130C01F400AE172C /* AreasTableViewDelegate.h */,
 				608DE80A130C01F400AE172C /* AreasTableViewDelegate.m */,
-				608A511312E34061003BCB84 /* StatesViewControllerV1.h */,
-				608A511412E34061003BCB84 /* StatesViewControllerV1.m */,
-				608A56C612E92003003BCB84 /* FavoritesViewController.h */,
-				608A56C712E92003003BCB84 /* FavoritesViewController.m */,
 				608A56FA12E923AA003BCB84 /* SearchViewController.h */,
 				608A56FB12E923AA003BCB84 /* SearchViewController.m */,
 				608A56FC12E923AA003BCB84 /* SearchViewController.xib */,
@@ -591,8 +579,6 @@
 				608A551912E532F2003BCB84 /* MyManager.m */,
 				608DE3AC12FCDF0000AE172C /* Cache.h */,
 				608DE3AD12FCDF0000AE172C /* Cache.m */,
-				608DE56312FDFAC700AE172C /* Favorite.h */,
-				608DE56412FDFAC700AE172C /* Favorite.m */,
 				608DE57112FE024B00AE172C /* Database.h */,
 				608DE57212FE024B00AE172C /* Database.m */,
 				608DE66B1300CF0C00AE172C /* MapPoint.h */,
@@ -673,7 +659,6 @@
 				608A560412E7C9F3003BCB84 /* AreaDailyViewController.xib */,
 				608A550412E52FDD003BCB84 /* AreasViewControllerV1.xib */,
 				608A511512E34061003BCB84 /* StatesViewController.xib */,
-				603D94A01E50BB6900AFB1FF /* StatesViewControllerV1.xib */,
 				608A50C712E33CCD003BCB84 /* HomeViewController.xib */,
 				608DE46912FCF24A00AE172C /* AreaDetailController.xib */,
 				608A56C812E92003003BCB84 /* FavoritesViewController.xib */,
@@ -826,7 +811,6 @@
 				608A58DC12EC5B46003BCB84 /* overcast.png in Resources */,
 				608A58DD12EC5B46003BCB84 /* shower1_night.png in Resources */,
 				608A58DE12EC5B46003BCB84 /* shower1.png in Resources */,
-				603D94A11E50BB6900AFB1FF /* StatesViewControllerV1.xib in Resources */,
 				608A58DF12EC5B46003BCB84 /* shower2_night.png in Resources */,
 				608A58E012EC5B46003BCB84 /* shower2.png in Resources */,
 				608A58E112EC5B46003BCB84 /* shower3.png in Resources */,
@@ -944,7 +928,6 @@
 				6053B6031E48F64C00798BC1 /* CWApi.swift in Sources */,
 				608A50C812E33CCD003BCB84 /* HomeViewController.m in Sources */,
 				608A50DF12E33CF5003BCB84 /* NearbyViewController.m in Sources */,
-				608A511612E34061003BCB84 /* StatesViewControllerV1.m in Sources */,
 				608A54A712E38A6E003BCB84 /* NSObject+SBJSON.m in Sources */,
 				608A54A812E38A6E003BCB84 /* NSString+SBJSON.m in Sources */,
 				608A54A912E38A6E003BCB84 /* SBJsonBase.m in Sources */,
@@ -959,7 +942,6 @@
 				6053B5FC1E4530DC00798BC1 /* State.swift in Sources */,
 				608A566312E7D551003BCB84 /* AreaHourlyViewController.m in Sources */,
 				608A566C12E7D567003BCB84 /* AreaMapViewController.m in Sources */,
-				608A56C912E92003003BCB84 /* FavoritesViewController.m in Sources */,
 				602D73EE1E5BFDA800925A58 /* AppDelegate.swift in Sources */,
 				608A56FD12E923AA003BCB84 /* SearchViewController.m in Sources */,
 				608A57AB12EA778F003BCB84 /* AreaDailyCell.m in Sources */,
@@ -967,9 +949,9 @@
 				608DE22812F60FCE00AE172C /* AreaHourlyCell.m in Sources */,
 				6053B6001E45325B00798BC1 /* Forecast.swift in Sources */,
 				608DE3AE12FCDF0000AE172C /* Cache.m in Sources */,
+				6009BF8C1E5CE4FC0021A13B /* CWDatabase.swift in Sources */,
 				608DE46A12FCF24A00AE172C /* AreaDetailController.m in Sources */,
 				608DE47912FCF47D00AE172C /* AreaAveragesController.m in Sources */,
-				608DE56512FDFAC700AE172C /* Favorite.m in Sources */,
 				608DE57312FE024B00AE172C /* Database.m in Sources */,
 				608DE66D1300CF0C00AE172C /* MapPoint.m in Sources */,
 				608DE80B130C01F400AE172C /* AreasTableViewDelegate.m in Sources */,

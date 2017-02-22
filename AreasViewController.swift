@@ -98,12 +98,11 @@ import UIKit
     
     func updateFavorites() {
         
-        guard let favoriteAreas = Favorite.shared()?.getAll() else {
+        guard let areas = Area.favorites() else {
             return
         }
         
-        let areaIds = favoriteAreas.flatMap({$0 as? [String: String]}).flatMap({$0["area_id"]}).flatMap({Int($0)})
-        self.search = .Areas(areaIds)
+        self.search = .Areas(areas.map({$0.id}))
 
     }
     
@@ -163,7 +162,7 @@ import UIKit
         
         cell.areaName.text = String(format: "%@ (%@)", area.name, area.state)
         
-        let isFavorite = Favorite.shared().exists(String(area.id))
+        let isFavorite = area.isFavorite()
         let favoriteImage = isFavorite ? UIImage(named: "btn_star_big_on") : UIImage(named: "btn_star_big_off")
         cell.favoriteImage.setImage(favoriteImage, for: .normal)
         cell.favoriteImage.tag = 1
@@ -222,18 +221,26 @@ import UIKit
     func favoritePressed(_ sender: UIButton) {
         
         let buttonPosition = sender.convert(CGPoint.zero, to: self.tableView)
-        if let indexPath = self.tableView.indexPathForRow(at: buttonPosition),
-            let sharedFavorite = Favorite.shared() {
+        
+        if let indexPath = self.tableView.indexPathForRow(at: buttonPosition) {
             let area = self.areas[indexPath.row]
-            
-            if sharedFavorite.exists(String(area.id)) {
-                sharedFavorite.remove(String(area.id))
-                sender.setImage(UIImage(named: "btn_star_big_off"), for: .normal)
+            if area.isFavorite() {
+                do {
+                    try area.removeFavorite()
+                    sender.setImage(UIImage(named: "btn_star_big_off"), for: .normal)
+                } catch _ {
+                    
+                }
             } else {
-                sharedFavorite.add(String(area.id), withName: area.name)
-                sender.setImage(UIImage(named: "btn_star_big_on"), for: .normal)
+                do {
+                    try area.addFavorite()
+                    sender.setImage(UIImage(named: "btn_star_big_on"), for: .normal)
+                } catch _ {
+                    
+                }
             }
         }
+
     }
  
 }

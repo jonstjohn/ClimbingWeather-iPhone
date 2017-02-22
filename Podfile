@@ -6,5 +6,6 @@ target 'climbingweather' do
   use_frameworks!
 
   # Pods for climbingweather
+  pod 'SQLite.swift', '~> 0.11.2'
 
 end
