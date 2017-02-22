@@ -9,7 +9,6 @@
 #import "HomeViewController.h"
 #import "SettingsViewController.h"
 #import "AboutViewController.h"
-#import "SearchViewController.h"
 
 
 @implementation HomeViewController
@@ -126,7 +125,7 @@
 	 [[self navigationController] pushViewController: svc animated: NO];
 	 */
 	
-	[[[[self tabBarController] viewControllers] objectAtIndex: 4] setInitialSearch: searchBarText];
+	// TODO [[[[self tabBarController] viewControllers] objectAtIndex: 4] setInitialSearch: searchBarText];
 	//[searchBarText release];
 	[[self tabBarController] setSelectedIndex: 4];
 	return YES;

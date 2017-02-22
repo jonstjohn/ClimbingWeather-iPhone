@@ -30,11 +30,6 @@
 	
 	[[self navigationItem] setTitle: @"About"];
 	
-	//[[self tableView] setRowHeight: 85.0];
-	
-	// Create the table view delegate
-	//myTableDelegate = [[AreasTableViewDelegate alloc] init];
-	
 	return self;
 }
 

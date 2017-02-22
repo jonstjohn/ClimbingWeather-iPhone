@@ -14,6 +14,7 @@ import UIKit
     var search: Search?
     var areas = [Area]()
     var locationManager: CLLocationManager?
+    let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         
@@ -25,6 +26,15 @@ import UIKit
             self.tableView.contentInset = adjustForTabbarInsets
             self.tableView.scrollIndicatorInsets = adjustForTabbarInsets
             
+        }
+        
+        if self.isTermSearch() {
+            searchController.searchResultsUpdater = self
+            searchController.dimsBackgroundDuringPresentation = false
+            searchController.hidesNavigationBarDuringPresentation = false
+            searchController.searchBar.placeholder = "Enter area name or zip code"
+            definesPresentationContext = true
+            tableView.tableHeaderView = searchController.searchBar
         }
         
         self.tableView.rowHeight = 85.0
@@ -49,6 +59,16 @@ import UIKit
     
     func updateSearch() {
         if let search = search {
+            
+            // Clear zero length search
+            if case let Search.Term(term) = search {
+                if term.characters.count == 0 {
+                    self.areas = [Area]()
+                    self.tableView.reloadData()
+                    return
+                }
+            }
+            
             Areas.fetchDaily(search: search, completion: { (areas) in
                 self.areas = areas.areas
                 
@@ -126,6 +146,19 @@ import UIKit
         
         switch search {
         case .Areas:
+            return true
+        default:
+            return false
+        }
+    }
+    
+    func isTermSearch() -> Bool {
+        guard let search = self.search else {
+            return false
+        }
+        
+        switch search {
+        case .Term:
             return true
         default:
             return false
@@ -258,4 +291,21 @@ extension AreasViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Location manager failed with \(error)")
     }
+}
+
+extension AreasViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(AreasViewController.updateTerm), object: nil)
+        
+        self.perform(#selector(AreasViewController.updateTerm), with: nil, afterDelay: 0.5)
+    }
+    
+    func updateTerm() {
+        self.search = .Term(self.searchController.searchBar.text ?? "")
+        self.updateSearch()
+    }
+    
+
 }

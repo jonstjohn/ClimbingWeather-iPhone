@@ -56,7 +56,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         vc4.tabBarItem = UITabBarItem(title: self.favoritesTitle, image: self.favoritesTabImage, selectedImage: self.favoritesTabImage)
         vc4.setSearchAsFavorites()
         
-        let vc5 = SearchViewController()
+        let vc5 = AreasViewController()
+        vc5.search = .Term("")
         vc5.tabBarItem = UITabBarItem(title: self.searchTitle, image: self.searchTabImage, selectedImage: self.searchTabImage)
         
         tabController.viewControllers = [vc1, vc2, vc3, vc4, vc5]
