@@ -37,8 +37,6 @@
 		6087B67B13523B0A00C3044B /* world.png in Resources */ = {isa = PBXBuildFile; fileRef = 6087B67A13523B0A00C3044B /* world.png */; };
 		608A50C812E33CCD003BCB84 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 608A50C612E33CCD003BCB84 /* HomeViewController.m */; };
 		608A50C912E33CCD003BCB84 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 608A50C712E33CCD003BCB84 /* HomeViewController.xib */; };
-		608A50DF12E33CF5003BCB84 /* NearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 608A50DD12E33CF5003BCB84 /* NearbyViewController.m */; };
-		608A50E012E33CF5003BCB84 /* NearbyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 608A50DE12E33CF5003BCB84 /* NearbyViewController.xib */; };
 		608A511712E34061003BCB84 /* StatesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 608A511512E34061003BCB84 /* StatesViewController.xib */; };
 		608A54A712E38A6E003BCB84 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 608A549E12E38A6E003BCB84 /* NSObject+SBJSON.m */; };
 		608A54A812E38A6E003BCB84 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 608A54A012E38A6E003BCB84 /* NSString+SBJSON.m */; };
@@ -197,9 +195,6 @@
 		608A50C512E33CCD003BCB84 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		608A50C612E33CCD003BCB84 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		608A50C712E33CCD003BCB84 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HomeViewController.xib; path = Classes/HomeViewController.xib; sourceTree = "<group>"; };
-		608A50DC12E33CF5003BCB84 /* NearbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyViewController.h; sourceTree = "<group>"; };
-		608A50DD12E33CF5003BCB84 /* NearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyViewController.m; sourceTree = "<group>"; };
-		608A50DE12E33CF5003BCB84 /* NearbyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearbyViewController.xib; sourceTree = "<group>"; };
 		608A511512E34061003BCB84 /* StatesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = StatesViewController.xib; path = Classes/StatesViewController.xib; sourceTree = "<group>"; };
 		608A51A512E38973003BCB84 /* Downloads */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Downloads; path = /Users/jonstjohn/Downloads; sourceTree = "<absolute>"; };
 		608A549C12E38A6E003BCB84 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
@@ -556,9 +551,6 @@
 				608A56FC12E923AA003BCB84 /* SearchViewController.xib */,
 				608A50C512E33CCD003BCB84 /* HomeViewController.h */,
 				608A50C612E33CCD003BCB84 /* HomeViewController.m */,
-				608A50DC12E33CF5003BCB84 /* NearbyViewController.h */,
-				608A50DD12E33CF5003BCB84 /* NearbyViewController.m */,
-				608A50DE12E33CF5003BCB84 /* NearbyViewController.xib */,
 				6057F059134FE23A00D04516 /* MoreViewController.h */,
 				6057F05A134FE23A00D04516 /* MoreViewController.m */,
 				6057F05B134FE23A00D04516 /* MoreViewController.xib */,
@@ -770,7 +762,6 @@
 			files = (
 				608A50C912E33CCD003BCB84 /* HomeViewController.xib in Resources */,
 				60A75D8E1E419A7C005EEE1F /* Images.xcassets in Resources */,
-				608A50E012E33CF5003BCB84 /* NearbyViewController.xib in Resources */,
 				608A511712E34061003BCB84 /* StatesViewController.xib in Resources */,
 				608A550612E52FDD003BCB84 /* AreasViewControllerV1.xib in Resources */,
 				608A560612E7C9F3003BCB84 /* AreaDailyViewController.xib in Resources */,
@@ -927,7 +918,6 @@
 			files = (
 				6053B6031E48F64C00798BC1 /* CWApi.swift in Sources */,
 				608A50C812E33CCD003BCB84 /* HomeViewController.m in Sources */,
-				608A50DF12E33CF5003BCB84 /* NearbyViewController.m in Sources */,
 				608A54A712E38A6E003BCB84 /* NSObject+SBJSON.m in Sources */,
 				608A54A812E38A6E003BCB84 /* NSString+SBJSON.m in Sources */,
 				608A54A912E38A6E003BCB84 /* SBJsonBase.m in Sources */,
