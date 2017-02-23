@@ -12,6 +12,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     
     var window: UIWindow?
     
+    let homeTitle = "Home"
+    let homeTabImage = UIImage(named: "icon_home.png")
+    
     let nearbyTitle = "Nearby Areas"
     let nearbyTabImage = UIImage(named: "73-radar.png")
     
@@ -44,6 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         tabController.delegate = self
         
         let vc1 = HomeViewController()
+        vc1.tabBarItem = UITabBarItem(title: self.homeTitle, image: self.homeTabImage, selectedImage: self.homeTabImage)
         
         let vc2 = AreasViewController()
         vc2.setSearchAsLocation(latitude: "37.7397", longitude: "-119.5740")

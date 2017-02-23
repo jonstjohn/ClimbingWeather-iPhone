@@ -12,6 +12,8 @@
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		3458CCD89E79670AAF8484F4 /* Pods_climbingweather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5BA8E83BE629AEA5BCC8E8D /* Pods_climbingweather.framework */; };
 		6009BF8C1E5CE4FC0021A13B /* CWDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6009BF8B1E5CE4FC0021A13B /* CWDatabase.swift */; };
+		6009BF901E5DEDCB0021A13B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6009BF8F1E5DEDCB0021A13B /* HomeViewController.swift */; };
+		6009BF921E5E01530021A13B /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6009BF911E5E01530021A13B /* HomeViewController.xib */; };
 		602D73EE1E5BFDA800925A58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602D73ED1E5BFDA800925A58 /* AppDelegate.swift */; };
 		603D94A31E50BBAF00AFB1FF /* StatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D94A21E50BBAF00AFB1FF /* StatesViewController.swift */; };
 		603D94A51E527D3400AFB1FF /* AreasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D94A41E527D3400AFB1FF /* AreasViewController.swift */; };
@@ -35,8 +37,8 @@
 		6087B65413522ECB00C3044B /* icon_blog2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6087B65313522ECB00C3044B /* icon_blog2.png */; };
 		6087B65A1352361C00C3044B /* 190-bank.png in Resources */ = {isa = PBXBuildFile; fileRef = 6087B6591352361C00C3044B /* 190-bank.png */; };
 		6087B67B13523B0A00C3044B /* world.png in Resources */ = {isa = PBXBuildFile; fileRef = 6087B67A13523B0A00C3044B /* world.png */; };
-		608A50C812E33CCD003BCB84 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 608A50C612E33CCD003BCB84 /* HomeViewController.m */; };
-		608A50C912E33CCD003BCB84 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 608A50C712E33CCD003BCB84 /* HomeViewController.xib */; };
+		608A50C812E33CCD003BCB84 /* HomeViewControllerV1.m in Sources */ = {isa = PBXBuildFile; fileRef = 608A50C612E33CCD003BCB84 /* HomeViewControllerV1.m */; };
+		608A50C912E33CCD003BCB84 /* HomeViewControllerV1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 608A50C712E33CCD003BCB84 /* HomeViewControllerV1.xib */; };
 		608A511712E34061003BCB84 /* StatesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 608A511512E34061003BCB84 /* StatesViewController.xib */; };
 		608A54A712E38A6E003BCB84 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 608A549E12E38A6E003BCB84 /* NSObject+SBJSON.m */; };
 		608A54A812E38A6E003BCB84 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 608A54A012E38A6E003BCB84 /* NSString+SBJSON.m */; };
@@ -156,6 +158,8 @@
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28A0AAE50D9B0CCF005BE974 /* climbingweather_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = climbingweather_Prefix.pch; sourceTree = "<group>"; };
 		6009BF8B1E5CE4FC0021A13B /* CWDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWDatabase.swift; sourceTree = "<group>"; };
+		6009BF8F1E5DEDCB0021A13B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		6009BF911E5E01530021A13B /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeViewController.xib; path = xib/HomeViewController.xib; sourceTree = "<group>"; };
 		602D73ED1E5BFDA800925A58 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		603D94A21E50BBAF00AFB1FF /* StatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatesViewController.swift; path = Controllers/StatesViewController.swift; sourceTree = "<group>"; };
 		603D94A41E527D3400AFB1FF /* AreasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreasViewController.swift; sourceTree = "<group>"; };
@@ -164,7 +168,7 @@
 		6053B5E91E451D7600798BC1 /* AreasTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AreasTests.swift; path = ../UnitTests/AreasTests.swift; sourceTree = "<group>"; };
 		6053B5EF1E452DF900798BC1 /* ClimbWeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClimbWeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6053B5F11E452DF900798BC1 /* ClimbWeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimbWeatherTests.swift; sourceTree = "<group>"; };
-		6053B5F31E452DF900798BC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6053B5F31E452DF900798BC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ClimbWeatherTests/Info.plist; sourceTree = "<group>"; };
 		6053B5FB1E4530DC00798BC1 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		6053B5FD1E45314A00798BC1 /* StatesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatesTests.swift; sourceTree = "<group>"; };
 		6053B5FF1E45325B00798BC1 /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
@@ -186,11 +190,10 @@
 		6087B65313522ECB00C3044B /* icon_blog2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_blog2.png; sourceTree = "<group>"; };
 		6087B6591352361C00C3044B /* 190-bank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "190-bank.png"; sourceTree = "<group>"; };
 		6087B67A13523B0A00C3044B /* world.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = world.png; sourceTree = "<group>"; };
-		608A50C512E33CCD003BCB84 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		608A50C612E33CCD003BCB84 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		608A50C712E33CCD003BCB84 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HomeViewController.xib; path = Classes/HomeViewController.xib; sourceTree = "<group>"; };
+		608A50C512E33CCD003BCB84 /* HomeViewControllerV1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewControllerV1.h; sourceTree = "<group>"; };
+		608A50C612E33CCD003BCB84 /* HomeViewControllerV1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewControllerV1.m; sourceTree = "<group>"; };
+		608A50C712E33CCD003BCB84 /* HomeViewControllerV1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HomeViewControllerV1.xib; path = Classes/HomeViewControllerV1.xib; sourceTree = "<group>"; };
 		608A511512E34061003BCB84 /* StatesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = StatesViewController.xib; path = Classes/StatesViewController.xib; sourceTree = "<group>"; };
-		608A51A512E38973003BCB84 /* Downloads */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Downloads; path = /Users/jonstjohn/Downloads; sourceTree = "<absolute>"; };
 		608A549C12E38A6E003BCB84 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		608A549D12E38A6E003BCB84 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		608A549E12E38A6E003BCB84 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
@@ -365,6 +368,7 @@
 				6009BF8B1E5CE4FC0021A13B /* CWDatabase.swift */,
 				602D73ED1E5BFDA800925A58 /* AppDelegate.swift */,
 				6053B5E61E43CE5000798BC1 /* climbingweather-Bridging-Header.h */,
+				6053B5F31E452DF900798BC1 /* Info.plist */,
 				6053B66D1E4E073400798BC1 /* Controllers */,
 				6053B6011E48F62C00798BC1 /* API */,
 				6053B5E51E43CE3300798BC1 /* Model */,
@@ -374,7 +378,6 @@
 				6053B5F01E452DF900798BC1 /* ClimbWeatherTests */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				608A51A512E38973003BCB84 /* Downloads */,
 				608DE32E12FAD66E00AE172C /* libsqlite3.0.dylib */,
 				608DE64312FF85C600AE172C /* CoreLocation.framework */,
 				608DE66512FF88CE00AE172C /* MapKit.framework */,
@@ -458,7 +461,6 @@
 				6053B5F11E452DF900798BC1 /* ClimbWeatherTests.swift */,
 				6053B5E91E451D7600798BC1 /* AreasTests.swift */,
 				6053B5FD1E45314A00798BC1 /* StatesTests.swift */,
-				6053B5F31E452DF900798BC1 /* Info.plist */,
 			);
 			path = ClimbWeatherTests;
 			sourceTree = "<group>";
@@ -475,6 +477,7 @@
 		6053B66D1E4E073400798BC1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6009BF8F1E5DEDCB0021A13B /* HomeViewController.swift */,
 				603D94A21E50BBAF00AFB1FF /* StatesViewController.swift */,
 				603D94A41E527D3400AFB1FF /* AreasViewController.swift */,
 			);
@@ -527,8 +530,8 @@
 		608DE46312FCF1D400AE172C /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				608A50C512E33CCD003BCB84 /* HomeViewController.h */,
-				608A50C612E33CCD003BCB84 /* HomeViewController.m */,
+				608A50C512E33CCD003BCB84 /* HomeViewControllerV1.h */,
+				608A50C612E33CCD003BCB84 /* HomeViewControllerV1.m */,
 				6057F059134FE23A00D04516 /* MoreViewController.h */,
 				6057F05A134FE23A00D04516 /* MoreViewController.m */,
 				6057F05B134FE23A00D04516 /* MoreViewController.xib */,
@@ -628,7 +631,8 @@
 				608A566B12E7D567003BCB84 /* AreaMapViewController.xib */,
 				608A560412E7C9F3003BCB84 /* AreaDailyViewController.xib */,
 				608A511512E34061003BCB84 /* StatesViewController.xib */,
-				608A50C712E33CCD003BCB84 /* HomeViewController.xib */,
+				608A50C712E33CCD003BCB84 /* HomeViewControllerV1.xib */,
+				6009BF911E5E01530021A13B /* HomeViewController.xib */,
 				608DE46912FCF24A00AE172C /* AreaDetailController.xib */,
 				608DE47812FCF47D00AE172C /* AreaAverages.xib */,
 				608DE32A12FAD61100AE172C /* climbingweather.db */,
@@ -736,7 +740,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				608A50C912E33CCD003BCB84 /* HomeViewController.xib in Resources */,
+				608A50C912E33CCD003BCB84 /* HomeViewControllerV1.xib in Resources */,
 				60A75D8E1E419A7C005EEE1F /* Images.xcassets in Resources */,
 				608A511712E34061003BCB84 /* StatesViewController.xib in Resources */,
 				608A560612E7C9F3003BCB84 /* AreaDailyViewController.xib in Resources */,
@@ -759,6 +763,7 @@
 				608A58CB12EC5B46003BCB84 /* cloudy4_night.png in Resources */,
 				608A58CC12EC5B46003BCB84 /* cloudy4.png in Resources */,
 				608A58CD12EC5B46003BCB84 /* cloudy5.png in Resources */,
+				6009BF921E5E01530021A13B /* HomeViewController.xib in Resources */,
 				608A58CE12EC5B46003BCB84 /* dunno.png in Resources */,
 				608A58CF12EC5B46003BCB84 /* fog_night.png in Resources */,
 				608A58D012EC5B46003BCB84 /* fog.png in Resources */,
@@ -890,7 +895,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6053B6031E48F64C00798BC1 /* CWApi.swift in Sources */,
-				608A50C812E33CCD003BCB84 /* HomeViewController.m in Sources */,
+				608A50C812E33CCD003BCB84 /* HomeViewControllerV1.m in Sources */,
 				608A54A712E38A6E003BCB84 /* NSObject+SBJSON.m in Sources */,
 				608A54A812E38A6E003BCB84 /* NSString+SBJSON.m in Sources */,
 				608A54A912E38A6E003BCB84 /* SBJsonBase.m in Sources */,
@@ -916,6 +921,7 @@
 				608DE57312FE024B00AE172C /* Database.m in Sources */,
 				608DE66D1300CF0C00AE172C /* MapPoint.m in Sources */,
 				6057F05C134FE23B00D04516 /* MoreViewController.m in Sources */,
+				6009BF901E5DEDCB0021A13B /* HomeViewController.swift in Sources */,
 				6087B4FE135140FC00C3044B /* SettingsViewController.m in Sources */,
 				6053B5E81E43CE5100798BC1 /* Area.swift in Sources */,
 				6053B6051E49442700798BC1 /* Preference.swift in Sources */,

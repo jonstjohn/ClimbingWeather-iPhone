@@ -7,4 +7,6 @@
 #import "AreaHourlyViewController.h"
 #import "AreaMapViewController.h"
 #import "MyManager.h"
-#import "HomeViewController.h"
+#import "HomeViewControllerV1.h"
+#import "AboutViewController.h"
+#import "SettingsViewController.h"

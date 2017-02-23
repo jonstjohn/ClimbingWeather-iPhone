@@ -47,9 +47,14 @@ import UIKit
         
         // For location search, always update location on view appear
         if self.isLocationSearch() {
+            self.tabBarController?.title = "Nearby Areas"
             self.updateLocation()
         } else if self.isAreasSearch() {
+            self.tabBarController?.title = "Favorites"
             self.updateFavorites()
+        } else if let search = search, case let Search.Term(term) = search {
+            self.tabBarController?.title = "Search"
+            self.searchController.searchBar.text = term
         }
         
         super.viewWillAppear(animated)

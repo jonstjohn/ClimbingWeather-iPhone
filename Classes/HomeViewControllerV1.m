@@ -6,17 +6,17 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "HomeViewController.h"
+#import "HomeViewControllerV1.h"
 #import "SettingsViewController.h"
 #import "AboutViewController.h"
 
 
-@implementation HomeViewController
+@implementation HomeViewControllerV1
 
 - (id) init
 {
 	// Call the super-class's designated initialize
-	if (!(self = [super initWithNibName: @"HomeViewController" bundle: nil])) return nil;
+	if (!(self = [super initWithNibName: @"HomeViewControllerV1" bundle: nil])) return nil;
 	
 	// Get tab bar item
 	UITabBarItem *tbi = [self tabBarItem];

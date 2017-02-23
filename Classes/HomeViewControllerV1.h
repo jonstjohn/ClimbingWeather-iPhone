@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface HomeViewController : UIViewController <UITextViewDelegate>
+@interface HomeViewControllerV1 : UIViewController <UITextViewDelegate>
 {
 	UITabBarController *settingsTab;
 }
