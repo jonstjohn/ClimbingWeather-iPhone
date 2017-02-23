@@ -8,7 +8,7 @@
 
 import XCTest
 
-@testable import Weather
+@testable import ClimbingWeather
 
 class StatesTests: XCTestCase {
     

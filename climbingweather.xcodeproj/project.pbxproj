@@ -359,6 +359,7 @@
 				602D73ED1E5BFDA800925A58 /* AppDelegate.swift */,
 				6053B5E61E43CE5000798BC1 /* climbingweather-Bridging-Header.h */,
 				6053B5F31E452DF900798BC1 /* Info.plist */,
+				608DE32A12FAD61100AE172C /* climbingweather.db */,
 				6053B66D1E4E073400798BC1 /* Controllers */,
 				6053B6011E48F62C00798BC1 /* API */,
 				6053B5E51E43CE3300798BC1 /* Model */,
@@ -619,7 +620,6 @@
 				6009BF911E5E01530021A13B /* HomeViewController.xib */,
 				608DE46912FCF24A00AE172C /* AreaDetailController.xib */,
 				608DE47812FCF47D00AE172C /* AreaAverages.xib */,
-				608DE32A12FAD61100AE172C /* climbingweather.db */,
 				60807EE213240AC9004A60C0 /* MainWindow.xib */,
 			);
 			name = xib;
@@ -1025,7 +1025,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weather.app/Weather";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ClimbingWeather.app/ClimbingWeather";
 			};
 			name = Debug;
 		};
