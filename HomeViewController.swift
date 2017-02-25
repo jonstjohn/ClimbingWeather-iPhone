@@ -35,7 +35,11 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     @IBAction func showSettings(sender: UIButton) {
         
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [AboutViewController(), SettingsViewController()]
+        
+        let settingsViewController = SettingsViewController()
+        let settingsTabImage = UIImage(named: "20-gear2.png")
+        settingsViewController.tabBarItem = UITabBarItem(title: "Settings", image: settingsTabImage, selectedImage: settingsTabImage)
+        tabBarController.viewControllers = [AboutViewController(), settingsViewController]
         self.navigationController?.pushViewController(tabBarController, animated: false)
     }
     

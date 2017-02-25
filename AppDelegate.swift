@@ -37,8 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     }
     
     func setupDatabase() {
-        let areas = CWDatabase.sharedInstance?.favorites()
-        print(areas)
+        //let areas = CWDatabase.sharedInstance?.favorites()
+        //print(areas)
     }
     
     func setupWindow() {

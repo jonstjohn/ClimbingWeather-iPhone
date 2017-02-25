@@ -12,7 +12,7 @@ import SQLite
 class CWDatabase {
     
     static let sharedInstance = CWDatabase()
-    let connection: Connection?
+    let connection: Connection
     
     private init?() {
         
@@ -28,30 +28,6 @@ class CWDatabase {
             return nil
         }
         
-    }
-    
-    public func favorites() -> [Area]? {
-
-        
-        guard let connection = self.connection else {
-            return nil
-        }
-        
-        let favorites = Table("favorite")
-        let id = Expression<Int>("area_id")
-        let name = Expression<String>("name")
-        
-        var areas = [Area]()
-        
-        do {
-            for favorite in try connection.prepare(favorites) {
-                areas.append(Area(id: favorite[id], name: favorite[name], state: "", daily: nil, hourly: nil))
-            }
-        } catch _ {
-            return nil
-        }
-        
-        return areas
     }
     
 }

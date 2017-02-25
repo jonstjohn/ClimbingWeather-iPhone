@@ -6,10 +6,10 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "SettingsViewController.h"
+#import "SettingsViewControllerV1.h"
 
 
-@implementation SettingsViewController
+@implementation SettingsViewControllerV1
 
 - (id) init
 {

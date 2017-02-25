@@ -110,7 +110,7 @@ struct Area: Equatable {
     
     static func favorites(database: CWDatabase? = CWDatabase.sharedInstance) -> [Area]? {
         
-        guard let database = database, let connection = database.connection else {
+        guard let connection = database?.connection else {
             return nil
         }
         

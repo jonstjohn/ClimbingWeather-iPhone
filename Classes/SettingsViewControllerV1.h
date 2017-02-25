@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface SettingsViewController : UIViewController {
+@interface SettingsViewControllerV1 : UIViewController {
 	IBOutlet UISegmentedControl *tempUnits;
 }
 

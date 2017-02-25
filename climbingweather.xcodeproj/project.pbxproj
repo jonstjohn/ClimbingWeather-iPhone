@@ -14,6 +14,8 @@
 		6009BF8C1E5CE4FC0021A13B /* CWDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6009BF8B1E5CE4FC0021A13B /* CWDatabase.swift */; };
 		6009BF901E5DEDCB0021A13B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6009BF8F1E5DEDCB0021A13B /* HomeViewController.swift */; };
 		6009BF921E5E01530021A13B /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6009BF911E5E01530021A13B /* HomeViewController.xib */; };
+		6009BF941E6147FA0021A13B /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6009BF931E6147FA0021A13B /* SettingsViewController.xib */; };
+		6009BF961E61480E0021A13B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6009BF951E61480E0021A13B /* SettingsViewController.swift */; };
 		602D73EE1E5BFDA800925A58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602D73ED1E5BFDA800925A58 /* AppDelegate.swift */; };
 		603D94A31E50BBAF00AFB1FF /* StatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D94A21E50BBAF00AFB1FF /* StatesViewController.swift */; };
 		603D94A51E527D3400AFB1FF /* AreasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D94A41E527D3400AFB1FF /* AreasViewController.swift */; };
@@ -27,8 +29,8 @@
 		6053B6051E49442700798BC1 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6053B6041E49442700798BC1 /* Preference.swift */; };
 		6057F052134EA8F700D04516 /* 28-star.png in Resources */ = {isa = PBXBuildFile; fileRef = 6057F051134EA8F700D04516 /* 28-star.png */; };
 		60807EE313240AC9004A60C0 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60807EE213240AC9004A60C0 /* MainWindow.xib */; };
-		6087B4FE135140FC00C3044B /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6087B4FC135140FB00C3044B /* SettingsViewController.m */; };
-		6087B4FF135140FC00C3044B /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6087B4FD135140FB00C3044B /* SettingsViewController.xib */; };
+		6087B4FE135140FC00C3044B /* SettingsViewControllerV1.m in Sources */ = {isa = PBXBuildFile; fileRef = 6087B4FC135140FB00C3044B /* SettingsViewControllerV1.m */; };
+		6087B4FF135140FC00C3044B /* SettingsViewControllerV1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6087B4FD135140FB00C3044B /* SettingsViewControllerV1.xib */; };
 		6087B5051351410900C3044B /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6087B5031351410900C3044B /* AboutViewController.m */; };
 		6087B5061351410900C3044B /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6087B5041351410900C3044B /* AboutViewController.xib */; };
 		6087B6381352031C00C3044B /* icon_information.png in Resources */ = {isa = PBXBuildFile; fileRef = 6087B6371352031C00C3044B /* icon_information.png */; };
@@ -156,6 +158,8 @@
 		6009BF8B1E5CE4FC0021A13B /* CWDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWDatabase.swift; sourceTree = "<group>"; };
 		6009BF8F1E5DEDCB0021A13B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6009BF911E5E01530021A13B /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeViewController.xib; path = xib/HomeViewController.xib; sourceTree = "<group>"; };
+		6009BF931E6147FA0021A13B /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingsViewController.xib; path = xib/SettingsViewController.xib; sourceTree = SOURCE_ROOT; };
+		6009BF951E61480E0021A13B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Controllers/SettingsViewController.swift; sourceTree = "<group>"; };
 		602D73ED1E5BFDA800925A58 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		603D94A21E50BBAF00AFB1FF /* StatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatesViewController.swift; path = Controllers/StatesViewController.swift; sourceTree = "<group>"; };
 		603D94A41E527D3400AFB1FF /* AreasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreasViewController.swift; sourceTree = "<group>"; };
@@ -173,9 +177,9 @@
 		6057F051134EA8F700D04516 /* 28-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "28-star.png"; sourceTree = "<group>"; };
 		6077042A135697170085464F /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		60807EE213240AC9004A60C0 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		6087B4FB135140FB00C3044B /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
-		6087B4FC135140FB00C3044B /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		6087B4FD135140FB00C3044B /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		6087B4FB135140FB00C3044B /* SettingsViewControllerV1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewControllerV1.h; sourceTree = "<group>"; };
+		6087B4FC135140FB00C3044B /* SettingsViewControllerV1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewControllerV1.m; sourceTree = "<group>"; };
+		6087B4FD135140FB00C3044B /* SettingsViewControllerV1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewControllerV1.xib; sourceTree = "<group>"; };
 		6087B5021351410900C3044B /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		6087B5031351410900C3044B /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		6087B5041351410900C3044B /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
@@ -471,6 +475,7 @@
 				6009BF8F1E5DEDCB0021A13B /* HomeViewController.swift */,
 				603D94A21E50BBAF00AFB1FF /* StatesViewController.swift */,
 				603D94A41E527D3400AFB1FF /* AreasViewController.swift */,
+				6009BF951E61480E0021A13B /* SettingsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -521,9 +526,10 @@
 		608DE46312FCF1D400AE172C /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				6087B4FB135140FB00C3044B /* SettingsViewController.h */,
-				6087B4FC135140FB00C3044B /* SettingsViewController.m */,
-				6087B4FD135140FB00C3044B /* SettingsViewController.xib */,
+				6087B4FB135140FB00C3044B /* SettingsViewControllerV1.h */,
+				6087B4FC135140FB00C3044B /* SettingsViewControllerV1.m */,
+				6087B4FD135140FB00C3044B /* SettingsViewControllerV1.xib */,
+				6009BF931E6147FA0021A13B /* SettingsViewController.xib */,
 				6087B5021351410900C3044B /* AboutViewController.h */,
 				6087B5031351410900C3044B /* AboutViewController.m */,
 				6087B5041351410900C3044B /* AboutViewController.xib */,
@@ -759,6 +765,7 @@
 				608A58D712EC5B46003BCB84 /* ic_menu_refresh.png in Resources */,
 				608A58D912EC5B46003BCB84 /* light_rain.png in Resources */,
 				608A58DA12EC5B46003BCB84 /* mist_night.png in Resources */,
+				6009BF941E6147FA0021A13B /* SettingsViewController.xib in Resources */,
 				608A58DB12EC5B46003BCB84 /* mist.png in Resources */,
 				608A58DC12EC5B46003BCB84 /* overcast.png in Resources */,
 				608A58DD12EC5B46003BCB84 /* shower1_night.png in Resources */,
@@ -797,7 +804,7 @@
 				608DE49612FCF54200AE172C /* 16-line-chart.png in Resources */,
 				60807EE313240AC9004A60C0 /* MainWindow.xib in Resources */,
 				6057F052134EA8F700D04516 /* 28-star.png in Resources */,
-				6087B4FF135140FC00C3044B /* SettingsViewController.xib in Resources */,
+				6087B4FF135140FC00C3044B /* SettingsViewControllerV1.xib in Resources */,
 				6087B5061351410900C3044B /* AboutViewController.xib in Resources */,
 				6087B6381352031C00C3044B /* icon_information.png in Resources */,
 				6087B65413522ECB00C3044B /* icon_blog2.png in Resources */,
@@ -896,13 +903,14 @@
 				608DE22812F60FCE00AE172C /* AreaHourlyCell.m in Sources */,
 				6053B6001E45325B00798BC1 /* Forecast.swift in Sources */,
 				608DE3AE12FCDF0000AE172C /* Cache.m in Sources */,
+				6009BF961E61480E0021A13B /* SettingsViewController.swift in Sources */,
 				6009BF8C1E5CE4FC0021A13B /* CWDatabase.swift in Sources */,
 				608DE46A12FCF24A00AE172C /* AreaDetailController.m in Sources */,
 				608DE47912FCF47D00AE172C /* AreaAveragesController.m in Sources */,
 				608DE57312FE024B00AE172C /* Database.m in Sources */,
 				608DE66D1300CF0C00AE172C /* MapPoint.m in Sources */,
 				6009BF901E5DEDCB0021A13B /* HomeViewController.swift in Sources */,
-				6087B4FE135140FC00C3044B /* SettingsViewController.m in Sources */,
+				6087B4FE135140FC00C3044B /* SettingsViewControllerV1.m in Sources */,
 				6053B5E81E43CE5100798BC1 /* Area.swift in Sources */,
 				6053B6051E49442700798BC1 /* Preference.swift in Sources */,
 				6087B5051351410900C3044B /* AboutViewController.m in Sources */,
