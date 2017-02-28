@@ -8,4 +8,3 @@
 #import "AreaMapViewController.h"
 #import "MyManager.h"
 #import "AboutViewController.h"
-#import "SettingsViewControllerV1.h"

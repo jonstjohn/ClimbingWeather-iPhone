@@ -29,8 +29,6 @@
 		6053B6051E49442700798BC1 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6053B6041E49442700798BC1 /* Preference.swift */; };
 		6057F052134EA8F700D04516 /* 28-star.png in Resources */ = {isa = PBXBuildFile; fileRef = 6057F051134EA8F700D04516 /* 28-star.png */; };
 		60807EE313240AC9004A60C0 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60807EE213240AC9004A60C0 /* MainWindow.xib */; };
-		6087B4FE135140FC00C3044B /* SettingsViewControllerV1.m in Sources */ = {isa = PBXBuildFile; fileRef = 6087B4FC135140FB00C3044B /* SettingsViewControllerV1.m */; };
-		6087B4FF135140FC00C3044B /* SettingsViewControllerV1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6087B4FD135140FB00C3044B /* SettingsViewControllerV1.xib */; };
 		6087B5051351410900C3044B /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6087B5031351410900C3044B /* AboutViewController.m */; };
 		6087B5061351410900C3044B /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6087B5041351410900C3044B /* AboutViewController.xib */; };
 		6087B6381352031C00C3044B /* icon_information.png in Resources */ = {isa = PBXBuildFile; fileRef = 6087B6371352031C00C3044B /* icon_information.png */; };
@@ -177,9 +175,6 @@
 		6057F051134EA8F700D04516 /* 28-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "28-star.png"; sourceTree = "<group>"; };
 		6077042A135697170085464F /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		60807EE213240AC9004A60C0 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		6087B4FB135140FB00C3044B /* SettingsViewControllerV1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewControllerV1.h; sourceTree = "<group>"; };
-		6087B4FC135140FB00C3044B /* SettingsViewControllerV1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewControllerV1.m; sourceTree = "<group>"; };
-		6087B4FD135140FB00C3044B /* SettingsViewControllerV1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewControllerV1.xib; sourceTree = "<group>"; };
 		6087B5021351410900C3044B /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		6087B5031351410900C3044B /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		6087B5041351410900C3044B /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
@@ -526,9 +521,6 @@
 		608DE46312FCF1D400AE172C /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				6087B4FB135140FB00C3044B /* SettingsViewControllerV1.h */,
-				6087B4FC135140FB00C3044B /* SettingsViewControllerV1.m */,
-				6087B4FD135140FB00C3044B /* SettingsViewControllerV1.xib */,
 				6009BF931E6147FA0021A13B /* SettingsViewController.xib */,
 				6087B5021351410900C3044B /* AboutViewController.h */,
 				6087B5031351410900C3044B /* AboutViewController.m */,
@@ -804,7 +796,6 @@
 				608DE49612FCF54200AE172C /* 16-line-chart.png in Resources */,
 				60807EE313240AC9004A60C0 /* MainWindow.xib in Resources */,
 				6057F052134EA8F700D04516 /* 28-star.png in Resources */,
-				6087B4FF135140FC00C3044B /* SettingsViewControllerV1.xib in Resources */,
 				6087B5061351410900C3044B /* AboutViewController.xib in Resources */,
 				6087B6381352031C00C3044B /* icon_information.png in Resources */,
 				6087B65413522ECB00C3044B /* icon_blog2.png in Resources */,
@@ -910,7 +901,6 @@
 				608DE57312FE024B00AE172C /* Database.m in Sources */,
 				608DE66D1300CF0C00AE172C /* MapPoint.m in Sources */,
 				6009BF901E5DEDCB0021A13B /* HomeViewController.swift in Sources */,
-				6087B4FE135140FC00C3044B /* SettingsViewControllerV1.m in Sources */,
 				6053B5E81E43CE5100798BC1 /* Area.swift in Sources */,
 				6053B6051E49442700798BC1 /* Preference.swift in Sources */,
 				6087B5051351410900C3044B /* AboutViewController.m in Sources */,
