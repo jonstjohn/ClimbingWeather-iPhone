@@ -14,11 +14,23 @@ protocol PreferencesProtocol {
 }
 
 struct Preferences: PreferencesProtocol {
+    
+    let tempUnitsKey = "tempUnits"
+    
     var apiKey: String {
         return "iphone-VALID"
     }
     
     var tempUnits: TempUnits {
-        return .Fahrenheit
+        get {
+            if UserDefaults.standard.string(forKey: self.tempUnitsKey) == TempUnits.Celsius.asParameter() {
+                return .Celsius
+            } else {
+                return .Fahrenheit
+            }
+        }
+        set {
+            UserDefaults.standard.set(newValue.asParameter(), forKey: self.tempUnitsKey)
+        }
     }
 }

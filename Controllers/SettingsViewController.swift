@@ -23,6 +23,8 @@ class SettingsViewController: UIViewController {
     
     @IBAction func updateTempUnits(sender: UIButton) {
         let tempUnits: TempUnits = self.tempUnits.selectedSegmentIndex == 1 ? .Celsius : .Fahrenheit
+        var preferences = Preferences()
+        preferences.tempUnits = tempUnits
         print(tempUnits.asParameter())
     }
     

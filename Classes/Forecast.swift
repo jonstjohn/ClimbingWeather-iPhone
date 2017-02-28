@@ -89,53 +89,20 @@ struct ForecastDay {
         for daily in dailies {
             if let dateStr = daily["d"] as? String, let date = dateFormatter.date(from: dateStr) {
                 
-                // Day
-                var day: String?
-                if let dy = daily["dy"] as? String {
-                    day = dy
-                }
+                let day = daily["dy"] as? String // day
+                let dateFormatted = daily["dd"] as? String // formatted date
                 
-                // Formatted date
-                var dateFormatted: String?
-                if let dd = daily["dd"] as? String {
-                    dateFormatted = dd
-                }
-                
-                // High
-                var high: Int?
-                if let hi = daily["hi"] as? String {
-                    high = Int(hi)
-                }
-                
-                // Low
-                var low: Int?
-                if let lo = daily["l"] as? String {
-                    low = Int(lo)
-                }
+                let high = self.asInt(daily["hi"]) // high
+                let low = self.asInt(daily["l"]) // low
                 
                 // Precipitation amount
-                var rain: Decimal?
-                if let r = daily["r"] as? String {
-                    rain = Decimal(string: r)
-                }
+                let precipitation = Precipitation(
+                    rain: self.asDecimal(daily["r"]),
+                    snow: self.asDecimal(daily["s"])
+                )
                 
-                var snow: Decimal?
-                if let s = daily["s"] as? String {
-                    snow = Decimal(string: s)
-                }
-                
-                let precipitation = Precipitation(rain: rain, snow: snow)
-                
-                // Precipitation chance
-                var precipChanceDay: Int?
-                if let pd = daily["pd"] as? String {
-                    precipChanceDay = Int(pd)
-                }
-                
-                var precipChanceNight: Int?
-                if let pn = daily["pn"] as? String {
-                    precipChanceNight = Int(pn)
-                }
+                let precipChanceDay = self.asInt(daily["pd"]) // precip change day
+                let precipChanceNight = self.asInt(daily["pn"]) // precip change night
                 
                 // Symbol
                 var symbol: Symbol?
@@ -143,35 +110,17 @@ struct ForecastDay {
                     symbol = Symbol(rawValue: sym)
                 }
                 
-                // Conditions
-                var conditions: String?
-                if let w = daily["w"] as? String {
-                    conditions = w
-                }
+                let conditions = daily["w"] as? String // conditions
+                let conditionsFormatted = daily["c"] as? String // conditions formatted
                 
-                var conditionsFormatted: String?
-                if let c = daily["c"] as? String {
-                    conditionsFormatted = c
-                }
-                
-                // Humidity
-                var humidity: Int?
-                if let h = daily["h"] as? String {
-                    humidity = Int(h)
-                }
+                let humidity = self.asInt(daily["h"]) // humidity
+
                 
                 // Wind
-                var windSustained: Int?
-                if let ws = daily["ws"] as? String {
-                    windSustained = Int(ws)
-                }
-                
-                var windGust: Int?
-                if let wg = daily["wg"] as? String {
-                    windGust = Int(wg)
-                }
-                
-                let wind = Wind(sustained: windSustained, gust: windGust)
+                let wind = Wind(
+                    sustained: self.asInt(daily["ws"]),
+                    gust: self.asInt(daily["wg"])
+                )
                 
                 let forecast = ForecastDay(
                     date: date, day: day, dateFormatted: dateFormatted,
@@ -183,6 +132,26 @@ struct ForecastDay {
             }
         }
         return forecasts
+    }
+    
+    static private func asInt(_ value: Any?) -> Int? {
+        if let ret = value as? String {
+            return Int(ret)
+        }
+        
+        if let ret = value as? Int {
+            return ret
+        }
+        
+        return nil
+    }
+    
+    static private func asDecimal(_ value: Any?) -> Decimal? {
+        if let ret = value as? String {
+            return Decimal(string: ret)
+        }
+        
+        return nil
     }
 }
 

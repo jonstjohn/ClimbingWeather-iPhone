@@ -212,7 +212,7 @@ struct Areas {
                 let name = jsonArea["name"] as? String,
                 let state = jsonArea["state"] as? String {
                 
-                let forecastDaily = jsonArea["f"] as? [[String: String]]
+                let forecastDaily = jsonArea["f"] as? [[String: Any]]
                 let daily = ForecastDay.parseDaily(dailies: forecastDaily)
                 let area = Area(id: id, name: name, state: state, daily: daily, hourly: nil)
                 self.areas.append(area)
