@@ -7,4 +7,3 @@
 #import "AreaHourlyViewController.h"
 #import "AreaMapViewController.h"
 #import "MyManager.h"
-#import "AboutViewController.h"

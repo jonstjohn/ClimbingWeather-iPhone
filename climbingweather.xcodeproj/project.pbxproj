@@ -16,6 +16,8 @@
 		6009BF921E5E01530021A13B /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6009BF911E5E01530021A13B /* HomeViewController.xib */; };
 		6009BF941E6147FA0021A13B /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6009BF931E6147FA0021A13B /* SettingsViewController.xib */; };
 		6009BF961E61480E0021A13B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6009BF951E61480E0021A13B /* SettingsViewController.swift */; };
+		6009BF981E66429C0021A13B /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6009BF971E66429C0021A13B /* AboutViewController.xib */; };
+		6009BF9A1E6642BB0021A13B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6009BF991E6642BB0021A13B /* AboutViewController.swift */; };
 		602D73EE1E5BFDA800925A58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602D73ED1E5BFDA800925A58 /* AppDelegate.swift */; };
 		603D94A31E50BBAF00AFB1FF /* StatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D94A21E50BBAF00AFB1FF /* StatesViewController.swift */; };
 		603D94A51E527D3400AFB1FF /* AreasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D94A41E527D3400AFB1FF /* AreasViewController.swift */; };
@@ -29,8 +31,8 @@
 		6053B6051E49442700798BC1 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6053B6041E49442700798BC1 /* Preference.swift */; };
 		6057F052134EA8F700D04516 /* 28-star.png in Resources */ = {isa = PBXBuildFile; fileRef = 6057F051134EA8F700D04516 /* 28-star.png */; };
 		60807EE313240AC9004A60C0 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60807EE213240AC9004A60C0 /* MainWindow.xib */; };
-		6087B5051351410900C3044B /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6087B5031351410900C3044B /* AboutViewController.m */; };
-		6087B5061351410900C3044B /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6087B5041351410900C3044B /* AboutViewController.xib */; };
+		6087B5051351410900C3044B /* AboutViewControllerV1.m in Sources */ = {isa = PBXBuildFile; fileRef = 6087B5031351410900C3044B /* AboutViewControllerV1.m */; };
+		6087B5061351410900C3044B /* AboutViewControllerV1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6087B5041351410900C3044B /* AboutViewControllerV1.xib */; };
 		6087B6381352031C00C3044B /* icon_information.png in Resources */ = {isa = PBXBuildFile; fileRef = 6087B6371352031C00C3044B /* icon_information.png */; };
 		6087B65413522ECB00C3044B /* icon_blog2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6087B65313522ECB00C3044B /* icon_blog2.png */; };
 		6087B65A1352361C00C3044B /* 190-bank.png in Resources */ = {isa = PBXBuildFile; fileRef = 6087B6591352361C00C3044B /* 190-bank.png */; };
@@ -158,6 +160,8 @@
 		6009BF911E5E01530021A13B /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeViewController.xib; path = xib/HomeViewController.xib; sourceTree = "<group>"; };
 		6009BF931E6147FA0021A13B /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingsViewController.xib; path = xib/SettingsViewController.xib; sourceTree = SOURCE_ROOT; };
 		6009BF951E61480E0021A13B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Controllers/SettingsViewController.swift; sourceTree = "<group>"; };
+		6009BF971E66429C0021A13B /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AboutViewController.xib; path = xib/AboutViewController.xib; sourceTree = SOURCE_ROOT; };
+		6009BF991E6642BB0021A13B /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutViewController.swift; path = Controllers/AboutViewController.swift; sourceTree = "<group>"; };
 		602D73ED1E5BFDA800925A58 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		603D94A21E50BBAF00AFB1FF /* StatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatesViewController.swift; path = Controllers/StatesViewController.swift; sourceTree = "<group>"; };
 		603D94A41E527D3400AFB1FF /* AreasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreasViewController.swift; sourceTree = "<group>"; };
@@ -175,9 +179,9 @@
 		6057F051134EA8F700D04516 /* 28-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "28-star.png"; sourceTree = "<group>"; };
 		6077042A135697170085464F /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		60807EE213240AC9004A60C0 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		6087B5021351410900C3044B /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
-		6087B5031351410900C3044B /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
-		6087B5041351410900C3044B /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
+		6087B5021351410900C3044B /* AboutViewControllerV1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewControllerV1.h; sourceTree = "<group>"; };
+		6087B5031351410900C3044B /* AboutViewControllerV1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewControllerV1.m; sourceTree = "<group>"; };
+		6087B5041351410900C3044B /* AboutViewControllerV1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewControllerV1.xib; sourceTree = "<group>"; };
 		6087B6371352031C00C3044B /* icon_information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_information.png; sourceTree = "<group>"; };
 		6087B65313522ECB00C3044B /* icon_blog2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_blog2.png; sourceTree = "<group>"; };
 		6087B6591352361C00C3044B /* 190-bank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "190-bank.png"; sourceTree = "<group>"; };
@@ -471,6 +475,7 @@
 				603D94A21E50BBAF00AFB1FF /* StatesViewController.swift */,
 				603D94A41E527D3400AFB1FF /* AreasViewController.swift */,
 				6009BF951E61480E0021A13B /* SettingsViewController.swift */,
+				6009BF991E6642BB0021A13B /* AboutViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -522,9 +527,10 @@
 			isa = PBXGroup;
 			children = (
 				6009BF931E6147FA0021A13B /* SettingsViewController.xib */,
-				6087B5021351410900C3044B /* AboutViewController.h */,
-				6087B5031351410900C3044B /* AboutViewController.m */,
-				6087B5041351410900C3044B /* AboutViewController.xib */,
+				6087B5021351410900C3044B /* AboutViewControllerV1.h */,
+				6087B5031351410900C3044B /* AboutViewControllerV1.m */,
+				6087B5041351410900C3044B /* AboutViewControllerV1.xib */,
+				6009BF971E66429C0021A13B /* AboutViewController.xib */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -764,6 +770,7 @@
 				608A58DE12EC5B46003BCB84 /* shower1.png in Resources */,
 				608A58DF12EC5B46003BCB84 /* shower2_night.png in Resources */,
 				608A58E012EC5B46003BCB84 /* shower2.png in Resources */,
+				6009BF981E66429C0021A13B /* AboutViewController.xib in Resources */,
 				608A58E112EC5B46003BCB84 /* shower3.png in Resources */,
 				608A58E212EC5B46003BCB84 /* sleet.png in Resources */,
 				608A58E312EC5B46003BCB84 /* snow1_night.png in Resources */,
@@ -796,7 +803,7 @@
 				608DE49612FCF54200AE172C /* 16-line-chart.png in Resources */,
 				60807EE313240AC9004A60C0 /* MainWindow.xib in Resources */,
 				6057F052134EA8F700D04516 /* 28-star.png in Resources */,
-				6087B5061351410900C3044B /* AboutViewController.xib in Resources */,
+				6087B5061351410900C3044B /* AboutViewControllerV1.xib in Resources */,
 				6087B6381352031C00C3044B /* icon_information.png in Resources */,
 				6087B65413522ECB00C3044B /* icon_blog2.png in Resources */,
 				6087B65A1352361C00C3044B /* 190-bank.png in Resources */,
@@ -882,6 +889,7 @@
 				608A54AB12E38A6E003BCB84 /* SBJsonWriter.m in Sources */,
 				603D94A31E50BBAF00AFB1FF /* StatesViewController.swift in Sources */,
 				608A551A12E532F2003BCB84 /* MyManager.m in Sources */,
+				6009BF9A1E6642BB0021A13B /* AboutViewController.swift in Sources */,
 				608A560512E7C9F3003BCB84 /* AreaDailyViewController.m in Sources */,
 				603D94A51E527D3400AFB1FF /* AreasViewController.swift in Sources */,
 				608A562D12E7CEF7003BCB84 /* AreaTabBarController.m in Sources */,
@@ -903,7 +911,7 @@
 				6009BF901E5DEDCB0021A13B /* HomeViewController.swift in Sources */,
 				6053B5E81E43CE5100798BC1 /* Area.swift in Sources */,
 				6053B6051E49442700798BC1 /* Preference.swift in Sources */,
-				6087B5051351410900C3044B /* AboutViewController.m in Sources */,
+				6087B5051351410900C3044B /* AboutViewControllerV1.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

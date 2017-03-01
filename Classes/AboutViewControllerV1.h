@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface AboutViewController : UIViewController {
+@interface AboutViewControllerV1 : UIViewController {
 
 }
 

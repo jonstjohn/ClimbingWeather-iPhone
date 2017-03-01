@@ -6,10 +6,10 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "AboutViewController.h"
+#import "AboutViewControllerV1.h"
 
 
-@implementation AboutViewController
+@implementation AboutViewControllerV1
 
 - (id) init
 {

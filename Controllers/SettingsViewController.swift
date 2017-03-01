@@ -17,6 +17,9 @@ class SettingsViewController: UIViewController {
         
         super.viewWillAppear(animated)
         
+        self.tabBarController?.title = "About / Settings"
+        self.navigationController?.isNavigationBarHidden = false
+        
         self.tempUnits.selectedSegmentIndex = Preferences().tempUnits == .Celsius ? 1 : 0
         
     }
