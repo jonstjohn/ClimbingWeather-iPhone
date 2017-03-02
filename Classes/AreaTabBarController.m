@@ -7,14 +7,14 @@
 //
 
 #import "AreaTabBarController.h"
-#import "AreaDailyViewController.h"
+#import "AreaDailyViewControllerV1.h"
 
 
 @implementation AreaTabBarController
 
 - (id) init
 {
-	UIViewController *vc1 = [[AreaDailyViewController alloc] initWithNibName:(NSString *) @"AreaDailyViewController" bundle:(NSBundle *) nil];
+	UIViewController *vc1 = [[AreaDailyViewControllerV1 alloc] initWithNibName:(NSString *) @"AreaDailyViewController" bundle:(NSBundle *) nil];
 	//UIViewController *vc2 = [[NearbyViewController alloc] init];
 	//UIViewController *vc3 = [[StatesViewController alloc] init];
 	//UIViewController *vc4 = [[FavoritesViewController alloc] init];

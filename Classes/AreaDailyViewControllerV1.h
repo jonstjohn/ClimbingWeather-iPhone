@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface AreaDailyViewController : UIViewController <UITableViewDelegate> {
+@interface AreaDailyViewControllerV1 : UIViewController <UITableViewDelegate> {
 	NSMutableArray *days;
 	IBOutlet UITableView *dailyTableView;
 	IBOutlet UIActivityIndicatorView *activityIndicator;

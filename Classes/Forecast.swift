@@ -57,6 +57,10 @@ enum Symbol: String {
     case tstorm2
     case tstorm2_night
     case tstorm3
+    
+    var image: UIImage? {
+        return UIImage(named: self.rawValue)
+    }
 
 }
 

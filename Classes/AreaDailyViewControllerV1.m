@@ -6,12 +6,12 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "AreaDailyViewController.h"
+#import "AreaDailyViewControllerV1.h"
 #import "MyManager.h"
 #import "AreaDailyCell.h"
 #import "JSON.h"
 
-@implementation AreaDailyViewController
+@implementation AreaDailyViewControllerV1
 
 - (id) init
 {

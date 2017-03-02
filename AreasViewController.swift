@@ -242,9 +242,17 @@ import UIKit
         sharedManager?.areaName = area.name
         sharedManager?.areaId = String(area.id)
         
+        let dailyController = AreaDailyViewController()
+        let tbi = UITabBarItem()
+        tbi.title = "Daily"
+        tbi.image = UIImage(named: "icon_calendar.png")
+        dailyController.tabBarItem = tbi
+        dailyController.areaId = area.id
+        
         let tabController = UITabBarController()
         tabController.viewControllers = [
-            AreaDailyViewController(),
+            dailyController,
+            //AreaDailyViewControllerV1(),
             AreaHourlyViewController(),
             AreaMapViewController()
         ]

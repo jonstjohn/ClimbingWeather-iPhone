@@ -66,6 +66,12 @@ struct Area: Equatable {
         
     }
     
+    /*
+    public func fetchDaily(_ completion: @escaping (Area) -> Void) {
+    
+    }
+    */
+    
     static func ==(lhs: Area, rhs: Area) -> Bool {
         return lhs.id == rhs.id
     }
