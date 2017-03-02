@@ -6,13 +6,13 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "AreaHourlyViewController.h"
+#import "AreaHourlyViewControllerV1.h"
 #import "AreaHourlyCell.h"
 #import "MyManager.h"
 #import "JSON.h"
 
 
-@implementation AreaHourlyViewController
+@implementation AreaHourlyViewControllerV1
 
 - (id) init
 {

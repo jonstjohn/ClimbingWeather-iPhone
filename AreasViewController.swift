@@ -252,8 +252,7 @@ import UIKit
         let tabController = UITabBarController()
         tabController.viewControllers = [
             dailyController,
-            //AreaDailyViewControllerV1(),
-            AreaHourlyViewController(),
+            AreaHourlyViewControllerV1(),
             AreaMapViewController()
         ]
         

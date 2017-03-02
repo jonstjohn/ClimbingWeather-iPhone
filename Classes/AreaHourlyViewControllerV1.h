@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface AreaHourlyViewController : UITableViewController {
+@interface AreaHourlyViewControllerV1 : UITableViewController {
 	NSMutableArray *days;
 	IBOutlet UITableView *myTable;
 	IBOutlet UIActivityIndicatorView *activityIndicator;
