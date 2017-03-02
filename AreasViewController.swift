@@ -249,10 +249,16 @@ import UIKit
         dailyController.tabBarItem = tbi
         dailyController.areaId = area.id
         
+        let hourlyController = AreaHourlyViewController()
+        hourlyController.tabBarItem.title = "Hourly"
+        hourlyController.tabBarItem.image = UIImage(named: "icon_time.png")
+        hourlyController.areaId = area.id
+        
         let tabController = UITabBarController()
         tabController.viewControllers = [
             dailyController,
-            AreaHourlyViewControllerV1(),
+            hourlyController,
+            //AreaHourlyViewControllerV1(),
             AreaMapViewController()
         ]
         

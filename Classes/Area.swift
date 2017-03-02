@@ -16,6 +16,37 @@ struct Area: Equatable {
     let daily: [ForecastDay]?
     let hourly: [ForecastHour]?
     
+    var hourlyByDay: [[ForecastHour]]? {
+        guard let hourly = self.hourly else {
+            return nil
+        }
+        
+        var hourlyByDay = [[ForecastHour]]()
+        var currentDay: String?
+        var index = -1
+        
+        for hour in hourly {
+            guard let day = hour.day else {
+                continue
+            }
+            
+            if day != currentDay {
+                index = index + 1
+                currentDay = day
+            }
+            
+            // Initialize array
+            if index >= hourlyByDay.count {
+                hourlyByDay.append([ForecastHour]())
+            }
+            
+            hourlyByDay[index].append(hour)
+
+        }
+        
+        return hourlyByDay
+    }
+    
     public init(id: Int, name: String, state: String, daily: [ForecastDay]?, hourly: [ForecastHour]?) {
         self.id = id
         self.name = name

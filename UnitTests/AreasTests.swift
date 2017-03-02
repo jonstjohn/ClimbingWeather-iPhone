@@ -181,6 +181,31 @@ class AreasHourlyTests: XCTestCase {
         
     }
     
+    func test_hourlyByDay() {
+        guard let data = self.jsonStr.data(using: .utf8) else {
+            XCTFail("Failed to create data object from JSON string")
+            return
+        }
+        
+        
+        guard let area = Area(id: 3, hourlyJsonData: data) else {
+            XCTFail("Failed to create Area from hourly JSON data")
+            return
+        }
+        
+        guard let byDay = area.hourlyByDay else {
+            XCTFail("HourlyByDay was nil")
+            return
+        }
+        
+        XCTAssertEqual(byDay.count, 3)
+        XCTAssertEqual(byDay[0].count, 2)
+        XCTAssertEqual(byDay[2].count, 7)
+        XCTAssertEqual(byDay[0][0].day, "Today")
+        XCTAssertEqual(byDay[1][1].day, "Sat")
+        XCTAssertEqual(byDay[2][0].day, "Sun")
+    }
+    
     func test_invalidJson() {
         
         guard let data = self.invalidJsonStr.data(using: .utf8) else {

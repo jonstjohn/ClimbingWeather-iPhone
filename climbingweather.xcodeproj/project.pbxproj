@@ -31,6 +31,7 @@
 		6053B6031E48F64C00798BC1 /* CWApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6053B6021E48F64C00798BC1 /* CWApi.swift */; };
 		6053B6051E49442700798BC1 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6053B6041E49442700798BC1 /* Preference.swift */; };
 		6057F052134EA8F700D04516 /* 28-star.png in Resources */ = {isa = PBXBuildFile; fileRef = 6057F051134EA8F700D04516 /* 28-star.png */; };
+		605BEDE31E67DA480076B4C4 /* AreaHourlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605BEDE21E67DA480076B4C4 /* AreaHourlyViewController.swift */; };
 		60807EE313240AC9004A60C0 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60807EE213240AC9004A60C0 /* MainWindow.xib */; };
 		6087B6381352031C00C3044B /* icon_information.png in Resources */ = {isa = PBXBuildFile; fileRef = 6087B6371352031C00C3044B /* icon_information.png */; };
 		6087B65413522ECB00C3044B /* icon_blog2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6087B65313522ECB00C3044B /* icon_blog2.png */; };
@@ -174,6 +175,7 @@
 		6053B6021E48F64C00798BC1 /* CWApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWApi.swift; sourceTree = "<group>"; };
 		6053B6041E49442700798BC1 /* Preference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
 		6057F051134EA8F700D04516 /* 28-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "28-star.png"; sourceTree = "<group>"; };
+		605BEDE21E67DA480076B4C4 /* AreaHourlyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaHourlyViewController.swift; sourceTree = "<group>"; };
 		6077042A135697170085464F /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		60807EE213240AC9004A60C0 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		6087B6371352031C00C3044B /* icon_information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_information.png; sourceTree = "<group>"; };
@@ -470,6 +472,7 @@
 				6009BF991E6642BB0021A13B /* AboutViewController.swift */,
 				6009BF971E66429C0021A13B /* AboutViewController.xib */,
 				6009BF9B1E667C0D0021A13B /* AreaDailyViewController.swift */,
+				605BEDE21E67DA480076B4C4 /* AreaHourlyViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -859,6 +862,7 @@
 				608A54A912E38A6E003BCB84 /* SBJsonBase.m in Sources */,
 				608A54AA12E38A6E003BCB84 /* SBJsonParser.m in Sources */,
 				608A54AB12E38A6E003BCB84 /* SBJsonWriter.m in Sources */,
+				605BEDE31E67DA480076B4C4 /* AreaHourlyViewController.swift in Sources */,
 				603D94A31E50BBAF00AFB1FF /* StatesViewController.swift in Sources */,
 				608A551A12E532F2003BCB84 /* MyManager.m in Sources */,
 				6009BF9C1E667C0D0021A13B /* AreaDailyViewController.swift in Sources */,
