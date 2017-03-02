@@ -43,9 +43,6 @@
 		608A54AA12E38A6E003BCB84 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 608A54A412E38A6E003BCB84 /* SBJsonParser.m */; };
 		608A54AB12E38A6E003BCB84 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 608A54A612E38A6E003BCB84 /* SBJsonWriter.m */; };
 		608A551A12E532F2003BCB84 /* MyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 608A551912E532F2003BCB84 /* MyManager.m */; };
-		608A560512E7C9F3003BCB84 /* AreaDailyViewControllerV1.m in Sources */ = {isa = PBXBuildFile; fileRef = 608A560312E7C9F3003BCB84 /* AreaDailyViewControllerV1.m */; };
-		608A560612E7C9F3003BCB84 /* AreaDailyViewControllerV1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 608A560412E7C9F3003BCB84 /* AreaDailyViewControllerV1.xib */; };
-		608A562D12E7CEF7003BCB84 /* AreaTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 608A562C12E7CEF7003BCB84 /* AreaTabBarController.m */; };
 		608A566312E7D551003BCB84 /* AreaHourlyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 608A566112E7D551003BCB84 /* AreaHourlyViewController.m */; };
 		608A566412E7D551003BCB84 /* AreaHourlyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 608A566212E7D551003BCB84 /* AreaHourlyViewController.xib */; };
 		608A566C12E7D567003BCB84 /* AreaMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 608A566A12E7D567003BCB84 /* AreaMapViewController.m */; };
@@ -197,11 +194,6 @@
 		608A54A612E38A6E003BCB84 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		608A551812E532F2003BCB84 /* MyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyManager.h; sourceTree = "<group>"; };
 		608A551912E532F2003BCB84 /* MyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyManager.m; sourceTree = "<group>"; };
-		608A560212E7C9F3003BCB84 /* AreaDailyViewControllerV1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaDailyViewControllerV1.h; sourceTree = "<group>"; };
-		608A560312E7C9F3003BCB84 /* AreaDailyViewControllerV1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaDailyViewControllerV1.m; sourceTree = "<group>"; };
-		608A560412E7C9F3003BCB84 /* AreaDailyViewControllerV1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AreaDailyViewControllerV1.xib; sourceTree = "<group>"; };
-		608A562B12E7CEF7003BCB84 /* AreaTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaTabBarController.h; sourceTree = "<group>"; };
-		608A562C12E7CEF7003BCB84 /* AreaTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaTabBarController.m; sourceTree = "<group>"; };
 		608A566012E7D551003BCB84 /* AreaHourlyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaHourlyViewController.h; sourceTree = "<group>"; };
 		608A566112E7D551003BCB84 /* AreaHourlyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaHourlyViewController.m; sourceTree = "<group>"; };
 		608A566212E7D551003BCB84 /* AreaHourlyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AreaHourlyViewController.xib; sourceTree = "<group>"; };
@@ -487,11 +479,6 @@
 			children = (
 				608A566912E7D567003BCB84 /* AreaMapViewController.h */,
 				608A566A12E7D567003BCB84 /* AreaMapViewController.m */,
-				608A562B12E7CEF7003BCB84 /* AreaTabBarController.h */,
-				608A562C12E7CEF7003BCB84 /* AreaTabBarController.m */,
-				608A560212E7C9F3003BCB84 /* AreaDailyViewControllerV1.h */,
-				608A560312E7C9F3003BCB84 /* AreaDailyViewControllerV1.m */,
-				608A560412E7C9F3003BCB84 /* AreaDailyViewControllerV1.xib */,
 				608A57A912EA778F003BCB84 /* AreaDailyCell.h */,
 				608A57AA12EA778F003BCB84 /* AreaDailyCell.m */,
 				608A59A112EFC58C003BCB84 /* AreasCell.h */,
@@ -717,7 +704,6 @@
 			files = (
 				60A75D8E1E419A7C005EEE1F /* Images.xcassets in Resources */,
 				608A511712E34061003BCB84 /* StatesViewController.xib in Resources */,
-				608A560612E7C9F3003BCB84 /* AreaDailyViewControllerV1.xib in Resources */,
 				608A566412E7D551003BCB84 /* AreaHourlyViewController.xib in Resources */,
 				608A566D12E7D567003BCB84 /* AreaMapViewController.xib in Resources */,
 				608A56AD12E91B5E003BCB84 /* logo_top_center.png in Resources */,
@@ -877,9 +863,7 @@
 				608A551A12E532F2003BCB84 /* MyManager.m in Sources */,
 				6009BF9C1E667C0D0021A13B /* AreaDailyViewController.swift in Sources */,
 				6009BF9A1E6642BB0021A13B /* AboutViewController.swift in Sources */,
-				608A560512E7C9F3003BCB84 /* AreaDailyViewControllerV1.m in Sources */,
 				603D94A51E527D3400AFB1FF /* AreasViewController.swift in Sources */,
-				608A562D12E7CEF7003BCB84 /* AreaTabBarController.m in Sources */,
 				6053B5FC1E4530DC00798BC1 /* State.swift in Sources */,
 				608A566312E7D551003BCB84 /* AreaHourlyViewController.m in Sources */,
 				608A566C12E7D567003BCB84 /* AreaMapViewController.m in Sources */,
