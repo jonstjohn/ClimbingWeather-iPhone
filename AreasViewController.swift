@@ -258,7 +258,6 @@ import UIKit
         tabController.viewControllers = [
             dailyController,
             hourlyController,
-            //AreaHourlyViewControllerV1(),
             AreaMapViewController()
         ]
         
