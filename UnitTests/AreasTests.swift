@@ -240,3 +240,64 @@ class AreasHourlyTests: XCTestCase {
         super.tearDown()
     }
 }
+
+class AreaDetailTests: XCTestCase {
+    
+    let jsonStr = "{\"name\":\"New River Gorge\",\"latitude\":\"38.067680\",\"longitude\":\"-81.078070\"}"
+    
+    let invalidJsonStr = "{\"nbame\":\"New River Gorge\",\"latitude\":\"38.067680\",\"longitude\":\"-81.078070\"}"
+    
+    func test_validJson() {
+        
+        guard let data = self.jsonStr.data(using: .utf8) else {
+            XCTFail("Failed to create data object from JSON string")
+            return
+        }
+        
+        
+        guard let area = Area(id: 3, detailJsonData: data) else {
+            XCTFail("Failed to create Area from hourly JSON data")
+            return
+        }
+        
+        XCTAssertEqual(area.name, "New River Gorge")
+        XCTAssertEqual(area.latitude, "38.067680")
+        XCTAssertEqual(area.longitude, "-81.078070")
+        
+    }
+    
+    func test_invalidJson() {
+        
+        guard let data = self.invalidJsonStr.data(using: .utf8) else {
+            XCTFail("Failed to create data object from JSON string")
+            return
+        }
+        
+        let area = Area(id: 3, detailJsonData: data)
+        
+        XCTAssertNil(area)
+    }
+    
+    func test_fetchDetail() {
+        let ex = expectation(description: "Wait for load.")
+        var area: Area?
+        Area.fetchDetail(id: 3) { (fetchedArea) in
+            area = fetchedArea
+            ex.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
+        XCTAssertNotNil(area)
+    }
+    
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+    
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+}
+

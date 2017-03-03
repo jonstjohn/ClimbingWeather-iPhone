@@ -11,7 +11,7 @@
 #import <MapKit/MapKit.h>
 
 
-@interface AreaMapViewController : UIViewController <CLLocationManagerDelegate> {
+@interface AreaMapViewControllerV1 : UIViewController <CLLocationManagerDelegate> {
 	
 	//CLLocationManager *locationManager;
 	IBOutlet MKMapView *mapView;

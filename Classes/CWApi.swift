@@ -61,6 +61,7 @@ struct APIUrl {
     let statePath = "/state/list"
     let areaDailyPath = "/area/daily"
     let areaHourlyPath = "/area/hourly"
+    let areaDetailPath = "/area/detail"
     
     // Constants
     let apiKeyKey = "apiKey"
@@ -124,5 +125,9 @@ struct APIUrl {
     
     func areaHourlyUrl(areaId: Int) -> URLComponents {
         return url(withPath: self.areaHourlyPath + "/" + String(areaId), queryItems: nil)
+    }
+    
+    func areaDetailUrl(areaId: Int) -> URLComponents {
+        return url(withPath: self.areaDetailPath + "/" + String(areaId), queryItems: nil)
     }
 }

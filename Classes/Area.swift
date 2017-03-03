@@ -13,6 +13,8 @@ struct Area: Equatable {
     let id: Int
     let name: String
     let state: String
+    let latitude: String?
+    let longitude: String?
     let daily: [ForecastDay]?
     let hourly: [ForecastHour]?
     
@@ -47,12 +49,15 @@ struct Area: Equatable {
         return hourlyByDay
     }
     
-    public init(id: Int, name: String, state: String, daily: [ForecastDay]?, hourly: [ForecastHour]?) {
+    public init(id: Int, name: String, state: String, daily: [ForecastDay]?, hourly: [ForecastHour]?,
+                latitude: String?, longitude: String?) {
         self.id = id
         self.name = name
         self.state = state
         self.daily = daily
         self.hourly = hourly
+        self.latitude = latitude
+        self.longitude = longitude
     }
     
     public init?(id: Int, dailyJsonData: Data) {
@@ -74,7 +79,8 @@ struct Area: Equatable {
         let forecastDaily = jsonArea["f"] as? [[String: Any]]
         self.daily = ForecastDay.parseDaily(dailies: forecastDaily)
         self.hourly = nil
-
+        self.latitude = nil
+        self.longitude = nil
         
     }
     
@@ -94,14 +100,29 @@ struct Area: Equatable {
         let forecastHourly = result["f"] as? [[String: Any]]
         self.hourly = ForecastHour.parseHourly(hourlies: forecastHourly)
         self.daily = nil
+        self.latitude = nil
+        self.longitude = nil
         
     }
     
-    /*
-    public func fetchDaily(_ completion: @escaping (Area) -> Void) {
-    
+    public init?(id: Int, detailJsonData: Data) {
+        
+        let json = try? JSONSerialization.jsonObject(with: detailJsonData, options: [])
+        
+        guard let result = json as? [String: Any],
+            let name = result["name"] as? String else {
+                return nil
+        }
+        
+        self.id = id
+        self.name = name
+        self.state = "" // TODO
+        self.latitude = result["latitude"] as? String
+        self.longitude = result["longitude"] as? String
+        self.daily = nil
+        self.hourly = nil
+        
     }
-    */
     
     static func ==(lhs: Area, rhs: Area) -> Bool {
         return lhs.id == rhs.id
@@ -145,6 +166,26 @@ struct Area: Equatable {
         }
     }
     
+    /**
+     * Fetch detail for area
+     */
+    static func fetchDetail(id: Int, completion: @escaping (Area) -> Void) {
+        
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        
+        if let searchURL = APIUrl().areaDetailUrl(areaId: id).url {
+            
+            session.dataTask(with: searchURL, completionHandler: { (data, response, error) -> Void in
+                
+                if let data = data, let area = Area(id: id, detailJsonData: data) {
+                    completion(area)
+                }
+                
+            }).resume()
+        }
+    }
+    
+    
     static func favorites(database: CWDatabase? = CWDatabase.sharedInstance) -> [Area]? {
         
         guard let connection = database?.connection else {
@@ -159,7 +200,7 @@ struct Area: Equatable {
         
         do {
             for favorite in try connection.prepare(favorites) {
-                areas.append(Area(id: favorite[id], name: favorite[name], state: "", daily: nil, hourly: nil))
+                areas.append(Area(id: favorite[id], name: favorite[name], state: "", daily: nil, hourly: nil, latitude: nil, longitude: nil))
             }
         } catch _ {
             return nil
@@ -251,7 +292,7 @@ struct Areas {
                 
                 let forecastDaily = jsonArea["f"] as? [[String: Any]]
                 let daily = ForecastDay.parseDaily(dailies: forecastDaily)
-                let area = Area(id: id, name: name, state: state, daily: daily, hourly: nil)
+                let area = Area(id: id, name: name, state: state, daily: daily, hourly: nil, latitude: nil, longitude: nil)
                 self.areas.append(area)
             }
         }

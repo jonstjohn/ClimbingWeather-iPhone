@@ -254,11 +254,17 @@ import UIKit
         hourlyController.tabBarItem.image = UIImage(named: "icon_time.png")
         hourlyController.areaId = area.id
         
+        let mapController = AreaMapViewController()
+        mapController.tabBarItem.title = "Map"
+        mapController.tabBarItem.image = UIImage(named: "icon_blog.png")
+        mapController.areaId = area.id
+        
         let tabController = UITabBarController()
         tabController.viewControllers = [
             dailyController,
             hourlyController,
-            AreaMapViewController()
+            mapController
+            //AreaMapViewControllerV1()
         ]
         
         tabController.selectedIndex = 0

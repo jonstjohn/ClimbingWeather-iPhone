@@ -6,12 +6,12 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "AreaMapViewController.h"
+#import "AreaMapViewControllerV1.h"
 #import "MapPoint.h"
 #import "MyManager.h"
 #import "JSON.h"
 
-@implementation AreaMapViewController
+@implementation AreaMapViewControllerV1
 
 - (id) init
 {
