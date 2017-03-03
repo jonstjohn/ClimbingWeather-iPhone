@@ -171,7 +171,6 @@
 		6053B6041E49442700798BC1 /* Preference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
 		6057F051134EA8F700D04516 /* 28-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "28-star.png"; sourceTree = "<group>"; };
 		605BEDE21E67DA480076B4C4 /* AreaHourlyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaHourlyViewController.swift; sourceTree = "<group>"; };
-		605BEDE41E68EBE30076B4C4 /*  */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; name = ""; sourceTree = "<group>"; };
 		605BEDE61E68EE480076B4C4 /* AreaMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaMapViewController.swift; sourceTree = "<group>"; };
 		605BEDE81E68EE8B0076B4C4 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		605BEDEA1E68EE970076B4C4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -472,7 +471,6 @@
 				6009BF9B1E667C0D0021A13B /* AreaDailyViewController.swift */,
 				605BEDE21E67DA480076B4C4 /* AreaHourlyViewController.swift */,
 				605BEDE61E68EE480076B4C4 /* AreaMapViewController.swift */,
-				605BEDE41E68EBE30076B4C4 /*  */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
