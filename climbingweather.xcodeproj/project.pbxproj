@@ -104,7 +104,6 @@
 		608DE22812F60FCE00AE172C /* AreaHourlyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 608DE22712F60FCE00AE172C /* AreaHourlyCell.m */; };
 		608DE32B12FAD61100AE172C /* climbingweather.db in Resources */ = {isa = PBXBuildFile; fileRef = 608DE32A12FAD61100AE172C /* climbingweather.db */; };
 		608DE32F12FAD66E00AE172C /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 608DE32E12FAD66E00AE172C /* libsqlite3.0.dylib */; };
-		608DE3AE12FCDF0000AE172C /* Cache.m in Sources */ = {isa = PBXBuildFile; fileRef = 608DE3AD12FCDF0000AE172C /* Cache.m */; };
 		608DE46A12FCF24A00AE172C /* AreaDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 608DE46812FCF24A00AE172C /* AreaDetailController.m */; };
 		608DE46B12FCF24A00AE172C /* AreaDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 608DE46912FCF24A00AE172C /* AreaDetailController.xib */; };
 		608DE46F12FCF38D00AE172C /* 20-gear2.png in Resources */ = {isa = PBXBuildFile; fileRef = 608DE46E12FCF38D00AE172C /* 20-gear2.png */; };
@@ -244,8 +243,6 @@
 		608DE22712F60FCE00AE172C /* AreaHourlyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaHourlyCell.m; sourceTree = "<group>"; };
 		608DE32A12FAD61100AE172C /* climbingweather.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = climbingweather.db; sourceTree = "<group>"; };
 		608DE32E12FAD66E00AE172C /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
-		608DE3AC12FCDF0000AE172C /* Cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cache.h; sourceTree = "<group>"; };
-		608DE3AD12FCDF0000AE172C /* Cache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cache.m; sourceTree = "<group>"; };
 		608DE46712FCF24A00AE172C /* AreaDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaDetailController.h; sourceTree = "<group>"; };
 		608DE46812FCF24A00AE172C /* AreaDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaDetailController.m; sourceTree = "<group>"; };
 		608DE46912FCF24A00AE172C /* AreaDetailController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AreaDetailController.xib; path = Classes/AreaDetailController.xib; sourceTree = "<group>"; };
@@ -473,8 +470,6 @@
 		608DE46412FCF21900AE172C /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				608DE3AC12FCDF0000AE172C /* Cache.h */,
-				608DE3AD12FCDF0000AE172C /* Cache.m */,
 				608DE57112FE024B00AE172C /* Database.h */,
 				608DE57212FE024B00AE172C /* Database.m */,
 				608DE66B1300CF0C00AE172C /* MapPoint.h */,
@@ -817,7 +812,6 @@
 				605BEDEF1E68EEB50076B4C4 /* StatesViewController.swift in Sources */,
 				608DE22812F60FCE00AE172C /* AreaHourlyCell.m in Sources */,
 				6053B6001E45325B00798BC1 /* Forecast.swift in Sources */,
-				608DE3AE12FCDF0000AE172C /* Cache.m in Sources */,
 				6009BF8C1E5CE4FC0021A13B /* CWDatabase.swift in Sources */,
 				608DE46A12FCF24A00AE172C /* AreaDetailController.m in Sources */,
 				608DE47912FCF47D00AE172C /* AreaAveragesController.m in Sources */,
