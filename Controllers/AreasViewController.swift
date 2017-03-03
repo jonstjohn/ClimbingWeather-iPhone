@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
 @objc class AreasViewController: UITableViewController {
     
