@@ -104,11 +104,7 @@
 		608DE22812F60FCE00AE172C /* AreaHourlyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 608DE22712F60FCE00AE172C /* AreaHourlyCell.m */; };
 		608DE32B12FAD61100AE172C /* climbingweather.db in Resources */ = {isa = PBXBuildFile; fileRef = 608DE32A12FAD61100AE172C /* climbingweather.db */; };
 		608DE32F12FAD66E00AE172C /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 608DE32E12FAD66E00AE172C /* libsqlite3.0.dylib */; };
-		608DE46A12FCF24A00AE172C /* AreaDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 608DE46812FCF24A00AE172C /* AreaDetailController.m */; };
-		608DE46B12FCF24A00AE172C /* AreaDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 608DE46912FCF24A00AE172C /* AreaDetailController.xib */; };
 		608DE46F12FCF38D00AE172C /* 20-gear2.png in Resources */ = {isa = PBXBuildFile; fileRef = 608DE46E12FCF38D00AE172C /* 20-gear2.png */; };
-		608DE47912FCF47D00AE172C /* AreaAveragesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 608DE47712FCF47D00AE172C /* AreaAveragesController.m */; };
-		608DE47A12FCF47D00AE172C /* AreaAverages.xib in Resources */ = {isa = PBXBuildFile; fileRef = 608DE47812FCF47D00AE172C /* AreaAverages.xib */; };
 		608DE49612FCF54200AE172C /* 16-line-chart.png in Resources */ = {isa = PBXBuildFile; fileRef = 608DE49512FCF54200AE172C /* 16-line-chart.png */; };
 		608DE64412FF85C600AE172C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608DE64312FF85C600AE172C /* CoreLocation.framework */; };
 		608DE66612FF88CE00AE172C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608DE66512FF88CE00AE172C /* MapKit.framework */; };
@@ -241,13 +237,7 @@
 		608DE22712F60FCE00AE172C /* AreaHourlyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaHourlyCell.m; sourceTree = "<group>"; };
 		608DE32A12FAD61100AE172C /* climbingweather.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = climbingweather.db; sourceTree = "<group>"; };
 		608DE32E12FAD66E00AE172C /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
-		608DE46712FCF24A00AE172C /* AreaDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaDetailController.h; sourceTree = "<group>"; };
-		608DE46812FCF24A00AE172C /* AreaDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaDetailController.m; sourceTree = "<group>"; };
-		608DE46912FCF24A00AE172C /* AreaDetailController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AreaDetailController.xib; path = Classes/AreaDetailController.xib; sourceTree = "<group>"; };
 		608DE46E12FCF38D00AE172C /* 20-gear2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "20-gear2.png"; sourceTree = "<group>"; };
-		608DE47612FCF47D00AE172C /* AreaAveragesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaAveragesController.h; sourceTree = "<group>"; };
-		608DE47712FCF47D00AE172C /* AreaAveragesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaAveragesController.m; sourceTree = "<group>"; };
-		608DE47812FCF47D00AE172C /* AreaAverages.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AreaAverages.xib; path = Classes/AreaAverages.xib; sourceTree = "<group>"; };
 		608DE49512FCF54200AE172C /* 16-line-chart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "16-line-chart.png"; sourceTree = "<group>"; };
 		608DE64312FF85C600AE172C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		608DE66512FF88CE00AE172C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -357,7 +347,6 @@
 				60D99E071355268400B238D5 /* Icon@2x.png */,
 				60D99DF313547C6100B238D5 /* Icon.png */,
 				60D99C161352415500B238D5 /* ic_launcher57.png */,
-				608DE8CA130D68FD00AE172C /* xib */,
 				608DE46D12FCF36C00AE172C /* navicon */,
 				608A589412EC5B46003BCB84 /* btn_star_big_off.png */,
 				608A589512EC5B46003BCB84 /* climbing.png */,
@@ -452,10 +441,6 @@
 				608A59A212EFC58C003BCB84 /* AreasCell.m */,
 				608DE22612F60FCE00AE172C /* AreaHourlyCell.h */,
 				608DE22712F60FCE00AE172C /* AreaHourlyCell.m */,
-				608DE46712FCF24A00AE172C /* AreaDetailController.h */,
-				608DE46812FCF24A00AE172C /* AreaDetailController.m */,
-				608DE47612FCF47D00AE172C /* AreaAveragesController.h */,
-				608DE47712FCF47D00AE172C /* AreaAveragesController.m */,
 			);
 			name = Area;
 			sourceTree = "<group>";
@@ -522,15 +507,6 @@
 				608DE1C212F4A7E700AE172C /* icon_calendar.png */,
 			);
 			name = navicon;
-			sourceTree = "<group>";
-		};
-		608DE8CA130D68FD00AE172C /* xib */ = {
-			isa = PBXGroup;
-			children = (
-				608DE46912FCF24A00AE172C /* AreaDetailController.xib */,
-				608DE47812FCF47D00AE172C /* AreaAverages.xib */,
-			);
-			name = xib;
 			sourceTree = "<group>";
 		};
 		9800F519063C99F66A4E3FA4 /* Pods */ = {
@@ -699,9 +675,7 @@
 				608DE1FA12F4EEF700AE172C /* 73-radar.png in Resources */,
 				608DE1FE12F6040000AE172C /* icon_magnify_glass.png in Resources */,
 				608DE32B12FAD61100AE172C /* climbingweather.db in Resources */,
-				608DE46B12FCF24A00AE172C /* AreaDetailController.xib in Resources */,
 				608DE46F12FCF38D00AE172C /* 20-gear2.png in Resources */,
-				608DE47A12FCF47D00AE172C /* AreaAverages.xib in Resources */,
 				608DE49612FCF54200AE172C /* 16-line-chart.png in Resources */,
 				60807EE313240AC9004A60C0 /* MainWindow.xib in Resources */,
 				6057F052134EA8F700D04516 /* 28-star.png in Resources */,
@@ -795,8 +769,6 @@
 				608DE22812F60FCE00AE172C /* AreaHourlyCell.m in Sources */,
 				6053B6001E45325B00798BC1 /* Forecast.swift in Sources */,
 				6009BF8C1E5CE4FC0021A13B /* CWDatabase.swift in Sources */,
-				608DE46A12FCF24A00AE172C /* AreaDetailController.m in Sources */,
-				608DE47912FCF47D00AE172C /* AreaAveragesController.m in Sources */,
 				605BEDEB1E68EE970076B4C4 /* SettingsViewController.swift in Sources */,
 				6009BF901E5DEDCB0021A13B /* HomeViewController.swift in Sources */,
 				605BEDE91E68EE8B0076B4C4 /* AboutViewController.swift in Sources */,
