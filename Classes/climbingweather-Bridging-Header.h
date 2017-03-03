@@ -5,4 +5,3 @@
 #import "AreasCell.h"
 #import "AreaDailyCell.h"
 #import "AreaHourlyCell.h"
-#import "MyManager.h"

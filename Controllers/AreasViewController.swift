@@ -239,10 +239,6 @@ import CoreLocation
         
         let area = self.areas[indexPath.row]
         
-        let sharedManager = MyManager.shared()
-        sharedManager?.areaName = area.name
-        sharedManager?.areaId = String(area.id)
-        
         let dailyController = AreaDailyViewController()
         let tbi = UITabBarItem()
         tbi.title = "Daily"
