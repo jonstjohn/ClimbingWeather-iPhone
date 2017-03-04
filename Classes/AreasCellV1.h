@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface AreasCell : UITableViewCell {
+@interface AreasCellV1 : UITableViewCell {
 	UIButton *favoriteImage;
 	UILabel *areaName;
 	UIImageView *day1Symbol;

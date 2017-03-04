@@ -6,10 +6,10 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "AreasCell.h"
+#import "AreasCellV1.h"
 
 
-@implementation AreasCell
+@implementation AreasCellV1
 
 @synthesize favoriteImage;
 @synthesize areaName;

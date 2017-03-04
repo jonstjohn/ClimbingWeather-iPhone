@@ -35,6 +35,7 @@
 		605BEDEF1E68EEB50076B4C4 /* StatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605BEDEE1E68EEB50076B4C4 /* StatesViewController.swift */; };
 		605BEDF11E68EEBE0076B4C4 /* StatesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 605BEDF01E68EEBE0076B4C4 /* StatesViewController.xib */; };
 		605BEDF31E692BD90076B4C4 /* AreaMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 605BEDF21E692BD90076B4C4 /* AreaMapViewController.xib */; };
+		605BEDF61E69E65F0076B4C4 /* AreasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605BEDF51E69E65F0076B4C4 /* AreasCell.swift */; };
 		60807EE313240AC9004A60C0 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60807EE213240AC9004A60C0 /* MainWindow.xib */; };
 		6087B6381352031C00C3044B /* icon_information.png in Resources */ = {isa = PBXBuildFile; fileRef = 6087B6371352031C00C3044B /* icon_information.png */; };
 		6087B65413522ECB00C3044B /* icon_blog2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6087B65313522ECB00C3044B /* icon_blog2.png */; };
@@ -93,7 +94,7 @@
 		608A58EF12EC5B46003BCB84 /* tstorm2_night.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A58C012EC5B46003BCB84 /* tstorm2_night.png */; };
 		608A58F012EC5B46003BCB84 /* tstorm2.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A58C112EC5B46003BCB84 /* tstorm2.png */; };
 		608A58F112EC5B46003BCB84 /* tstorm3.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A58C212EC5B46003BCB84 /* tstorm3.png */; };
-		608A59A312EFC58C003BCB84 /* AreasCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 608A59A212EFC58C003BCB84 /* AreasCell.m */; };
+		608A59A312EFC58C003BCB84 /* AreasCellV1.m in Sources */ = {isa = PBXBuildFile; fileRef = 608A59A212EFC58C003BCB84 /* AreasCellV1.m */; };
 		608DE1C312F4A7E700AE172C /* icon_calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 608DE1C212F4A7E700AE172C /* icon_calendar.png */; };
 		608DE1E012F4AA3D00AE172C /* icon_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 608DE1DF12F4AA3D00AE172C /* icon_time.png */; };
 		608DE1E612F4AF4800AE172C /* icon_blog.png in Resources */ = {isa = PBXBuildFile; fileRef = 608DE1E512F4AF4800AE172C /* icon_blog.png */; };
@@ -164,6 +165,7 @@
 		605BEDEE1E68EEB50076B4C4 /* StatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatesViewController.swift; sourceTree = "<group>"; };
 		605BEDF01E68EEBE0076B4C4 /* StatesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatesViewController.xib; sourceTree = "<group>"; };
 		605BEDF21E692BD90076B4C4 /* AreaMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AreaMapViewController.xib; path = Controllers/AreaMapViewController.xib; sourceTree = SOURCE_ROOT; };
+		605BEDF51E69E65F0076B4C4 /* AreasCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AreasCell.swift; path = Cells/AreasCell.swift; sourceTree = "<group>"; };
 		6077042A135697170085464F /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		60807EE213240AC9004A60C0 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		6087B6371352031C00C3044B /* icon_information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_information.png; sourceTree = "<group>"; };
@@ -224,8 +226,8 @@
 		608A58C012EC5B46003BCB84 /* tstorm2_night.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tstorm2_night.png; sourceTree = "<group>"; };
 		608A58C112EC5B46003BCB84 /* tstorm2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tstorm2.png; sourceTree = "<group>"; };
 		608A58C212EC5B46003BCB84 /* tstorm3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tstorm3.png; sourceTree = "<group>"; };
-		608A59A112EFC58C003BCB84 /* AreasCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreasCell.h; sourceTree = "<group>"; };
-		608A59A212EFC58C003BCB84 /* AreasCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreasCell.m; sourceTree = "<group>"; };
+		608A59A112EFC58C003BCB84 /* AreasCellV1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreasCellV1.h; sourceTree = "<group>"; };
+		608A59A212EFC58C003BCB84 /* AreasCellV1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreasCellV1.m; sourceTree = "<group>"; };
 		608DE1C212F4A7E700AE172C /* icon_calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_calendar.png; sourceTree = "<group>"; };
 		608DE1DF12F4AA3D00AE172C /* icon_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_time.png; sourceTree = "<group>"; };
 		608DE1E512F4AF4800AE172C /* icon_blog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_blog.png; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				608DE32A12FAD61100AE172C /* climbingweather.db */,
 				60807EE213240AC9004A60C0 /* MainWindow.xib */,
 				6053B66D1E4E073400798BC1 /* Controllers */,
+				605BEDF41E69E6330076B4C4 /* Cells */,
 				6053B6011E48F62C00798BC1 /* API */,
 				6053B5E51E43CE3300798BC1 /* Model */,
 				080E96DDFE201D6D7F000001 /* Classes */,
@@ -432,13 +435,21 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		605BEDF41E69E6330076B4C4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				605BEDF51E69E65F0076B4C4 /* AreasCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		608DE45B12FCF18600AE172C /* Area */ = {
 			isa = PBXGroup;
 			children = (
 				608A57A912EA778F003BCB84 /* AreaDailyCell.h */,
 				608A57AA12EA778F003BCB84 /* AreaDailyCell.m */,
-				608A59A112EFC58C003BCB84 /* AreasCell.h */,
-				608A59A212EFC58C003BCB84 /* AreasCell.m */,
+				608A59A112EFC58C003BCB84 /* AreasCellV1.h */,
+				608A59A212EFC58C003BCB84 /* AreasCellV1.m */,
 				608DE22612F60FCE00AE172C /* AreaHourlyCell.h */,
 				608DE22712F60FCE00AE172C /* AreaHourlyCell.m */,
 			);
@@ -764,8 +775,9 @@
 				6053B5FC1E4530DC00798BC1 /* State.swift in Sources */,
 				602D73EE1E5BFDA800925A58 /* AppDelegate.swift in Sources */,
 				608A57AB12EA778F003BCB84 /* AreaDailyCell.m in Sources */,
-				608A59A312EFC58C003BCB84 /* AreasCell.m in Sources */,
+				608A59A312EFC58C003BCB84 /* AreasCellV1.m in Sources */,
 				605BEDEF1E68EEB50076B4C4 /* StatesViewController.swift in Sources */,
+				605BEDF61E69E65F0076B4C4 /* AreasCell.swift in Sources */,
 				608DE22812F60FCE00AE172C /* AreaHourlyCell.m in Sources */,
 				6053B6001E45325B00798BC1 /* Forecast.swift in Sources */,
 				6009BF8C1E5CE4FC0021A13B /* CWDatabase.swift in Sources */,
