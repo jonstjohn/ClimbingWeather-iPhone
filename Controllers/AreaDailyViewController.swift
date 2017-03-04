@@ -120,7 +120,7 @@ class AreaDailyViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell =  AreaDailyCellV1(style: .subtitle, reuseIdentifier: "AreaDailyCell")
+        let cell =  AreaDailyCell(style: .subtitle, reuseIdentifier: "AreaDailyCell")
         
         guard let day = self.area?.daily?[indexPath.row] else {
             return cell
