@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface AreaDailyCell : UITableViewCell {
+@interface AreaDailyCellV1 : UITableViewCell {
 	UILabel *dayLabel;
 	UILabel *dateLabel;
 	UILabel *highLabel;

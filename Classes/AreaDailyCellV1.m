@@ -6,10 +6,10 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "AreaDailyCell.h"
+#import "AreaDailyCellV1.h"
 
 
-@implementation AreaDailyCell
+@implementation AreaDailyCellV1
 
 @synthesize dayLabel;
 @synthesize dateLabel;

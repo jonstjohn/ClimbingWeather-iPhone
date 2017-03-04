@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface AreaHourlyCell : UITableViewCell {
+@interface AreaHourlyCellV1 : UITableViewCell {
 	UILabel *dayLabel;
 	UILabel *timeLabel;
 	UILabel *tempLabel;

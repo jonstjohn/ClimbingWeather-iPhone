@@ -215,13 +215,13 @@ import CoreLocation
             cell.day1Temp.text = String(format: "%d / %d", day1.high ?? "-", day1.low ?? "-")
             cell.day1Precip.text = String(format: "%d%% / %d%%", day1.precipitationChanceDay ?? "-", day1.precipitationChanceNight ?? "-")
             
-            let day2 = daily[0]
+            let day2 = daily[1]
             let imageStrDay2 = day2.symbol?.rawValue ?? "" // TODO
             cell.day2Symbol.image = UIImage(named: imageStrDay2)
             cell.day2Temp.text = String(format: "%d / %d", day2.high ?? "-", day2.low ?? "-")
             cell.day2Precip.text = String(format: "%d%% / %d%%", day2.precipitationChanceDay ?? "-", day2.precipitationChanceNight ?? "-")
 
-            let day3 = daily[0]
+            let day3 = daily[2]
             let imageStrDay3 = day3.symbol?.rawValue ?? "" // TODO
             cell.day3Symbol.image = UIImage(named: imageStrDay3)
             cell.day3Temp.text = String(format: "%d / %d", day3.high ?? "-", day3.low ?? "-")
