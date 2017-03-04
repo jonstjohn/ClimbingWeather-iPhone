@@ -49,7 +49,6 @@
 		608A56D812E921F7003BCB84 /* ic_menu_mylocation.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A56D712E921F7003BCB84 /* ic_menu_mylocation.png */; };
 		608A56F212E92344003BCB84 /* ic_menu_mapmode.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A56F112E92344003BCB84 /* ic_menu_mapmode.png */; };
 		608A56F912E9239B003BCB84 /* ic_menu_search.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A56F812E9239B003BCB84 /* ic_menu_search.png */; };
-		608A57AB12EA778F003BCB84 /* AreaDailyCellV1.m in Sources */ = {isa = PBXBuildFile; fileRef = 608A57AA12EA778F003BCB84 /* AreaDailyCellV1.m */; };
 		608A58C312EC5B46003BCB84 /* btn_star_big_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A589412EC5B46003BCB84 /* btn_star_big_off.png */; };
 		608A58C412EC5B46003BCB84 /* climbing.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A589512EC5B46003BCB84 /* climbing.png */; };
 		608A58C512EC5B46003BCB84 /* cloudy1_night.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A589612EC5B46003BCB84 /* cloudy1_night.png */; };
@@ -181,8 +180,6 @@
 		608A56D712E921F7003BCB84 /* ic_menu_mylocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_menu_mylocation.png; sourceTree = "<group>"; };
 		608A56F112E92344003BCB84 /* ic_menu_mapmode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_menu_mapmode.png; sourceTree = "<group>"; };
 		608A56F812E9239B003BCB84 /* ic_menu_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_menu_search.png; sourceTree = "<group>"; };
-		608A57A912EA778F003BCB84 /* AreaDailyCellV1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaDailyCellV1.h; sourceTree = "<group>"; };
-		608A57AA12EA778F003BCB84 /* AreaDailyCellV1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaDailyCellV1.m; sourceTree = "<group>"; };
 		608A589412EC5B46003BCB84 /* btn_star_big_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_star_big_off.png; sourceTree = "<group>"; };
 		608A589512EC5B46003BCB84 /* climbing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = climbing.png; sourceTree = "<group>"; };
 		608A589612EC5B46003BCB84 /* cloudy1_night.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloudy1_night.png; sourceTree = "<group>"; };
@@ -449,8 +446,6 @@
 		608DE45B12FCF18600AE172C /* Area */ = {
 			isa = PBXGroup;
 			children = (
-				608A57A912EA778F003BCB84 /* AreaDailyCellV1.h */,
-				608A57AA12EA778F003BCB84 /* AreaDailyCellV1.m */,
 				608DE22612F60FCE00AE172C /* AreaHourlyCellV1.h */,
 				608DE22712F60FCE00AE172C /* AreaHourlyCellV1.m */,
 			);
@@ -776,7 +771,6 @@
 				603D94A51E527D3400AFB1FF /* AreasViewController.swift in Sources */,
 				6053B5FC1E4530DC00798BC1 /* State.swift in Sources */,
 				602D73EE1E5BFDA800925A58 /* AppDelegate.swift in Sources */,
-				608A57AB12EA778F003BCB84 /* AreaDailyCellV1.m in Sources */,
 				605BEDEF1E68EEB50076B4C4 /* StatesViewController.swift in Sources */,
 				605BEDF61E69E65F0076B4C4 /* AreasCell.swift in Sources */,
 				608DE22812F60FCE00AE172C /* AreaHourlyCellV1.m in Sources */,
