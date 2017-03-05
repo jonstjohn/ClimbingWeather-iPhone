@@ -44,31 +44,31 @@ class AreaDailyCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let w = self.contentView.bounds.size.width;
+        let w = self.contentView.bounds.size.width
         
-        let inset = 5.0;
-        let columnSpacing = 10.0;
+        let inset = 5.0
+        let columnSpacing = 10.0
         
-        let secondRowY = inset + 20.0;
-        let thirdRowY = secondRowY + 20.0;
+        let secondRowY = inset + 20.0
+        let thirdRowY = secondRowY + 20.0
         
-        let dayX = inset;
-        let dayWidth = 50.0;
+        let dayX = inset
+        let dayWidth = 50.0
         
-        let iconX = dayX + dayWidth + columnSpacing;
-        let iconWidth = 40.0;
+        let iconX = dayX + dayWidth + columnSpacing
+        let iconWidth = 40.0
         
-        let highX = iconX + iconWidth + columnSpacing;
-        let highWidth = 50.0;
+        let highX = iconX + iconWidth + columnSpacing
+        let highWidth = 50.0
         
-        let precipX = highX + highWidth + columnSpacing;
-        let precipWidth = 50.0;
+        let precipX = highX + highWidth + columnSpacing
+        let precipWidth = 50.0
         
-        let windX = precipX + precipWidth + columnSpacing;
-        let windWidth = 60.0;
+        let windX = precipX + precipWidth + columnSpacing
+        let windWidth = 60.0
         
-        let big = 16.0;
-        let small = 12.0;
+        let big = 16.0
+        let small = 12.0
         
         // Day
         dayLabel.font = UIFont.systemFont(ofSize: CGFloat(big))
