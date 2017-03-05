@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Precipitation {
     let rain: Decimal?
