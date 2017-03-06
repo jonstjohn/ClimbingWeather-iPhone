@@ -145,7 +145,7 @@ class AreaHourlyViewController: UITableViewController {
         }
         
         if let sky = hour.sky {
-            cell.skyLabel.text = "\(sky)˚"
+            cell.skyLabel.text = "\(sky)% cloudy"
         }
         
         if let precipitationChance = hour.precipitationChance {
