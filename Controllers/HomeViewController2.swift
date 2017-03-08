@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class HomeViewController: UIViewController, UITextFieldDelegate {
+class HomeViewController2: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         

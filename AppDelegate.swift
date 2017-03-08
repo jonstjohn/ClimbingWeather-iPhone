@@ -14,19 +14,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     var window: UIWindow?
     
     let homeTitle = "Home"
-    let homeTabImage = UIImage(named: "icon_home.png")
+    let homeTabImage = UIImage(named: "Home.png")
     
-    let nearbyTitle = "Nearby Areas"
-    let nearbyTabImage = UIImage(named: "73-radar.png")
+    let nearbyTitle = "Nearby"
+    let nearbyTabImage = UIImage(named: "Location.png")
     
     let stateTitle = "By State"
-    let stateTabImage = UIImage(named: "190-bank.png")
+    let stateTabImage = UIImage(named: "Capitol.png")
     
     let favoritesTitle = "Favorites"
-    let favoritesTabImage = UIImage(named: "icon_star.png")
+    let favoritesTabImage = UIImage(named: "Star.png")
     
     let searchTitle = "Search"
-    let searchTabImage = UIImage(named: "icon_magnify_glass.png")
+    let searchTabImage = UIImage(named: "Search.png")
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
 
@@ -67,6 +67,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         
         tabController.viewControllers = [vc1, vc2, vc3, vc4, vc5]
         tabController.navigationItem.title = "Find Areas"
+        tabController.accessibilityValue = "TabVal"
+        tabController.accessibilityLabel = "TabLab"
         
         let navController = UINavigationController(rootViewController: tabController)
         navController.isNavigationBarHidden = true
