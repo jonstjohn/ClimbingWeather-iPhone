@@ -80,6 +80,30 @@ struct ForecastDay {
     let conditionsFormatted: String?
     let wind: Wind?
     
+    var tempFormatted: String {
+        return String(format: "%d˚/%d˚", self.high ?? "-", self.low ?? "-")
+    }
+    
+    var highFormatted: String {
+        return String(format: "%d˚", self.high ?? "-")
+    }
+    
+    var lowFormatted: String {
+        return String(format: "/ %d˚", self.low ?? "-")
+    }
+    
+    var precipitationFormatted: String {
+        return String(format: "%d%%/%d%%", self.precipitationChanceDay ?? "-", self.precipitationChanceNight ?? "-")
+    }
+    
+    var precipitationChanceDayFormatted: String {
+        return String(format: "%d%%", self.precipitationChanceDay ?? "-")
+    }
+    
+    var precipitationChanceNightFormatted: String {
+        return String(format: "/ %d%%", self.precipitationChanceNight ?? "-")
+    }
+    
     static func parseDaily(dailies: [[String: Any]]?) -> [ForecastDay]? {
         
         guard let dailies = dailies else {

@@ -16,6 +16,7 @@ import CoreLocation
     var areas = [Area]()
     var locationManager: CLLocationManager?
     let searchController = UISearchController(searchResultsController: nil)
+    let favoriteImage = UIImage(named: "Star.png")?.withRenderingMode(.alwaysTemplate)
     
     override func viewDidLoad() {
         
@@ -39,6 +40,8 @@ import CoreLocation
         }
         
         self.tableView.rowHeight = 85.0
+        
+        self.tableView.register(UINib(nibName: "AreaCell", bundle: nil), forCellReuseIdentifier: "AreaCell")
         
     }
     
@@ -195,43 +198,49 @@ import CoreLocation
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell =  AreasCell(style: .subtitle, reuseIdentifier: "AreasCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AreaCell") as! AreaCell
         
         let area = self.areas[indexPath.row]
-        
-        cell.areaName.text = String(format: "%@ (%@)", area.name, area.state)
-        
-        let isFavorite = area.isFavorite()
-        let favoriteImage = isFavorite ? UIImage(named: "btn_star_big_on") : UIImage(named: "btn_star_big_off")
-        cell.favoriteImage.setImage(favoriteImage, for: .normal)
-        cell.favoriteImage.tag = 1
-        cell.favoriteImage.addTarget(self, action: #selector(favoritePressed(_:)), for: .touchUpInside)
-        
-        if let daily = area.daily, daily.count >= 3 {
-            
-            let day1 = daily[0]
-            let imageStrDay1 = day1.symbol?.rawValue ?? "" // TODO
-            cell.day1Symbol.image = UIImage(named: imageStrDay1)
-            cell.day1Temp.text = String(format: "%d / %d", day1.high ?? "-", day1.low ?? "-")
-            cell.day1Precip.text = String(format: "%d%% / %d%%", day1.precipitationChanceDay ?? "-", day1.precipitationChanceNight ?? "-")
-            
-            let day2 = daily[1]
-            let imageStrDay2 = day2.symbol?.rawValue ?? "" // TODO
-            cell.day2Symbol.image = UIImage(named: imageStrDay2)
-            cell.day2Temp.text = String(format: "%d / %d", day2.high ?? "-", day2.low ?? "-")
-            cell.day2Precip.text = String(format: "%d%% / %d%%", day2.precipitationChanceDay ?? "-", day2.precipitationChanceNight ?? "-")
-
-            let day3 = daily[2]
-            let imageStrDay3 = day3.symbol?.rawValue ?? "" // TODO
-            cell.day3Symbol.image = UIImage(named: imageStrDay3)
-            cell.day3Temp.text = String(format: "%d / %d", day3.high ?? "-", day3.low ?? "-")
-            cell.day3Precip.text = String(format: "%d%% / %d%%", day3.precipitationChanceDay ?? "-", day3.precipitationChanceNight ?? "-")
-
-        }
-        
-        cell.accessoryType = .disclosureIndicator
-        
+        cell.populate(area)
         return cell
+        
+//        cell.name.text = area.name
+//        cell.state.text = area.state
+//        
+//        
+////        cell.areaName.text = String(format: "%@ (%@)", area.name, area.state)
+////        
+////        let isFavorite = area.isFavorite()
+////        let favoriteImage = isFavorite ? UIImage(named: "btn_star_big_on") : self.favoriteImage
+////        cell.favoriteImage.setImage(favoriteImage, for: .normal)
+////        cell.favoriteImage.tag = 1
+////        cell.favoriteImage.addTarget(self, action: #selector(favoritePressed(_:)), for: .touchUpInside)
+////        
+//        if let daily = area.daily, daily.count >= 3 {
+//            
+//            let day1 = daily[0]
+//            let imageStrDay1 = day1.symbol?.rawValue ?? "" // TODO
+//            cell.day1Symbol.image = UIImage(named: imageStrDay1)
+//            cell.day1Temp.text = String(format: "%d / %d", day1.high ?? "-", day1.low ?? "-")
+//            cell.day1Precip.text = String(format: "%d%% / %d%%", day1.precipitationChanceDay ?? "-", day1.precipitationChanceNight ?? "-")
+//            
+//            let day2 = daily[1]
+//            let imageStrDay2 = day2.symbol?.rawValue ?? "" // TODO
+//            cell.day2Symbol.image = UIImage(named: imageStrDay2)
+//            cell.day2Temp.text = String(format: "%d / %d", day2.high ?? "-", day2.low ?? "-")
+//            cell.day2Precip.text = String(format: "%d%% / %d%%", day2.precipitationChanceDay ?? "-", day2.precipitationChanceNight ?? "-")
+//
+//            let day3 = daily[2]
+//            let imageStrDay3 = day3.symbol?.rawValue ?? "" // TODO
+//            cell.day3Symbol.image = UIImage(named: imageStrDay3)
+//            cell.day3Temp.text = String(format: "%d / %d", day3.high ?? "-", day3.low ?? "-")
+//            cell.day3Precip.text = String(format: "%d%% / %d%%", day3.precipitationChanceDay ?? "-", day3.precipitationChanceNight ?? "-")
+//
+//        }
+//
+//        cell.accessoryType = .disclosureIndicator
+        
+        //return cell
 
     }
 
@@ -280,7 +289,7 @@ import CoreLocation
             if area.isFavorite() {
                 do {
                     try area.removeFavorite()
-                    sender.setImage(UIImage(named: "btn_star_big_off"), for: .normal)
+                    sender.setImage(favoriteImage, for: .normal)
                 } catch _ {
                     
                 }
