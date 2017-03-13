@@ -13,6 +13,8 @@
 		3458CCD89E79670AAF8484F4 /* Pods_climbingweather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5BA8E83BE629AEA5BCC8E8D /* Pods_climbingweather.framework */; };
 		600611CC1E77494C000F7694 /* AreaDailyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600611CA1E77494C000F7694 /* AreaDailyCell.swift */; };
 		600611CD1E77494C000F7694 /* AreaDailyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 600611CB1E77494C000F7694 /* AreaDailyCell.xib */; };
+		600611D01E77498C000F7694 /* AreaHourlyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600611CE1E77498B000F7694 /* AreaHourlyCell.swift */; };
+		600611D11E77498C000F7694 /* AreaHourlyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 600611CF1E77498C000F7694 /* AreaHourlyCell.xib */; };
 		6009BF8C1E5CE4FC0021A13B /* CWDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6009BF8B1E5CE4FC0021A13B /* CWDatabase.swift */; };
 		6009BF901E5DEDCB0021A13B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6009BF8F1E5DEDCB0021A13B /* HomeViewController.swift */; };
 		6009BF941E6147FA0021A13B /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6009BF931E6147FA0021A13B /* SettingsViewController.xib */; };
@@ -167,6 +169,8 @@
 		28A0AAE50D9B0CCF005BE974 /* climbingweather_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = climbingweather_Prefix.pch; sourceTree = "<group>"; };
 		600611CA1E77494C000F7694 /* AreaDailyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AreaDailyCell.swift; path = Cells/AreaDailyCell.swift; sourceTree = "<group>"; };
 		600611CB1E77494C000F7694 /* AreaDailyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AreaDailyCell.xib; path = Cells/AreaDailyCell.xib; sourceTree = "<group>"; };
+		600611CE1E77498B000F7694 /* AreaHourlyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AreaHourlyCell.swift; path = Cells/AreaHourlyCell.swift; sourceTree = "<group>"; };
+		600611CF1E77498C000F7694 /* AreaHourlyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AreaHourlyCell.xib; path = Cells/AreaHourlyCell.xib; sourceTree = "<group>"; };
 		6009BF8B1E5CE4FC0021A13B /* CWDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWDatabase.swift; sourceTree = "<group>"; };
 		6009BF8F1E5DEDCB0021A13B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6009BF931E6147FA0021A13B /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingsViewController.xib; path = xib/SettingsViewController.xib; sourceTree = SOURCE_ROOT; };
@@ -506,6 +510,8 @@
 			isa = PBXGroup;
 			children = (
 				6048907A1E6A8309002590D4 /* AreaDailyCellV1.swift */,
+				600611CE1E77498B000F7694 /* AreaHourlyCell.swift */,
+				600611CF1E77498C000F7694 /* AreaHourlyCell.xib */,
 				600611CA1E77494C000F7694 /* AreaDailyCell.swift */,
 				600611CB1E77494C000F7694 /* AreaDailyCell.xib */,
 				6048907C1E6A831A002590D4 /* AreaHourlyCellV1.swift */,
@@ -699,6 +705,7 @@
 				608A58CA12EC5B46003BCB84 /* cloudy3.png in Resources */,
 				604890AD1E6E7AEF002590D4 /* Star-78.png in Resources */,
 				608A58CB12EC5B46003BCB84 /* cloudy4_night.png in Resources */,
+				600611D11E77498C000F7694 /* AreaHourlyCell.xib in Resources */,
 				608A58CC12EC5B46003BCB84 /* cloudy4.png in Resources */,
 				608A58CD12EC5B46003BCB84 /* cloudy5.png in Resources */,
 				6048908B1E6E779C002590D4 /* Location@2x.png in Resources */,
@@ -856,6 +863,7 @@
 				605BEDE71E68EE480076B4C4 /* AreaMapViewController.swift in Sources */,
 				6053B6031E48F64C00798BC1 /* CWApi.swift in Sources */,
 				605BEDE31E67DA480076B4C4 /* AreaHourlyViewController.swift in Sources */,
+				600611D01E77498C000F7694 /* AreaHourlyCell.swift in Sources */,
 				6048907D1E6A831A002590D4 /* AreaHourlyCellV1.swift in Sources */,
 				6009BF9C1E667C0D0021A13B /* AreaDailyViewController.swift in Sources */,
 				603D94A51E527D3400AFB1FF /* AreasViewController.swift in Sources */,
