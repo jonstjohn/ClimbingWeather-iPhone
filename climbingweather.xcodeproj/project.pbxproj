@@ -64,7 +64,6 @@
 		605BEDEF1E68EEB50076B4C4 /* StatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605BEDEE1E68EEB50076B4C4 /* StatesViewController.swift */; };
 		605BEDF11E68EEBE0076B4C4 /* StatesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 605BEDF01E68EEBE0076B4C4 /* StatesViewController.xib */; };
 		605BEDF31E692BD90076B4C4 /* AreaMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 605BEDF21E692BD90076B4C4 /* AreaMapViewController.xib */; };
-		605BEDF61E69E65F0076B4C4 /* AreasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605BEDF51E69E65F0076B4C4 /* AreasCell.swift */; };
 		60807EE313240AC9004A60C0 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60807EE213240AC9004A60C0 /* MainWindow.xib */; };
 		6087B6381352031C00C3044B /* icon_information.png in Resources */ = {isa = PBXBuildFile; fileRef = 6087B6371352031C00C3044B /* icon_information.png */; };
 		6087B65413522ECB00C3044B /* icon_blog2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6087B65313522ECB00C3044B /* icon_blog2.png */; };
@@ -220,7 +219,6 @@
 		605BEDEE1E68EEB50076B4C4 /* StatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatesViewController.swift; sourceTree = "<group>"; };
 		605BEDF01E68EEBE0076B4C4 /* StatesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatesViewController.xib; sourceTree = "<group>"; };
 		605BEDF21E692BD90076B4C4 /* AreaMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AreaMapViewController.xib; path = Controllers/AreaMapViewController.xib; sourceTree = SOURCE_ROOT; };
-		605BEDF51E69E65F0076B4C4 /* AreasCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AreasCell.swift; path = Cells/AreasCell.swift; sourceTree = "<group>"; };
 		6077042A135697170085464F /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		60807EE213240AC9004A60C0 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		6087B6371352031C00C3044B /* icon_information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_information.png; sourceTree = "<group>"; };
@@ -503,7 +501,6 @@
 		605BEDF41E69E6330076B4C4 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				605BEDF51E69E65F0076B4C4 /* AreasCell.swift */,
 				6048907A1E6A8309002590D4 /* AreaDailyCell.swift */,
 				6048907C1E6A831A002590D4 /* AreaHourlyCell.swift */,
 				60482A211E71D5D800A0AFC9 /* AreaCell.swift */,
@@ -858,7 +855,6 @@
 				6053B5FC1E4530DC00798BC1 /* State.swift in Sources */,
 				602D73EE1E5BFDA800925A58 /* AppDelegate.swift in Sources */,
 				605BEDEF1E68EEB50076B4C4 /* StatesViewController.swift in Sources */,
-				605BEDF61E69E65F0076B4C4 /* AreasCell.swift in Sources */,
 				6053B6001E45325B00798BC1 /* Forecast.swift in Sources */,
 				6009BF8C1E5CE4FC0021A13B /* CWDatabase.swift in Sources */,
 				6048907B1E6A8309002590D4 /* AreaDailyCell.swift in Sources */,
