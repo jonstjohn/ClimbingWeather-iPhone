@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class AreaHourlyCell: UITableViewCell {
+class AreaHourlyCellV1: UITableViewCell {
     
     let dayLabel = UILabel(frame: CGRect.zero)
     let timeLabel = UILabel(frame: CGRect.zero)

@@ -132,7 +132,7 @@ class AreaHourlyViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell =  AreaHourlyCell(style: .subtitle, reuseIdentifier: "AreaHourlyCell")
+        let cell =  AreaHourlyCellV1(style: .subtitle, reuseIdentifier: "AreaHourlyCellV1")
         
         guard let hour = self.area?.hourlyByDay?[indexPath.section][indexPath.row] else {
             return cell
