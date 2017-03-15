@@ -104,6 +104,14 @@ struct ForecastDay {
         return String(format: "/ %d%%", self.precipitationChanceNight ?? "-")
     }
     
+    var windSustainedFormatted: String {
+        return String(format: "%d mph", self.wind?.sustained ?? "-")
+    }
+    
+    var humidityFormatted: String {
+        return String(format: "%d%%", self.humidity ?? "-")
+    }
+    
     static func parseDaily(dailies: [[String: Any]]?) -> [ForecastDay]? {
         
         guard let dailies = dailies else {

@@ -79,6 +79,8 @@ class AreaDailyViewController: UITableViewController {
         
         self.navigationController?.isNavigationBarHidden = false
         
+        self.tableView.register(UINib(nibName: "AreaDailyCell", bundle: nil), forCellReuseIdentifier: "AreaDailyCell")
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -120,46 +122,52 @@ class AreaDailyViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell =  AreaDailyCellV1(style: .subtitle, reuseIdentifier: "AreaDailyCellV1")
+//        let cell =  AreaDailyCell(style: .subtitle, reuseIdentifier: "AreaDailyCellV1")
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AreaDailyCell") as! AreaDailyCell
         
         guard let day = self.area?.daily?[indexPath.row] else {
             return cell
         }
         
-        cell.dayLabel.text = day.day
-        cell.dateLabel.text = day.dateFormatted
-        
-        if let high = day.high {
-            cell.highLabel.text = "\(high)˚"
-        }
-        
-        if let low = day.low {
-            cell.lowLabel.text = "\(low)˚"
-        }
-        
-        if let precipitationChanceDay = day.precipitationChanceDay {
-            cell.precipDayLabel.text = "\(precipitationChanceDay)%"
-        }
-        
-        if let precipitationChanceNight = day.precipitationChanceNight {
-            cell.precipNightLabel.text = "\(precipitationChanceNight)%"
-        }
-        
-        if let windSustained = day.wind?.sustained {
-            cell.windLabel.text = "\(windSustained) mph"
-        }
-        
-        if let humidity = day.humidity {
-            cell.humLabel.text = "\(humidity)%"
-        }
-        
-        cell.conditionsLabel.text = day.conditionsFormatted
-        cell.conditionsLabel.isHidden = day.conditionsFormatted?.characters.count == 0
-        
-        cell.iconImage.image = day.symbol?.image
-        cell.selectionStyle = .none
-        
+        cell.populate(day)
         return cell
+
+//        
+//        cell.dayLabel.text = day.day
+//        cell.dateLabel.text = day.dateFormatted
+//        
+//        if let high = day.high {
+//            cell.highLabel.text = "\(high)˚"
+//        }
+//        
+//        if let low = day.low {
+//            cell.lowLabel.text = "\(low)˚"
+//        }
+//        
+//        if let precipitationChanceDay = day.precipitationChanceDay {
+//            cell.precipDayLabel.text = "\(precipitationChanceDay)%"
+//        }
+//        
+//        if let precipitationChanceNight = day.precipitationChanceNight {
+//            cell.precipNightLabel.text = "\(precipitationChanceNight)%"
+//        }
+//        
+//        if let windSustained = day.wind?.sustained {
+//            cell.windLabel.text = "\(windSustained) mph"
+//        }
+//        
+//        if let humidity = day.humidity {
+//            cell.humLabel.text = "\(humidity)%"
+//        }
+//        
+//        cell.conditionsLabel.text = day.conditionsFormatted
+//        cell.conditionsLabel.isHidden = day.conditionsFormatted?.characters.count == 0
+//        
+//        cell.iconImage.image = day.symbol?.image
+//        cell.selectionStyle = .none
+//        
+//        return cell
         
     }
     
