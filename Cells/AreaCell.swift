@@ -52,25 +52,25 @@ class AreaCell: UITableViewCell {
             let imageStrDay1 = day1.symbol?.rawValue ?? "" // TODO
             self.day1Symbol.image = UIImage(named: imageStrDay1)
             self.day1High.text = day1.highFormatted
-            self.day1Low.text = day1.lowFormatted
+            self.day1Low.text = "/ " + day1.lowFormatted
             self.day1PrecipDay.text = day1.precipitationChanceDayFormatted
-            self.day1PrecipNight.text = day1.precipitationChanceNightFormatted
+            self.day1PrecipNight.text = "/ " + day1.precipitationChanceNightFormatted
             
             let day2 = daily[1]
             let imageStrDay2 = day2.symbol?.rawValue ?? "" // TODO
             self.day2Symbol.image = UIImage(named: imageStrDay2)
             self.day2High.text = day2.highFormatted
-            self.day2Low.text = day2.lowFormatted
+            self.day2Low.text = "/ " + day2.lowFormatted
             self.day2PrecipDay.text = day2.precipitationChanceDayFormatted
-            self.day2PrecipNight.text = day2.precipitationChanceNightFormatted
+            self.day2PrecipNight.text = "/ " + day2.precipitationChanceNightFormatted
             
             let day3 = daily[2]
             let imageStrDay3 = day3.symbol?.rawValue ?? "" // TODO
             self.day3Symbol.image = UIImage(named: imageStrDay3)
             self.day3High.text = day3.highFormatted
-            self.day3Low.text = day3.lowFormatted
+            self.day3Low.text = "/ " + day3.lowFormatted
             self.day3PrecipDay.text = day3.precipitationChanceDayFormatted
-            self.day3PrecipNight.text = day3.precipitationChanceNightFormatted
+            self.day3PrecipNight.text = "/ " + day3.precipitationChanceNightFormatted
             
         }
     }

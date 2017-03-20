@@ -61,6 +61,8 @@ import CoreLocation
             self.searchController.searchBar.text = term
         }
         
+        self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Areas", style: .plain, target: nil, action: nil)
+        
         super.viewWillAppear(animated)
         
         self.updateSearch()
@@ -69,13 +71,10 @@ import CoreLocation
     func updateSearch() {
         if let search = search {
             
-            // Clear zero length search
-            if case let Search.Term(term) = search {
-                if term.characters.count == 0 {
-                    self.areas = [Area]()
-                    self.tableView.reloadData()
-                    return
-                }
+            if isZeroSearch() {
+                self.areas = [Area]()
+                self.tableView.reloadData()
+                return
             }
             
             Areas.fetchDaily(search: search, completion: { (areas) in
@@ -86,6 +85,23 @@ import CoreLocation
                 }
             })
         }
+    }
+    
+    func isZeroSearch() -> Bool {
+        
+        guard let search = self.search else {
+            return true
+        }
+        
+        if case let Search.Term(term) = search {
+            return term.characters.count == 0
+        }
+        
+        if case let Search.Areas(ids) = search {
+            return ids.count == 0
+        }
+        
+        return false
     }
     
     func checkLocationAuthorization(manager: CLLocationManager) {
@@ -127,11 +143,14 @@ import CoreLocation
     
     func updateFavorites() {
         
-        guard let areas = Area.favorites() else {
+        do {
+            guard let areas = try Area.favorites() else {
+                return
+            }
+            self.search = .Areas(areas.map({$0.id}))
+        } catch {
             return
         }
-        
-        self.search = .Areas(areas.map({$0.id}))
 
     }
     
@@ -237,34 +256,9 @@ import CoreLocation
         
         tabController.selectedIndex = 0
         tabController.navigationItem.title = area.name
-        
+
         self.navigationController?.pushViewController(tabController, animated: true)
         
-    }
- 
-    func favoritePressed(_ sender: UIButton) {
-        
-        let buttonPosition = sender.convert(CGPoint.zero, to: self.tableView)
-        
-        if let indexPath = self.tableView.indexPathForRow(at: buttonPosition) {
-            let area = self.areas[indexPath.row]
-            if area.isFavorite() {
-                do {
-                    try area.removeFavorite()
-                    sender.setImage(favoriteImage, for: .normal)
-                } catch _ {
-                    
-                }
-            } else {
-                do {
-                    try area.addFavorite()
-                    sender.setImage(UIImage(named: "btn_star_big_on"), for: .normal)
-                } catch _ {
-                    
-                }
-            }
-        }
-
     }
  
 }

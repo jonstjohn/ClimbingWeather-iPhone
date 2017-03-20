@@ -18,74 +18,33 @@ class AreaDailyViewController: UITableViewController {
         
         super.viewDidLoad()
         
-        let inset = 2.0
-        let columnSpacing = 10.0
-        
-        let dayX = inset
-        let dayWidth = 50.0
-        
-        let iconX = dayX + dayWidth + columnSpacing
-        let iconWidth = 40.0
-        
-        let highX = iconX + iconWidth + columnSpacing
-        let highWidth = 50.0
-        
-        let precipX = highX + highWidth + columnSpacing
-        let precipWidth = 50.0
-        
-        let windX = precipX + precipWidth + columnSpacing
-        let windWidth = 60.0
-        
-        let fontSize = 10.0
-        let rowHeight = fontSize + inset * 2.0
-        
-        // Container view
-        let containerView = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: rowHeight))
-        containerView.backgroundColor = UIColor.lightGray.withAlphaComponent(CGFloat(0.05))
-        
-        // Day label
-        let dayLabel = UILabel(frame: CGRect(x: dayX, y: inset, width: dayWidth, height: fontSize))
-        dayLabel.text = "Forecast"
-        dayLabel.backgroundColor = UIColor.clear
-        dayLabel.font = UIFont.systemFont(ofSize: CGFloat(fontSize))
-        dayLabel.textAlignment = .center
-        containerView.addSubview(dayLabel)
-        
-        // High label
-        let highLabel = UILabel(frame: CGRect(x: highX, y: inset, width: highWidth, height: fontSize))
-        highLabel.text = "High/Low"
-        highLabel.backgroundColor = UIColor.clear
-        highLabel.font = UIFont.systemFont(ofSize: CGFloat(fontSize))
-        highLabel.textAlignment = .center
-        containerView.addSubview(highLabel)
-        
-        // Preciup label
-        let precipLabel = UILabel(frame: CGRect(x: precipX, y: inset, width: precipWidth, height: fontSize))
-        precipLabel.text = "Precip"
-        precipLabel.backgroundColor = UIColor.clear
-        precipLabel.font = UIFont.systemFont(ofSize: CGFloat(fontSize))
-        precipLabel.textAlignment = .center
-        containerView.addSubview(precipLabel)
-        
-        // Day label
-        let windLabel = UILabel(frame: CGRect(x: windX, y: inset, width: windWidth, height: fontSize))
-        windLabel.text = "Wind/Hum"
-        windLabel.backgroundColor = UIColor.clear
-        windLabel.font = UIFont.systemFont(ofSize: CGFloat(fontSize))
-        windLabel.textAlignment = .center
-        containerView.addSubview(windLabel)
-        
-        self.tableView.tableHeaderView = containerView
-        
         self.navigationController?.isNavigationBarHidden = false
         
         self.tableView.register(UINib(nibName: "AreaDailyCell", bundle: nil), forCellReuseIdentifier: "AreaDailyCell")
         
     }
     
+    func toggleFavorite(sender: UIBarButtonItem) {
+        guard let area = self.area else {
+            return
+        }
+        
+        do {
+            if try area.isFavorite() {
+                try area.removeFavorite()
+                sender.image = UIImage(named: "Star.png")
+            } else {
+                try area.addFavorite()
+                sender.image = UIImage(named: "StarYellowFilled.png")
+            }
+        } catch {
+            return
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         
-        self.tabBarController?.title = "Areas"
+        self.tabBarController?.title = self.area?.name
         self.navigationController?.isNavigationBarHidden = false
         
         super.viewWillAppear(animated)
@@ -93,6 +52,7 @@ class AreaDailyViewController: UITableViewController {
         self.update()
         
     }
+
     
     func update() {
         
@@ -104,6 +64,18 @@ class AreaDailyViewController: UITableViewController {
             self.area = area
             
             DispatchQueue.main.async {
+                
+                let starOn = UIImage(named: "StarYellowFilled.png")
+                let starOff = UIImage(named: "Star.png")
+                do {
+                    let image = try area.isFavorite() ? starOn : starOff
+                    let item = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(self.toggleFavorite(sender:)))
+                    item.tintColor = UIColor.init(red: 241/255, green: 196/255, blue: 15/255, alpha: 1)
+                    self.tabBarController?.navigationItem.rightBarButtonItem = item
+                } catch {
+                    // Do nothing
+                }
+                
                 self.tableView.reloadData()
             }
             
@@ -121,8 +93,6 @@ class AreaDailyViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-//        let cell =  AreaDailyCell(style: .subtitle, reuseIdentifier: "AreaDailyCellV1")
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "AreaDailyCell") as! AreaDailyCell
         
@@ -132,42 +102,6 @@ class AreaDailyViewController: UITableViewController {
         
         cell.populate(day)
         return cell
-
-//        
-//        cell.dayLabel.text = day.day
-//        cell.dateLabel.text = day.dateFormatted
-//        
-//        if let high = day.high {
-//            cell.highLabel.text = "\(high)˚"
-//        }
-//        
-//        if let low = day.low {
-//            cell.lowLabel.text = "\(low)˚"
-//        }
-//        
-//        if let precipitationChanceDay = day.precipitationChanceDay {
-//            cell.precipDayLabel.text = "\(precipitationChanceDay)%"
-//        }
-//        
-//        if let precipitationChanceNight = day.precipitationChanceNight {
-//            cell.precipNightLabel.text = "\(precipitationChanceNight)%"
-//        }
-//        
-//        if let windSustained = day.wind?.sustained {
-//            cell.windLabel.text = "\(windSustained) mph"
-//        }
-//        
-//        if let humidity = day.humidity {
-//            cell.humLabel.text = "\(humidity)%"
-//        }
-//        
-//        cell.conditionsLabel.text = day.conditionsFormatted
-//        cell.conditionsLabel.isHidden = day.conditionsFormatted?.characters.count == 0
-//        
-//        cell.iconImage.image = day.symbol?.image
-//        cell.selectionStyle = .none
-//        
-//        return cell
         
     }
     

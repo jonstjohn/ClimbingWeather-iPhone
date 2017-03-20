@@ -32,11 +32,15 @@ import UIKit
                 self.tableView.reloadData()
             }
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.title = "US States"
         self.navigationController?.isNavigationBarHidden = false
+        
+        self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "States", style: .plain, target: nil, action: nil)
+        
         super.viewWillAppear(animated)
     }
     

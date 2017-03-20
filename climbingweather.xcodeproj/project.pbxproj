@@ -69,6 +69,12 @@
 		605BEDF11E68EEBE0076B4C4 /* StatesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 605BEDF01E68EEBE0076B4C4 /* StatesViewController.xib */; };
 		605BEDF31E692BD90076B4C4 /* AreaMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 605BEDF21E692BD90076B4C4 /* AreaMapViewController.xib */; };
 		60807EE313240AC9004A60C0 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60807EE213240AC9004A60C0 /* MainWindow.xib */; };
+		608570A21E7EC94900FF4746 /* StarYellow@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6085709C1E7EC94900FF4746 /* StarYellow@1x.png */; };
+		608570A31E7EC94900FF4746 /* StarYellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6085709D1E7EC94900FF4746 /* StarYellow@2x.png */; };
+		608570A41E7EC94900FF4746 /* StarYellow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6085709E1E7EC94900FF4746 /* StarYellow@3x.png */; };
+		608570A51E7EC94900FF4746 /* StarYellowFilled@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6085709F1E7EC94900FF4746 /* StarYellowFilled@3x.png */; };
+		608570A61E7EC94900FF4746 /* StarYellowFilled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 608570A01E7EC94900FF4746 /* StarYellowFilled@2x.png */; };
+		608570A71E7EC94900FF4746 /* StarYellowFilled@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 608570A11E7EC94900FF4746 /* StarYellowFilled@1x.png */; };
 		6087B6381352031C00C3044B /* icon_information.png in Resources */ = {isa = PBXBuildFile; fileRef = 6087B6371352031C00C3044B /* icon_information.png */; };
 		6087B65413522ECB00C3044B /* icon_blog2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6087B65313522ECB00C3044B /* icon_blog2.png */; };
 		6087B65A1352361C00C3044B /* 190-bank.png in Resources */ = {isa = PBXBuildFile; fileRef = 6087B6591352361C00C3044B /* 190-bank.png */; };
@@ -229,6 +235,12 @@
 		605BEDF21E692BD90076B4C4 /* AreaMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AreaMapViewController.xib; path = Controllers/AreaMapViewController.xib; sourceTree = SOURCE_ROOT; };
 		6077042A135697170085464F /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		60807EE213240AC9004A60C0 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		6085709C1E7EC94900FF4746 /* StarYellow@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StarYellow@1x.png"; sourceTree = "<group>"; };
+		6085709D1E7EC94900FF4746 /* StarYellow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StarYellow@2x.png"; sourceTree = "<group>"; };
+		6085709E1E7EC94900FF4746 /* StarYellow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StarYellow@3x.png"; sourceTree = "<group>"; };
+		6085709F1E7EC94900FF4746 /* StarYellowFilled@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StarYellowFilled@3x.png"; sourceTree = "<group>"; };
+		608570A01E7EC94900FF4746 /* StarYellowFilled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StarYellowFilled@2x.png"; sourceTree = "<group>"; };
+		608570A11E7EC94900FF4746 /* StarYellowFilled@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StarYellowFilled@1x.png"; sourceTree = "<group>"; };
 		6087B6371352031C00C3044B /* icon_information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_information.png; sourceTree = "<group>"; };
 		6087B65313522ECB00C3044B /* icon_blog2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_blog2.png; sourceTree = "<group>"; };
 		6087B6591352361C00C3044B /* 190-bank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "190-bank.png"; sourceTree = "<group>"; };
@@ -386,6 +398,12 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6085709C1E7EC94900FF4746 /* StarYellow@1x.png */,
+				6085709D1E7EC94900FF4746 /* StarYellow@2x.png */,
+				6085709E1E7EC94900FF4746 /* StarYellow@3x.png */,
+				6085709F1E7EC94900FF4746 /* StarYellowFilled@3x.png */,
+				608570A01E7EC94900FF4746 /* StarYellowFilled@2x.png */,
+				608570A11E7EC94900FF4746 /* StarYellowFilled@1x.png */,
 				604890841E6E6C05002590D4 /* Services-50.png */,
 				6048909E1E6E7AEF002590D4 /* Home@3x.png */,
 				6048909F1E6E7AEF002590D4 /* Home@1x.png */,
@@ -699,12 +717,14 @@
 				608A58C512EC5B46003BCB84 /* cloudy1_night.png in Resources */,
 				608A58C612EC5B46003BCB84 /* cloudy1.png in Resources */,
 				604890971E6E79A0002590D4 /* Capitol@2x.png in Resources */,
+				608570A31E7EC94900FF4746 /* StarYellow@2x.png in Resources */,
 				608A58C712EC5B46003BCB84 /* cloudy2_night.png in Resources */,
 				608A58C812EC5B46003BCB84 /* cloudy2.png in Resources */,
 				608A58C912EC5B46003BCB84 /* cloudy3_night.png in Resources */,
 				608A58CA12EC5B46003BCB84 /* cloudy3.png in Resources */,
 				604890AD1E6E7AEF002590D4 /* Star-78.png in Resources */,
 				608A58CB12EC5B46003BCB84 /* cloudy4_night.png in Resources */,
+				608570A61E7EC94900FF4746 /* StarYellowFilled@2x.png in Resources */,
 				600611D11E77498C000F7694 /* AreaHourlyCell.xib in Resources */,
 				608A58CC12EC5B46003BCB84 /* cloudy4.png in Resources */,
 				608A58CD12EC5B46003BCB84 /* cloudy5.png in Resources */,
@@ -719,6 +739,8 @@
 				608A58D212EC5B46003BCB84 /* ic_launcher.png in Resources */,
 				608A58D312EC5B46003BCB84 /* ic_menu_compass.png in Resources */,
 				604890931E6E796B002590D4 /* Capitol@3x.png in Resources */,
+				608570A71E7EC94900FF4746 /* StarYellowFilled@1x.png in Resources */,
+				608570A21E7EC94900FF4746 /* StarYellow@1x.png in Resources */,
 				608A58D412EC5B46003BCB84 /* ic_menu_info_details.png in Resources */,
 				608A58D512EC5B46003BCB84 /* ic_menu_more.png in Resources */,
 				608A58D612EC5B46003BCB84 /* ic_menu_preferences.png in Resources */,
@@ -759,6 +781,7 @@
 				604890961E6E79A0002590D4 /* Capitol@1x.png in Resources */,
 				608A58F112EC5B46003BCB84 /* tstorm3.png in Resources */,
 				6095679E1C78AC8B002CD30F /* Default-568h@2x.png in Resources */,
+				608570A51E7EC94900FF4746 /* StarYellowFilled@3x.png in Resources */,
 				608DE1C312F4A7E700AE172C /* icon_calendar.png in Resources */,
 				608DE1E012F4AA3D00AE172C /* icon_time.png in Resources */,
 				604890851E6E6C05002590D4 /* Services-50.png in Resources */,
@@ -779,6 +802,7 @@
 				6057F052134EA8F700D04516 /* 28-star.png in Resources */,
 				604890891E6E7748002590D4 /* Location@1x.png in Resources */,
 				6048909C1E6E7A14002590D4 /* Star@2x.png in Resources */,
+				608570A41E7EC94900FF4746 /* StarYellow@3x.png in Resources */,
 				60482A241E71D5D800A0AFC9 /* AreaCell.xib in Resources */,
 				6087B6381352031C00C3044B /* icon_information.png in Resources */,
 				604890A71E6E7AEF002590D4 /* Home@3x.png in Resources */,

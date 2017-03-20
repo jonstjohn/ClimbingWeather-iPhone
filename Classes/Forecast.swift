@@ -89,7 +89,7 @@ struct ForecastDay {
     }
     
     var lowFormatted: String {
-        return String(format: "/ %d˚", self.low ?? "-")
+        return String(format: "%d˚", self.low ?? "-")
     }
     
     var precipitationFormatted: String {
@@ -101,7 +101,7 @@ struct ForecastDay {
     }
     
     var precipitationChanceNightFormatted: String {
-        return String(format: "/ %d%%", self.precipitationChanceNight ?? "-")
+        return String(format: "%d%%", self.precipitationChanceNight ?? "-")
     }
     
     var windSustainedFormatted: String {
