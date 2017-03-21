@@ -205,6 +205,27 @@ struct ForecastHour {
     let wind: Wind?
     let sky: Int?
     
+    var temperatureFormatted: String {
+        return String(format: "%d˚", self.temperature ?? "-")
+    }
+    
+    
+    var precipitationFormatted: String {
+        return String(format: "%d%%", self.precipitationChance ?? "-")
+    }
+    
+    var skyFormatted: String {
+        return String(format: "%d%%", self.sky ?? "-")
+    }
+    
+    var windSustainedFormatted: String {
+        return String(format: "%d mph", self.wind?.sustained ?? "-")
+    }
+    
+    var humidityFormatted: String {
+        return String(format: "%d%%", self.humidity ?? "-")
+    }
+    
     static func parseHourly(hourlies: [[String: Any]]?) -> [ForecastHour]? {
         
         guard let hourlies = hourlies else {

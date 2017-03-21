@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="325" height="101"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="325" height="100.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="325" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jwL-eB-Qcm" userLabel="Daily Stack">
@@ -28,13 +28,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="62" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YS2-w4-ORL" userLabel="Day">
-                                                <rect key="frame" x="11" y="0.0" width="39.5" height="19.5"/>
+                                                <rect key="frame" x="11" y="0.0" width="40" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="akn-dw-e1w" userLabel="Date">
-                                                <rect key="frame" x="15.5" y="21.5" width="30.5" height="28.5"/>
+                                                <rect key="frame" x="15" y="22" width="31" height="28"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -42,19 +42,19 @@
                                         </subviews>
                                     </stackView>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="8rl-uc-NQs" userLabel="Symbol">
-                                        <rect key="frame" x="62" y="0.0" width="61.5" height="50"/>
+                                        <rect key="frame" x="62" y="0.0" width="62" height="50"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="FL4-Jm-Vhu" userLabel="Temp Stack">
-                                        <rect key="frame" x="123.5" y="0.0" width="62" height="50"/>
+                                        <rect key="frame" x="124" y="0.0" width="61" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmp-bU-qh0" userLabel="High">
-                                                <rect key="frame" x="11.5" y="0.0" width="39.5" height="19.5"/>
+                                                <rect key="frame" x="11" y="0.0" width="40" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yda-cP-Yvd" userLabel="Low">
-                                                <rect key="frame" x="16" y="21.5" width="30.5" height="28.5"/>
+                                                <rect key="frame" x="15" y="22" width="31" height="28"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -62,16 +62,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="sLu-2d-E6r" userLabel="Precip Stack">
-                                        <rect key="frame" x="185.5" y="0.0" width="61.5" height="50"/>
+                                        <rect key="frame" x="185" y="0.0" width="62" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0AI-dr-3RY" userLabel="PrecipDay">
-                                                <rect key="frame" x="11" y="0.0" width="39.5" height="19.5"/>
+                                                <rect key="frame" x="11" y="0.0" width="40" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z3g-Fb-GMq" userLabel="PrecipNight">
-                                                <rect key="frame" x="15.5" y="21.5" width="30.5" height="28.5"/>
+                                                <rect key="frame" x="16" y="22" width="31" height="28"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -82,13 +82,13 @@
                                         <rect key="frame" x="247" y="0.0" width="62" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAy-Ni-uUa" userLabel="Wind">
-                                                <rect key="frame" x="11.5" y="0.0" width="39.5" height="19.5"/>
+                                                <rect key="frame" x="11" y="0.0" width="40" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H78-nu-Tco" userLabel="Humidity">
-                                                <rect key="frame" x="16" y="21.5" width="30.5" height="28.5"/>
+                                                <rect key="frame" x="16" y="22" width="31" height="28"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
