@@ -148,6 +148,7 @@
 		60ADE8BE1E845BB10040A472 /* Info@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60ADE8BB1E845BB10040A472 /* Info@3x.png */; };
 		60ADE8BF1E845BB10040A472 /* Info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60ADE8BC1E845BB10040A472 /* Info@2x.png */; };
 		60ADE8C01E845BB10040A472 /* Info@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60ADE8BD1E845BB10040A472 /* Info@1x.png */; };
+		60ADE8C51E8A8D740040A472 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60ADE8C41E8A8D740040A472 /* Launch Screen.storyboard */; };
 		60D99C171352415500B238D5 /* ic_launcher57.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D99C161352415500B238D5 /* ic_launcher57.png */; };
 		60D99DF413547C6100B238D5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D99DF313547C6100B238D5 /* Icon.png */; };
 		60D99E081355268400B238D5 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D99E071355268400B238D5 /* Icon@2x.png */; };
@@ -316,6 +317,7 @@
 		60ADE8BB1E845BB10040A472 /* Info@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Info@3x.png"; sourceTree = "<group>"; };
 		60ADE8BC1E845BB10040A472 /* Info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Info@2x.png"; sourceTree = "<group>"; };
 		60ADE8BD1E845BB10040A472 /* Info@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Info@1x.png"; sourceTree = "<group>"; };
+		60ADE8C41E8A8D740040A472 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		60D99C161352415500B238D5 /* ic_launcher57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher57.png; sourceTree = "<group>"; };
 		60D99DF313547C6100B238D5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		60D99E071355268400B238D5 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 				605BEDF41E69E6330076B4C4 /* Cells */,
 				6053B6011E48F62C00798BC1 /* API */,
 				6053B5E51E43CE3300798BC1 /* Model */,
+				60ADE8C31E8A8D570040A472 /* Storyboards */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				6053B5F01E452DF900798BC1 /* ClimbWeatherTests */,
@@ -609,6 +612,14 @@
 			name = navicon;
 			sourceTree = "<group>";
 		};
+		60ADE8C31E8A8D570040A472 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				60ADE8C41E8A8D740040A472 /* Launch Screen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
 		9800F519063C99F66A4E3FA4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -802,6 +813,7 @@
 				608DE1F412F4EE0600AE172C /* icon_star.png in Resources */,
 				604890AC1E6E7AEF002590D4 /* Search@3x.png in Resources */,
 				608DE1FA12F4EEF700AE172C /* 73-radar.png in Resources */,
+				60ADE8C51E8A8D740040A472 /* Launch Screen.storyboard in Resources */,
 				608DE1FE12F6040000AE172C /* icon_magnify_glass.png in Resources */,
 				608DE32B12FAD61100AE172C /* climbingweather.db in Resources */,
 				608DE46F12FCF38D00AE172C /* 20-gear2.png in Resources */,
@@ -943,7 +955,6 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "~/projects/ClimbingWeather-iPhone/Entitlements.plist";
@@ -975,7 +986,6 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "~/projects/ClimbingWeather-iPhone/Entitlements.plist";
@@ -1142,7 +1152,6 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "~/projects/ClimbingWeather-iPhone/Entitlements.plist";
