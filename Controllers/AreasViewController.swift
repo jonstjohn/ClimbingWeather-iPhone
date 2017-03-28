@@ -253,7 +253,6 @@ import CoreLocation
             dailyController,
             hourlyController,
             mapController
-            //AreaMapViewControllerV1()
         ]
         
         tabController.selectedIndex = 0

@@ -49,7 +49,7 @@ class AreaCell: UITableViewCell {
         if let daily = area.daily, daily.count >= 3 {
             
             let day1 = daily[0]
-            let imageStrDay1 = day1.symbol?.rawValue ?? "" // TODO
+            let imageStrDay1 = day1.symbol?.rawValue ?? Symbol.dunno.rawValue
             self.day1Symbol.image = UIImage(named: imageStrDay1)
             self.day1High.text = day1.highFormatted
             self.day1Low.text = "/ " + day1.lowFormatted
@@ -57,7 +57,7 @@ class AreaCell: UITableViewCell {
             self.day1PrecipNight.text = "/ " + day1.precipitationChanceNightFormatted
             
             let day2 = daily[1]
-            let imageStrDay2 = day2.symbol?.rawValue ?? "" // TODO
+            let imageStrDay2 = day2.symbol?.rawValue ?? Symbol.dunno.rawValue
             self.day2Symbol.image = UIImage(named: imageStrDay2)
             self.day2High.text = day2.highFormatted
             self.day2Low.text = "/ " + day2.lowFormatted
@@ -65,7 +65,7 @@ class AreaCell: UITableViewCell {
             self.day2PrecipNight.text = "/ " + day2.precipitationChanceNightFormatted
             
             let day3 = daily[2]
-            let imageStrDay3 = day3.symbol?.rawValue ?? "" // TODO
+            let imageStrDay3 = day3.symbol?.rawValue ?? Symbol.dunno.rawValue
             self.day3Symbol.image = UIImage(named: imageStrDay3)
             self.day3High.text = day3.highFormatted
             self.day3Low.text = "/ " + day3.lowFormatted

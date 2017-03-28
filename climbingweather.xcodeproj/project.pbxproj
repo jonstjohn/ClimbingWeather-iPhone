@@ -24,7 +24,6 @@
 		603D94A51E527D3400AFB1FF /* AreasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D94A41E527D3400AFB1FF /* AreasViewController.swift */; };
 		60482A231E71D5D800A0AFC9 /* AreaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60482A211E71D5D800A0AFC9 /* AreaCell.swift */; };
 		60482A241E71D5D800A0AFC9 /* AreaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60482A221E71D5D800A0AFC9 /* AreaCell.xib */; };
-		6048907D1E6A831A002590D4 /* AreaHourlyCellV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6048907C1E6A831A002590D4 /* AreaHourlyCellV1.swift */; };
 		604890811E6E6A23002590D4 /* top_center_icon@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6048907E1E6E6A23002590D4 /* top_center_icon@1x.png */; };
 		604890821E6E6A23002590D4 /* top_center_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6048907F1E6E6A23002590D4 /* top_center_icon@2x.png */; };
 		604890831E6E6A23002590D4 /* top_center_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 604890801E6E6A23002590D4 /* top_center_icon@3x.png */; };
@@ -65,7 +64,6 @@
 		605BEDE91E68EE8B0076B4C4 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605BEDE81E68EE8B0076B4C4 /* AboutViewController.swift */; };
 		605BEDEB1E68EE970076B4C4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605BEDEA1E68EE970076B4C4 /* SettingsViewController.swift */; };
 		605BEDEF1E68EEB50076B4C4 /* StatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605BEDEE1E68EEB50076B4C4 /* StatesViewController.swift */; };
-		605BEDF11E68EEBE0076B4C4 /* StatesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 605BEDF01E68EEBE0076B4C4 /* StatesViewController.xib */; };
 		605BEDF31E692BD90076B4C4 /* AreaMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 605BEDF21E692BD90076B4C4 /* AreaMapViewController.xib */; };
 		60807EE313240AC9004A60C0 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60807EE213240AC9004A60C0 /* MainWindow.xib */; };
 		608570A21E7EC94900FF4746 /* StarYellow@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6085709C1E7EC94900FF4746 /* StarYellow@1x.png */; };
@@ -189,7 +187,6 @@
 		603D94A41E527D3400AFB1FF /* AreasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreasViewController.swift; sourceTree = "<group>"; };
 		60482A211E71D5D800A0AFC9 /* AreaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AreaCell.swift; path = Cells/AreaCell.swift; sourceTree = "<group>"; };
 		60482A221E71D5D800A0AFC9 /* AreaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AreaCell.xib; path = Cells/AreaCell.xib; sourceTree = "<group>"; };
-		6048907C1E6A831A002590D4 /* AreaHourlyCellV1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AreaHourlyCellV1.swift; path = Cells/AreaHourlyCellV1.swift; sourceTree = "<group>"; };
 		6048907E1E6E6A23002590D4 /* top_center_icon@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_center_icon@1x.png"; sourceTree = "<group>"; };
 		6048907F1E6E6A23002590D4 /* top_center_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_center_icon@2x.png"; sourceTree = "<group>"; };
 		604890801E6E6A23002590D4 /* top_center_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_center_icon@3x.png"; sourceTree = "<group>"; };
@@ -233,7 +230,6 @@
 		605BEDE81E68EE8B0076B4C4 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		605BEDEA1E68EE970076B4C4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		605BEDEE1E68EEB50076B4C4 /* StatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatesViewController.swift; sourceTree = "<group>"; };
-		605BEDF01E68EEBE0076B4C4 /* StatesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatesViewController.xib; sourceTree = "<group>"; };
 		605BEDF21E692BD90076B4C4 /* AreaMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AreaMapViewController.xib; path = Controllers/AreaMapViewController.xib; sourceTree = SOURCE_ROOT; };
 		6077042A135697170085464F /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		60807EE213240AC9004A60C0 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
@@ -525,7 +521,6 @@
 				6009BF931E6147FA0021A13B /* SettingsViewController.xib */,
 				6009BF971E66429C0021A13B /* AboutViewController.xib */,
 				605BEDEE1E68EEB50076B4C4 /* StatesViewController.swift */,
-				605BEDF01E68EEBE0076B4C4 /* StatesViewController.xib */,
 				6009BF9B1E667C0D0021A13B /* AreaDailyViewController.swift */,
 				605BEDE21E67DA480076B4C4 /* AreaHourlyViewController.swift */,
 				605BEDE61E68EE480076B4C4 /* AreaMapViewController.swift */,
@@ -541,7 +536,6 @@
 				600611CF1E77498C000F7694 /* AreaHourlyCell.xib */,
 				600611CA1E77494C000F7694 /* AreaDailyCell.swift */,
 				600611CB1E77494C000F7694 /* AreaDailyCell.xib */,
-				6048907C1E6A831A002590D4 /* AreaHourlyCellV1.swift */,
 				60482A211E71D5D800A0AFC9 /* AreaCell.swift */,
 				60482A221E71D5D800A0AFC9 /* AreaCell.xib */,
 			);
@@ -771,7 +765,6 @@
 				608A58DC12EC5B46003BCB84 /* overcast.png in Resources */,
 				604890911E6E789A002590D4 /* Settings@2x.png in Resources */,
 				608A58DD12EC5B46003BCB84 /* shower1_night.png in Resources */,
-				605BEDF11E68EEBE0076B4C4 /* StatesViewController.xib in Resources */,
 				608A58DE12EC5B46003BCB84 /* shower1.png in Resources */,
 				608A58DF12EC5B46003BCB84 /* shower2_night.png in Resources */,
 				604890A91E6E7AEF002590D4 /* Home@2x.png in Resources */,
@@ -909,7 +902,6 @@
 				6053B6031E48F64C00798BC1 /* CWApi.swift in Sources */,
 				605BEDE31E67DA480076B4C4 /* AreaHourlyViewController.swift in Sources */,
 				600611D01E77498C000F7694 /* AreaHourlyCell.swift in Sources */,
-				6048907D1E6A831A002590D4 /* AreaHourlyCellV1.swift in Sources */,
 				6009BF9C1E667C0D0021A13B /* AreaDailyViewController.swift in Sources */,
 				603D94A51E527D3400AFB1FF /* AreasViewController.swift in Sources */,
 				6053B5FC1E4530DC00798BC1 /* State.swift in Sources */,
