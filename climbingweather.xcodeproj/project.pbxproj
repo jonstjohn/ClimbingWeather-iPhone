@@ -145,6 +145,9 @@
 		608DE66612FF88CE00AE172C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608DE66512FF88CE00AE172C /* MapKit.framework */; };
 		6095679E1C78AC8B002CD30F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6095679D1C78AC8B002CD30F /* Default-568h@2x.png */; };
 		60A75D8E1E419A7C005EEE1F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60A75D8D1E419A7C005EEE1F /* Images.xcassets */; };
+		60ADE8BE1E845BB10040A472 /* Info@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60ADE8BB1E845BB10040A472 /* Info@3x.png */; };
+		60ADE8BF1E845BB10040A472 /* Info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60ADE8BC1E845BB10040A472 /* Info@2x.png */; };
+		60ADE8C01E845BB10040A472 /* Info@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60ADE8BD1E845BB10040A472 /* Info@1x.png */; };
 		60D99C171352415500B238D5 /* ic_launcher57.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D99C161352415500B238D5 /* ic_launcher57.png */; };
 		60D99DF413547C6100B238D5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D99DF313547C6100B238D5 /* Icon.png */; };
 		60D99E081355268400B238D5 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D99E071355268400B238D5 /* Icon@2x.png */; };
@@ -310,6 +313,9 @@
 		608DE66512FF88CE00AE172C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		6095679D1C78AC8B002CD30F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		60A75D8D1E419A7C005EEE1F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = climbingweather/Images.xcassets; sourceTree = "<group>"; };
+		60ADE8BB1E845BB10040A472 /* Info@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Info@3x.png"; sourceTree = "<group>"; };
+		60ADE8BC1E845BB10040A472 /* Info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Info@2x.png"; sourceTree = "<group>"; };
+		60ADE8BD1E845BB10040A472 /* Info@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Info@1x.png"; sourceTree = "<group>"; };
 		60D99C161352415500B238D5 /* ic_launcher57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher57.png; sourceTree = "<group>"; };
 		60D99DF313547C6100B238D5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		60D99E071355268400B238D5 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
@@ -396,6 +402,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				60ADE8BB1E845BB10040A472 /* Info@3x.png */,
+				60ADE8BC1E845BB10040A472 /* Info@2x.png */,
+				60ADE8BD1E845BB10040A472 /* Info@1x.png */,
 				6085709C1E7EC94900FF4746 /* StarYellow@1x.png */,
 				6085709D1E7EC94900FF4746 /* StarYellow@2x.png */,
 				6085709E1E7EC94900FF4746 /* StarYellow@3x.png */,
@@ -715,6 +724,7 @@
 				608A58C612EC5B46003BCB84 /* cloudy1.png in Resources */,
 				604890971E6E79A0002590D4 /* Capitol@2x.png in Resources */,
 				608570A31E7EC94900FF4746 /* StarYellow@2x.png in Resources */,
+				60ADE8BF1E845BB10040A472 /* Info@2x.png in Resources */,
 				608A58C712EC5B46003BCB84 /* cloudy2_night.png in Resources */,
 				608A58C812EC5B46003BCB84 /* cloudy2.png in Resources */,
 				608A58C912EC5B46003BCB84 /* cloudy3_night.png in Resources */,
@@ -766,12 +776,14 @@
 				608A58E712EC5B46003BCB84 /* snow3_night.png in Resources */,
 				608A58E812EC5B46003BCB84 /* snow3.png in Resources */,
 				604890A81E6E7AEF002590D4 /* Home@1x.png in Resources */,
+				60ADE8BE1E845BB10040A472 /* Info@3x.png in Resources */,
 				608A58E912EC5B46003BCB84 /* snow4.png in Resources */,
 				608A58EA12EC5B46003BCB84 /* snow5.png in Resources */,
 				6048908D1E6E77F9002590D4 /* Location@3x.png in Resources */,
 				608A58EB12EC5B46003BCB84 /* sunny_night.png in Resources */,
 				608A58EC12EC5B46003BCB84 /* sunny.png in Resources */,
 				608A58ED12EC5B46003BCB84 /* tstorm1_night.png in Resources */,
+				60ADE8C01E845BB10040A472 /* Info@1x.png in Resources */,
 				608A58EE12EC5B46003BCB84 /* tstorm1.png in Resources */,
 				608A58EF12EC5B46003BCB84 /* tstorm2_night.png in Resources */,
 				608A58F012EC5B46003BCB84 /* tstorm2.png in Resources */,

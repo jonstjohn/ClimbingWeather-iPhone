@@ -42,6 +42,10 @@ class AreaDailyViewController: UITableViewController {
         }
     }
     
+    func info(sender: UIBarButtonItem) {
+        print("info")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         
         self.tabBarController?.title = self.area?.name
@@ -60,18 +64,32 @@ class AreaDailyViewController: UITableViewController {
             return
         }
         
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         Area.fetchDaily(id: areaId, completion: { (area) in
             self.area = area
             
             DispatchQueue.main.async {
                 
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                
+                guard let tabBarController = self.tabBarController else {
+                    return
+                }
+                
                 let starOn = UIImage(named: "StarYellowFilled.png")
                 let starOff = UIImage(named: "Star.png")
                 do {
-                    let image = try area.isFavorite() ? starOn : starOff
-                    let item = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(self.toggleFavorite(sender:)))
-                    item.tintColor = UIColor.init(red: 241/255, green: 196/255, blue: 15/255, alpha: 1)
-                    self.tabBarController?.navigationItem.rightBarButtonItem = item
+                    // Setup favorite item
+                    let favoriteImage = try area.isFavorite() ? starOn : starOff
+                    let favoriteItem = UIBarButtonItem(image: favoriteImage, style: .plain, target: self, action: #selector(self.toggleFavorite(sender:)))
+                    favoriteItem.tintColor = UIColor.init(red: 241/255, green: 196/255, blue: 15/255, alpha: 1)
+                    
+                    // Setup info item
+                    //let infoItem = UIBarButtonItem(image: UIImage(named: "Info.png"), style: .plain, target: self, action: #selector(self.info(sender:)))
+                    
+                    let items = [favoriteItem] // [favoriteItem, infoItem]
+                    
+                    tabBarController.navigationItem.setRightBarButtonItems(items, animated: true)
                 } catch {
                     // Do nothing
                 }

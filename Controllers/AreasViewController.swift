@@ -77,10 +77,12 @@ import CoreLocation
                 return
             }
             
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             Areas.fetchDaily(search: search, completion: { (areas) in
                 self.areas = areas.areas
                 
                 DispatchQueue.main.async {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
                     self.tableView.reloadData()
                 }
             })

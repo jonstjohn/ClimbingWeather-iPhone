@@ -23,7 +23,7 @@ class AreaMapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        self.tabBarController?.title = "Map"
+        self.tabBarController?.title = self.area?.name
         self.navigationController?.isNavigationBarHidden = false
         
         super.viewWillAppear(animated)
