@@ -677,6 +677,7 @@
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = 5QHC9PP5E3;
 						LastSwiftMigration = 0820;
+						ProvisioningStyle = Manual;
 					};
 					6053B5EE1E452DF900798BC1 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -963,7 +964,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.climbingweather.cw;
 				PRODUCT_NAME = ClimbingWeather;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "6fcd44e1-a27b-4bdf-a7fc-cdca21e910f1";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.climbingweather.cw";
 				SWIFT_OBJC_BRIDGING_HEADER = "Classes/climbingweather-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -982,7 +984,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "~/projects/ClimbingWeather-iPhone/Entitlements.plist";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				DEVELOPMENT_TEAM = 5QHC9PP5E3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -992,8 +994,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.climbingweather.cw;
 				PRODUCT_NAME = ClimbWeather;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "0a1b198d-66ef-47bf-839d-aa9186ef75a7";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.climbingweather.cw";
 				SWIFT_OBJC_BRIDGING_HEADER = "Classes/climbingweather-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1148,7 +1151,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "~/projects/ClimbingWeather-iPhone/Entitlements.plist";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				DEVELOPMENT_TEAM = 5QHC9PP5E3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1158,8 +1161,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.climbingweather.cw;
 				PRODUCT_NAME = ClimbWeather;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "0a1b198d-66ef-47bf-839d-aa9186ef75a7";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.climbingweather.cw";
 				SWIFT_OBJC_BRIDGING_HEADER = "Classes/climbingweather-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
