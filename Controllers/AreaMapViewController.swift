@@ -42,8 +42,10 @@ class AreaMapViewController: UIViewController, MKMapViewDelegate {
         Area.fetchDetail(id: areaId, completion: { (area) in
             self.area = area
             
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             DispatchQueue.main.async { [weak self] in
                 
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 guard let strongSelf = self,
                     let latitude = area.latitude,
                     let latitudeDouble = Double(latitude),
