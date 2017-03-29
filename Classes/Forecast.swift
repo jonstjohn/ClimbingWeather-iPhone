@@ -80,6 +80,38 @@ struct ForecastDay {
     let conditionsFormatted: String?
     let wind: Wind?
     
+    var tempFormatted: String {
+        return String(format: "%d˚/%d˚", self.high ?? "-", self.low ?? "-")
+    }
+    
+    var highFormatted: String {
+        return String(format: "%d˚", self.high ?? "-")
+    }
+    
+    var lowFormatted: String {
+        return String(format: "%d˚", self.low ?? "-")
+    }
+    
+    var precipitationFormatted: String {
+        return String(format: "%d%%/%d%%", self.precipitationChanceDay ?? "-", self.precipitationChanceNight ?? "-")
+    }
+    
+    var precipitationChanceDayFormatted: String {
+        return String(format: "%d%%", self.precipitationChanceDay ?? "-")
+    }
+    
+    var precipitationChanceNightFormatted: String {
+        return String(format: "%d%%", self.precipitationChanceNight ?? "-")
+    }
+    
+    var windSustainedFormatted: String {
+        return String(format: "%d mph", self.wind?.sustained ?? "-")
+    }
+    
+    var humidityFormatted: String {
+        return String(format: "%d%%", self.humidity ?? "-")
+    }
+    
     static func parseDaily(dailies: [[String: Any]]?) -> [ForecastDay]? {
         
         guard let dailies = dailies else {
@@ -172,6 +204,27 @@ struct ForecastHour {
     let conditionsFormatted: String?
     let wind: Wind?
     let sky: Int?
+    
+    var temperatureFormatted: String {
+        return String(format: "%d˚", self.temperature ?? "-")
+    }
+    
+    
+    var precipitationFormatted: String {
+        return String(format: "%d%%", self.precipitationChance ?? "-")
+    }
+    
+    var skyFormatted: String {
+        return String(format: "%d%%", self.sky ?? "-")
+    }
+    
+    var windSustainedFormatted: String {
+        return String(format: "%d mph", self.wind?.sustained ?? "-")
+    }
+    
+    var humidityFormatted: String {
+        return String(format: "%d%%", self.humidity ?? "-")
+    }
     
     static func parseHourly(hourlies: [[String: Any]]?) -> [ForecastHour]? {
         

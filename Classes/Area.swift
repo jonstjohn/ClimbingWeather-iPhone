@@ -186,67 +186,158 @@ struct Area: Equatable {
     }
     
     
-    static func favorites(database: CWDatabase? = CWDatabase.sharedInstance) -> [Area]? {
+    static func favorites(database: CWDatabase? = CWDatabase.sharedInstance) throws -> [Area]? {
         
-        guard let connection = database?.connection else {
-            return nil
+        guard let favorites = FavoriteTable() else {
+            throw DataAccessError.Connection_Error
         }
         
-        let favorites = Table("favorite")
-        let id = Expression<Int>("area_id")
-        let name = Expression<String>("name")
-        
-        var areas = [Area]()
-        
-        do {
-            for favorite in try connection.prepare(favorites) {
-                areas.append(Area(id: favorite[id], name: favorite[name], state: "", daily: nil, hourly: nil, latitude: nil, longitude: nil))
-            }
-        } catch _ {
-            return nil
-        }
-        
+        let areas = try favorites.areas()
         return areas
+
     }
+        
+//        guard let connection = database?.connection else {
+//            return nil
+//        }
+//        
+//        let favorites = Table("favorite")
+//        let id = Expression<Int>("area_id")
+//        let name = Expression<String>("name")
+//        
+//        var areas = [Area]()
+//        
+//        do {
+//            for favorite in try connection.prepare(favorites) {
+//                areas.append(Area(id: favorite[id], name: favorite[name], state: "", daily: nil, hourly: nil, latitude: nil, longitude: nil))
+//            }
+//        } catch _ {
+//            return nil
+//        }
+//        
+//        return areas
+//    }
     
-    func isFavorite() -> Bool {
-        guard let favorites = Area.favorites() else {
-            return false
+    func isFavorite() throws -> Bool {
+        
+        guard let favorites = FavoriteTable() else {
+            throw DataAccessError.Connection_Error
         }
-        return favorites.contains(self)
+        
+        return try favorites.exists(self.id)
+
+//        guard let favorites = Area.favorites() else {
+//            return false
+//        }
+//        return favorites.contains(self)
     }
     
     func addFavorite() throws {
-        guard !self.isFavorite() else {
+        
+        guard try !self.isFavorite() else {
             return
         }
         
-        guard let connection = CWDatabase.sharedInstance?.connection else {
-            return
+        guard let favorites = FavoriteTable() else {
+            throw DataAccessError.Connection_Error
         }
         
-        let favorites = Table("favorite")
-        let id = Expression<Int>("area_id")
-        let name = Expression<String>("name")
+        try favorites.insert(self.id, name: self.name)
         
-        let insert = favorites.insert(id <- self.id, name <- self.name)
-        try connection.run(insert)
+//        guard let connection = CWDatabase.sharedInstance?.connection else {
+//            return
+//        }
+//        
+//        let favorites = Table("favorite")
+//        let id = Expression<Int>("area_id")
+//        let name = Expression<String>("name")
+//        
+//        let insert = favorites.insert(id <- self.id, name <- self.name)
+//        try connection.run(insert)
     }
     
     func removeFavorite() throws {
-        guard self.isFavorite() else {
+        guard try self.isFavorite() else {
             return
         }
         
+        guard let favorites = FavoriteTable() else {
+            throw DataAccessError.Connection_Error
+        }
+        
+        try favorites.remove(self.id)
+        
+        
+        
+//        guard let connection = CWDatabase.sharedInstance?.connection else {
+//            return
+//        }
+//        
+//        let favorites = Table("favorite")
+//        let id = Expression<Int>("area_id")
+//        
+//        let areaRow = favorites.filter(id == self.id)
+//        try connection.run(areaRow.delete())
+    }
+    
+}
+
+enum DataAccessError: Error {
+    case Connection_Error
+}
+
+struct FavoriteTable {
+    
+    let table = Table("favorite")
+    let id = Expression<Int>("area_id")
+    let name = Expression<String>("name")
+    
+    init?() {
+        do {
+            try ensureTableExists()
+        } catch {
+            return nil
+        }
+    }
+    
+    func connection() throws -> Connection {
         guard let connection = CWDatabase.sharedInstance?.connection else {
-            return
+            throw DataAccessError.Connection_Error
+        }
+        return connection
+    }
+    
+    func ensureTableExists() throws {
+        try self.connection().run( table.create(ifNotExists: true) {t in
+            t.column(id, primaryKey: true)
+            t.column(name)
+        })
+    }
+    
+    func insert(_ areaId: Int, name areaName: String) throws {
+        let insert = self.table.insert(id <- areaId, name <- areaName)
+        try self.connection().run(insert)
+    }
+    
+    func remove(_ areaId: Int) throws {
+        let areaRow = self.table.filter(id == areaId)
+        try self.connection().run(areaRow.delete())
+        
+    }
+    
+    func exists(_ areaId: Int) throws -> Bool {
+        return try self.connection().scalar(self.table.filter(id == areaId).count) == 1
+    }
+    
+    func areas() throws -> [Area] {
+        
+        var areas = [Area]()
+
+        for favorite in try self.connection().prepare(self.table) {
+            areas.append(Area(id: favorite[self.id], name: favorite[self.name], state: "", daily: nil, hourly: nil, latitude: nil, longitude: nil))
         }
         
-        let favorites = Table("favorite")
-        let id = Expression<Int>("area_id")
-        
-        let areaRow = favorites.filter(id == self.id)
-        try connection.run(areaRow.delete())
+        return areas
     }
     
 }

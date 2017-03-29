@@ -19,6 +19,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
+        super.viewWillAppear(animated)
     }
     
     @IBAction func showNearby(sender: UIButton) {

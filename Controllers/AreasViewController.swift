@@ -16,6 +16,7 @@ import CoreLocation
     var areas = [Area]()
     var locationManager: CLLocationManager?
     let searchController = UISearchController(searchResultsController: nil)
+    let favoriteImage = UIImage(named: "Star.png")?.withRenderingMode(.alwaysTemplate)
     
     override func viewDidLoad() {
         
@@ -40,6 +41,8 @@ import CoreLocation
         
         self.tableView.rowHeight = 85.0
         
+        self.tableView.register(UINib(nibName: "AreaCell", bundle: nil), forCellReuseIdentifier: "AreaCell")
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,6 +61,8 @@ import CoreLocation
             self.searchController.searchBar.text = term
         }
         
+        self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Areas", style: .plain, target: nil, action: nil)
+        
         super.viewWillAppear(animated)
         
         self.updateSearch()
@@ -66,23 +71,39 @@ import CoreLocation
     func updateSearch() {
         if let search = search {
             
-            // Clear zero length search
-            if case let Search.Term(term) = search {
-                if term.characters.count == 0 {
-                    self.areas = [Area]()
-                    self.tableView.reloadData()
-                    return
-                }
+            if isZeroSearch() {
+                self.areas = [Area]()
+                self.tableView.reloadData()
+                return
             }
             
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             Areas.fetchDaily(search: search, completion: { (areas) in
                 self.areas = areas.areas
                 
                 DispatchQueue.main.async {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
                     self.tableView.reloadData()
                 }
             })
         }
+    }
+    
+    func isZeroSearch() -> Bool {
+        
+        guard let search = self.search else {
+            return true
+        }
+        
+        if case let Search.Term(term) = search {
+            return term.characters.count == 0
+        }
+        
+        if case let Search.Areas(ids) = search {
+            return ids.count == 0
+        }
+        
+        return false
     }
     
     func checkLocationAuthorization(manager: CLLocationManager) {
@@ -124,11 +145,14 @@ import CoreLocation
     
     func updateFavorites() {
         
-        guard let areas = Area.favorites() else {
+        do {
+            guard let areas = try Area.favorites() else {
+                return
+            }
+            self.search = .Areas(areas.map({$0.id}))
+        } catch {
             return
         }
-        
-        self.search = .Areas(areas.map({$0.id}))
 
     }
     
@@ -195,42 +219,10 @@ import CoreLocation
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell =  AreasCell(style: .subtitle, reuseIdentifier: "AreasCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AreaCell") as! AreaCell
         
         let area = self.areas[indexPath.row]
-        
-        cell.areaName.text = String(format: "%@ (%@)", area.name, area.state)
-        
-        let isFavorite = area.isFavorite()
-        let favoriteImage = isFavorite ? UIImage(named: "btn_star_big_on") : UIImage(named: "btn_star_big_off")
-        cell.favoriteImage.setImage(favoriteImage, for: .normal)
-        cell.favoriteImage.tag = 1
-        cell.favoriteImage.addTarget(self, action: #selector(favoritePressed(_:)), for: .touchUpInside)
-        
-        if let daily = area.daily, daily.count >= 3 {
-            
-            let day1 = daily[0]
-            let imageStrDay1 = day1.symbol?.rawValue ?? "" // TODO
-            cell.day1Symbol.image = UIImage(named: imageStrDay1)
-            cell.day1Temp.text = String(format: "%d / %d", day1.high ?? "-", day1.low ?? "-")
-            cell.day1Precip.text = String(format: "%d%% / %d%%", day1.precipitationChanceDay ?? "-", day1.precipitationChanceNight ?? "-")
-            
-            let day2 = daily[1]
-            let imageStrDay2 = day2.symbol?.rawValue ?? "" // TODO
-            cell.day2Symbol.image = UIImage(named: imageStrDay2)
-            cell.day2Temp.text = String(format: "%d / %d", day2.high ?? "-", day2.low ?? "-")
-            cell.day2Precip.text = String(format: "%d%% / %d%%", day2.precipitationChanceDay ?? "-", day2.precipitationChanceNight ?? "-")
-
-            let day3 = daily[2]
-            let imageStrDay3 = day3.symbol?.rawValue ?? "" // TODO
-            cell.day3Symbol.image = UIImage(named: imageStrDay3)
-            cell.day3Temp.text = String(format: "%d / %d", day3.high ?? "-", day3.low ?? "-")
-            cell.day3Precip.text = String(format: "%d%% / %d%%", day3.precipitationChanceDay ?? "-", day3.precipitationChanceNight ?? "-")
-
-        }
-        
-        cell.accessoryType = .disclosureIndicator
-        
+        cell.populate(area)
         return cell
 
     }
@@ -261,39 +253,13 @@ import CoreLocation
             dailyController,
             hourlyController,
             mapController
-            //AreaMapViewControllerV1()
         ]
         
         tabController.selectedIndex = 0
         tabController.navigationItem.title = area.name
-        
+
         self.navigationController?.pushViewController(tabController, animated: true)
         
-    }
- 
-    func favoritePressed(_ sender: UIButton) {
-        
-        let buttonPosition = sender.convert(CGPoint.zero, to: self.tableView)
-        
-        if let indexPath = self.tableView.indexPathForRow(at: buttonPosition) {
-            let area = self.areas[indexPath.row]
-            if area.isFavorite() {
-                do {
-                    try area.removeFavorite()
-                    sender.setImage(UIImage(named: "btn_star_big_off"), for: .normal)
-                } catch _ {
-                    
-                }
-            } else {
-                do {
-                    try area.addFavorite()
-                    sender.setImage(UIImage(named: "btn_star_big_on"), for: .normal)
-                } catch _ {
-                    
-                }
-            }
-        }
-
     }
  
 }

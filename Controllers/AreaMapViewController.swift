@@ -23,7 +23,7 @@ class AreaMapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        self.tabBarController?.title = "Map"
+        self.tabBarController?.title = self.area?.name
         self.navigationController?.isNavigationBarHidden = false
         
         super.viewWillAppear(animated)
@@ -42,8 +42,10 @@ class AreaMapViewController: UIViewController, MKMapViewDelegate {
         Area.fetchDetail(id: areaId, completion: { (area) in
             self.area = area
             
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             DispatchQueue.main.async { [weak self] in
                 
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 guard let strongSelf = self,
                     let latitude = area.latitude,
                     let latitudeDouble = Double(latitude),
