@@ -22,6 +22,9 @@ class AreaDailyViewController: UITableViewController {
         
         self.tableView.register(UINib(nibName: "AreaDailyCell", bundle: nil), forCellReuseIdentifier: "AreaDailyCell")
         
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 140
+        
     }
     
     func toggleFavorite(sender: UIBarButtonItem) {
@@ -123,21 +126,21 @@ class AreaDailyViewController: UITableViewController {
         
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        let short = CGFloat(53.0)
-        let tall = CGFloat(68.0)
-        
-        guard let daily = self.area?.daily?[indexPath.row] else {
-            return short
-        }
-        
-        guard let length = daily.conditionsFormatted?.characters.count else {
-            return short
-        }
-        
-        return length == 0 ? short : tall
-    }
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        
+//        let short = CGFloat(60.0)
+//        let tall = CGFloat(80.0)
+//        
+//        guard let daily = self.area?.daily?[indexPath.row] else {
+//            return short
+//        }
+//        
+//        guard let length = daily.conditionsFormatted?.characters.count else {
+//            return short
+//        }
+//        
+//        return length == 0 ? short : tall
+//    }
 
     
     
