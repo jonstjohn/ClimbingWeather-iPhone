@@ -288,7 +288,7 @@ extension AreasViewController: UISearchResultsUpdating {
         self.perform(#selector(AreasViewController.updateTerm), with: nil, afterDelay: 0.5)
     }
     
-    func updateTerm() {
+    @objc func updateTerm() {
         self.search = .Term(self.searchController.searchBar.text ?? "")
         self.updateSearch()
     }

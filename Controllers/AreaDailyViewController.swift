@@ -27,7 +27,7 @@ class AreaDailyViewController: UITableViewController {
         
     }
     
-    func toggleFavorite(sender: UIBarButtonItem) {
+    @objc func toggleFavorite(sender: UIBarButtonItem) {
         guard let area = self.area else {
             return
         }
