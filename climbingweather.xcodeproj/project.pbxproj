@@ -128,6 +128,7 @@
 		608A58EF12EC5B46003BCB84 /* tstorm2_night.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A58C012EC5B46003BCB84 /* tstorm2_night.png */; };
 		608A58F012EC5B46003BCB84 /* tstorm2.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A58C112EC5B46003BCB84 /* tstorm2.png */; };
 		608A58F112EC5B46003BCB84 /* tstorm3.png in Resources */ = {isa = PBXBuildFile; fileRef = 608A58C212EC5B46003BCB84 /* tstorm3.png */; };
+		608A5A161FAE30DF00324097 /* Appicon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 608A5A151FAE30DF00324097 /* Appicon.xcassets */; };
 		608DE1C312F4A7E700AE172C /* icon_calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 608DE1C212F4A7E700AE172C /* icon_calendar.png */; };
 		608DE1E012F4AA3D00AE172C /* icon_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 608DE1DF12F4AA3D00AE172C /* icon_time.png */; };
 		608DE1E612F4AF4800AE172C /* icon_blog.png in Resources */ = {isa = PBXBuildFile; fileRef = 608DE1E512F4AF4800AE172C /* icon_blog.png */; };
@@ -295,6 +296,7 @@
 		608A58C012EC5B46003BCB84 /* tstorm2_night.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tstorm2_night.png; sourceTree = "<group>"; };
 		608A58C112EC5B46003BCB84 /* tstorm2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tstorm2.png; sourceTree = "<group>"; };
 		608A58C212EC5B46003BCB84 /* tstorm3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tstorm3.png; sourceTree = "<group>"; };
+		608A5A151FAE30DF00324097 /* Appicon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Appicon.xcassets; sourceTree = "<group>"; };
 		608DE1C212F4A7E700AE172C /* icon_calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_calendar.png; sourceTree = "<group>"; };
 		608DE1DF12F4AA3D00AE172C /* icon_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_time.png; sourceTree = "<group>"; };
 		608DE1E512F4AF4800AE172C /* icon_blog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_blog.png; sourceTree = "<group>"; };
@@ -464,6 +466,7 @@
 				608A56B712E91DC8003BCB84 /* ic_menu_home.png */,
 				608A56AC12E91B5E003BCB84 /* logo_top_center.png */,
 				8D1107310486CEB800E47090 /* climbingweather-Info.plist */,
+				608A5A151FAE30DF00324097 /* Appicon.xcassets */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -735,6 +738,7 @@
 				608A58C712EC5B46003BCB84 /* cloudy2_night.png in Resources */,
 				608A58C812EC5B46003BCB84 /* cloudy2.png in Resources */,
 				608A58C912EC5B46003BCB84 /* cloudy3_night.png in Resources */,
+				608A5A161FAE30DF00324097 /* Appicon.xcassets in Resources */,
 				608A58CA12EC5B46003BCB84 /* cloudy3.png in Resources */,
 				604890AD1E6E7AEF002590D4 /* Star-78.png in Resources */,
 				608A58CB12EC5B46003BCB84 /* cloudy4_night.png in Resources */,
