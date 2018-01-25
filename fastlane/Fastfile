@@ -75,20 +75,21 @@ platform :ios do
   lane :build do
 
     build_number = Time.now.strftime("%Y%m%d%H%M")
+    xcode_version = ENV["CW_XCODE_VERSION"]
+    git_branch = ENV.key?("CW_GIT_BRANCH") ? ENV["CW_GIT_BRANCH"] : "master"
     
     # Ensure correct xcode version
-    if ENV.key?("CW_XCODE_VERSION")
-      xcversion(version: ENV["CW_XCODE_VERSION"])
-      #UI.message(ENV["CW_XCODE_VERSION"])
+    if xcode_version
+      xcversion(version: xcode_version)
     end
     
     # Check for test mode
     
     
     # Clean local repo
-    # ensure_git_branch(branch: "master")
-    # ensure_git_status_clean
-    # git_pull
+    ensure_git_branch(branch: "fastlaneSetup")
+    ensure_git_status_clean
+    git_pull
 
     # Refresh provisioning profiles
     #match(app_identifier: ["com.climbingweather.cw"], type: "appstore", readonly: true)
@@ -97,10 +98,10 @@ platform :ios do
     increment_build_number(build_number: build_number) # , xcodeproj: xcodeproj)
 
     # Commit version bump
-    #commit_version_bump
+    commit_version_bump
 
     # Tag build
-    #add_git_tag(tag: format("tags/%s", build_number))
+    add_git_tag(tag: format("tags/%s", build_number))
 
     # Clear derived data
   
