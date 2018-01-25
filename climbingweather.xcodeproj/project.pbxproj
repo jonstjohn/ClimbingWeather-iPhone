@@ -965,6 +965,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 201801251431;
 				DEVELOPMENT_TEAM = 5QHC9PP5E3;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -995,9 +996,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 201801251431;
 				DEVELOPMENT_TEAM = 5QHC9PP5E3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = climbingweather_Prefix.pch;
@@ -1005,7 +1007,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.climbingweather.cw;
-				PRODUCT_NAME = ClimbWeather;
+				PRODUCT_NAME = ClimbingWeather;
 				PROVISIONING_PROFILE = "0a1b198d-66ef-47bf-839d-aa9186ef75a7";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.climbingweather.cw";
@@ -1159,6 +1161,7 @@
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Distribution;
 		};
@@ -1172,9 +1175,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 201801251431;
 				DEVELOPMENT_TEAM = 5QHC9PP5E3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = climbingweather_Prefix.pch;
@@ -1182,7 +1186,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.climbingweather.cw;
-				PRODUCT_NAME = ClimbWeather;
+				PRODUCT_NAME = ClimbingWeather;
 				PROVISIONING_PROFILE = "0a1b198d-66ef-47bf-839d-aa9186ef75a7";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.climbingweather.cw";
@@ -1228,6 +1232,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1266,6 +1271,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

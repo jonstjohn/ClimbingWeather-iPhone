@@ -16,11 +16,11 @@ fastlane_version "2.23.0"
 default_platform :ios
 
 platform :ios do
-  before_all do
+  #before_all do
     # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
-    cocoapods
+    #cocoapods
     
-  end
+  #end
 
   desc "Runs all the tests"
   lane :test do
@@ -73,23 +73,34 @@ platform :ios do
   end
 
   lane :build do
+
+    build_number = Time.now.strftime("%Y%m%d%H%M")
     
     # Ensure correct xcode version
     if ENV.key?("CW_XCODE_VERSION")
-      UI.message(ENV["CW_XCODE_VERSION"])
+      xcversion(version: ENV["CW_XCODE_VERSION"])
+      #UI.message(ENV["CW_XCODE_VERSION"])
     end
     
     # Check for test mode
     
+    
     # Clean local repo
+    # ensure_git_branch(branch: "master")
+    # ensure_git_status_clean
+    # git_pull
 
     # Refresh provisioning profiles
-
+    #match(app_identifier: ["com.climbingweather.cw"], type: "appstore", readonly: true)
+    
     # Update build number
+    increment_build_number(build_number: build_number) # , xcodeproj: xcodeproj)
 
     # Commit version bump
+    #commit_version_bump
 
     # Tag build
+    #add_git_tag(tag: format("tags/%s", build_number))
 
     # Clear derived data
   
