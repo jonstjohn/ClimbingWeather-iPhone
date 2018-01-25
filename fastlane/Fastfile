@@ -71,6 +71,30 @@ platform :ios do
     #   success: false
     # )
   end
+
+  lane :build do
+    
+    # Ensure correct xcode version
+    if ENV.key?("CW_XCODE_VERSION")
+      UI.message(ENV["CW_XCODE_VERSION"])
+    end
+    
+    # Check for test mode
+    
+    # Clean local repo
+
+    # Refresh provisioning profiles
+
+    # Update build number
+
+    # Commit version bump
+
+    # Tag build
+
+    # Clear derived data
+  
+  end
+
 end
 
 
