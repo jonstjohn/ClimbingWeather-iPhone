@@ -39,10 +39,11 @@ class AreaMapViewController: UIViewController, MKMapViewDelegate {
             return
         }
         
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
         Area.fetchDetail(id: areaId, completion: { (area) in
             self.area = area
             
-            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             DispatchQueue.main.async { [weak self] in
                 
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false

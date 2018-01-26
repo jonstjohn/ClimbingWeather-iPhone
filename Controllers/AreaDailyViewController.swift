@@ -22,9 +22,12 @@ class AreaDailyViewController: UITableViewController {
         
         self.tableView.register(UINib(nibName: "AreaDailyCell", bundle: nil), forCellReuseIdentifier: "AreaDailyCell")
         
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 140
+        
     }
     
-    func toggleFavorite(sender: UIBarButtonItem) {
+    @objc func toggleFavorite(sender: UIBarButtonItem) {
         guard let area = self.area else {
             return
         }
@@ -65,39 +68,42 @@ class AreaDailyViewController: UITableViewController {
         }
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        Area.fetchDaily(id: areaId, completion: { (area) in
-            self.area = area
-            
-            DispatchQueue.main.async {
+        
+        DispatchQueue.global(qos: .userInteractive).async {
+            Area.fetchDaily(id: areaId, completion: { (area) in
+                self.area = area
                 
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                
-                guard let tabBarController = self.tabBarController else {
-                    return
+                DispatchQueue.main.async {
+                    
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    
+                    guard let tabBarController = self.tabBarController else {
+                        return
+                    }
+                    
+                    let starOn = UIImage(named: "StarYellowFilled.png")
+                    let starOff = UIImage(named: "Star.png")
+                    do {
+                        // Setup favorite item
+                        let favoriteImage = try area.isFavorite() ? starOn : starOff
+                        let favoriteItem = UIBarButtonItem(image: favoriteImage, style: .plain, target: self, action: #selector(self.toggleFavorite(sender:)))
+                        favoriteItem.tintColor = UIColor.init(red: 241/255, green: 196/255, blue: 15/255, alpha: 1)
+                        
+                        // Setup info item
+                        //let infoItem = UIBarButtonItem(image: UIImage(named: "Info.png"), style: .plain, target: self, action: #selector(self.info(sender:)))
+                        
+                        let items = [favoriteItem] // [favoriteItem, infoItem]
+                        
+                        tabBarController.navigationItem.setRightBarButtonItems(items, animated: true)
+                    } catch {
+                        // Do nothing
+                    }
+                    
+                    self.tableView.reloadData()
                 }
                 
-                let starOn = UIImage(named: "StarYellowFilled.png")
-                let starOff = UIImage(named: "Star.png")
-                do {
-                    // Setup favorite item
-                    let favoriteImage = try area.isFavorite() ? starOn : starOff
-                    let favoriteItem = UIBarButtonItem(image: favoriteImage, style: .plain, target: self, action: #selector(self.toggleFavorite(sender:)))
-                    favoriteItem.tintColor = UIColor.init(red: 241/255, green: 196/255, blue: 15/255, alpha: 1)
-                    
-                    // Setup info item
-                    //let infoItem = UIBarButtonItem(image: UIImage(named: "Info.png"), style: .plain, target: self, action: #selector(self.info(sender:)))
-                    
-                    let items = [favoriteItem] // [favoriteItem, infoItem]
-                    
-                    tabBarController.navigationItem.setRightBarButtonItems(items, animated: true)
-                } catch {
-                    // Do nothing
-                }
-                
-                self.tableView.reloadData()
-            }
-            
-        })
+            })
+        }
     }
     
     // MARK: - Table view data source
@@ -107,7 +113,7 @@ class AreaDailyViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.area?.daily?.count ?? 1
+        return self.area?.daily?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -123,21 +129,21 @@ class AreaDailyViewController: UITableViewController {
         
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        let short = CGFloat(53.0)
-        let tall = CGFloat(68.0)
-        
-        guard let daily = self.area?.daily?[indexPath.row] else {
-            return short
-        }
-        
-        guard let length = daily.conditionsFormatted?.characters.count else {
-            return short
-        }
-        
-        return length == 0 ? short : tall
-    }
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        
+//        let short = CGFloat(60.0)
+//        let tall = CGFloat(80.0)
+//        
+//        guard let daily = self.area?.daily?[indexPath.row] else {
+//            return short
+//        }
+//        
+//        guard let length = daily.conditionsFormatted?.characters.count else {
+//            return short
+//        }
+//        
+//        return length == 0 ? short : tall
+//    }
 
     
     

@@ -1,0 +1,1 @@
+This is an update to the previous version that includes ARC and 64-bit support in anticipation of iOS updates that will no longer support 32-bit apps. No functionality has changed in this release.

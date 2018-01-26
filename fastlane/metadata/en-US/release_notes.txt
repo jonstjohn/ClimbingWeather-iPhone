@@ -1,0 +1,1 @@
+This version includes 64-bit support for newer version of iOS. More updates coming soon!
