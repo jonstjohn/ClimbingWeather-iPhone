@@ -110,6 +110,10 @@ platform :ios do
     
     add_git_tag(tag: format("tags/%s", build_number))
 
+    # Push to remote
+    
+    push_to_git_remote
+
     # Clear derived data
     
     # TODO
