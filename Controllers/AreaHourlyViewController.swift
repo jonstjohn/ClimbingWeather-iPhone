@@ -14,6 +14,8 @@ class AreaHourlyViewController: UITableViewController {
     var areaId: Int?
     var area: Area?
     
+    let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -27,6 +29,8 @@ class AreaHourlyViewController: UITableViewController {
         }
         
         self.tableView.register(UINib(nibName: "AreaHourlyCell", bundle: nil), forCellReuseIdentifier: "AreaHourlyCell")
+        
+        self.tableView.backgroundView = self.activityIndicatorView
         
     }
     
@@ -47,18 +51,32 @@ class AreaHourlyViewController: UITableViewController {
             return
         }
         
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        self.startLoading()
         
         DispatchQueue.global(qos: .userInteractive).async {
             Area.fetchHourly(id: areaId, completion: { (area) in
                 self.area = area
                 
                 DispatchQueue.main.async {
-                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    self.stopLoading()
                     self.tableView.reloadData()
                 }
                 
             })
+        }
+    }
+    
+    func startLoading() {
+        self.tableView.separatorStyle = .none
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        self.activityIndicatorView.startAnimating()
+    }
+    
+    func stopLoading() {
+        DispatchQueue.main.async {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            self.activityIndicatorView.stopAnimating()
+            self.tableView.separatorStyle = .singleLine
         }
     }
     
