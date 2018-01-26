@@ -18,6 +18,8 @@ import CoreLocation
     let searchController = UISearchController(searchResultsController: nil)
     let favoriteImage = UIImage(named: "Star.png")?.withRenderingMode(.alwaysTemplate)
     
+    let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -42,6 +44,8 @@ import CoreLocation
         self.tableView.rowHeight = 85.0
         
         self.tableView.register(UINib(nibName: "AreaCell", bundle: nil), forCellReuseIdentifier: "AreaCell")
+        
+        self.tableView.backgroundView = self.activityIndicatorView
         
     }
     
@@ -68,23 +72,38 @@ import CoreLocation
         self.updateSearch()
     }
     
+    func startLoading() {
+        self.tableView.separatorStyle = .none
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        self.activityIndicatorView.startAnimating()
+    }
+    
+    func stopLoading() {
+        DispatchQueue.main.async {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            self.activityIndicatorView.stopAnimating()
+            self.tableView.separatorStyle = .singleLine
+        }
+    }
+    
     func updateSearch() {
         if let search = search {
             
+            self.areas = [Area]()
+            self.tableView.reloadData()
+            
             if isZeroSearch() {
-                self.areas = [Area]()
-                self.tableView.reloadData()
                 return
             }
             
-            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            self.startLoading()
             
             DispatchQueue.global(qos: .userInteractive).async {
                 Areas.fetchDaily(search: search, completion: { (areas) in
                     self.areas = areas.areas
                     
                     DispatchQueue.main.async {
-                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                        self.stopLoading()
                         self.tableView.reloadData()
                     }
                 })

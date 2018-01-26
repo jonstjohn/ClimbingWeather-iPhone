@@ -14,6 +14,8 @@ class AreaDailyViewController: UITableViewController {
     var areaId: Int?
     var area: Area?
     
+    let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -24,6 +26,8 @@ class AreaDailyViewController: UITableViewController {
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 140
+        
+        self.tableView.backgroundView = self.activityIndicatorView
         
     }
     
@@ -59,6 +63,20 @@ class AreaDailyViewController: UITableViewController {
         self.update()
         
     }
+    
+    func startLoading() {
+        self.tableView.separatorStyle = .none
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        self.activityIndicatorView.startAnimating()
+    }
+    
+    func stopLoading() {
+        DispatchQueue.main.async {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            self.activityIndicatorView.stopAnimating()
+            self.tableView.separatorStyle = .singleLine
+        }
+    }
 
     
     func update() {
@@ -67,15 +85,19 @@ class AreaDailyViewController: UITableViewController {
             return
         }
         
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        self.startLoading()
         
         DispatchQueue.global(qos: .userInteractive).async {
+
             Area.fetchDaily(id: areaId, completion: { (area) in
+                
+                self.stopLoading()
+                
                 self.area = area
                 
                 DispatchQueue.main.async {
                     
-                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    self.tableView.reloadData()
                     
                     guard let tabBarController = self.tabBarController else {
                         return
@@ -99,7 +121,6 @@ class AreaDailyViewController: UITableViewController {
                         // Do nothing
                     }
                     
-                    self.tableView.reloadData()
                 }
                 
             })
