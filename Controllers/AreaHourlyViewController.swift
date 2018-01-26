@@ -65,7 +65,7 @@ class AreaHourlyViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return self.area?.hourlyByDay?.count ?? 1
+        return self.area?.hourlyByDay?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -86,7 +86,7 @@ class AreaHourlyViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.area?.hourlyByDay?[section].count ?? 1
+        return self.area?.hourlyByDay?[section].count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
