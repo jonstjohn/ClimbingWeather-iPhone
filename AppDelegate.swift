@@ -7,6 +7,9 @@
 //
 import Foundation
 import UIKit
+import Fabric
+import Crashlytics
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate {
@@ -32,6 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
 
         self.setupDatabase()
         self.setupWindow()
+        
+        Fabric.with([Crashlytics.self])
         
         return true
         

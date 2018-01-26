@@ -7,5 +7,7 @@ target 'climbingweather' do
 
   # Pods for climbingweather
   pod 'SQLite.swift', '~> 0.11.4'
+  pod 'Fabric'
+  pod 'Crashlytics'
 
 end

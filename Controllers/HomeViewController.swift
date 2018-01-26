@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Crashlytics
 
 class HomeViewController: UIViewController, UITextFieldDelegate {
     
@@ -23,6 +24,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func showNearby(sender: UIButton) {
+        Crashlytics.sharedInstance().crash()
         self.tabBarController?.selectedIndex = 1
     }
     
