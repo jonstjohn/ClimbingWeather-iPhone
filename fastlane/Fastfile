@@ -87,23 +87,35 @@ platform :ios do
     
     
     # Clean local repo
-    ensure_git_branch(branch: "fastlaneSetup")
-    ensure_git_status_clean
-    git_pull
+
+    #ensure_git_branch(branch: git_branch)
+    #ensure_git_status_clean
+    #git_pull
 
     # Refresh provisioning profiles
     #match(app_identifier: ["com.climbingweather.cw"], type: "appstore", readonly: true)
     
     # Update build number
-    increment_build_number(build_number: build_number) # , xcodeproj: xcodeproj)
+    
+    #increment_build_number(build_number: build_number) # , xcodeproj: xcodeproj)
 
     # Commit version bump
-    commit_version_bump
+    
+    #commit_version_bump
 
     # Tag build
-    add_git_tag(tag: format("tags/%s", build_number))
+    
+    #add_git_tag(tag: format("tags/%s", build_number))
 
     # Clear derived data
+    
+    # Build
+
+    gym
+    
+    # Distribute
+    
+    pilot
   
   end
 

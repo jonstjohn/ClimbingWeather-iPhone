@@ -78,14 +78,17 @@ import CoreLocation
             }
             
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
-            Areas.fetchDaily(search: search, completion: { (areas) in
-                self.areas = areas.areas
-                
-                DispatchQueue.main.async {
-                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                    self.tableView.reloadData()
-                }
-            })
+            
+            DispatchQueue.global(qos: .userInteractive).async {
+                Areas.fetchDaily(search: search, completion: { (areas) in
+                    self.areas = areas.areas
+                    
+                    DispatchQueue.main.async {
+                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                        self.tableView.reloadData()
+                    }
+                })
+            }
         }
     }
     
@@ -96,7 +99,7 @@ import CoreLocation
         }
         
         if case let Search.Term(term) = search {
-            return term.characters.count == 0
+            return term.count == 0
         }
         
         if case let Search.Areas(ids) = search {

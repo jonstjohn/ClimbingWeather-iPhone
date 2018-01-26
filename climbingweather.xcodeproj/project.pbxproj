@@ -65,6 +65,7 @@
 		605BEDEB1E68EE970076B4C4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605BEDEA1E68EE970076B4C4 /* SettingsViewController.swift */; };
 		605BEDEF1E68EEB50076B4C4 /* StatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605BEDEE1E68EEB50076B4C4 /* StatesViewController.swift */; };
 		605BEDF31E692BD90076B4C4 /* AreaMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 605BEDF21E692BD90076B4C4 /* AreaMapViewController.xib */; };
+		60759EEF201A9AA9009C1626 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 60759EEE201A9AA9009C1626 /* Podfile */; };
 		60807EE313240AC9004A60C0 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60807EE213240AC9004A60C0 /* MainWindow.xib */; };
 		608570A21E7EC94900FF4746 /* StarYellow@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6085709C1E7EC94900FF4746 /* StarYellow@1x.png */; };
 		608570A31E7EC94900FF4746 /* StarYellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6085709D1E7EC94900FF4746 /* StarYellow@2x.png */; };
@@ -232,6 +233,7 @@
 		605BEDEA1E68EE970076B4C4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		605BEDEE1E68EEB50076B4C4 /* StatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatesViewController.swift; sourceTree = "<group>"; };
 		605BEDF21E692BD90076B4C4 /* AreaMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AreaMapViewController.xib; path = Controllers/AreaMapViewController.xib; sourceTree = SOURCE_ROOT; };
+		60759EEE201A9AA9009C1626 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		6077042A135697170085464F /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		60807EE213240AC9004A60C0 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		6085709C1E7EC94900FF4746 /* StarYellow@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StarYellow@1x.png"; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				60759EEE201A9AA9009C1626 /* Podfile */,
 				6009BF8B1E5CE4FC0021A13B /* CWDatabase.swift */,
 				602D73ED1E5BFDA800925A58 /* AppDelegate.swift */,
 				6053B5E61E43CE5000798BC1 /* climbingweather-Bridging-Header.h */,
@@ -804,6 +807,7 @@
 				608DE1C312F4A7E700AE172C /* icon_calendar.png in Resources */,
 				608DE1E012F4AA3D00AE172C /* icon_time.png in Resources */,
 				604890851E6E6C05002590D4 /* Services-50.png in Resources */,
+				60759EEF201A9AA9009C1626 /* Podfile in Resources */,
 				608DE1E612F4AF4800AE172C /* icon_blog.png in Resources */,
 				604890871E6E7685002590D4 /* Settings@1x.png in Resources */,
 				608DE1EC12F4EDB500AE172C /* icon_home.png in Resources */,

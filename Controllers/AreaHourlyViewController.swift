@@ -48,15 +48,18 @@ class AreaHourlyViewController: UITableViewController {
         }
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        Area.fetchHourly(id: areaId, completion: { (area) in
-            self.area = area
-            
-            DispatchQueue.main.async {
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                self.tableView.reloadData()
-            }
-            
-        })
+        
+        DispatchQueue.global(qos: .userInteractive).async {
+            Area.fetchHourly(id: areaId, completion: { (area) in
+                self.area = area
+                
+                DispatchQueue.main.async {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    self.tableView.reloadData()
+                }
+                
+            })
+        }
     }
     
     // MARK: - Table view data source

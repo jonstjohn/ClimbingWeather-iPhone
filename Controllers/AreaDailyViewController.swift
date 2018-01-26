@@ -68,39 +68,42 @@ class AreaDailyViewController: UITableViewController {
         }
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        Area.fetchDaily(id: areaId, completion: { (area) in
-            self.area = area
-            
-            DispatchQueue.main.async {
+        
+        DispatchQueue.global(qos: .userInteractive).async {
+            Area.fetchDaily(id: areaId, completion: { (area) in
+                self.area = area
                 
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                
-                guard let tabBarController = self.tabBarController else {
-                    return
+                DispatchQueue.main.async {
+                    
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    
+                    guard let tabBarController = self.tabBarController else {
+                        return
+                    }
+                    
+                    let starOn = UIImage(named: "StarYellowFilled.png")
+                    let starOff = UIImage(named: "Star.png")
+                    do {
+                        // Setup favorite item
+                        let favoriteImage = try area.isFavorite() ? starOn : starOff
+                        let favoriteItem = UIBarButtonItem(image: favoriteImage, style: .plain, target: self, action: #selector(self.toggleFavorite(sender:)))
+                        favoriteItem.tintColor = UIColor.init(red: 241/255, green: 196/255, blue: 15/255, alpha: 1)
+                        
+                        // Setup info item
+                        //let infoItem = UIBarButtonItem(image: UIImage(named: "Info.png"), style: .plain, target: self, action: #selector(self.info(sender:)))
+                        
+                        let items = [favoriteItem] // [favoriteItem, infoItem]
+                        
+                        tabBarController.navigationItem.setRightBarButtonItems(items, animated: true)
+                    } catch {
+                        // Do nothing
+                    }
+                    
+                    self.tableView.reloadData()
                 }
                 
-                let starOn = UIImage(named: "StarYellowFilled.png")
-                let starOff = UIImage(named: "Star.png")
-                do {
-                    // Setup favorite item
-                    let favoriteImage = try area.isFavorite() ? starOn : starOff
-                    let favoriteItem = UIBarButtonItem(image: favoriteImage, style: .plain, target: self, action: #selector(self.toggleFavorite(sender:)))
-                    favoriteItem.tintColor = UIColor.init(red: 241/255, green: 196/255, blue: 15/255, alpha: 1)
-                    
-                    // Setup info item
-                    //let infoItem = UIBarButtonItem(image: UIImage(named: "Info.png"), style: .plain, target: self, action: #selector(self.info(sender:)))
-                    
-                    let items = [favoriteItem] // [favoriteItem, infoItem]
-                    
-                    tabBarController.navigationItem.setRightBarButtonItems(items, animated: true)
-                } catch {
-                    // Do nothing
-                }
-                
-                self.tableView.reloadData()
-            }
-            
-        })
+            })
+        }
     }
     
     // MARK: - Table view data source
