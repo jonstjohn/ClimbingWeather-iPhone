@@ -59,6 +59,9 @@ import CoreLocation
         label.textColor = UIColor.darkGray
         self.zeroStateView.addSubview(label)
         
+        self.tableView.refreshControl = UIRefreshControl()
+        self.tableView.refreshControl?.addTarget(self, action: #selector(updateSearch), for: .valueChanged)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,10 +101,11 @@ import CoreLocation
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             self.activityIndicatorView.stopAnimating()
             self.tableView.separatorStyle = .singleLine
+            self.refreshControl?.endRefreshing()
         }
     }
     
-    func updateSearch() {
+    @objc func updateSearch() {
         if let search = search {
             
             self.areas = [Area]()

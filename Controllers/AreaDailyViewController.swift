@@ -28,6 +28,8 @@ class AreaDailyViewController: UITableViewController {
         self.tableView.estimatedRowHeight = 140
         
         self.tableView.backgroundView = self.activityIndicatorView
+        self.tableView.refreshControl = UIRefreshControl()
+        self.tableView.refreshControl?.addTarget(self, action: #selector(update), for: .valueChanged)
         
     }
     
@@ -75,11 +77,12 @@ class AreaDailyViewController: UITableViewController {
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             self.activityIndicatorView.stopAnimating()
             self.tableView.separatorStyle = .singleLine
+            self.refreshControl?.endRefreshing()
         }
     }
 
     
-    func update() {
+    @objc func update() {
         
         guard let areaId = self.areaId else {
             return
