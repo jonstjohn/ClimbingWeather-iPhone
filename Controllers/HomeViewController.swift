@@ -11,10 +11,19 @@ import UIKit
 
 class HomeViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet var searchField: UITextField!
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        self.view.addGestureRecognizer(tapGesture)
+        
+    }
+    
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {

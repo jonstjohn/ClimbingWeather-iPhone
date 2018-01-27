@@ -19,6 +19,7 @@ import CoreLocation
     let favoriteImage = UIImage(named: "Star.png")?.withRenderingMode(.alwaysTemplate)
     
     let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    let zeroStateView = UIView()
     
     override func viewDidLoad() {
         
@@ -47,11 +48,24 @@ import CoreLocation
         
         self.tableView.backgroundView = self.activityIndicatorView
         
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+        //label.center = CGPoint(x: 160, y: 285)
+        //let label = UILabel()
+        label.textAlignment = .center
+        label.text = "To add a favorite, first find the area and tap on the yellow star at the top right of the screen"
+        label.center = self.view.center
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 10
+        label.textColor = UIColor.darkGray
+        self.zeroStateView.addSubview(label)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.title = "Areas"
         self.navigationController?.isNavigationBarHidden = false
+        
+        self.tableView.backgroundView = self.activityIndicatorView
         
         // For location search, always update location on view appear
         if self.isLocationSearch() {
@@ -75,6 +89,7 @@ import CoreLocation
     func startLoading() {
         self.tableView.separatorStyle = .none
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        self.tableView.backgroundView = self.activityIndicatorView
         self.activityIndicatorView.startAnimating()
     }
     
@@ -93,6 +108,9 @@ import CoreLocation
             self.tableView.reloadData()
             
             if isZeroSearch() {
+                if isAreasSearch() {
+                    self.tableView.backgroundView = self.zeroStateView
+                }
                 return
             }
             
@@ -236,6 +254,11 @@ import CoreLocation
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if areas.count == 0 {
+            self.tableView.separatorStyle = .none
+        } else {
+            self.tableView.separatorStyle = .singleLine
+        }
         return areas.count
     }
     
