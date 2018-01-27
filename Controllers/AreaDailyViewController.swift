@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Crashlytics
 
 class AreaDailyViewController: UITableViewController {
     
@@ -97,6 +98,11 @@ class AreaDailyViewController: UITableViewController {
                 self.stopLoading()
                 
                 self.area = area
+                
+                Answers.logContentView(withName: area.name,
+                                               contentType: "Area Daily",
+                                               contentId: "\(area.id)",
+                                               customAttributes: nil)
                 
                 DispatchQueue.main.async {
                     
