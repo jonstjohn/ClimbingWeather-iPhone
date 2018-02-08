@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="ClimbWeather" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="ClimbingWeather" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="gsK-RP-5r5" id="fCM-V9-Tqd"/>
             </connections>
@@ -20,13 +21,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="eMy-1v-YrT">
-                    <rect key="frame" x="8" y="139" width="359" height="388"/>
+                    <rect key="frame" x="16" y="139" width="343" height="388"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Kl1-Lr-Rhb" userLabel="Logo Stack">
-                            <rect key="frame" x="0.0" y="0.0" width="359" height="159"/>
+                            <rect key="frame" x="0.0" y="0.0" width="343" height="159"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_center_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="U4N-bF-PbH" userLabel="Logo">
-                                    <rect key="frame" x="0.0" y="0.0" width="359" height="159"/>
+                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_center_icon" translatesAutoresizingMaskIntoConstraints="NO" id="U4N-bF-PbH" userLabel="Logo">
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="159"/>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -36,10 +37,10 @@
                             </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CiE-SN-pg6" userLabel="Search Stack View">
-                            <rect key="frame" x="0.0" y="184" width="359" height="30"/>
+                            <rect key="frame" x="0.0" y="184" width="343" height="30"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Area name, state or zip code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lr7-oZ-80l" userLabel="Search Input">
-                                    <rect key="frame" x="0.0" y="0.0" width="323" height="30"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="307" height="30"/>
                                     <accessibility key="accessibilityConfiguration" hint="Area name, state or zip code"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -49,15 +50,15 @@
                                     </connections>
                                 </textField>
                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Search.png" translatesAutoresizingMaskIntoConstraints="NO" id="Rx2-QD-ZAd">
-                                    <rect key="frame" x="333" y="0.0" width="26" height="30"/>
+                                    <rect key="frame" x="317" y="0.0" width="26" height="30"/>
                                 </imageView>
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="UFs-XF-8Sn" userLabel="Navigation Stack View">
-                            <rect key="frame" x="0.0" y="239" width="359" height="149"/>
+                            <rect key="frame" x="0.0" y="239" width="343" height="149"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hsb-2r-Uvf">
-                                    <rect key="frame" x="0.0" y="0.0" width="359" height="26"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="26"/>
                                     <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <state key="normal" title="About / Settings" image="Settings.png">
                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -67,7 +68,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tet-Ev-Yj3">
-                                    <rect key="frame" x="0.0" y="41" width="359" height="26"/>
+                                    <rect key="frame" x="0.0" y="41" width="343" height="26"/>
                                     <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <state key="normal" title="Nearby Areas" image="Location.png">
                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -77,7 +78,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gn9-oG-qTP">
-                                    <rect key="frame" x="0.0" y="82" width="359" height="26"/>
+                                    <rect key="frame" x="0.0" y="82" width="343" height="26"/>
                                     <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <state key="normal" title="By State" image="Capitol.png">
                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -87,7 +88,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zm3-gv-clS">
-                                    <rect key="frame" x="0.0" y="123" width="359" height="26"/>
+                                    <rect key="frame" x="0.0" y="123" width="343" height="26"/>
                                     <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <state key="normal" title="Favorites" image="Star.png">
                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -117,6 +118,6 @@
         <image name="Search.png" width="26" height="26"/>
         <image name="Settings.png" width="26" height="26"/>
         <image name="Star.png" width="26" height="26"/>
-        <image name="top_center_icon.png" width="200" height="159"/>
+        <image name="top_center_icon" width="200" height="159"/>
     </resources>
 </document>
