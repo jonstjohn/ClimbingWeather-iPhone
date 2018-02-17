@@ -19,7 +19,9 @@ import CoreLocation
     let favoriteImage = UIImage(named: "Star.png")?.withRenderingMode(.alwaysTemplate)
     
     let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-    let zeroStateView = UIView()
+    let zeroStateNoLocationPermissionView = ZeroState()
+    var zeroStateLocationFailureView = ZeroState()
+    var zeroStateNoResultView = ZeroState()
     
     override func viewDidLoad() {
         
@@ -48,20 +50,24 @@ import CoreLocation
         
         self.tableView.backgroundView = self.activityIndicatorView
         
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
-        //label.center = CGPoint(x: 160, y: 285)
-        //let label = UILabel()
-        label.textAlignment = .center
-        label.text = "To add a favorite, first find the area and tap on the yellow star at the top right of the screen"
-        label.center = self.view.center
-        label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 10
-        label.textColor = UIColor.darkGray
-        self.zeroStateView.addSubview(label)
+        self.setupZeroStateViews()
         
         self.tableView.refreshControl = UIRefreshControl()
         self.tableView.refreshControl?.addTarget(self, action: #selector(updateSearch), for: .valueChanged)
         
+    }
+    
+    private func setupZeroStateViews() {
+        
+        self.zeroStateNoResultView.mainLabel.text = "To add a favorite, first find the area and tap on the yellow star at the top right of the screen"
+        
+        self.zeroStateLocationFailureView.mainLabel.text = "Failed to acquire location"
+        
+        self.zeroStateNoLocationPermissionView.mainLabel.text = "Location access is not currently enabled"
+        self.zeroStateNoLocationPermissionView.mainButton.setTitle("Open Settings", for: .normal)
+        self.zeroStateNoLocationPermissionView.mainButton.isHidden = false
+        self.zeroStateNoLocationPermissionView.delegate = self
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,20 +79,31 @@ import CoreLocation
         // For location search, always update location on view appear
         if self.isLocationSearch() {
             self.tabBarController?.title = "Nearby Areas"
-            self.updateLocation()
+            // Ensure status is not restricted or denied
+            if self.hasLocationAccess() {
+                self.updateLocation()
+            } else {
+                self.tableView.backgroundView = self.zeroStateNoLocationPermissionView
+            }
         } else if self.isAreasSearch() {
             self.tabBarController?.title = "Favorites"
             self.updateFavorites()
+            self.updateSearch()
         } else if let search = search, case let Search.Term(term) = search {
             self.tabBarController?.title = "Search"
             self.searchController.searchBar.text = term
+            self.updateSearch()
+        } else {
+            self.updateSearch()
         }
         
         self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Areas", style: .plain, target: nil, action: nil)
         
         super.viewWillAppear(animated)
-        
-        self.updateSearch()
+    }
+    
+    private func hasLocationAccess() -> Bool {
+        return ![.restricted, .denied].contains(CLLocationManager.authorizationStatus())
     }
     
     func startLoading() {
@@ -113,7 +130,7 @@ import CoreLocation
             
             if isZeroSearch() {
                 if isAreasSearch() {
-                    self.tableView.backgroundView = self.zeroStateView
+                    self.tableView.backgroundView = self.zeroStateNoResultView
                 }
                 return
             }
@@ -181,6 +198,8 @@ import CoreLocation
         guard let locationManager = self.locationManager else {
             return
         }
+        
+        self.startLoading()
         
         self.checkLocationAuthorization(manager: locationManager)
         
@@ -325,6 +344,12 @@ extension AreasViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Location manager failed with \(error)")
+        DispatchQueue.main.async {
+            if self.areas.count == 0 {
+                self.tableView.backgroundView = self.zeroStateLocationFailureView
+            }
+        }
+        
     }
 }
 
@@ -343,4 +368,11 @@ extension AreasViewController: UISearchResultsUpdating {
     }
     
 
+}
+
+extension AreasViewController: ZeroStateDelegate {
+    
+    public func buttonTapped() {
+        print("Button Tapped")
+    }
 }

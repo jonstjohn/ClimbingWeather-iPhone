@@ -146,6 +146,8 @@
 		60ADE8BF1E845BB10040A472 /* Info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60ADE8BC1E845BB10040A472 /* Info@2x.png */; };
 		60ADE8C01E845BB10040A472 /* Info@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60ADE8BD1E845BB10040A472 /* Info@1x.png */; };
 		60ADE8C51E8A8D740040A472 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60ADE8C41E8A8D740040A472 /* Launch Screen.storyboard */; };
+		60B3ADB02034C6020089D1CD /* ZeroState.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60B3ADAF2034C6010089D1CD /* ZeroState.xib */; };
+		60B3ADB22034C6DC0089D1CD /* ZeroState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B3ADB12034C6DC0089D1CD /* ZeroState.swift */; };
 		60D99C171352415500B238D5 /* ic_launcher57.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D99C161352415500B238D5 /* ic_launcher57.png */; };
 		60D99DF413547C6100B238D5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D99DF313547C6100B238D5 /* Icon.png */; };
 		60D99E081355268400B238D5 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D99E071355268400B238D5 /* Icon@2x.png */; };
@@ -227,7 +229,7 @@
 		605BEDEA1E68EE970076B4C4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		605BEDEE1E68EEB50076B4C4 /* StatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatesViewController.swift; sourceTree = "<group>"; };
 		605BEDF21E692BD90076B4C4 /* AreaMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AreaMapViewController.xib; path = Controllers/AreaMapViewController.xib; sourceTree = SOURCE_ROOT; };
-		60759EEE201A9AA9009C1626 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		60759EEE201A9AA9009C1626 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		6077042A135697170085464F /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		60807EE213240AC9004A60C0 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		6085709C1E7EC94900FF4746 /* StarYellow@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StarYellow@1x.png"; sourceTree = "<group>"; };
@@ -312,6 +314,8 @@
 		60ADE8BC1E845BB10040A472 /* Info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Info@2x.png"; sourceTree = "<group>"; };
 		60ADE8BD1E845BB10040A472 /* Info@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Info@1x.png"; sourceTree = "<group>"; };
 		60ADE8C41E8A8D740040A472 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		60B3ADAF2034C6010089D1CD /* ZeroState.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZeroState.xib; sourceTree = "<group>"; };
+		60B3ADB12034C6DC0089D1CD /* ZeroState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroState.swift; sourceTree = "<group>"; };
 		60D99C161352415500B238D5 /* ic_launcher57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher57.png; sourceTree = "<group>"; };
 		60D99DF313547C6100B238D5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		60D99E071355268400B238D5 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
@@ -370,10 +374,10 @@
 				6053B5F31E452DF900798BC1 /* Info.plist */,
 				608DE32A12FAD61100AE172C /* climbingweather.db */,
 				60807EE213240AC9004A60C0 /* MainWindow.xib */,
-				6053B66D1E4E073400798BC1 /* Controllers */,
-				605BEDF41E69E6330076B4C4 /* Cells */,
-				6053B6011E48F62C00798BC1 /* API */,
 				6053B5E51E43CE3300798BC1 /* Model */,
+				60E3A55420387A10009B6540 /* Views */,
+				6053B66D1E4E073400798BC1 /* Controllers */,
+				6053B6011E48F62C00798BC1 /* API */,
 				60ADE8C31E8A8D570040A472 /* Storyboards */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -537,6 +541,7 @@
 				60482A221E71D5D800A0AFC9 /* AreaCell.xib */,
 			);
 			name = Cells;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		608DE46C12FCF25A00AE172C /* symbol */ = {
@@ -609,6 +614,16 @@
 				60ADE8C41E8A8D740040A472 /* Launch Screen.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		60E3A55420387A10009B6540 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				605BEDF41E69E6330076B4C4 /* Cells */,
+				60B3ADAF2034C6010089D1CD /* ZeroState.xib */,
+				60B3ADB12034C6DC0089D1CD /* ZeroState.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		9800F519063C99F66A4E3FA4 /* Pods */ = {
@@ -779,6 +794,7 @@
 				608A58E612EC5B46003BCB84 /* snow2.png in Resources */,
 				608A58E712EC5B46003BCB84 /* snow3_night.png in Resources */,
 				608A58E812EC5B46003BCB84 /* snow3.png in Resources */,
+				60B3ADB02034C6020089D1CD /* ZeroState.xib in Resources */,
 				604890A81E6E7AEF002590D4 /* Home@1x.png in Resources */,
 				60ADE8BE1E845BB10040A472 /* Info@3x.png in Resources */,
 				608A58E912EC5B46003BCB84 /* snow4.png in Resources */,
@@ -921,6 +937,7 @@
 				6053B6031E48F64C00798BC1 /* CWApi.swift in Sources */,
 				605BEDE31E67DA480076B4C4 /* AreaHourlyViewController.swift in Sources */,
 				600611D01E77498C000F7694 /* AreaHourlyCell.swift in Sources */,
+				60B3ADB22034C6DC0089D1CD /* ZeroState.swift in Sources */,
 				6009BF9C1E667C0D0021A13B /* AreaDailyViewController.swift in Sources */,
 				603D94A51E527D3400AFB1FF /* AreasViewController.swift in Sources */,
 				6053B5FC1E4530DC00798BC1 /* State.swift in Sources */,
