@@ -10,23 +10,85 @@ import Foundation
 import UIKit
 import CoreLocation
 
+//public protocol AreasViewControllerProtocol {
+//    func startSearch()
+////    func areas() -> [Area]
+//    func initializeSearch(Search)
+//    func search() -> Search
+//    func shouldUpdate() -> Bool
+//    func isZeroSearch() -> Bool
+//}
+//
+//extension AreasViewControllerProtocol {
+//    func areas() -> [Area] {
+//        return []
+//    }
+//}
+//
+//@objc class AreasLocationViewController: UITableViewController, AreasViewControllerProtocol {
+//
+//}
+
+
+//
+//
+// startSearch
+//
+//
+//
+//
+//
+//
+
+
 @objc class AreasViewController: UITableViewController {
     
-    var search: Search?
-    var areas = [Area]()
-    var locationManager: CLLocationManager?
-    let searchController = UISearchController(searchResultsController: nil)
-    let favoriteImage = UIImage(named: "Star.png")?.withRenderingMode(.alwaysTemplate)
+    ///
+    /// Common properties
+    ///
     
+    // Search
+    var search: Search?
+    
+    // Areas - datasource
+    var areas = [Area]()
+    
+    // Activity indicator view
     let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-    let zeroStateNoLocationPermissionView = ZeroState()
-    var zeroStateLocationFailureView = ZeroState()
+    
+    // Zero state no results
     var zeroStateNoResultView = ZeroState()
+    
+    ///
+    /// Nearby areas specific properties
+    ///
+    
+    // Location manager - only for nearby areas screen
+    var locationManager: CLLocationManager?
+    
+    // Zero state for no location permissions
+    let zeroStateNoLocationPermissionView = ZeroState()
+    
+    // Zero state location failure view
+    let zeroStateLocationFailureView = ZeroState()
+    
+    ///
+    /// Search specific properties
+    ///
+    
+    // Search controlller - only for searching
+    let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        self.initializeView()
         
+    }
+    
+    private func initializeView() {
+        
+        // Ensure that table view is inside of tab bar
         if let frameHeight = self.tabBarController?.tabBar.frame.height {
             
             let adjustForTabbarInsets = UIEdgeInsetsMake(0, 0, frameHeight, 0)
@@ -35,85 +97,147 @@ import CoreLocation
             
         }
         
-        if self.isTermSearch() {
-            searchController.searchResultsUpdater = self
-            searchController.dimsBackgroundDuringPresentation = false
-            searchController.hidesNavigationBarDuringPresentation = false
-            searchController.searchBar.placeholder = "Enter area name or zip code"
-            definesPresentationContext = true
-            tableView.tableHeaderView = searchController.searchBar
-        }
-        
+        // Setup row
         self.tableView.rowHeight = 85.0
-        
         self.tableView.register(UINib(nibName: "AreaCell", bundle: nil), forCellReuseIdentifier: "AreaCell")
         
-        self.tableView.backgroundView = self.activityIndicatorView
-        
+        // Setup zero states
         self.setupZeroStateViews()
         
+        // Add refresh control
         self.tableView.refreshControl = UIRefreshControl()
         self.tableView.refreshControl?.addTarget(self, action: #selector(updateSearch), for: .valueChanged)
+        
+        // Initialize view - search
+        self.initializeViewSearch()
+        
+    }
+    
+    // Search specific
+    private func initializeViewSearch() {
+        
+        guard let search = self.search, case .Term(_) = search else {
+            return
+        }
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.placeholder = "Enter area name or zip code"
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
         
     }
     
     private func setupZeroStateViews() {
         
-        self.zeroStateNoResultView.mainLabel.text = "To add a favorite, first find the area and tap on the yellow star at the top right of the screen"
+        self.zeroStateNoResultView.mainLabel.text = "No areas found"
         
+        self.setupZeroStateViewsLocation()
+        self.setupZeroStateViewsFavorites()
+
+    }
+    
+    private func setupZeroStateViewsLocation() {
+        guard let search = self.search, case .Location(_) = search else {
+            return
+        }
         self.zeroStateLocationFailureView.mainLabel.text = "Failed to acquire location"
-        
         self.zeroStateNoLocationPermissionView.mainLabel.text = "Location access is not currently enabled"
         self.zeroStateNoLocationPermissionView.mainButton.setTitle("Open Settings", for: .normal)
         self.zeroStateNoLocationPermissionView.mainButton.isHidden = false
         self.zeroStateNoLocationPermissionView.delegate = self
+    }
+    
+    private func setupZeroStateViewsFavorites() {
+        guard let search = self.search, case .Areas(_) = search else {
+            return
+        }
 
+        self.zeroStateNoResultView.mainLabel.text = "To add a favorite, first find the area and tap on the yellow star at the top right of the screen"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.title = "Areas"
         self.navigationController?.isNavigationBarHidden = false
         
-        self.tableView.backgroundView = self.activityIndicatorView
+        self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Areas", style: .plain, target: nil, action: nil)
         
-        // For location search, always update location on view appear
-        if self.isLocationSearch() {
-            self.tabBarController?.title = "Nearby Areas"
-            // Ensure status is not restricted or denied
-            if self.hasLocationAccess() {
-                self.updateLocation()
-            } else {
-                self.tableView.backgroundView = self.zeroStateNoLocationPermissionView
-            }
-        } else if self.isAreasSearch() {
-            self.tabBarController?.title = "Favorites"
-            self.updateFavorites()
-            self.updateSearch()
-        } else if let search = search, case let Search.Term(term) = search {
-            self.tabBarController?.title = "Search"
-            self.searchController.searchBar.text = term
-            self.updateSearch()
-        } else {
-            self.updateSearch()
+        guard let search = self.search else {
+            fatalError("Search must be defined")
         }
         
-        self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Areas", style: .plain, target: nil, action: nil)
+        switch search {
+        case .Areas(_):
+            self.startSearchAreas()
+        case .Location(_):
+            self.startSearchLocation()
+        case .Term(_):
+            self.startSearchTerm()
+        case .State(_):
+            self.startSearchState()
+        }
         
         super.viewWillAppear(animated)
     }
     
+    private func startSearchLocation() {
+        
+        guard let search = self.search, case .Location(_) = search else {
+            return
+        }
+        
+        self.tabBarController?.title = "Nearby Areas"
+        // Ensure status is not restricted or denied
+        if self.hasLocationAccess() {
+            self.updateLocation()
+        } else {
+            self.tableView.backgroundView = self.zeroStateNoLocationPermissionView
+        }
+    }
+    
+    private func startSearchAreas() {
+        
+        guard let search = self.search, case .Areas(_) = search else {
+            return
+        }
+        
+        self.tabBarController?.title = "Favorites"
+        self.updateFavorites()
+        self.updateSearch()
+    }
+    
+    private func startSearchTerm() {
+        guard let search = search, case let Search.Term(term) = search else {
+            return
+        }
+        
+        self.tabBarController?.title = "Search"
+        self.searchController.searchBar.text = term
+        self.updateSearch()
+    }
+    
+    private func startSearchState() {
+        guard let search = self.search, case .State(_) = search else {
+            return
+        }
+        self.updateSearch()
+    }
+    
+    // Location specific
     private func hasLocationAccess() -> Bool {
         return ![.restricted, .denied].contains(CLLocationManager.authorizationStatus())
     }
     
-    func startLoading() {
+    // Start loading areas
+    private func startLoading() {
         self.tableView.separatorStyle = .none
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         self.tableView.backgroundView = self.activityIndicatorView
         self.activityIndicatorView.startAnimating()
     }
     
-    func stopLoading() {
+    // Stop loading areas
+    private func stopLoading() {
         DispatchQueue.main.async {
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             self.activityIndicatorView.stopAnimating()
@@ -122,16 +246,15 @@ import CoreLocation
         }
     }
     
-    @objc func updateSearch() {
+    // Update search
+    @objc private func updateSearch() {
         if let search = search {
             
             self.areas = [Area]()
             self.tableView.reloadData()
             
-            if isZeroSearch() {
-                if isAreasSearch() {
-                    self.tableView.backgroundView = self.zeroStateNoResultView
-                }
+            if search.empty() {
+                self.tableView.backgroundView = self.zeroStateNoResultView
                 return
             }
             
@@ -142,6 +265,9 @@ import CoreLocation
                     self.areas = areas.areas
                     
                     DispatchQueue.main.async {
+                        if areas.areas.count == 0 {
+                            self.tableView.backgroundView = self.zeroStateNoResultView
+                        }
                         self.stopLoading()
                         self.tableView.reloadData()
                     }
@@ -150,24 +276,8 @@ import CoreLocation
         }
     }
     
-    func isZeroSearch() -> Bool {
-        
-        guard let search = self.search else {
-            return true
-        }
-        
-        if case let Search.Term(term) = search {
-            return term.count == 0
-        }
-        
-        if case let Search.Areas(ids) = search {
-            return ids.count == 0
-        }
-        
-        return false
-    }
-    
-    func checkLocationAuthorization(manager: CLLocationManager) {
+    // Location specific
+    private func checkLocationAuthorization(manager: CLLocationManager) {
         let authStatus = CLLocationManager.authorizationStatus()
         
         // Ensure status is not restricted or denied
@@ -184,6 +294,7 @@ import CoreLocation
         }
     }
     
+    // Location specific
     func setupLocationManager() {
         if self.locationManager == nil {
             self.locationManager = CLLocationManager()
@@ -191,6 +302,7 @@ import CoreLocation
         }
     }
     
+    // Location specific
     func updateLocation() {
         
         self.setupLocationManager()
@@ -206,7 +318,8 @@ import CoreLocation
         locationManager.requestLocation()
     }
     
-    func updateFavorites() {
+    // Favorites specific
+    private func updateFavorites() {
         
         do {
             guard let areas = try Area.favorites() else {
@@ -217,57 +330,6 @@ import CoreLocation
             return
         }
 
-    }
-    
-    func isLocationSearch() -> Bool {
-        guard let search = self.search else {
-            return false
-        }
-        
-        switch search {
-        case .Location:
-            return true
-        default:
-            return false
-        }
-    }
-    
-    func isAreasSearch() -> Bool {
-        guard let search = self.search else {
-            return false
-        }
-        
-        switch search {
-        case .Areas:
-            return true
-        default:
-            return false
-        }
-    }
-    
-    func isTermSearch() -> Bool {
-        guard let search = self.search else {
-            return false
-        }
-        
-        switch search {
-        case .Term:
-            return true
-        default:
-            return false
-        }
-    }
-    
-    func setSearchAsState(name: String, code: String, areas: Int) {
-        self.search = .State(State(name: name, areas: areas, code: code))
-    }
-    
-    func setSearchAsLocation(latitude: String, longitude: String) {
-        self.search = .Location(Location(latitude: latitude, longitude: longitude))
-    }
-    
-    func setSearchAsFavorites() {
-        self.search = .Areas([])
     }
     
     // MARK: - Table view data source

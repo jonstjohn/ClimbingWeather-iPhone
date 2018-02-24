@@ -56,7 +56,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         vc1.tabBarItem = UITabBarItem(title: self.homeTitle, image: self.homeTabImage, selectedImage: self.homeTabImage)
         
         let vc2 = AreasViewController()
-        vc2.setSearchAsLocation(latitude: "37.7397", longitude: "-119.5740")
+        let latitude = "37.7397"
+        let longitude = "-119.5740"
+        vc2.search = .Location(Location(latitude: latitude, longitude: longitude))
         vc2.tabBarItem = UITabBarItem(title: self.nearbyTitle, image: self.nearbyTabImage, selectedImage: self.nearbyTabImage)
         
         let vc3 = StatesViewController()
@@ -64,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         
         let vc4 = AreasViewController()
         vc4.tabBarItem = UITabBarItem(title: self.favoritesTitle, image: self.favoritesTabImage, selectedImage: self.favoritesTabImage)
-        vc4.setSearchAsFavorites()
+        vc4.search = .Areas([])
         
         let vc5 = AreasViewController()
         vc5.search = .Term("")

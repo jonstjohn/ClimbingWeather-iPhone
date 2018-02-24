@@ -11,7 +11,7 @@ import Foundation
 /**
  * Location
  */
-struct Location {
+public struct Location {
     let latitude: String
     let longitude: String
 }
@@ -19,11 +19,24 @@ struct Location {
 /**
  * Search types for use with API searches
  */
-enum Search {
+public enum Search {
     case Term(String)
     case Location(Location)
     case State(State)
     case Areas([Int])
+    
+    public func empty() -> Bool {
+        switch self {
+        case .Term(let term):
+            return term.count == 0
+        case .Location(_):
+            return false
+        case .State(_):
+            return false
+        case .Areas(let areas):
+            return areas.count == 0
+        }
+    }
 }
 
 /**

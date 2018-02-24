@@ -9,7 +9,7 @@
 import Foundation
 import SQLite
 
-struct Area: Equatable {
+public struct Area: Equatable {
     let id: Int
     let name: String
     let state: String
@@ -124,7 +124,7 @@ struct Area: Equatable {
         
     }
     
-    static func ==(lhs: Area, rhs: Area) -> Bool {
+    public static func ==(lhs: Area, rhs: Area) -> Bool {
         return lhs.id == rhs.id
     }
     
