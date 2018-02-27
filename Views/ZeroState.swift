@@ -7,7 +7,7 @@
 
 import UIKit
 
-internal class ZeroState: UIView {
+public class ZeroState: UIView {
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var mainLabel: UILabel!
@@ -20,7 +20,7 @@ internal class ZeroState: UIView {
         self.commonInit()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.commonInit()
     }

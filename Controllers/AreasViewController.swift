@@ -15,6 +15,7 @@ public protocol AreaSearchProvider {
     func tabTitle() -> String
     func startSearching()
     func initializeController()
+    //func areasFetched(areas: [Area])
 }
 
 public class FavoritesAreaSearchProviderImpl: AreaSearchProvider {
@@ -23,6 +24,8 @@ public class FavoritesAreaSearchProviderImpl: AreaSearchProvider {
     
     private let searchController = UISearchController(searchResultsController: nil)
     private let areasController: AreasViewController
+    
+    private let zeroStateNoFavorites = ZeroStateNoFavorites()
     
     public init(areasController: AreasViewController) {
         self.areasController = areasController
@@ -34,6 +37,12 @@ public class FavoritesAreaSearchProviderImpl: AreaSearchProvider {
     
     public func startSearching() {
         self.search = self.favoritesAsSearch()
+        
+        guard let search = self.search, !search.empty() else {
+            self.areasController.displayZeroState(self.zeroStateNoFavorites)
+            return
+        }
+        
         self.areasController.fetchAreas()
     }
     
@@ -138,66 +147,130 @@ public class StateAreaSearchProviderImpl: AreaSearchProvider {
     
 }
 
+public class NearbyAreaSearchProviderImpl: NSObject, AreaSearchProvider {
+    
+    public var search: AreaSearch?
+    
+    private let areasController: AreasViewController
+    
+    private var locationManager: CLLocationManager?
+    
+    private let zeroStateNoLocationPermissionView = ZeroStateLocationNotEnabled()
+    private let zeroStateLocationFailureView = ZeroStateFailedToAcquireLocation()
+    
+    public init(areasController: AreasViewController) {
+        self.areasController = areasController
+    }
+    
+    public func tabTitle() -> String {
+        return "Nearby Areas"
+    }
+    
+    public func startSearching() {
+        // Ensure status is not restricted or denied
+        if self.hasLocationAccess() {
+            self.updateLocation()
+        } else {
+            self.areasController.displayZeroState(self.zeroStateNoLocationPermissionView)
+        }
+    }
+    
+    public func initializeController() {
+        self.zeroStateNoLocationPermissionView.delegate = self
+        return
+    }
+    
+    // Location specific
+    private func hasLocationAccess() -> Bool {
+        return ![.restricted, .denied].contains(CLLocationManager.authorizationStatus())
+    }
+    
+    // Location specific
+    private func checkLocationAuthorization(manager: CLLocationManager) {
+        let authStatus = CLLocationManager.authorizationStatus()
+        
+        // Ensure status is not restricted or denied
+        guard ![.restricted, .denied].contains(authStatus) else {
+            return
+        }
+        switch CLLocationManager.authorizationStatus() {
+        case .denied, .restricted:
+            return
+        case .notDetermined:
+            manager.requestWhenInUseAuthorization()
+        case .authorizedAlways, .authorizedWhenInUse:
+            break
+        }
+    }
+    
+    // Location specific
+    private func setupLocationManager() {
+        if self.locationManager == nil {
+            self.locationManager = CLLocationManager()
+            locationManager?.delegate = self
+        }
+    }
+    
+    // Location specific
+    private func updateLocation() {
+        
+        self.setupLocationManager()
+        
+        guard let locationManager = self.locationManager else {
+            return
+        }
+        
+        self.areasController.startLoading()
+        
+        self.checkLocationAuthorization(manager: locationManager)
+        
+        locationManager.requestLocation()
+    }
+    
+}
+
+extension NearbyAreaSearchProviderImpl: CLLocationManagerDelegate {
+    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        if let location = locations.last {
+            let coordinate = location.coordinate
+            self.search = AreaSearch.Location(Location(latitude: String(coordinate.latitude), longitude: String(coordinate.longitude)))
+            self.areasController.fetchAreas()
+        }
+    }
+    
+    public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Location manager failed with \(error)")
+        DispatchQueue.main.async {
+            if self.areasController.areas.count == 0 {
+                self.areasController.displayZeroState(self.zeroStateLocationFailureView)
+            }
+        }
+        
+    }
+}
+
+extension NearbyAreaSearchProviderImpl: ZeroStateDelegate {
+    
+    public func buttonTapped() {
+        print("Button Tapped")
+    }
+}
+
 
 
 @objc public class AreasViewController: UITableViewController {
     
-    ///
-    /// Common properties
-    ///
-    
     internal var searchProvider: AreaSearchProvider?
     
-    // Search
-    var search: AreaSearch?
-    
     // Areas - datasource
-    var areas = [Area]()
+    public var areas = [Area]()
     
     // Activity indicator view
     let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     
     // Zero state no results
     let zeroStateNoAreasFound = ZeroStateNoAreasFound()
-    let zeroStateNoFavorites = ZeroStateNoFavorites()
-    
-    
-    var tabTitle: String {
-        guard let search = self.search else {
-            return "Unknown"
-        }
-        
-        switch search {
-        case .ByID(_):
-            return self.searchProvider?.tabTitle() ?? "N/A"
-        case .Location(_):
-            return "Nearby Areas"
-        case .State(_):
-            return self.searchProvider?.tabTitle() ?? "N/A"
-        case .Term(_):
-            return self.searchProvider?.tabTitle() ?? "N/A"
-        }
-    }
-    
-    ///
-    /// Nearby areas specific properties
-    ///
-    
-    // Location manager - only for nearby areas screen
-    var locationManager: CLLocationManager?
-    
-    // Zero state for no location permissions
-    let zeroStateNoLocationPermissionView = ZeroStateLocationNotEnabled()
-    
-    // Zero state location failure view
-    let zeroStateLocationFailureView = ZeroStateFailedToAcquireLocation()
-    
-    ///
-    /// Search specific properties
-    ///
-    
-    // Search controlller - only for searching
-    let searchController = UISearchController(searchResultsController: nil)
     
     override public func viewDidLoad() {
         
@@ -220,11 +293,7 @@ public class StateAreaSearchProviderImpl: AreaSearchProvider {
     private func initializeView() {
         
         self.configureTableViewForAreas(tableView: self.tableView)
-        
-        // Setup zero states
-        self.zeroStateNoLocationPermissionView.delegate = self
-        
-        // Initialize view - search
+
         self.searchProvider?.initializeController()
         
     }
@@ -236,52 +305,20 @@ public class StateAreaSearchProviderImpl: AreaSearchProvider {
         
         self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Areas", style: .plain, target: nil, action: nil)
         
-        self.tabBarController?.title = self.tabTitle
+        self.tabBarController?.title = self.searchProvider?.tabTitle() ?? "N/A"
         
-        guard let search = self.search else {
-            fatalError("Search must be defined")
-        }
-        
-        switch search {
-        case .ByID(_):
-            self.searchProvider?.startSearching()
-        case .Location(_):
-            self.startSearchLocation()
-        case .Term(_):
-            self.searchProvider?.startSearching()
-        case .State(_):
-            self.searchProvider?.startSearching()
-        }
+        self.searchProvider?.startSearching()
         
         super.viewWillAppear(animated)
     }
     
-    private func displayZeroState(_ view: ZeroState) {
+    public func displayZeroState(_ view: ZeroState) {
         self.tableView.separatorStyle = .none
         self.tableView.backgroundView = view
     }
     
-    private func startSearchLocation() {
-        
-        guard let search = self.search, case .Location(_) = search else {
-            return
-        }
-        
-        // Ensure status is not restricted or denied
-        if self.hasLocationAccess() {
-            self.updateLocation()
-        } else {
-            self.displayZeroState(self.zeroStateNoLocationPermissionView)
-        }
-    }
-    
-    // Location specific
-    private func hasLocationAccess() -> Bool {
-        return ![.restricted, .denied].contains(CLLocationManager.authorizationStatus())
-    }
-    
     // Start loading areas
-    private func startLoading() {
+    public func startLoading() {
         self.tableView.separatorStyle = .none
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         self.tableView.backgroundView = self.activityIndicatorView
@@ -289,11 +326,11 @@ public class StateAreaSearchProviderImpl: AreaSearchProvider {
     }
     
     // Stop loading areas
-    private func stopLoading() {
+    public func stopLoading() {
         DispatchQueue.main.async {
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             self.activityIndicatorView.stopAnimating()
-            self.tableView.separatorStyle = .singleLine
+            //self.tableView.separatorStyle = .singleLine
             self.refreshControl?.endRefreshing()
         }
     }
@@ -328,47 +365,7 @@ public class StateAreaSearchProviderImpl: AreaSearchProvider {
         }
     }
     
-    // Location specific
-    private func checkLocationAuthorization(manager: CLLocationManager) {
-        let authStatus = CLLocationManager.authorizationStatus()
-        
-        // Ensure status is not restricted or denied
-        guard ![.restricted, .denied].contains(authStatus) else {
-            return
-        }
-        switch CLLocationManager.authorizationStatus() {
-        case .denied, .restricted:
-            return
-        case .notDetermined:
-            manager.requestWhenInUseAuthorization()
-        case .authorizedAlways, .authorizedWhenInUse:
-            break
-        }
-    }
-    
-    // Location specific
-    func setupLocationManager() {
-        if self.locationManager == nil {
-            self.locationManager = CLLocationManager()
-            locationManager?.delegate = self
-        }
-    }
-    
-    // Location specific
-    func updateLocation() {
-        
-        self.setupLocationManager()
-        
-        guard let locationManager = self.locationManager else {
-            return
-        }
-        
-        self.startLoading()
-        
-        self.checkLocationAuthorization(manager: locationManager)
-        
-        locationManager.requestLocation()
-    }
+
     
     // MARK: - Table view data source
     
@@ -428,34 +425,6 @@ public class StateAreaSearchProviderImpl: AreaSearchProvider {
         return tabController
     }
  
-}
-
-extension AreasViewController: CLLocationManagerDelegate {
-    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        if let location = locations.last {
-            let coordinate = location.coordinate
-            self.search = AreaSearch.Location(Location(latitude: String(coordinate.latitude), longitude: String(coordinate.longitude)))
-            self.fetchAreas()
-        }
-    }
-    
-    public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Location manager failed with \(error)")
-        DispatchQueue.main.async {
-            if self.areas.count == 0 {
-                self.displayZeroState(self.zeroStateLocationFailureView)
-            }
-        }
-        
-    }
-}
-
-extension AreasViewController: ZeroStateDelegate {
-    
-    public func buttonTapped() {
-        print("Button Tapped")
-    }
 }
 
 fileprivate extension Selector {

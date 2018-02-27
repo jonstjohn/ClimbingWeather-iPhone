@@ -33,18 +33,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
 
-        self.setupDatabase()
         self.setupWindow()
         
         Fabric.with([Crashlytics.self])
         
         return true
         
-    }
-    
-    func setupDatabase() {
-        //let areas = CWDatabase.sharedInstance?.favorites()
-        //print(areas)
     }
     
     func setupWindow() {
@@ -56,9 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         vc1.tabBarItem = UITabBarItem(title: self.homeTitle, image: self.homeTabImage, selectedImage: self.homeTabImage)
         
         let vc2 = AreasViewController()
-        let latitude = "37.7397"
-        let longitude = "-119.5740"
-        vc2.search = .Location(Location(latitude: latitude, longitude: longitude))
+        vc2.searchProvider = NearbyAreaSearchProviderImpl(areasController: vc2)
         vc2.tabBarItem = UITabBarItem(title: self.nearbyTitle, image: self.nearbyTabImage, selectedImage: self.nearbyTabImage)
         
         let vc3 = StatesViewController()
@@ -67,11 +59,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         let vc4 = AreasViewController()
         vc4.searchProvider = FavoritesAreaSearchProviderImpl(areasController: vc4)
         vc4.tabBarItem = UITabBarItem(title: self.favoritesTitle, image: self.favoritesTabImage, selectedImage: self.favoritesTabImage)
-        vc4.search = .ByID([])
         
         let vc5 = AreasViewController()
         vc5.searchProvider = TermAreaSearchProviderImpl(areasController: vc5)
-        vc5.search = .Term("")
         vc5.tabBarItem = UITabBarItem(title: self.searchTitle, image: self.searchTabImage, selectedImage: self.searchTabImage)
         
         tabController.viewControllers = [vc1, vc2, vc3, vc4, vc5]
