@@ -65,10 +65,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         vc3.tabBarItem = UITabBarItem(title: self.stateTitle, image: self.stateTabImage, selectedImage: self.stateTabImage)
         
         let vc4 = AreasViewController()
+        vc4.searchProvider = FavoritesAreaSearchProviderImpl(areasController: vc4)
         vc4.tabBarItem = UITabBarItem(title: self.favoritesTitle, image: self.favoritesTabImage, selectedImage: self.favoritesTabImage)
-        vc4.search = .Areas([])
+        vc4.search = .ByID([])
         
         let vc5 = AreasViewController()
+        vc5.searchProvider = TermAreaSearchProviderImpl(areasController: vc5)
         vc5.search = .Term("")
         vc5.tabBarItem = UITabBarItem(title: self.searchTitle, image: self.searchTabImage, selectedImage: self.searchTabImage)
         

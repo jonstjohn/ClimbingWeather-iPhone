@@ -391,7 +391,7 @@ struct Areas {
     }
     
     // TODO - implement search term / criteria, API key, units, maybe even days
-    static func fetchDaily(search: Search, completion: @escaping (Areas) -> Void) {
+    static func fetchDaily(search: AreaSearch, completion: @escaping (Areas) -> Void) {
         
         let session = URLSession(configuration: URLSessionConfiguration.default)
         
