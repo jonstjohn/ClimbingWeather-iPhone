@@ -28,7 +28,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <string key="text">Version 1.3 
+                    <string key="text">
 © ClimbingWeather.com 2018
 
 ClimbingWeather.com and the ClimbingWeather.com logos are trademarks of ClimbingWeather.com. All rights reserved.
