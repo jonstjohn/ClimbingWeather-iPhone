@@ -15,7 +15,6 @@ public protocol AreaSearchProvider {
     var title: String { get }
     func startSearching()
     func initializeController()
-    //func areasFetched(areas: [Area])
 }
 
 public class FavoritesAreaSearchProviderImpl: AreaSearchProvider {
@@ -25,7 +24,7 @@ public class FavoritesAreaSearchProviderImpl: AreaSearchProvider {
     
     private weak var areasController: AreasViewController?
     
-    private let zeroStateNoFavorites = ZeroStateNoFavorites()
+    private lazy var zeroStateNoFavorites = ZeroStateNoFavorites()
     
     public init(areasController: AreasViewController) {
         self.areasController = areasController
@@ -182,8 +181,8 @@ public class NearbyAreaSearchProviderImpl: NSObject, AreaSearchProvider {
     private let locationManager = CLLocationManager()
     private var lastLocation: CLLocation?
     
-    private let zeroStateNoLocationPermissionView = ZeroStateLocationNotEnabled()
-    private let zeroStateLocationFailureView = ZeroStateFailedToAcquireLocation()
+    private lazy var zeroStateNoLocationPermissionView = ZeroStateLocationNotEnabled()
+    private lazy var zeroStateLocationFailureView = ZeroStateFailedToAcquireLocation()
     
     public init(areasController: AreasViewController) {
         self.areasController = areasController
@@ -276,7 +275,7 @@ extension NearbyAreaSearchProviderImpl: ZeroStateDelegate {
     let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     
     // Zero state no results
-    let zeroStateNoAreasFound = ZeroStateNoAreasFound()
+    private lazy var zeroStateNoAreasFound = ZeroStateNoAreasFound()
     
     override public func viewDidLoad() {
         
