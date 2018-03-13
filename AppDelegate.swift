@@ -20,16 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     let homeTabImage = UIImage(named: "Home")
     
     let nearbyTitle = "Nearby"
-    let nearbyTabImage = UIImage(named: "Location.png")
+    let nearbyTabImage = UIImage(named: "Location")
     
     let stateTitle = "By State"
-    let stateTabImage = UIImage(named: "Capitol.png")
+    let stateTabImage = UIImage(named: "Capitol")
     
     let favoritesTitle = "Favorites"
-    let favoritesTabImage = UIImage(named: "Star.png")
+    let favoritesTabImage = UIImage(named: "Star")
     
     let searchTitle = "Search"
-    let searchTabImage = UIImage(named: "Search.png")
+    let searchTabImage = UIImage(named: "Search")
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
 
