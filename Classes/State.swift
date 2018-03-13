@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct State {
+public struct State {
     let name: String
     let areas: Int
     let code: String
 }
 
-struct States {
+public struct States {
     
     var states = [State]()
     

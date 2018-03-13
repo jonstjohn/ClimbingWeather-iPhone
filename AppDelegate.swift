@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     var window: UIWindow?
     
     let homeTitle = "Home"
-    let homeTabImage = UIImage(named: "Home.png")
+    let homeTabImage = UIImage(named: "Home")
     
     let nearbyTitle = "Nearby"
     let nearbyTabImage = UIImage(named: "Location.png")
@@ -33,18 +33,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
 
-        self.setupDatabase()
         self.setupWindow()
         
         Fabric.with([Crashlytics.self])
         
         return true
         
-    }
-    
-    func setupDatabase() {
-        //let areas = CWDatabase.sharedInstance?.favorites()
-        //print(areas)
     }
     
     func setupWindow() {
@@ -56,18 +50,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         vc1.tabBarItem = UITabBarItem(title: self.homeTitle, image: self.homeTabImage, selectedImage: self.homeTabImage)
         
         let vc2 = AreasViewController()
-        vc2.setSearchAsLocation(latitude: "37.7397", longitude: "-119.5740")
+        vc2.searchProvider = NearbyAreaSearchProviderImpl(areasController: vc2)
         vc2.tabBarItem = UITabBarItem(title: self.nearbyTitle, image: self.nearbyTabImage, selectedImage: self.nearbyTabImage)
         
         let vc3 = StatesViewController()
         vc3.tabBarItem = UITabBarItem(title: self.stateTitle, image: self.stateTabImage, selectedImage: self.stateTabImage)
         
         let vc4 = AreasViewController()
+        vc4.searchProvider = FavoritesAreaSearchProviderImpl(areasController: vc4)
         vc4.tabBarItem = UITabBarItem(title: self.favoritesTitle, image: self.favoritesTabImage, selectedImage: self.favoritesTabImage)
-        vc4.setSearchAsFavorites()
         
         let vc5 = AreasViewController()
-        vc5.search = .Term("")
+        vc5.searchProvider = TermAreaSearchProviderImpl(areasController: vc5)
         vc5.tabBarItem = UITabBarItem(title: self.searchTitle, image: self.searchTabImage, selectedImage: self.searchTabImage)
         
         tabController.viewControllers = [vc1, vc2, vc3, vc4, vc5]

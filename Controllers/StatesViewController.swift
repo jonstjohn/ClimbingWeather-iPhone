@@ -74,7 +74,7 @@ import UIKit
         //let state = self.states[indexPath.row]
         let controller = AreasViewController()
         let state = self.states[indexPath.row]
-        controller.search = Search.State(state)
+        controller.searchProvider = StateAreaSearchProviderImpl(areasController: controller, state: state)
         self.navigationController?.pushViewController(controller, animated: true)
         
     }
