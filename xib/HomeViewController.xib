@@ -49,7 +49,7 @@
                                         <outlet property="delegate" destination="-1" id="Em2-3R-j3e"/>
                                     </connections>
                                 </textField>
-                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Search.png" translatesAutoresizingMaskIntoConstraints="NO" id="Rx2-QD-ZAd">
+                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Search" translatesAutoresizingMaskIntoConstraints="NO" id="Rx2-QD-ZAd">
                                     <rect key="frame" x="317" y="0.0" width="26" height="30"/>
                                 </imageView>
                             </subviews>
@@ -60,7 +60,7 @@
                                 <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hsb-2r-Uvf">
                                     <rect key="frame" x="0.0" y="0.0" width="343" height="26"/>
                                     <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    <state key="normal" title="About / Settings" image="Settings.png">
+                                    <state key="normal" title="About / Settings" image="Settings">
                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <connections>
@@ -70,7 +70,7 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tet-Ev-Yj3">
                                     <rect key="frame" x="0.0" y="41" width="343" height="26"/>
                                     <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    <state key="normal" title="Nearby Areas" image="Location.png">
+                                    <state key="normal" title="Nearby Areas" image="Location">
                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <connections>
@@ -80,7 +80,7 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gn9-oG-qTP">
                                     <rect key="frame" x="0.0" y="82" width="343" height="26"/>
                                     <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    <state key="normal" title="By State" image="Capitol.png">
+                                    <state key="normal" title="By State" image="Capitol">
                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <connections>
@@ -90,7 +90,7 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zm3-gv-clS">
                                     <rect key="frame" x="0.0" y="123" width="343" height="26"/>
                                     <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    <state key="normal" title="Favorites" image="Star.png">
+                                    <state key="normal" title="Favorites" image="Star">
                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <connections>
@@ -113,11 +113,11 @@
         </view>
     </objects>
     <resources>
-        <image name="Capitol.png" width="26" height="26"/>
-        <image name="Location.png" width="26" height="26"/>
-        <image name="Search.png" width="26" height="26"/>
-        <image name="Settings.png" width="26" height="26"/>
-        <image name="Star.png" width="26" height="26"/>
+        <image name="Capitol" width="26" height="26"/>
+        <image name="Location" width="26" height="26"/>
+        <image name="Search" width="26" height="26"/>
+        <image name="Settings" width="26" height="26"/>
+        <image name="Star" width="26" height="26"/>
         <image name="top_center_icon" width="200" height="159"/>
     </resources>
 </document>

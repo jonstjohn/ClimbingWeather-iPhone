@@ -48,11 +48,11 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         let tabBarController = UITabBarController()
         
         let settingsViewController = SettingsViewController()
-        let settingsTabImage = UIImage(named: "20-gear2.png")
+        let settingsTabImage = UIImage(named: "20-gear2")
         settingsViewController.tabBarItem = UITabBarItem(title: "Settings", image: settingsTabImage, selectedImage: settingsTabImage)
         
         let aboutViewController = AboutViewController()
-        let aboutTabImage = UIImage(named: "icon_information.png")
+        let aboutTabImage = UIImage(named: "icon_information")
         aboutViewController.tabBarItem = UITabBarItem(title: "About", image: aboutTabImage, selectedImage: aboutTabImage)
         
         tabBarController.viewControllers = [aboutViewController, settingsViewController]

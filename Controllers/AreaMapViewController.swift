@@ -85,7 +85,7 @@ class AreaMapViewController: UIViewController, MKMapViewDelegate {
         }
         
         let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-        annotationView.image = UIImage(named: "climbing.png")
+        annotationView.image = UIImage(named: "climbing")
         annotationView.canShowCallout = true
         return annotationView
         
