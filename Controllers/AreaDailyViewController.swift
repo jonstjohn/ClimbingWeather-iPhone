@@ -42,10 +42,10 @@ class AreaDailyViewController: UITableViewController {
         do {
             if try area.isFavorite() {
                 try area.removeFavorite()
-                sender.image = UIImage(named: "Star.png")
+                sender.image = UIImage(named: "Star")
             } else {
                 try area.addFavorite()
-                sender.image = UIImage(named: "StarYellowFilled.png")
+                sender.image = UIImage(named: "StarYellowFilled")
             }
         } catch {
             return
@@ -112,8 +112,8 @@ class AreaDailyViewController: UITableViewController {
                         return
                     }
                     
-                    let starOn = UIImage(named: "StarYellowFilled.png")
-                    let starOff = UIImage(named: "Star.png")
+                    let starOn = UIImage(named: "StarYellowFilled")
+                    let starOff = UIImage(named: "Star")
                     do {
                         // Setup favorite item
                         let favoriteImage = try area.isFavorite() ? starOn : starOff
@@ -121,7 +121,7 @@ class AreaDailyViewController: UITableViewController {
                         favoriteItem.tintColor = UIColor.init(red: 241/255, green: 196/255, blue: 15/255, alpha: 1)
                         
                         // Setup info item
-                        //let infoItem = UIBarButtonItem(image: UIImage(named: "Info.png"), style: .plain, target: self, action: #selector(self.info(sender:)))
+                        //let infoItem = UIBarButtonItem(image: UIImage(named: "Info"), style: .plain, target: self, action: #selector(self.info(sender:)))
                         
                         let items = [favoriteItem] // [favoriteItem, infoItem]
                         

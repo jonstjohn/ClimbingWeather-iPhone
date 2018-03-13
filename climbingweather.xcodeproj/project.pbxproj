@@ -194,12 +194,10 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				608A5A151FAE30DF00324097 /* Appicon.xcassets */,
 				60A75D8D1E419A7C005EEE1F /* Images.xcassets */,
 				60D99E091355279200B238D5 /* iTunesArtwork */,
-				608DE46D12FCF36C00AE172C /* navicon */,
-				608DE46C12FCF25A00AE172C /* symbol */,
 				8D1107310486CEB800E47090 /* climbingweather-Info.plist */,
-				608A5A151FAE30DF00324097 /* Appicon.xcassets */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -277,20 +275,6 @@
 			);
 			name = Cells;
 			path = ..;
-			sourceTree = "<group>";
-		};
-		608DE46C12FCF25A00AE172C /* symbol */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = symbol;
-			sourceTree = "<group>";
-		};
-		608DE46D12FCF36C00AE172C /* navicon */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = navicon;
 			sourceTree = "<group>";
 		};
 		60ADE8C31E8A8D570040A472 /* Storyboards */ = {

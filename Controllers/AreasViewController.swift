@@ -413,18 +413,18 @@ extension NearbyAreaSearchProviderImpl: ZeroStateDelegate {
         let dailyController = AreaDailyViewController()
         let tbi = UITabBarItem()
         tbi.title = "Daily"
-        tbi.image = UIImage(named: "icon_calendar.png")
+        tbi.image = UIImage(named: "icon_calendar")
         dailyController.tabBarItem = tbi
         dailyController.areaId = area.id
         
         let hourlyController = AreaHourlyViewController()
         hourlyController.tabBarItem.title = "Hourly"
-        hourlyController.tabBarItem.image = UIImage(named: "icon_time.png")
+        hourlyController.tabBarItem.image = UIImage(named: "icon_time")
         hourlyController.areaId = area.id
         
         let mapController = AreaMapViewController()
         mapController.tabBarItem.title = "Map"
-        mapController.tabBarItem.image = UIImage(named: "icon_blog.png")
+        mapController.tabBarItem.image = UIImage(named: "icon_blog")
         mapController.areaId = area.id
         
         let tabController = UITabBarController()
