@@ -12,7 +12,7 @@ import CoreLocation
 
 public protocol AreaSearchProvider {
     var search: AreaSearch? { get set }
-    func tabTitle() -> String
+    var title: String { get }
     func startSearching()
     func initializeController()
     //func areasFetched(areas: [Area])
@@ -21,9 +21,9 @@ public protocol AreaSearchProvider {
 public class FavoritesAreaSearchProviderImpl: AreaSearchProvider {
     
     public var search: AreaSearch?
+    public let title = "Favorites"
     
-    private let searchController = UISearchController(searchResultsController: nil)
-    private let areasController: AreasViewController
+    private weak var areasController: AreasViewController?
     
     private let zeroStateNoFavorites = ZeroStateNoFavorites()
     
@@ -31,19 +31,15 @@ public class FavoritesAreaSearchProviderImpl: AreaSearchProvider {
         self.areasController = areasController
     }
     
-    public func tabTitle() -> String {
-        return "Favorites"
-    }
-    
     public func startSearching() {
         self.search = self.favoritesAsSearch()
         
         guard let search = self.search, !search.empty() else {
-            self.areasController.displayZeroState(self.zeroStateNoFavorites)
+            self.areasController?.displayZeroState(self.zeroStateNoFavorites)
             return
         }
         
-        self.areasController.fetchAreas()
+        self.areasController?.fetchAreas()
     }
     
     public func initializeController() {
@@ -68,17 +64,15 @@ public class FavoritesAreaSearchProviderImpl: AreaSearchProvider {
 public class TermAreaSearchProviderImpl: NSObject, AreaSearchProvider {
     
     public var search: AreaSearch?
+    public let title = "Search"
+    private var lastTerm: String?
     
     private let searchController = UISearchController(searchResultsController: nil)
-    private let areasController: AreasViewController
+    private weak var areasController: AreasViewController?
     
     public init(areasController: AreasViewController) {
         self.search = .Term("")
         self.areasController = areasController
-    }
-    
-    public func tabTitle() -> String {
-        return "Search"
     }
     
     public func startSearching() {
@@ -97,10 +91,26 @@ public class TermAreaSearchProviderImpl: NSObject, AreaSearchProvider {
         searchController.dimsBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.placeholder = "Enter area name or zip code"
-        self.areasController.definesPresentationContext = true
-        self.areasController.tableView.tableHeaderView = searchController.searchBar
+        searchController.delegate = self
+        
+        self.areasController?.definesPresentationContext = true
+        self.areasController?.tableView.tableHeaderView = searchController.searchBar
+    }
+    
+    private func shouldSearchLocation(_ term: String) -> Bool {
+        return term != self.lastTerm
     }
 
+}
+
+extension TermAreaSearchProviderImpl: UISearchControllerDelegate {
+    public func didDismissSearchController(_ searchController: UISearchController) {
+        print("Dismissed search controller")
+    }
+    
+    public func didPresentSearchController(_ searchController: UISearchController) {
+        print("Presented search controller")
+    }
 }
 
 extension TermAreaSearchProviderImpl: UISearchResultsUpdating {
@@ -112,9 +122,25 @@ extension TermAreaSearchProviderImpl: UISearchResultsUpdating {
         self.perform(#selector(TermAreaSearchProviderImpl.updateTerm), with: nil, afterDelay: 0.5)
     }
     
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        // Stop doing the search stuff
+        // and clear the text in the search bar
+        searchBar.text = ""
+        // Hide the cancel button
+        searchBar.showsCancelButton = false
+        // You could also change the position, frame etc of the searchBar
+    }
+    
     @objc func updateTerm() {
-        self.search = .Term(self.searchController.searchBar.text ?? "")
-        self.areasController.fetchAreas()
+        let term = self.searchController.searchBar.text ?? ""
+        self.search = .Term(term)
+        
+        guard self.shouldSearchLocation(term) else {
+            return
+        }
+        
+        //self.lastTerm = term
+        self.areasController?.fetchAreas()
     }
     
     
@@ -123,8 +149,9 @@ extension TermAreaSearchProviderImpl: UISearchResultsUpdating {
 public class StateAreaSearchProviderImpl: AreaSearchProvider {
     
     public var search: AreaSearch?
+    public let title = "States"
     
-    private let areasController: AreasViewController
+    private weak var areasController: AreasViewController?
     private let state: State
     
     public init(areasController: AreasViewController, state: State) {
@@ -133,12 +160,8 @@ public class StateAreaSearchProviderImpl: AreaSearchProvider {
         self.search = .State(state)
     }
     
-    public func tabTitle() -> String {
-        return "States"
-    }
-    
     public func startSearching() {
-        self.areasController.fetchAreas()
+        self.areasController?.fetchAreas()
     }
     
     public func initializeController() {
@@ -150,10 +173,14 @@ public class StateAreaSearchProviderImpl: AreaSearchProvider {
 public class NearbyAreaSearchProviderImpl: NSObject, AreaSearchProvider {
     
     public var search: AreaSearch?
+    public let title = "Nearby Areas"
     
-    private let areasController: AreasViewController
+    private let SEARCH_DISTANCE = 1000.0
     
-    private var locationManager: CLLocationManager?
+    private weak var areasController: AreasViewController?
+    
+    private let locationManager = CLLocationManager()
+    private var lastLocation: CLLocation?
     
     private let zeroStateNoLocationPermissionView = ZeroStateLocationNotEnabled()
     private let zeroStateLocationFailureView = ZeroStateFailedToAcquireLocation()
@@ -162,88 +189,64 @@ public class NearbyAreaSearchProviderImpl: NSObject, AreaSearchProvider {
         self.areasController = areasController
     }
     
-    public func tabTitle() -> String {
-        return "Nearby Areas"
-    }
-    
-    public func startSearching() {
-        // Ensure status is not restricted or denied
-        if self.hasLocationAccess() {
-            self.updateLocation()
-        } else {
-            self.areasController.displayZeroState(self.zeroStateNoLocationPermissionView)
-        }
-    }
-    
     public func initializeController() {
         self.zeroStateNoLocationPermissionView.delegate = self
+        self.locationManager.delegate = self
         return
     }
     
-    // Location specific
-    private func hasLocationAccess() -> Bool {
-        return ![.restricted, .denied].contains(CLLocationManager.authorizationStatus())
-    }
-    
-    // Location specific
-    private func checkLocationAuthorization(manager: CLLocationManager) {
-        let authStatus = CLLocationManager.authorizationStatus()
-        
-        // Ensure status is not restricted or denied
-        guard ![.restricted, .denied].contains(authStatus) else {
-            return
-        }
+    public func startSearching() {
         switch CLLocationManager.authorizationStatus() {
-        case .denied, .restricted:
-            return
-        case .notDetermined:
-            manager.requestWhenInUseAuthorization()
-        case .authorizedAlways, .authorizedWhenInUse:
-            break
+        case .authorizedAlways, .authorizedWhenInUse: // if authorized, start monitoring for changes
+            self.areasController?.startLoading()
+            locationManager.requestLocation()
+        case .denied, .restricted: // if denied or restricted, show no permission screen
+            self.areasController?.displayZeroState(self.zeroStateNoLocationPermissionView)
+        case .notDetermined: // if not yet prompted, request location
+            self.locationManager.requestWhenInUseAuthorization()
         }
     }
     
-    // Location specific
-    private func setupLocationManager() {
-        if self.locationManager == nil {
-            self.locationManager = CLLocationManager()
-            locationManager?.delegate = self
-        }
-    }
-    
-    // Location specific
-    private func updateLocation() {
+    private func shouldSearchLocation(_ location: CLLocation) -> Bool {
         
-        self.setupLocationManager()
-        
-        guard let locationManager = self.locationManager else {
-            return
+        guard let lastLocation = self.lastLocation else {
+            return true
         }
         
-        self.areasController.startLoading()
-        
-        self.checkLocationAuthorization(manager: locationManager)
-        
-        locationManager.requestLocation()
+        return location.distance(from: lastLocation) > SEARCH_DISTANCE
     }
     
 }
 
 extension NearbyAreaSearchProviderImpl: CLLocationManagerDelegate {
+    
+    public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if [.authorizedAlways, .authorizedWhenInUse].contains(status) { // if authorized, start monitoring for changes
+            self.areasController?.startLoading()
+            locationManager.requestLocation()
+        } else {
+            self.areasController?.displayZeroState(self.zeroStateNoLocationPermissionView)
+        }
+    }
+    
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        if let location = locations.last {
-            let coordinate = location.coordinate
-            self.search = AreaSearch.Location(Location(latitude: String(coordinate.latitude), longitude: String(coordinate.longitude)))
-            self.areasController.fetchAreas()
+        guard let location = locations.last, self.shouldSearchLocation(location) else {
+            return
         }
+
+        self.lastLocation = location
+        let coordinate = location.coordinate
+        self.search = AreaSearch.Location(Location(latitude: String(coordinate.latitude), longitude: String(coordinate.longitude)))
+        self.areasController?.fetchAreas()
+
     }
     
     public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Location manager failed with \(error)")
         DispatchQueue.main.async {
-            if self.areasController.areas.count == 0 {
-                self.areasController.displayZeroState(self.zeroStateLocationFailureView)
+            if self.areasController?.areas.count == 0 {
+                self.areasController?.displayZeroState(self.zeroStateLocationFailureView)
             }
         }
         
@@ -253,7 +256,10 @@ extension NearbyAreaSearchProviderImpl: CLLocationManagerDelegate {
 extension NearbyAreaSearchProviderImpl: ZeroStateDelegate {
     
     public func buttonTapped() {
-        print("Button Tapped")
+        guard let url = URL(string: UIApplicationOpenSettingsURLString) else {
+            return
+        }
+        UIApplication.shared.open(url, completionHandler: nil)
     }
 }
 
@@ -305,7 +311,7 @@ extension NearbyAreaSearchProviderImpl: ZeroStateDelegate {
         
         self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Areas", style: .plain, target: nil, action: nil)
         
-        self.tabBarController?.title = self.searchProvider?.tabTitle() ?? "N/A"
+        self.tabBarController?.title = self.searchProvider?.title ?? "N/A"
         
         self.searchProvider?.startSearching()
         
@@ -313,6 +319,8 @@ extension NearbyAreaSearchProviderImpl: ZeroStateDelegate {
     }
     
     public func displayZeroState(_ view: ZeroState) {
+        self.areas = [Area]()
+        self.tableView.reloadData()
         self.tableView.separatorStyle = .none
         self.tableView.backgroundView = view
     }
@@ -337,31 +345,38 @@ extension NearbyAreaSearchProviderImpl: ZeroStateDelegate {
     
     // Update search
     @objc public func fetchAreas() {
-        if let search = self.searchProvider?.search {
+        
+        guard let search = self.searchProvider?.search else {
+            return
+        }
             
-            self.areas = [Area]()
-            self.tableView.reloadData()
-            
-            if search.empty() {
-                self.displayZeroState(self.zeroStateNoAreasFound)
-                return
-            }
-            
-            self.startLoading()
-            
-            DispatchQueue.global(qos: .userInteractive).async {
-                Areas.fetchDaily(search: search, completion: { (areas) in
-                    self.areas = areas.areas
-                    
-                    DispatchQueue.main.async {
-                        if areas.areas.count == 0 {
-                            self.displayZeroState(self.zeroStateNoAreasFound)
-                        }
-                        self.stopLoading()
-                        self.tableView.reloadData()
+        self.areas = [Area]()
+        self.tableView.reloadData()
+        
+        if search.empty() {
+            self.displayZeroState(self.zeroStateNoAreasFound)
+            return
+        }
+        
+        self.startLoading()
+        
+        DispatchQueue.global(qos: .userInteractive).async {
+            Areas.fetchDaily(search: search, completion: { [weak self] (areas) in
+                
+                guard let `self` = self else {
+                    return
+                }
+                
+                self.areas = areas.areas
+                
+                DispatchQueue.main.async {
+                    if areas.areas.count == 0 {
+                        self.displayZeroState(self.zeroStateNoAreasFound)
                     }
-                })
-            }
+                    self.stopLoading()
+                    self.tableView.reloadData()
+                }
+            })
         }
     }
     

@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     var window: UIWindow?
     
     let homeTitle = "Home"
-    let homeTabImage = UIImage(named: "Home.png")
+    let homeTabImage = UIImage(named: "Home")
     
     let nearbyTitle = "Nearby"
     let nearbyTabImage = UIImage(named: "Location.png")
