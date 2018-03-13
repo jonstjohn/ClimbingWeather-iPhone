@@ -11,7 +11,7 @@ import Foundation
 /**
  * Location
  */
-struct Location {
+public struct Location {
     let latitude: String
     let longitude: String
 }
@@ -19,11 +19,24 @@ struct Location {
 /**
  * Search types for use with API searches
  */
-enum Search {
+public enum AreaSearch {
     case Term(String)
     case Location(Location)
     case State(State)
-    case Areas([Int])
+    case ByID([Int])
+    
+    public func empty() -> Bool {
+        switch self {
+        case .Term(let term):
+            return term.count == 0
+        case .Location(_):
+            return false
+        case .State(_):
+            return false
+        case .ByID(let areas):
+            return areas.count == 0
+        }
+    }
 }
 
 /**
@@ -98,7 +111,7 @@ struct APIUrl {
     /**
      * Generate a search URL
      */
-    func searchURL(search: Search, days: Int = 3) -> URLComponents {
+    func searchURL(search: AreaSearch, days: Int = 3) -> URLComponents {
         
         let queryItems = [
             URLQueryItem(name: "days", value: String(days)),
@@ -110,7 +123,7 @@ struct APIUrl {
             return url(withPath: self.searchPath + "/" + term, queryItems: queryItems)
         case .Location(let location):
             return url(withPath: self.searchPath + "/" + String(format: "%@,%@", location.latitude, location.longitude), queryItems: queryItems)
-        case .Areas(let areaIds):
+        case .ByID(let areaIds):
             return url(withPath: self.searchPath + "/ids-" + areaIds.map({String($0)}).joined(separator: ","), queryItems: queryItems)
         }
     }

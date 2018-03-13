@@ -63,7 +63,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         
         if let searchController = self.tabBarController?.viewControllers?[4] as? AreasViewController {
-            searchController.search = .Term(textField.text ?? "")
+            searchController.searchProvider?.search = .Term(textField.text ?? "")
         }
         
         self.tabBarController?.selectedIndex = 4

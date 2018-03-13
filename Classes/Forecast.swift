@@ -65,7 +65,7 @@ enum Symbol: String {
 
 }
 
-struct ForecastDay {
+public struct ForecastDay {
     let date: Date
     let day: String?
     let dateFormatted: String?
@@ -192,7 +192,7 @@ struct ForecastDay {
     }
 }
 
-struct ForecastHour {
+public struct ForecastHour {
     let day: String?
     let time: String?
     let temperature: Int?
