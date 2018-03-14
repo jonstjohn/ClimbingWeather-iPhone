@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,79 +21,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="QW7-hE-Jgn">
-                                <rect key="frame" x="16" y="139.5" width="343" height="388"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XuL-Hf-8iU" userLabel="Logo Stack">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="159"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_center_icon" translatesAutoresizingMaskIntoConstraints="NO" id="i7B-QA-5KP" userLabel="Logo">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="159"/>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="i7B-QA-5KP" firstAttribute="centerX" secondItem="XuL-Hf-8iU" secondAttribute="centerX" id="966-fL-Giw"/>
-                                            <constraint firstItem="i7B-QA-5KP" firstAttribute="centerY" secondItem="XuL-Hf-8iU" secondAttribute="centerY" id="gg8-dg-OmG"/>
-                                        </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="66E-0O-nUJ" userLabel="Search Stack View">
-                                        <rect key="frame" x="0.0" y="184" width="343" height="30"/>
-                                        <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Area name, state or zip code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rgr-xb-CGI" userLabel="Search Input">
-                                                <rect key="frame" x="0.0" y="0.0" width="307" height="30"/>
-                                                <accessibility key="accessibilityConfiguration" hint="Area name, state or zip code"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="search"/>
-                                            </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Search" translatesAutoresizingMaskIntoConstraints="NO" id="Kwd-q4-N0S">
-                                                <rect key="frame" x="317" y="0.0" width="26" height="30"/>
-                                            </imageView>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Wl0-w7-wb7" userLabel="Navigation Stack View">
-                                        <rect key="frame" x="0.0" y="239" width="343" height="149"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNJ-6R-8Sr">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="26"/>
-                                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="About / Settings" image="Settings">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Siu-S4-lQi">
-                                                <rect key="frame" x="0.0" y="41" width="343" height="26"/>
-                                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="Nearby Areas" image="Location">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBR-35-h0H">
-                                                <rect key="frame" x="0.0" y="82" width="343" height="26"/>
-                                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="By State" image="Capitol">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sSI-dA-jxu">
-                                                <rect key="frame" x="0.0" y="123" width="343" height="26"/>
-                                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="Favorites" image="Star">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_center_icon" translatesAutoresizingMaskIntoConstraints="NO" id="i7B-QA-5KP" userLabel="Logo">
+                                <rect key="frame" x="87.5" y="254" width="200" height="159"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="QW7-hE-Jgn" secondAttribute="trailing" id="0ji-4Q-w8L"/>
-                            <constraint firstItem="QW7-hE-Jgn" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="7Gh-NC-HIf"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="QW7-hE-Jgn" secondAttribute="leading" id="Nc5-Rl-b4G"/>
-                            <constraint firstItem="QW7-hE-Jgn" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ti2-jQ-qg0"/>
+                            <constraint firstItem="i7B-QA-5KP" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Zg3-81-Lcn"/>
+                            <constraint firstItem="i7B-QA-5KP" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="m0L-QB-xOx"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -104,11 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Capitol" width="26" height="26"/>
-        <image name="Location" width="26" height="26"/>
-        <image name="Search" width="26" height="26"/>
-        <image name="Settings" width="26" height="26"/>
-        <image name="Star" width="26" height="26"/>
         <image name="top_center_icon" width="200" height="159"/>
     </resources>
 </document>
