@@ -92,7 +92,7 @@ public class TermAreaSearchProviderImpl: NSObject, AreaSearchProvider {
         searchController.searchBar.placeholder = "Enter area name or zip code"
         searchController.delegate = self
         
-        self.areasController?.definesPresentationContext = true
+        self.areasController?.tabBarController?.definesPresentationContext = true
         self.areasController?.tableView.tableHeaderView = searchController.searchBar
     }
     
@@ -138,7 +138,7 @@ extension TermAreaSearchProviderImpl: UISearchResultsUpdating {
             return
         }
         
-        //self.lastTerm = term
+        self.lastTerm = term
         self.areasController?.fetchAreas()
     }
     
@@ -307,6 +307,12 @@ extension NearbyAreaSearchProviderImpl: ZeroStateDelegate {
         
         self.tabBarController?.title = "Areas"
         self.navigationController?.isNavigationBarHidden = false
+    
+//        self.tabBarController?.navigationItem.setRightBarButton(
+//            UIBarButtonItem(
+//                barButtonSystemItem: .search, target: self, action: .searchAreas
+//            ),
+//        animated: false)
         
         self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Areas", style: .plain, target: nil, action: nil)
         
@@ -438,11 +444,17 @@ extension NearbyAreaSearchProviderImpl: ZeroStateDelegate {
         tabController.navigationItem.title = area.name
         return tabController
     }
+    
+    @objc public func showSearch() {
+        print("Show search")
+    }
  
 }
 
 fileprivate extension Selector {
     
     static let refreshAreas = #selector(AreasViewController.fetchAreas)
+    
+    static let searchAreas = #selector(AreasViewController.showSearch)
     
 }
