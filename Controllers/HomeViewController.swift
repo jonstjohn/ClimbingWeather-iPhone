@@ -13,9 +13,18 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var searchField: UITextField!
     
+    let homeTitle = "Home"
+    let homeTabImage = UIImage(named: "Home")
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        self.tabBarItem = UITabBarItem(
+            title: self.homeTitle,
+            image: self.homeTabImage,
+            selectedImage: self.homeTabImage
+        )
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)

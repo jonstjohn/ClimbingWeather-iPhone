@@ -10,12 +10,23 @@ import Foundation
 import UIKit
 import CoreLocation
 
+enum AreasControllerType {
+    case search
+    case favorites
+    case nearby
+}
+
 public protocol AreaSearchProvider {
     var search: AreaSearch? { get set }
     var title: String { get }
     func startSearching()
     func initializeController()
 }
+
+//public protocol AreaSearchUpdater {
+//    func displayZeroState(zeroState: ZeroState, emptyResultsOnly: Bool)
+//    func fetchAreas()
+//}
 
 public class FavoritesAreaSearchProviderImpl: AreaSearchProvider {
     
@@ -92,7 +103,7 @@ public class TermAreaSearchProviderImpl: NSObject, AreaSearchProvider {
         searchController.searchBar.placeholder = "Enter area name or zip code"
         searchController.delegate = self
         
-        self.areasController?.tabBarController?.definesPresentationContext = true
+        self.areasController?.definesPresentationContext = true
         self.areasController?.tableView.tableHeaderView = searchController.searchBar
     }
     
@@ -262,6 +273,42 @@ extension NearbyAreaSearchProviderImpl: ZeroStateDelegate {
     }
 }
 
+public struct AreasViewControllerFactory {
+    
+    let nearbyTitle = "Nearby"
+    let nearbyTabImage = UIImage(named: "Location")
+    
+    let favoritesTitle = "Favorites"
+    let favoritesTabImage = UIImage(named: "Star")
+    
+    let searchTitle = "Search"
+    let searchTabImage = UIImage(named: "Search")
+    
+    static func instance(_ type: AreasControllerType) -> AreasViewController {
+        let controller = AreasViewController()
+        switch type {
+        case .favorites:
+            controller.searchProvider = FavoritesAreaSearchProviderImpl(areasController: controller)
+            controller.tabBarItem = UITabBarItem(
+                title: "Favorites", image: UIImage(named: "Star"),
+                selectedImage: UIImage(named: "Star")
+            )
+        case .search:
+            controller.searchProvider = TermAreaSearchProviderImpl(areasController: controller)
+            controller.tabBarItem = UITabBarItem(
+                title: "Search", image: UIImage(named: "Search"),
+                selectedImage: UIImage(named: "Search")
+            )
+        case .nearby:
+            controller.searchProvider = NearbyAreaSearchProviderImpl(areasController: controller)
+            controller.tabBarItem = UITabBarItem(
+                title: "Nearby", image: UIImage(named: "Location"),
+                selectedImage: UIImage(named: "Location")
+            )
+        }
+        return controller
+    }
+}
 
 
 @objc public class AreasViewController: UITableViewController {
@@ -308,11 +355,11 @@ extension NearbyAreaSearchProviderImpl: ZeroStateDelegate {
         self.tabBarController?.title = "Areas"
         self.navigationController?.isNavigationBarHidden = false
     
-//        self.tabBarController?.navigationItem.setRightBarButton(
-//            UIBarButtonItem(
-//                barButtonSystemItem: .search, target: self, action: .searchAreas
-//            ),
-//        animated: false)
+        self.tabBarController?.navigationItem.setRightBarButton(
+            UIBarButtonItem(
+                barButtonSystemItem: .search, target: self, action: .searchAreas
+            ),
+        animated: false)
         
         self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Areas", style: .plain, target: nil, action: nil)
         
