@@ -13,6 +13,9 @@ import UIKit
     
     var states = [State]()
     
+    let stateTitle = "By State"
+    let stateTabImage = UIImage(named: "Capitol")
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -44,6 +47,10 @@ import UIKit
         self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "States", style: .plain, target: nil, action: nil)
         
         super.viewWillAppear(animated)
+    }
+    
+    func setupTab() {
+        self.tabBarItem = UITabBarItem(title: self.stateTitle, image: self.stateTabImage, selectedImage: self.stateTabImage)
     }
     
     // MARK: - Table view data source
