@@ -37,6 +37,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.tabBarController?.navigationController?.isNavigationBarHidden = true
         super.viewWillAppear(animated)
     }
     
@@ -71,8 +72,9 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
         textField.resignFirstResponder()
         
-        if let searchController = self.tabBarController?.viewControllers?[4] as? AreasViewController {
-            searchController.searchProvider?.search = .Term(textField.text ?? "")
+        if let searchController = self.tabBarController?.viewControllers?[4].childViewControllers[0] as? AreasViewController,
+            let provider = searchController.searchProvider as? TermAreaSearchProviderImpl {
+            provider.setSearchTerm(srch: textField.text ?? "")
         }
         
         self.tabBarController?.selectedIndex = 4
