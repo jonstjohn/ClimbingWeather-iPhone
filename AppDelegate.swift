@@ -37,12 +37,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         tabController.viewControllers = [
             HomeViewController(),
             AreasViewControllerFactory.instance(.nearby),
+            //UINavigationController(rootViewController: stateController),
             stateController,
             AreasViewControllerFactory.instance(.favorites),
             AreasViewControllerFactory.instance(.search)
         ]
         
-        tabController.navigationItem.title = "Areas"
+        tabController.navigationItem.title = "US States"
         
         let navController = UINavigationController(rootViewController: tabController)
         navController.isNavigationBarHidden = true

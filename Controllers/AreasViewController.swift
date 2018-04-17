@@ -76,6 +76,7 @@ public class TermAreaSearchProviderImpl: NSObject, AreaSearchProvider {
     public var search: AreaSearch?
     public let title = "Search"
     private var lastTerm: String?
+    private let placeholderText = "Enter area name or zip code"
     
     private let searchController = UISearchController(searchResultsController: nil)
     private weak var areasController: AreasViewController?
@@ -83,6 +84,10 @@ public class TermAreaSearchProviderImpl: NSObject, AreaSearchProvider {
     public init(areasController: AreasViewController) {
         self.search = .Term("")
         self.areasController = areasController
+    }
+    
+    public func setSearchTerm(srch: String) {
+        self.search = .Term(srch)
     }
     
     public func startSearching() {
@@ -100,7 +105,7 @@ public class TermAreaSearchProviderImpl: NSObject, AreaSearchProvider {
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
-        searchController.searchBar.placeholder = "Enter area name or zip code"
+        searchController.searchBar.placeholder = self.placeholderText
         searchController.delegate = self
         
         self.areasController?.definesPresentationContext = true
@@ -108,6 +113,10 @@ public class TermAreaSearchProviderImpl: NSObject, AreaSearchProvider {
     }
     
     private func shouldSearchLocation(_ term: String) -> Bool {
+        return self.lastTerm == nil || self.searchTermChanged(term)
+    }
+    
+    private func searchTermChanged(_ term: String) -> Bool {
         return term != self.lastTerm
     }
 
@@ -115,10 +124,18 @@ public class TermAreaSearchProviderImpl: NSObject, AreaSearchProvider {
 
 extension TermAreaSearchProviderImpl: UISearchControllerDelegate {
     public func didDismissSearchController(_ searchController: UISearchController) {
+        if let lastTerm = self.lastTerm, lastTerm.count > 0 {
+            self.searchController.searchBar.placeholder = "Displaying results for '\(lastTerm)'"
+        } else {
+            self.searchController.searchBar.placeholder = self.placeholderText
+        }
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(TermAreaSearchProviderImpl.updateTerm), object: nil)
         print("Dismissed search controller")
     }
     
     public func didPresentSearchController(_ searchController: UISearchController) {
+        self.searchController.searchBar.text = self.lastTerm ?? ""
+        self.searchController.searchBar.placeholder = self.placeholderText
         print("Presented search controller")
     }
 }
@@ -132,23 +149,20 @@ extension TermAreaSearchProviderImpl: UISearchResultsUpdating {
         self.perform(#selector(TermAreaSearchProviderImpl.updateTerm), with: nil, afterDelay: 0.5)
     }
     
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        // Stop doing the search stuff
-        // and clear the text in the search bar
-        searchBar.text = ""
-        // Hide the cancel button
-        searchBar.showsCancelButton = false
-        // You could also change the position, frame etc of the searchBar
-    }
-    
     @objc func updateTerm() {
         let term = self.searchController.searchBar.text ?? ""
         self.search = .Term(term)
         
+        if self.searchTermChanged(term) {
+            self.searchController.isActive = true
+            self.searchController.isEditing = true
+            self.searchController.searchBar.becomeFirstResponder()
+        }
+        
         guard self.shouldSearchLocation(term) else {
             return
         }
-        
+
         self.lastTerm = term
         self.areasController?.fetchAreas()
     }
@@ -284,7 +298,7 @@ public struct AreasViewControllerFactory {
     let searchTitle = "Search"
     let searchTabImage = UIImage(named: "Search")
     
-    static func instance(_ type: AreasControllerType) -> AreasViewController {
+    static func instance(_ type: AreasControllerType) -> UINavigationController {
         let controller = AreasViewController()
         switch type {
         case .favorites:
@@ -293,20 +307,25 @@ public struct AreasViewControllerFactory {
                 title: "Favorites", image: UIImage(named: "Star"),
                 selectedImage: UIImage(named: "Star")
             )
+            controller.title = "Favorites"
         case .search:
             controller.searchProvider = TermAreaSearchProviderImpl(areasController: controller)
             controller.tabBarItem = UITabBarItem(
                 title: "Search", image: UIImage(named: "Search"),
                 selectedImage: UIImage(named: "Search")
             )
+            controller.title = "Search"
         case .nearby:
             controller.searchProvider = NearbyAreaSearchProviderImpl(areasController: controller)
             controller.tabBarItem = UITabBarItem(
                 title: "Nearby", image: UIImage(named: "Location"),
                 selectedImage: UIImage(named: "Location")
             )
+            controller.title = "Nearby"
         }
-        return controller
+        let navController = UINavigationController(rootViewController: controller)
+        navController.title = controller.title
+        return navController
     }
 }
 
@@ -354,12 +373,13 @@ public struct AreasViewControllerFactory {
         
         self.tabBarController?.title = "Areas"
         self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.tabBarController?.navigationController?.isNavigationBarHidden = true
     
-        self.tabBarController?.navigationItem.setRightBarButton(
-            UIBarButtonItem(
-                barButtonSystemItem: .search, target: self, action: .searchAreas
-            ),
-        animated: false)
+//        self.tabBarController?.navigationItem.setRightBarButton(
+//            UIBarButtonItem(
+//                barButtonSystemItem: .search, target: self, action: .searchAreas
+//            ),
+//        animated: false)
         
         self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Areas", style: .plain, target: nil, action: nil)
         
@@ -458,7 +478,9 @@ public struct AreasViewControllerFactory {
     override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let area = self.areas[indexPath.row]
         let tabController = self.areaTabController(area: area)
-        self.navigationController?.pushViewController(tabController, animated: true)
+        
+        let navigationController = self.navigationController?.tabBarController?.navigationController ?? self.navigationController
+        navigationController?.pushViewController(tabController, animated: true)
     }
     
     // Build area tab controller

@@ -28,6 +28,8 @@ import UIKit
             
         }
         
+        self.title = "US States"
+        
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         States.fetchStates { (states) in
             self.states = states.states
@@ -41,8 +43,9 @@ import UIKit
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.tabBarController?.title = "US States"
         self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.title = "US States"
+        self.tabBarController?.title = "US States"
         
         self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "States", style: .plain, target: nil, action: nil)
         
