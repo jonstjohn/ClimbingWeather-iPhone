@@ -10,6 +10,7 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
+		2EE4473023AD94A6000C6FE9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EE4472F23AD94A6000C6FE9 /* Images.xcassets */; };
 		3458CCD89E79670AAF8484F4 /* Pods_climbingweather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5BA8E83BE629AEA5BCC8E8D /* Pods_climbingweather.framework */; };
 		600611CC1E77494C000F7694 /* AreaDailyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600611CA1E77494C000F7694 /* AreaDailyCell.swift */; };
 		600611CD1E77494C000F7694 /* AreaDailyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 600611CB1E77494C000F7694 /* AreaDailyCell.xib */; };
@@ -41,12 +42,10 @@
 		605BEDF31E692BD90076B4C4 /* AreaMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 605BEDF21E692BD90076B4C4 /* AreaMapViewController.xib */; };
 		60759EEF201A9AA9009C1626 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 60759EEE201A9AA9009C1626 /* Podfile */; };
 		60807EE313240AC9004A60C0 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60807EE213240AC9004A60C0 /* MainWindow.xib */; };
-		608A5A161FAE30DF00324097 /* Appicon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 608A5A151FAE30DF00324097 /* Appicon.xcassets */; };
 		608DE32B12FAD61100AE172C /* climbingweather.db in Resources */ = {isa = PBXBuildFile; fileRef = 608DE32A12FAD61100AE172C /* climbingweather.db */; };
 		608DE32F12FAD66E00AE172C /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 608DE32E12FAD66E00AE172C /* libsqlite3.0.dylib */; };
 		608DE64412FF85C600AE172C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608DE64312FF85C600AE172C /* CoreLocation.framework */; };
 		608DE66612FF88CE00AE172C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608DE66512FF88CE00AE172C /* MapKit.framework */; };
-		60A75D8E1E419A7C005EEE1F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60A75D8D1E419A7C005EEE1F /* Images.xcassets */; };
 		60ADE8C51E8A8D740040A472 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60ADE8C41E8A8D740040A472 /* Launch Screen.storyboard */; };
 		60B3ADB02034C6020089D1CD /* ZeroState.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60B3ADAF2034C6010089D1CD /* ZeroState.xib */; };
 		60B3ADB22034C6DC0089D1CD /* ZeroState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B3ADB12034C6DC0089D1CD /* ZeroState.swift */; };
@@ -70,6 +69,7 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28A0AAE50D9B0CCF005BE974 /* climbingweather_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = climbingweather_Prefix.pch; sourceTree = "<group>"; };
+		2EE4472F23AD94A6000C6FE9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = climbingweather/Images.xcassets; sourceTree = "<group>"; };
 		600611CA1E77494C000F7694 /* AreaDailyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AreaDailyCell.swift; path = Cells/AreaDailyCell.swift; sourceTree = "<group>"; };
 		600611CB1E77494C000F7694 /* AreaDailyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AreaDailyCell.xib; path = Cells/AreaDailyCell.xib; sourceTree = "<group>"; };
 		600611CE1E77498B000F7694 /* AreaHourlyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AreaHourlyCell.swift; path = Cells/AreaHourlyCell.swift; sourceTree = "<group>"; };
@@ -104,12 +104,10 @@
 		60759EEE201A9AA9009C1626 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		6077042A135697170085464F /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		60807EE213240AC9004A60C0 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		608A5A151FAE30DF00324097 /* Appicon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Appicon.xcassets; sourceTree = "<group>"; };
 		608DE32A12FAD61100AE172C /* climbingweather.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = climbingweather.db; sourceTree = "<group>"; };
 		608DE32E12FAD66E00AE172C /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		608DE64312FF85C600AE172C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		608DE66512FF88CE00AE172C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		60A75D8D1E419A7C005EEE1F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = climbingweather/Images.xcassets; sourceTree = "<group>"; };
 		60ADE8C41E8A8D740040A472 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		60B3ADAF2034C6010089D1CD /* ZeroState.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZeroState.xib; sourceTree = "<group>"; };
 		60B3ADB12034C6DC0089D1CD /* ZeroState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroState.swift; sourceTree = "<group>"; };
@@ -194,8 +192,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				608A5A151FAE30DF00324097 /* Appicon.xcassets */,
-				60A75D8D1E419A7C005EEE1F /* Images.xcassets */,
+				2EE4472F23AD94A6000C6FE9 /* Images.xcassets */,
 				60D99E091355279200B238D5 /* iTunesArtwork */,
 				8D1107310486CEB800E47090 /* climbingweather-Info.plist */,
 			);
@@ -397,13 +394,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60A75D8E1E419A7C005EEE1F /* Images.xcassets in Resources */,
-				608A5A161FAE30DF00324097 /* Appicon.xcassets in Resources */,
 				600611D11E77498C000F7694 /* AreaHourlyCell.xib in Resources */,
 				605BEDF31E692BD90076B4C4 /* AreaMapViewController.xib in Resources */,
 				6009BF941E6147FA0021A13B /* SettingsViewController.xib in Resources */,
 				6009BF981E66429C0021A13B /* AboutViewController.xib in Resources */,
 				60B3ADB02034C6020089D1CD /* ZeroState.xib in Resources */,
+				2EE4473023AD94A6000C6FE9 /* Images.xcassets in Resources */,
 				60759EEF201A9AA9009C1626 /* Podfile in Resources */,
 				600611CD1E77494C000F7694 /* AreaDailyCell.xib in Resources */,
 				60ADE8C51E8A8D740040A472 /* Launch Screen.storyboard in Resources */,
