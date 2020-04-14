@@ -15,7 +15,7 @@ class AreaDailyViewController: UITableViewController {
     var areaId: Int?
     var area: Area?
     
-    let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    let activityIndicatorView = UIActivityIndicatorView(style: .gray)
     
     override func viewDidLoad() {
         
@@ -25,7 +25,7 @@ class AreaDailyViewController: UITableViewController {
         
         self.tableView.register(UINib(nibName: "AreaDailyCell", bundle: nil), forCellReuseIdentifier: "AreaDailyCell")
         
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 140
         
         self.tableView.backgroundView = self.activityIndicatorView

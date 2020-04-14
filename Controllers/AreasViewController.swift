@@ -228,6 +228,8 @@ public class NearbyAreaSearchProviderImpl: NSObject, AreaSearchProvider {
             self.areasController?.displayZeroState(self.zeroStateNoLocationPermissionView)
         case .notDetermined: // if not yet prompted, request location
             self.locationManager.requestWhenInUseAuthorization()
+        @unknown default:
+            self.areasController?.displayZeroState(self.zeroStateNoLocationPermissionView)
         }
     }
     
@@ -280,7 +282,7 @@ extension NearbyAreaSearchProviderImpl: CLLocationManagerDelegate {
 extension NearbyAreaSearchProviderImpl: ZeroStateDelegate {
     
     public func buttonTapped() {
-        guard let url = URL(string: UIApplicationOpenSettingsURLString) else {
+        guard let url = URL(string: UIApplication.openSettingsURLString) else {
             return
         }
         UIApplication.shared.open(url, completionHandler: nil)
@@ -338,7 +340,7 @@ public struct AreasViewControllerFactory {
     public var areas = [Area]()
     
     // Activity indicator view
-    let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    let activityIndicatorView = UIActivityIndicatorView(style: .gray)
     
     // Zero state no results
     private lazy var zeroStateNoAreasFound = ZeroStateNoAreasFound()

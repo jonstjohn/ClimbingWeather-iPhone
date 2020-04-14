@@ -14,7 +14,7 @@ class AreaHourlyViewController: UITableViewController {
     var areaId: Int?
     var area: Area?
     
-    let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    let activityIndicatorView = UIActivityIndicatorView(style: .gray)
     
     override func viewDidLoad() {
         
@@ -22,7 +22,7 @@ class AreaHourlyViewController: UITableViewController {
         
         if let frameHeight = self.tabBarController?.tabBar.frame.height {
             
-            let adjustForTabbarInsets = UIEdgeInsetsMake(0, 0, frameHeight, 0)
+            let adjustForTabbarInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: frameHeight, right: 0)
             self.tableView.contentInset = adjustForTabbarInsets
             self.tableView.scrollIndicatorInsets = adjustForTabbarInsets
             
@@ -133,7 +133,7 @@ class AreaHourlyViewController: UITableViewController {
             return short
         }
         
-        guard let length = hour.conditionsFormatted?.characters.count else {
+        guard let length = hour.conditionsFormatted?.count else {
             return short
         }
         

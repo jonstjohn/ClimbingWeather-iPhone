@@ -71,7 +71,7 @@ class AreaMapViewController: UIViewController, MKMapViewDelegate {
             return
         }
         
-        let region = MKCoordinateRegionMakeWithDistance(mp.coordinate, 10000, 10000)
+        let region = MKCoordinateRegion.init(center: mp.coordinate, latitudinalMeters: 10000, longitudinalMeters: 10000)
         mapView.setRegion(region, animated: false)
         mapView.isHidden = false
         

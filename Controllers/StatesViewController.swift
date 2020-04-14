@@ -22,7 +22,7 @@ import UIKit
         
         if let frameHeight = self.tabBarController?.tabBar.frame.height {
         
-            let adjustForTabbarInsets = UIEdgeInsetsMake(0, 0, frameHeight, 0)
+            let adjustForTabbarInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: frameHeight, right: 0)
             self.tableView.contentInset = adjustForTabbarInsets
             self.tableView.scrollIndicatorInsets = adjustForTabbarInsets
             

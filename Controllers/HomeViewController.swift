@@ -72,7 +72,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
         textField.resignFirstResponder()
         
-        if let searchController = self.tabBarController?.viewControllers?[4].childViewControllers[0] as? AreasViewController,
+        if let searchController = self.tabBarController?.viewControllers?[4].children[0] as? AreasViewController,
             let provider = searchController.searchProvider as? TermAreaSearchProviderImpl {
             provider.setSearchTerm(srch: textField.text ?? "")
         }

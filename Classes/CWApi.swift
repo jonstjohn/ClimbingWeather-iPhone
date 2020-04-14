@@ -65,7 +65,7 @@ struct APIUrl {
     var preferences: PreferencesProtocol
     
     // Basic URL information
-    let scheme = "http"
+    let scheme = "https"
     let host = "api.climbingweather.com"
     let base = "/api"
     
