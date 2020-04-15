@@ -16,6 +16,8 @@
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 	<key>CFBundleVersion</key>
 	<string>202004151534</string>
 </dict>
