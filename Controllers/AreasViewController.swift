@@ -223,6 +223,7 @@ public class NearbyAreaSearchProviderImpl: NSObject, AreaSearchProvider {
         switch CLLocationManager.authorizationStatus() {
         case .authorizedAlways, .authorizedWhenInUse: // if authorized, start monitoring for changes
             self.areasController?.startLoading()
+            locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
             locationManager.requestLocation()
         case .denied, .restricted: // if denied or restricted, show no permission screen
             self.areasController?.displayZeroState(self.zeroStateNoLocationPermissionView)
