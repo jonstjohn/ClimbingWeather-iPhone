@@ -152,7 +152,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		29B97314FDCFA39411CA2CEA = {
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
 				60759EEE201A9AA9009C1626 /* Podfile */,
@@ -315,6 +315,7 @@
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
 				FAA08EF0DFC661491D5CAA45 /* [CP] Embed Pods Frameworks */,
 				60759EF1201BE2C4009C1626 /* Crashlytics */,
+				6335178319EEAEFEC70630CE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -377,7 +378,7 @@
 				de,
 				ja,
 			);
-			mainGroup = 29B97314FDCFA39411CA2CEA;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -434,6 +435,21 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" 3d18ec67b89ed8a813871d41946cd5aad10197ed 8b37b35a14e1c0da16efb2c93b28fe36ba904e202177a263cda8fa9f479d6882";
 		};
+		6335178319EEAEFEC70630CE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-climbingweather/Pods-climbingweather-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B3494D191140BF29E3FF56CF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -458,7 +474,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-climbingweather/Pods-climbingweather-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-climbingweather/Pods-climbingweather-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -467,7 +483,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-climbingweather/Pods-climbingweather-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-climbingweather/Pods-climbingweather-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -530,7 +546,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 201804171240;
