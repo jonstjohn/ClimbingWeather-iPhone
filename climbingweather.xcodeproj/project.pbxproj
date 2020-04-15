@@ -558,6 +558,7 @@
 				INFOPLIST_FILE = "climbingweather-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.climbingweather.cw;
 				PRODUCT_NAME = ClimbingWeather;
 				PROVISIONING_PROFILE = "6fcd44e1-a27b-4bdf-a7fc-cdca21e910f1";
@@ -590,6 +591,7 @@
 				INFOPLIST_FILE = "climbingweather-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.climbingweather.cw;
 				PRODUCT_NAME = ClimbingWeather;
 				PROVISIONING_PROFILE = "0a1b198d-66ef-47bf-839d-aa9186ef75a7";
@@ -770,6 +772,7 @@
 				INFOPLIST_FILE = "climbingweather-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.climbingweather.cw;
 				PRODUCT_NAME = ClimbingWeather;
 				PROVISIONING_PROFILE = "0a1b198d-66ef-47bf-839d-aa9186ef75a7";
