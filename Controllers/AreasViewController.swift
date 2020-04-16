@@ -356,7 +356,6 @@ public struct AreasViewControllerFactory {
     private func configureTableViewForAreas(tableView: UITableView) {
         
         // Configure row
-        tableView.rowHeight = 85.0
         tableView.register(UINib(nibName: "AreaCell", bundle: nil), forCellReuseIdentifier: "AreaCell")
         
         // Add refresh control
