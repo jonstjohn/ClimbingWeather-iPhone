@@ -80,36 +80,46 @@ public struct ForecastDay {
     let conditionsFormatted: String?
     let wind: Wind?
     
-    var tempFormatted: String {
-        return String(format: "%d˚/%d˚", self.high ?? "-", self.low ?? "-")
-    }
-    
     var highFormatted: String {
-        return String(format: "%d˚", self.high ?? "-")
+        guard let high = self.high else {
+            return "-"
+        }
+        return String(format: "%d˚", high)
     }
     
     var lowFormatted: String {
-        return String(format: "%d˚", self.low ?? "-")
-    }
-    
-    var precipitationFormatted: String {
-        return String(format: "%d%%/%d%%", self.precipitationChanceDay ?? "-", self.precipitationChanceNight ?? "-")
+        guard let low = self.low else {
+            return "-"
+        }
+        return String(format: "%d˚", low)
     }
     
     var precipitationChanceDayFormatted: String {
-        return String(format: "%d%%", self.precipitationChanceDay ?? "-")
+        guard let precip = self.precipitationChanceDay else {
+            return "-"
+        }
+        return String(format: "%d%%", precip)
     }
     
     var precipitationChanceNightFormatted: String {
-        return String(format: "%d%%", self.precipitationChanceNight ?? "-")
+        guard let precip = self.precipitationChanceNight else {
+            return "-"
+        }
+        return String(format: "%d%%", precip)
     }
     
     var windSustainedFormatted: String {
-        return String(format: "%d mph", self.wind?.sustained ?? "-")
+        guard let wind = self.wind?.sustained else {
+            return "-"
+        }
+        return String(format: "%d mph", wind)
     }
     
     var humidityFormatted: String {
-        return String(format: "%d%%", self.humidity ?? "-")
+        guard let humidity = self.humidity else {
+            return "-"
+        }
+        return String(format: "%d%%", humidity)
     }
     
     static func parseDaily(dailies: [[String: Any]]?) -> [ForecastDay]? {
@@ -206,24 +216,39 @@ public struct ForecastHour {
     let sky: Int?
     
     var temperatureFormatted: String {
-        return String(format: "%d˚", self.temperature ?? "-")
+        guard let temperature = self.temperature else {
+            return "-"
+        }
+        return String(format: "%d˚", temperature)
     }
     
     
     var precipitationFormatted: String {
-        return String(format: "%d%%", self.precipitationChance ?? "-")
+        guard let precip = self.precipitationChance else {
+            return "-"
+        }
+        return String(format: "%d%%", precip)
     }
     
     var skyFormatted: String {
-        return String(format: "%d%%", self.sky ?? "-")
+        guard let sky = self.sky else {
+            return "-"
+        }
+        return String(format: "%d%%", sky)
     }
     
     var windSustainedFormatted: String {
-        return String(format: "%d mph", self.wind?.sustained ?? "-")
+        guard let wind = self.wind?.sustained else {
+            return "-"
+        }
+        return String(format: "%d mph", wind)
     }
     
     var humidityFormatted: String {
-        return String(format: "%d%%", self.humidity ?? "-")
+        guard let humidity = self.humidity else {
+            return "-"
+        }
+        return String(format: "%d%%", humidity)
     }
     
     static func parseHourly(hourlies: [[String: Any]]?) -> [ForecastHour]? {
