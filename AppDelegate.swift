@@ -7,8 +7,6 @@
 //
 import Foundation
 import UIKit
-import Fabric
-import Crashlytics
 
 
 @UIApplicationMain
@@ -19,8 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
 
         self.setupWindow()
-        
-        Fabric.with([Crashlytics.self])
         
         return true
         

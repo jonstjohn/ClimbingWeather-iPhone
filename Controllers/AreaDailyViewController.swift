@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import Crashlytics
 
 class AreaDailyViewController: UITableViewController {
     
@@ -69,13 +68,11 @@ class AreaDailyViewController: UITableViewController {
     
     func startLoading() {
         self.tableView.separatorStyle = .none
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         self.activityIndicatorView.startAnimating()
     }
     
     func stopLoading() {
         DispatchQueue.main.async {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             self.activityIndicatorView.stopAnimating()
             self.tableView.separatorStyle = .singleLine
             self.refreshControl?.endRefreshing()
@@ -98,11 +95,6 @@ class AreaDailyViewController: UITableViewController {
                 self.stopLoading()
                 
                 self.area = area
-                
-                Answers.logContentView(withName: area.name,
-                                               contentType: "Area Daily",
-                                               contentId: "\(area.id)",
-                                               customAttributes: nil)
                 
                 DispatchQueue.main.async {
                     

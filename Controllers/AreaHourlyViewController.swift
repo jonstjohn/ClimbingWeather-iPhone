@@ -71,13 +71,11 @@ class AreaHourlyViewController: UITableViewController {
     
     func startLoading() {
         self.tableView.separatorStyle = .none
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         self.activityIndicatorView.startAnimating()
     }
     
     func stopLoading() {
         DispatchQueue.main.async {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             self.activityIndicatorView.stopAnimating()
             self.tableView.separatorStyle = .singleLine
             self.refreshControl?.endRefreshing()

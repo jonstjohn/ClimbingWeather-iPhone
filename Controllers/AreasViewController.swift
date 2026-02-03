@@ -103,7 +103,6 @@ public class TermAreaSearchProviderImpl: NSObject, AreaSearchProvider {
             return
         }
         searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.placeholder = self.placeholderText
         searchController.delegate = self
@@ -220,7 +219,7 @@ public class NearbyAreaSearchProviderImpl: NSObject, AreaSearchProvider {
     }
     
     public func startSearching() {
-        switch CLLocationManager.authorizationStatus() {
+        switch locationManager.authorizationStatus {
         case .authorizedAlways, .authorizedWhenInUse: // if authorized, start monitoring for changes
             self.areasController?.startLoading()
             locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
@@ -248,7 +247,7 @@ public class NearbyAreaSearchProviderImpl: NSObject, AreaSearchProvider {
 extension NearbyAreaSearchProviderImpl: CLLocationManagerDelegate {
     
     public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if [.authorizedAlways, .authorizedWhenInUse].contains(status) { // if authorized, start monitoring for changes
+        if [.authorizedAlways, .authorizedWhenInUse].contains(manager.authorizationStatus) { // if authorized, start monitoring for changes
             self.areasController?.startLoading()
             locationManager.requestLocation()
         } else {
@@ -402,7 +401,6 @@ public struct AreasViewControllerFactory {
     // Start loading areas
     public func startLoading() {
         self.tableView.separatorStyle = .none
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         self.tableView.backgroundView = self.activityIndicatorView
         self.activityIndicatorView.startAnimating()
     }
@@ -410,9 +408,7 @@ public struct AreasViewControllerFactory {
     // Stop loading areas
     public func stopLoading() {
         DispatchQueue.main.async {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             self.activityIndicatorView.stopAnimating()
-            //self.tableView.separatorStyle = .singleLine
             self.refreshControl?.endRefreshing()
         }
     }

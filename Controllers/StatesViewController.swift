@@ -30,12 +30,10 @@ import UIKit
         
         self.title = "US States"
         
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         States.fetchStates { (states) in
             self.states = states.states
             
             DispatchQueue.main.async {
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.tableView.reloadData()
             }
         }
