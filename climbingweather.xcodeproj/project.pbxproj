@@ -24,13 +24,12 @@
 		600611CD1E77494C000F7694 /* AreaDailyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 600611CB1E77494C000F7694 /* AreaDailyCell.xib */; };
 		600611D01E77498C000F7694 /* AreaHourlyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600611CE1E77498B000F7694 /* AreaHourlyCell.swift */; };
 		600611D11E77498C000F7694 /* AreaHourlyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 600611CF1E77498C000F7694 /* AreaHourlyCell.xib */; };
-		6009BF8C1E5CE4FC0021A13B /* CWDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6009BF8B1E5CE4FC0021A13B /* CWDatabase.swift */; };
 		6009BF901E5DEDCB0021A13B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6009BF8F1E5DEDCB0021A13B /* HomeViewController.swift */; };
 		6009BF941E6147FA0021A13B /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6009BF931E6147FA0021A13B /* SettingsViewController.xib */; };
 		6009BF981E66429C0021A13B /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6009BF971E66429C0021A13B /* AboutViewController.xib */; };
 		6009BF9C1E667C0D0021A13B /* AreaDailyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6009BF9B1E667C0D0021A13B /* AreaDailyViewController.swift */; };
 		602D73EE1E5BFDA800925A58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602D73ED1E5BFDA800925A58 /* AppDelegate.swift */; };
-		6037F6122F33D29600D545A0 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 6037F6112F33D29600D545A0 /* SQLite */; };
+		6037F6162F33FCD000D545A0 /* FavoriteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6037F6152F33FCD000D545A0 /* FavoriteStore.swift */; };
 		603D94A51E527D3400AFB1FF /* AreasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D94A41E527D3400AFB1FF /* AreasViewController.swift */; };
 		60482A231E71D5D800A0AFC9 /* AreaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60482A211E71D5D800A0AFC9 /* AreaCell.swift */; };
 		60482A241E71D5D800A0AFC9 /* AreaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60482A221E71D5D800A0AFC9 /* AreaCell.xib */; };
@@ -51,7 +50,6 @@
 		605BEDF31E692BD90076B4C4 /* AreaMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 605BEDF21E692BD90076B4C4 /* AreaMapViewController.xib */; };
 		60807EE313240AC9004A60C0 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60807EE213240AC9004A60C0 /* MainWindow.xib */; };
 		608DE32B12FAD61100AE172C /* climbingweather.db in Resources */ = {isa = PBXBuildFile; fileRef = 608DE32A12FAD61100AE172C /* climbingweather.db */; };
-		608DE32F12FAD66E00AE172C /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 608DE32E12FAD66E00AE172C /* libsqlite3.0.dylib */; };
 		608DE64412FF85C600AE172C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608DE64312FF85C600AE172C /* CoreLocation.framework */; };
 		608DE66612FF88CE00AE172C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608DE66512FF88CE00AE172C /* MapKit.framework */; };
 		60ADE8C51E8A8D740040A472 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60ADE8C41E8A8D740040A472 /* Launch Screen.storyboard */; };
@@ -99,12 +97,12 @@
 		600611CB1E77494C000F7694 /* AreaDailyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AreaDailyCell.xib; path = Cells/AreaDailyCell.xib; sourceTree = "<group>"; };
 		600611CE1E77498B000F7694 /* AreaHourlyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AreaHourlyCell.swift; path = Cells/AreaHourlyCell.swift; sourceTree = "<group>"; };
 		600611CF1E77498C000F7694 /* AreaHourlyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AreaHourlyCell.xib; path = Cells/AreaHourlyCell.xib; sourceTree = "<group>"; };
-		6009BF8B1E5CE4FC0021A13B /* CWDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWDatabase.swift; sourceTree = "<group>"; };
 		6009BF8F1E5DEDCB0021A13B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6009BF931E6147FA0021A13B /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingsViewController.xib; path = xib/SettingsViewController.xib; sourceTree = SOURCE_ROOT; };
 		6009BF971E66429C0021A13B /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AboutViewController.xib; path = xib/AboutViewController.xib; sourceTree = SOURCE_ROOT; };
 		6009BF9B1E667C0D0021A13B /* AreaDailyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaDailyViewController.swift; sourceTree = "<group>"; };
 		602D73ED1E5BFDA800925A58 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6037F6152F33FCD000D545A0 /* FavoriteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStore.swift; sourceTree = "<group>"; };
 		603D94A41E527D3400AFB1FF /* AreasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreasViewController.swift; sourceTree = "<group>"; };
 		60482A211E71D5D800A0AFC9 /* AreaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AreaCell.swift; path = Cells/AreaCell.swift; sourceTree = "<group>"; };
 		60482A221E71D5D800A0AFC9 /* AreaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AreaCell.xib; path = Cells/AreaCell.xib; sourceTree = "<group>"; };
@@ -148,8 +146,6 @@
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
-				608DE32F12FAD66E00AE172C /* libsqlite3.0.dylib in Frameworks */,
-				6037F6122F33D29600D545A0 /* SQLite in Frameworks */,
 				608DE64412FF85C600AE172C /* CoreLocation.framework in Frameworks */,
 				608DE66612FF88CE00AE172C /* MapKit.framework in Frameworks */,
 			);
@@ -185,7 +181,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				6009BF8B1E5CE4FC0021A13B /* CWDatabase.swift */,
+				6037F6152F33FCD000D545A0 /* FavoriteStore.swift */,
 				602D73ED1E5BFDA800925A58 /* AppDelegate.swift */,
 				6053B5E61E43CE5000798BC1 /* climbingweather-Bridging-Header.h */,
 				6053B5F31E452DF900798BC1 /* Info.plist */,
@@ -445,7 +441,6 @@
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			packageReferences = (
-				6037F6102F33D29600D545A0 /* XCRemoteSwiftPackageReference "SQLite.swift" */,
 			);
 			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
 			projectDirPath = "";
@@ -500,6 +495,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6037F6162F33FCD000D545A0 /* FavoriteStore.swift in Sources */,
 				605BEDE71E68EE480076B4C4 /* AreaMapViewController.swift in Sources */,
 				6053B6031E48F64C00798BC1 /* CWApi.swift in Sources */,
 				605BEDE31E67DA480076B4C4 /* AreaHourlyViewController.swift in Sources */,
@@ -511,7 +507,6 @@
 				602D73EE1E5BFDA800925A58 /* AppDelegate.swift in Sources */,
 				605BEDEF1E68EEB50076B4C4 /* StatesViewController.swift in Sources */,
 				6053B6001E45325B00798BC1 /* Forecast.swift in Sources */,
-				6009BF8C1E5CE4FC0021A13B /* CWDatabase.swift in Sources */,
 				60482A231E71D5D800A0AFC9 /* AreaCell.swift in Sources */,
 				600611CC1E77494C000F7694 /* AreaDailyCell.swift in Sources */,
 				605BEDEB1E68EE970076B4C4 /* SettingsViewController.swift in Sources */,
@@ -582,7 +577,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = climbingweather_Prefix.pch;
 				INFOPLIST_FILE = "climbingweather-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -616,7 +611,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = climbingweather_Prefix.pch;
 				INFOPLIST_FILE = "climbingweather-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -944,7 +939,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = climbingweather_Prefix.pch;
 				INFOPLIST_FILE = "climbingweather-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1093,25 +1088,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		6037F6102F33D29600D545A0 /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.15.5;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		6037F6112F33D29600D545A0 /* SQLite */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6037F6102F33D29600D545A0 /* XCRemoteSwiftPackageReference "SQLite.swift" */;
-			productName = SQLite;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
 }

@@ -58,16 +58,9 @@ public class FavoritesAreaSearchProviderImpl: AreaSearchProvider {
     
     // Favorites specific
     private func favoritesAsSearch() -> AreaSearch? {
-        
-        do {
-            guard let areas = try Area.favorites() else {
-                return nil
-            }
-            return .ByID(areas.map({$0.id}))
-        } catch {
-            return nil
-        }
-        
+        let areas = Area.favorites()
+        guard !areas.isEmpty else { return nil }
+        return .ByID(areas.map { $0.id })
     }
 }
 

@@ -37,17 +37,13 @@ class AreaDailyViewController: UITableViewController {
         guard let area = self.area else {
             return
         }
-        
-        do {
-            if try area.isFavorite() {
-                try area.removeFavorite()
-                sender.image = UIImage(named: "Star")
-            } else {
-                try area.addFavorite()
-                sender.image = UIImage(named: "StarYellowFilled")
-            }
-        } catch {
-            return
+
+        if area.isFavorite() {
+            area.removeFavorite()
+            sender.image = UIImage(named: "Star")
+        } else {
+            area.addFavorite()
+            sender.image = UIImage(named: "StarYellowFilled")
         }
     }
     
@@ -106,21 +102,16 @@ class AreaDailyViewController: UITableViewController {
                     
                     let starOn = UIImage(named: "StarYellowFilled")
                     let starOff = UIImage(named: "Star")
-                    do {
-                        // Setup favorite item
-                        let favoriteImage = try area.isFavorite() ? starOn : starOff
-                        let favoriteItem = UIBarButtonItem(image: favoriteImage, style: .plain, target: self, action: #selector(self.toggleFavorite(sender:)))
-                        favoriteItem.tintColor = UIColor.init(red: 241/255, green: 196/255, blue: 15/255, alpha: 1)
-                        
-                        // Setup info item
-                        //let infoItem = UIBarButtonItem(image: UIImage(named: "Info"), style: .plain, target: self, action: #selector(self.info(sender:)))
-                        
-                        let items = [favoriteItem] // [favoriteItem, infoItem]
-                        
-                        tabBarController.navigationItem.setRightBarButtonItems(items, animated: true)
-                    } catch {
-                        // Do nothing
-                    }
+                    let favoriteImage = area.isFavorite() ? starOn : starOff
+                    let favoriteItem = UIBarButtonItem(image: favoriteImage, style: .plain, target: self, action: #selector(self.toggleFavorite(sender:)))
+                    favoriteItem.tintColor = UIColor.init(red: 241/255, green: 196/255, blue: 15/255, alpha: 1)
+                    
+                    // Setup info item
+                    //let infoItem = UIBarButtonItem(image: UIImage(named: "Info"), style: .plain, target: self, action: #selector(self.info(sender:)))
+                    
+                    let items = [favoriteItem] // [favoriteItem, infoItem]
+                    
+                    tabBarController.navigationItem.setRightBarButtonItems(items, animated: true)
                     
                 }
                 
