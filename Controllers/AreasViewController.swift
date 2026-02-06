@@ -58,7 +58,7 @@ public class FavoritesAreaSearchProviderImpl: AreaSearchProvider {
     
     // Favorites specific
     private func favoritesAsSearch() -> AreaSearch? {
-        let areas = Area.favorites()
+        let areas = LegacyArea.favorites()
         guard !areas.isEmpty else { return nil }
         return .ByID(areas.map { $0.id })
     }
@@ -330,7 +330,7 @@ public struct AreasViewControllerFactory {
     internal var searchProvider: AreaSearchProvider?
     
     // Areas - datasource
-    public var areas = [Area]()
+    public var areas = [LegacyArea]()
     
     // Activity indicator view
     let activityIndicatorView = UIActivityIndicatorView(style: .gray)
@@ -385,7 +385,7 @@ public struct AreasViewControllerFactory {
     }
     
     public func displayZeroState(_ view: ZeroState) {
-        self.areas = [Area]()
+        self.areas = [LegacyArea]()
         self.tableView.reloadData()
         self.tableView.separatorStyle = .none
         self.tableView.backgroundView = view
@@ -413,7 +413,7 @@ public struct AreasViewControllerFactory {
             return
         }
             
-        self.areas = [Area]()
+        self.areas = [LegacyArea]()
         self.tableView.reloadData()
         
         if search.empty() {
@@ -424,7 +424,7 @@ public struct AreasViewControllerFactory {
         self.startLoading()
         
         DispatchQueue.global(qos: .userInteractive).async {
-            Areas.fetchDaily(search: search, completion: { [weak self] (areas) in
+            LegacyAreas.fetchDaily(search: search, completion: { [weak self] (areas) in
                 
                 guard let `self` = self else {
                     return
@@ -475,7 +475,7 @@ public struct AreasViewControllerFactory {
     }
     
     // Build area tab controller
-    private func areaTabController(area: Area) -> UITabBarController {
+    private func areaTabController(area: LegacyArea) -> UITabBarController {
         let dailyController = AreaDailyViewController()
         let tbi = UITabBarItem()
         tbi.title = "Daily"

@@ -55,6 +55,32 @@
 		60ADE8C51E8A8D740040A472 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60ADE8C41E8A8D740040A472 /* Launch Screen.storyboard */; };
 		60B3ADB02034C6020089D1CD /* ZeroState.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60B3ADAF2034C6010089D1CD /* ZeroState.xib */; };
 		60B3ADB22034C6DC0089D1CD /* ZeroState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B3ADB12034C6DC0089D1CD /* ZeroState.swift */; };
+		60B9A7362F367934006F6186 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 60B9A7352F367934006F6186 /* README.md */; };
+		60B9A77C2F36839A006F6186 /* ModernViewModelsAreaSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9A7642F36839A006F6186 /* ModernViewModelsAreaSearchViewModel.swift */; };
+		60B9A77D2F36839A006F6186 /* ModernViewModelsAreaForecastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9A7622F36839A006F6186 /* ModernViewModelsAreaForecastViewModel.swift */; };
+		60B9A77E2F36839A006F6186 /* ModernDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9A7522F36839A006F6186 /* ModernDependencyContainer.swift */; };
+		60B9A77F2F36839A006F6186 /* ModernModelsAdminArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9A7542F36839A006F6186 /* ModernModelsAdminArea.swift */; };
+		60B9A7802F36839A006F6186 /* ModernModelsForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9A7592F36839A006F6186 /* ModernModelsForecast.swift */; };
+		60B9A7812F36839A006F6186 /* ModernRepositoriesCountryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9A7612F36839A006F6186 /* ModernRepositoriesCountryRepository.swift */; };
+		60B9A7822F36839A006F6186 /* ModernNetworkingAPIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9A75B2F36839A006F6186 /* ModernNetworkingAPIConfiguration.swift */; };
+		60B9A7832F36839A006F6186 /* ModernModelsAreaAverages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9A7562F36839A006F6186 /* ModernModelsAreaAverages.swift */; };
+		60B9A7842F36839A006F6186 /* ModernNetworkingAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9A75A2F36839A006F6186 /* ModernNetworkingAPIClient.swift */; };
+		60B9A7852F36839A006F6186 /* ModernViewModelsAreaListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9A7632F36839A006F6186 /* ModernViewModelsAreaListViewModel.swift */; };
+		60B9A7862F36839A006F6186 /* ModernRepositoriesAreaRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9A75F2F36839A006F6186 /* ModernRepositoriesAreaRepository.swift */; };
+		60B9A7872F36839A006F6186 /* ModernViewsAreaSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9A7652F36839A006F6186 /* ModernViewsAreaSearchView.swift */; };
+		60B9A7882F36839A006F6186 /* ModernViewsForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9A7662F36839A006F6186 /* ModernViewsForecastView.swift */; };
+		60B9A7892F36839A006F6186 /* ModernNetworkingAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9A75D2F36839A006F6186 /* ModernNetworkingAPIError.swift */; };
+		60B9A78A2F36839A006F6186 /* ModernModelsCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9A7582F36839A006F6186 /* ModernModelsCountry.swift */; };
+		60B9A78B2F36839A006F6186 /* ModernIntegrationExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9A7532F36839A006F6186 /* ModernIntegrationExample.swift */; };
+		60B9A78C2F36839A006F6186 /* ModernNetworkingAPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9A75C2F36839A006F6186 /* ModernNetworkingAPIEndpoint.swift */; };
+		60B9A78D2F36839A006F6186 /* ModernRepositoriesClimateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9A7602F36839A006F6186 /* ModernRepositoriesClimateRepository.swift */; };
+		60B9A78E2F36839A006F6186 /* ModernModelsArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9A7552F36839A006F6186 /* ModernModelsArea.swift */; };
+		60B9A78F2F36839A006F6186 /* ModernModelsClim81Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9A7572F36839A006F6186 /* ModernModelsClim81Station.swift */; };
+		60B9A7902F36839A006F6186 /* ModernQuickStartExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9A75E2F36839A006F6186 /* ModernQuickStartExample.swift */; };
+		60B9A7A72F36860A006F6186 /* REFACTORING_COMPLETE.md in Resources */ = {isa = PBXBuildFile; fileRef = 60B9A7A62F36860A006F6186 /* REFACTORING_COMPLETE.md */; };
+		60B9A7A92F368805006F6186 /* ERRORS_FIXED.md in Resources */ = {isa = PBXBuildFile; fileRef = 60B9A7A82F368805006F6186 /* ERRORS_FIXED.md */; };
+		60B9A7AA2F368805006F6186 /* ERRORS_FIXED.md in Resources */ = {isa = PBXBuildFile; fileRef = 60B9A7A82F368805006F6186 /* ERRORS_FIXED.md */; };
+		60B9A7AB2F368805006F6186 /* ERRORS_FIXED.md in Resources */ = {isa = PBXBuildFile; fileRef = 60B9A7A82F368805006F6186 /* ERRORS_FIXED.md */; };
 		60D99E0A1355279200B238D5 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 60D99E091355279200B238D5 /* iTunesArtwork */; };
 /* End PBXBuildFile section */
 
@@ -132,6 +158,56 @@
 		60ADE8C41E8A8D740040A472 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		60B3ADAF2034C6010089D1CD /* ZeroState.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZeroState.xib; sourceTree = "<group>"; };
 		60B3ADB12034C6DC0089D1CD /* ZeroState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroState.swift; sourceTree = "<group>"; };
+		60B9A7352F367934006F6186 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		60B9A7372F367956006F6186 /* openapi.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = openapi.yaml; sourceTree = "<group>"; };
+		60B9A7392F3682E7006F6186 /* ModernNetworkingAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernNetworkingAPIError.swift; sourceTree = "<group>"; };
+		60B9A73A2F3682EC006F6186 /* ModernNetworkingAPIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernNetworkingAPIEndpoint.swift; sourceTree = "<group>"; };
+		60B9A73B2F3682EF006F6186 /* ModernNetworkingAPIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernNetworkingAPIConfiguration.swift; sourceTree = "<group>"; };
+		60B9A73C2F3682F2006F6186 /* ModernNetworkingAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernNetworkingAPIClient.swift; sourceTree = "<group>"; };
+		60B9A73D2F3682F5006F6186 /* ModernModelsCountry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernModelsCountry.swift; sourceTree = "<group>"; };
+		60B9A73E2F3682F9006F6186 /* ModernModelsAdminArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernModelsAdminArea.swift; sourceTree = "<group>"; };
+		60B9A73F2F3682FC006F6186 /* ModernModelsArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernModelsArea.swift; sourceTree = "<group>"; };
+		60B9A7402F368300006F6186 /* ModernModelsForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernModelsForecast.swift; sourceTree = "<group>"; };
+		60B9A7412F368302006F6186 /* ModernModelsAreaAverages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernModelsAreaAverages.swift; sourceTree = "<group>"; };
+		60B9A7422F368306006F6186 /* ModernModelsClim81Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernModelsClim81Station.swift; sourceTree = "<group>"; };
+		60B9A7432F368309006F6186 /* ModernRepositoriesAreaRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernRepositoriesAreaRepository.swift; sourceTree = "<group>"; };
+		60B9A7442F36830C006F6186 /* ModernRepositoriesCountryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernRepositoriesCountryRepository.swift; sourceTree = "<group>"; };
+		60B9A7452F36830E006F6186 /* ModernRepositoriesClimateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernRepositoriesClimateRepository.swift; sourceTree = "<group>"; };
+		60B9A7462F368311006F6186 /* ModernViewModelsAreaForecastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernViewModelsAreaForecastViewModel.swift; sourceTree = "<group>"; };
+		60B9A7472F368314006F6186 /* ModernViewModelsAreaSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernViewModelsAreaSearchViewModel.swift; sourceTree = "<group>"; };
+		60B9A7482F368316006F6186 /* ModernViewModelsAreaListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernViewModelsAreaListViewModel.swift; sourceTree = "<group>"; };
+		60B9A7492F368319006F6186 /* ModernViewsForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernViewsForecastView.swift; sourceTree = "<group>"; };
+		60B9A74A2F36831B006F6186 /* ModernViewsAreaSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernViewsAreaSearchView.swift; sourceTree = "<group>"; };
+		60B9A74B2F36831E006F6186 /* ModernDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernDependencyContainer.swift; sourceTree = "<group>"; };
+		60B9A74C2F368321006F6186 /* ModernREADME.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ModernREADME.md; sourceTree = "<group>"; };
+		60B9A74D2F368324006F6186 /* ModernIntegrationExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernIntegrationExample.swift; sourceTree = "<group>"; };
+		60B9A74E2F368327006F6186 /* ModernSUMMARY.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ModernSUMMARY.md; sourceTree = "<group>"; };
+		60B9A74F2F368329006F6186 /* ModernQuickStartExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernQuickStartExample.swift; sourceTree = "<group>"; };
+		60B9A7502F36832C006F6186 /* ModernOVERVIEW.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ModernOVERVIEW.md; sourceTree = "<group>"; };
+		60B9A7512F36832F006F6186 /* ModernINDEX.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ModernINDEX.md; sourceTree = "<group>"; };
+		60B9A7522F36839A006F6186 /* ModernDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernDependencyContainer.swift; sourceTree = "<group>"; };
+		60B9A7532F36839A006F6186 /* ModernIntegrationExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernIntegrationExample.swift; sourceTree = "<group>"; };
+		60B9A7542F36839A006F6186 /* ModernModelsAdminArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernModelsAdminArea.swift; sourceTree = "<group>"; };
+		60B9A7552F36839A006F6186 /* ModernModelsArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernModelsArea.swift; sourceTree = "<group>"; };
+		60B9A7562F36839A006F6186 /* ModernModelsAreaAverages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernModelsAreaAverages.swift; sourceTree = "<group>"; };
+		60B9A7572F36839A006F6186 /* ModernModelsClim81Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernModelsClim81Station.swift; sourceTree = "<group>"; };
+		60B9A7582F36839A006F6186 /* ModernModelsCountry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernModelsCountry.swift; sourceTree = "<group>"; };
+		60B9A7592F36839A006F6186 /* ModernModelsForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernModelsForecast.swift; sourceTree = "<group>"; };
+		60B9A75A2F36839A006F6186 /* ModernNetworkingAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernNetworkingAPIClient.swift; sourceTree = "<group>"; };
+		60B9A75B2F36839A006F6186 /* ModernNetworkingAPIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernNetworkingAPIConfiguration.swift; sourceTree = "<group>"; };
+		60B9A75C2F36839A006F6186 /* ModernNetworkingAPIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernNetworkingAPIEndpoint.swift; sourceTree = "<group>"; };
+		60B9A75D2F36839A006F6186 /* ModernNetworkingAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernNetworkingAPIError.swift; sourceTree = "<group>"; };
+		60B9A75E2F36839A006F6186 /* ModernQuickStartExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernQuickStartExample.swift; sourceTree = "<group>"; };
+		60B9A75F2F36839A006F6186 /* ModernRepositoriesAreaRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernRepositoriesAreaRepository.swift; sourceTree = "<group>"; };
+		60B9A7602F36839A006F6186 /* ModernRepositoriesClimateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernRepositoriesClimateRepository.swift; sourceTree = "<group>"; };
+		60B9A7612F36839A006F6186 /* ModernRepositoriesCountryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernRepositoriesCountryRepository.swift; sourceTree = "<group>"; };
+		60B9A7622F36839A006F6186 /* ModernViewModelsAreaForecastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernViewModelsAreaForecastViewModel.swift; sourceTree = "<group>"; };
+		60B9A7632F36839A006F6186 /* ModernViewModelsAreaListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernViewModelsAreaListViewModel.swift; sourceTree = "<group>"; };
+		60B9A7642F36839A006F6186 /* ModernViewModelsAreaSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernViewModelsAreaSearchViewModel.swift; sourceTree = "<group>"; };
+		60B9A7652F36839A006F6186 /* ModernViewsAreaSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernViewsAreaSearchView.swift; sourceTree = "<group>"; };
+		60B9A7662F36839A006F6186 /* ModernViewsForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernViewsForecastView.swift; sourceTree = "<group>"; };
+		60B9A7A62F36860A006F6186 /* REFACTORING_COMPLETE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = REFACTORING_COMPLETE.md; sourceTree = "<group>"; };
+		60B9A7A82F368805006F6186 /* ERRORS_FIXED.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ERRORS_FIXED.md; sourceTree = "<group>"; };
 		60D99E091355279200B238D5 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* climbingweather-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "climbingweather-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		A5BA8E83BE629AEA5BCC8E8D /* Pods_climbingweather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_climbingweather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,6 +256,9 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				60B9A7382F368135006F6186 /* Modern */,
+				60B9A7352F367934006F6186 /* README.md */,
+				60B9A7342F3678D2006F6186 /* docs */,
 				6037F6152F33FCD000D545A0 /* FavoriteStore.swift */,
 				602D73ED1E5BFDA800925A58 /* AppDelegate.swift */,
 				6053B5E61E43CE5000798BC1 /* climbingweather-Bridging-Header.h */,
@@ -200,6 +279,7 @@
 				608DE64312FF85C600AE172C /* CoreLocation.framework */,
 				608DE66512FF88CE00AE172C /* MapKit.framework */,
 				6077042A135697170085464F /* Entitlements.plist */,
+				60B9A7A62F36860A006F6186 /* REFACTORING_COMPLETE.md */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -328,6 +408,68 @@
 				60ADE8C41E8A8D740040A472 /* Launch Screen.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		60B9A7342F3678D2006F6186 /* docs */ = {
+			isa = PBXGroup;
+			children = (
+				60B9A7372F367956006F6186 /* openapi.yaml */,
+				60B9A7392F3682E7006F6186 /* ModernNetworkingAPIError.swift */,
+				60B9A73A2F3682EC006F6186 /* ModernNetworkingAPIEndpoint.swift */,
+				60B9A73B2F3682EF006F6186 /* ModernNetworkingAPIConfiguration.swift */,
+				60B9A73C2F3682F2006F6186 /* ModernNetworkingAPIClient.swift */,
+				60B9A73D2F3682F5006F6186 /* ModernModelsCountry.swift */,
+				60B9A73E2F3682F9006F6186 /* ModernModelsAdminArea.swift */,
+				60B9A73F2F3682FC006F6186 /* ModernModelsArea.swift */,
+				60B9A7402F368300006F6186 /* ModernModelsForecast.swift */,
+				60B9A7412F368302006F6186 /* ModernModelsAreaAverages.swift */,
+				60B9A7422F368306006F6186 /* ModernModelsClim81Station.swift */,
+				60B9A7432F368309006F6186 /* ModernRepositoriesAreaRepository.swift */,
+				60B9A7442F36830C006F6186 /* ModernRepositoriesCountryRepository.swift */,
+				60B9A7452F36830E006F6186 /* ModernRepositoriesClimateRepository.swift */,
+				60B9A7462F368311006F6186 /* ModernViewModelsAreaForecastViewModel.swift */,
+				60B9A7472F368314006F6186 /* ModernViewModelsAreaSearchViewModel.swift */,
+				60B9A7482F368316006F6186 /* ModernViewModelsAreaListViewModel.swift */,
+				60B9A7492F368319006F6186 /* ModernViewsForecastView.swift */,
+				60B9A74A2F36831B006F6186 /* ModernViewsAreaSearchView.swift */,
+				60B9A74B2F36831E006F6186 /* ModernDependencyContainer.swift */,
+				60B9A74C2F368321006F6186 /* ModernREADME.md */,
+				60B9A74D2F368324006F6186 /* ModernIntegrationExample.swift */,
+				60B9A74E2F368327006F6186 /* ModernSUMMARY.md */,
+				60B9A74F2F368329006F6186 /* ModernQuickStartExample.swift */,
+				60B9A7502F36832C006F6186 /* ModernOVERVIEW.md */,
+				60B9A7512F36832F006F6186 /* ModernINDEX.md */,
+			);
+			path = docs;
+			sourceTree = "<group>";
+		};
+		60B9A7382F368135006F6186 /* Modern */ = {
+			isa = PBXGroup;
+			children = (
+				60B9A7522F36839A006F6186 /* ModernDependencyContainer.swift */,
+				60B9A7532F36839A006F6186 /* ModernIntegrationExample.swift */,
+				60B9A7542F36839A006F6186 /* ModernModelsAdminArea.swift */,
+				60B9A7552F36839A006F6186 /* ModernModelsArea.swift */,
+				60B9A7562F36839A006F6186 /* ModernModelsAreaAverages.swift */,
+				60B9A7572F36839A006F6186 /* ModernModelsClim81Station.swift */,
+				60B9A7582F36839A006F6186 /* ModernModelsCountry.swift */,
+				60B9A7592F36839A006F6186 /* ModernModelsForecast.swift */,
+				60B9A75A2F36839A006F6186 /* ModernNetworkingAPIClient.swift */,
+				60B9A75B2F36839A006F6186 /* ModernNetworkingAPIConfiguration.swift */,
+				60B9A75C2F36839A006F6186 /* ModernNetworkingAPIEndpoint.swift */,
+				60B9A75D2F36839A006F6186 /* ModernNetworkingAPIError.swift */,
+				60B9A75E2F36839A006F6186 /* ModernQuickStartExample.swift */,
+				60B9A75F2F36839A006F6186 /* ModernRepositoriesAreaRepository.swift */,
+				60B9A7602F36839A006F6186 /* ModernRepositoriesClimateRepository.swift */,
+				60B9A7612F36839A006F6186 /* ModernRepositoriesCountryRepository.swift */,
+				60B9A7622F36839A006F6186 /* ModernViewModelsAreaForecastViewModel.swift */,
+				60B9A7632F36839A006F6186 /* ModernViewModelsAreaListViewModel.swift */,
+				60B9A7642F36839A006F6186 /* ModernViewModelsAreaSearchViewModel.swift */,
+				60B9A7652F36839A006F6186 /* ModernViewsAreaSearchView.swift */,
+				60B9A7662F36839A006F6186 /* ModernViewsForecastView.swift */,
+				60B9A7A82F368805006F6186 /* ERRORS_FIXED.md */,
+			);
+			path = Modern;
 			sourceTree = "<group>";
 		};
 		60E3A55420387A10009B6540 /* Views */ = {
@@ -463,7 +605,10 @@
 				600611CD1E77494C000F7694 /* AreaDailyCell.xib in Resources */,
 				60ADE8C51E8A8D740040A472 /* Launch Screen.storyboard in Resources */,
 				608DE32B12FAD61100AE172C /* climbingweather.db in Resources */,
+				60B9A7A72F36860A006F6186 /* REFACTORING_COMPLETE.md in Resources */,
+				60B9A7AA2F368805006F6186 /* ERRORS_FIXED.md in Resources */,
 				604890B11E6F3CC3002590D4 /* HomeViewController.xib in Resources */,
+				60B9A7362F367934006F6186 /* README.md in Resources */,
 				60807EE313240AC9004A60C0 /* MainWindow.xib in Resources */,
 				60482A241E71D5D800A0AFC9 /* AreaCell.xib in Resources */,
 				60D99E0A1355279200B238D5 /* iTunesArtwork in Resources */,
@@ -474,6 +619,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60B9A7AB2F368805006F6186 /* ERRORS_FIXED.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +627,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60B9A7A92F368805006F6186 /* ERRORS_FIXED.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +657,27 @@
 				605BEDE91E68EE8B0076B4C4 /* AboutViewController.swift in Sources */,
 				6053B5E81E43CE5100798BC1 /* Area.swift in Sources */,
 				6053B6051E49442700798BC1 /* Preference.swift in Sources */,
+				60B9A77C2F36839A006F6186 /* ModernViewModelsAreaSearchViewModel.swift in Sources */,
+				60B9A77D2F36839A006F6186 /* ModernViewModelsAreaForecastViewModel.swift in Sources */,
+				60B9A77E2F36839A006F6186 /* ModernDependencyContainer.swift in Sources */,
+				60B9A77F2F36839A006F6186 /* ModernModelsAdminArea.swift in Sources */,
+				60B9A7802F36839A006F6186 /* ModernModelsForecast.swift in Sources */,
+				60B9A7812F36839A006F6186 /* ModernRepositoriesCountryRepository.swift in Sources */,
+				60B9A7822F36839A006F6186 /* ModernNetworkingAPIConfiguration.swift in Sources */,
+				60B9A7832F36839A006F6186 /* ModernModelsAreaAverages.swift in Sources */,
+				60B9A7842F36839A006F6186 /* ModernNetworkingAPIClient.swift in Sources */,
+				60B9A7852F36839A006F6186 /* ModernViewModelsAreaListViewModel.swift in Sources */,
+				60B9A7862F36839A006F6186 /* ModernRepositoriesAreaRepository.swift in Sources */,
+				60B9A7872F36839A006F6186 /* ModernViewsAreaSearchView.swift in Sources */,
+				60B9A7882F36839A006F6186 /* ModernViewsForecastView.swift in Sources */,
+				60B9A7892F36839A006F6186 /* ModernNetworkingAPIError.swift in Sources */,
+				60B9A78A2F36839A006F6186 /* ModernModelsCountry.swift in Sources */,
+				60B9A78B2F36839A006F6186 /* ModernIntegrationExample.swift in Sources */,
+				60B9A78C2F36839A006F6186 /* ModernNetworkingAPIEndpoint.swift in Sources */,
+				60B9A78D2F36839A006F6186 /* ModernRepositoriesClimateRepository.swift in Sources */,
+				60B9A78E2F36839A006F6186 /* ModernModelsArea.swift in Sources */,
+				60B9A78F2F36839A006F6186 /* ModernModelsClim81Station.swift in Sources */,
+				60B9A7902F36839A006F6186 /* ModernQuickStartExample.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

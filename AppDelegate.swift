@@ -7,6 +7,7 @@
 //
 import Foundation
 import UIKit
+import SwiftUI  // ← Add this for UIHostingController and SwiftUI views
 
 
 @UIApplicationMain
@@ -23,6 +24,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     }
     
     func setupWindow() {
+        
+
+        // MARK: - Testing Modern Architecture
+        // Uncomment the line below to test the modern API in the console
+        //quickConsoleTest()
+        
+        // MARK: - Example: Show Modern Forecast View
+        // Uncomment to test showing a modern SwiftUI forecast view
+        
+        let view = ForecastView(
+            areaId: 518,  // Yosemite National Park (from our successful test!)
+            areaName: "Yosemite National Park",
+            repository: DependencyContainer.shared.areaRepository
+        )
+        let hosting = UIHostingController(rootView: view)
+        
+        let navController = UINavigationController(rootViewController: hosting)
+        window?.rootViewController = navController
+        window?.makeKeyAndVisible()
+        return
+
+        /*
         
         let tabController = UITabBarController()
         tabController.delegate = self
@@ -46,6 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         window?.rootViewController = navController
         
         self.window?.makeKeyAndVisible()
+         */
     }
     
 }

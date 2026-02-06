@@ -42,7 +42,7 @@ class AreaCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func populate(_ area: Area) {
+    func populate(_ area: LegacyArea) {
         self.name.text = area.name
         self.state.text = area.state
         

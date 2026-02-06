@@ -12,7 +12,7 @@ import UIKit
 class AreaDailyViewController: UITableViewController {
     
     var areaId: Int?
-    var area: Area?
+    var area: LegacyArea?
     
     let activityIndicatorView = UIActivityIndicatorView(style: .gray)
     
@@ -86,7 +86,7 @@ class AreaDailyViewController: UITableViewController {
         
         DispatchQueue.global(qos: .userInteractive).async {
 
-            Area.fetchDaily(id: areaId, completion: { (area) in
+            LegacyArea.fetchDaily(id: areaId, completion: { (area) in
                 
                 self.stopLoading()
                 

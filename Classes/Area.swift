@@ -1,14 +1,14 @@
 //
-//  Area.swift
+//  Area.swift (Legacy)
 //  climbingweather
 //
 //  Created by Jon St. John on 2/2/17.
-//
+//  Renamed to LegacyArea on 2/6/26 to avoid conflict with Modern/Models/Area.swift
 //
 
 import Foundation
 
-public struct Area: Equatable {
+public struct LegacyArea: Equatable {
     let id: Int
     let name: String
     let state: String
@@ -123,14 +123,14 @@ public struct Area: Equatable {
         
     }
     
-    public static func ==(lhs: Area, rhs: Area) -> Bool {
+    public static func ==(lhs: LegacyArea, rhs: LegacyArea) -> Bool {
         return lhs.id == rhs.id
     }
     
     /**
      * Fetch daily forecast for area
      */
-    static func fetchDaily(id: Int, completion: @escaping (Area) -> Void) {
+    static func fetchDaily(id: Int, completion: @escaping (LegacyArea) -> Void) {
         
         let session = URLSession(configuration: URLSessionConfiguration.default)
         
@@ -138,7 +138,7 @@ public struct Area: Equatable {
             
             session.dataTask(with: searchURL, completionHandler: { (data, response, error) -> Void in
                 
-                if let data = data, let area = Area(id: id, dailyJsonData: data) {
+                if let data = data, let area = LegacyArea(id: id, dailyJsonData: data) {
                     completion(area)
                 }
                 
@@ -149,7 +149,7 @@ public struct Area: Equatable {
     /**
      * Fetch hourly forecast for area
      */
-    static func fetchHourly(id: Int, completion: @escaping (Area) -> Void) {
+    static func fetchHourly(id: Int, completion: @escaping (LegacyArea) -> Void) {
         
         let session = URLSession(configuration: URLSessionConfiguration.default)
         
@@ -157,7 +157,7 @@ public struct Area: Equatable {
             
             session.dataTask(with: searchURL, completionHandler: { (data, response, error) -> Void in
                 
-                if let data = data, let area = Area(id: id, hourlyJsonData: data) {
+                if let data = data, let area = LegacyArea(id: id, hourlyJsonData: data) {
                     completion(area)
                 }
                 
@@ -168,7 +168,7 @@ public struct Area: Equatable {
     /**
      * Fetch detail for area
      */
-    static func fetchDetail(id: Int, completion: @escaping (Area) -> Void) {
+    static func fetchDetail(id: Int, completion: @escaping (LegacyArea) -> Void) {
         
         let session = URLSession(configuration: URLSessionConfiguration.default)
         
@@ -176,7 +176,7 @@ public struct Area: Equatable {
             
             session.dataTask(with: searchURL, completionHandler: { (data, response, error) -> Void in
                 
-                if let data = data, let area = Area(id: id, detailJsonData: data) {
+                if let data = data, let area = LegacyArea(id: id, detailJsonData: data) {
                     completion(area)
                 }
                 
@@ -185,9 +185,9 @@ public struct Area: Equatable {
     }
     
     
-    static func favorites() -> [Area] {
+    static func favorites() -> [LegacyArea] {
         FavoriteStore.shared.all().map {
-            Area(id: $0.id, name: $0.name, state: "", daily: nil, hourly: nil, latitude: nil, longitude: nil)
+            LegacyArea(id: $0.id, name: $0.name, state: "", daily: nil, hourly: nil, latitude: nil, longitude: nil)
         }
     }
     
@@ -207,9 +207,9 @@ public struct Area: Equatable {
 
 
 
-struct Areas {
+struct LegacyAreas {
     
-    var areas = [Area]()
+    var areas = [LegacyArea]()
     
     public init?(dailyJsonStr: String) {
         
@@ -248,7 +248,7 @@ struct Areas {
                 
                 let forecastDaily = jsonArea["f"] as? [[String: Any]]
                 let daily = ForecastDay.parseDaily(dailies: forecastDaily)
-                let area = Area(id: id, name: name, state: state, daily: daily, hourly: nil, latitude: nil, longitude: nil)
+                let area = LegacyArea(id: id, name: name, state: state, daily: daily, hourly: nil, latitude: nil, longitude: nil)
                 self.areas.append(area)
             }
         }
@@ -256,7 +256,7 @@ struct Areas {
     }
     
     // TODO - implement search term / criteria, API key, units, maybe even days
-    static func fetchDaily(search: AreaSearch, completion: @escaping (Areas) -> Void) {
+    static func fetchDaily(search: AreaSearch, completion: @escaping (LegacyAreas) -> Void) {
         
         let session = URLSession(configuration: URLSessionConfiguration.default)
         
@@ -264,7 +264,7 @@ struct Areas {
             
             session.dataTask(with: searchURL, completionHandler: { (data, response, error) -> Void in
                 
-                if let data = data, let areas = Areas(dailyJsonData: data) {
+                if let data = data, let areas = LegacyAreas(dailyJsonData: data) {
                     completion(areas)
                 }
                 

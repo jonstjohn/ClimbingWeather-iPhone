@@ -1,0 +1,982 @@
+openapi: 3.0.3
+info:
+  title: ClimbingWeather API
+  version: 4.0.0
+  description: |
+    The ClimbingWeather.com API provides access to climbing areas and weather forecasts.
+
+    Version 4.0 uses a DarkSky-compatible output format making it easy to integrate with
+    existing applications familiar with the DarkSky API.
+
+    **Data Source:** National Digital Forecast Database (NDFD)
+
+    **Base URLs:**
+    - Production: https://api.climbingweather.com
+    - Staging: https://api-dev.climbingweather.com
+  contact:
+    name: ClimbingWeather.com
+    url: https://climbingweather.com
+  license:
+    name: Proprietary
+
+servers:
+  - url: https://api.climbingweather.com
+    description: Production server
+  - url: https://api-dev.climbingweather.com
+    description: Staging server
+  - url: http://localhost:8000
+    description: Local development server
+
+tags:
+  - name: Countries
+    description: Country information and listings
+  - name: Administrative Areas
+    description: States, provinces, and other administrative divisions
+  - name: Areas
+    description: Climbing areas and locations
+  - name: Forecasts
+    description: Weather forecasts for climbing areas
+  - name: Averages
+    description: Historical climate averages
+  - name: Climate Stations
+    description: NOAA 1981-2010 Climate Normals station data
+
+paths:
+  /:
+    get:
+      summary: Health check
+      description: Returns HTTP 200 if the service is running
+      operationId: healthCheck
+      responses:
+        '200':
+          description: Service is healthy
+
+  /country:
+    get:
+      summary: List countries
+      description: Get a list of all countries supported by the API
+      operationId: listCountries
+      tags:
+        - Countries
+      responses:
+        '200':
+          description: List of countries
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Country'
+              example:
+                - iso: USA
+                  name: United States of America
+                  adminAreaCount: 37
+                  areaCount: 278
+                - iso: CAN
+                  name: Canada
+                  adminAreaCount: 3
+                  areaCount: 21
+
+  /country/{iso}/adminArea:
+    get:
+      summary: List administrative areas
+      description: Get administrative areas (states/provinces) within a country
+      operationId: listAdminAreas
+      tags:
+        - Administrative Areas
+      parameters:
+        - name: iso
+          in: path
+          required: true
+          description: ISO 3166 country code
+          schema:
+            type: string
+            example: USA
+        - name: includeAreas
+          in: query
+          required: false
+          description: Include climbing areas in the response
+          schema:
+            type: boolean
+            default: false
+        - name: frontPage
+          in: query
+          required: false
+          description: Filter to front-page featured areas only
+          schema:
+            type: boolean
+            default: false
+        - name: days
+          in: query
+          required: false
+          description: Number of forecast days to include for each area (requires includeAreas=true)
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 7
+        - name: startDate
+          in: query
+          required: false
+          description: Start date for forecasts (YYYY-MM-DD)
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: List of administrative areas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AdminArea'
+
+  /state/bounds/{admin_area}:
+    get:
+      summary: Get administrative area boundaries
+      description: Get the geographic boundaries for an administrative area
+      operationId: getAdminAreaBounds
+      tags:
+        - Administrative Areas
+      parameters:
+        - name: admin_area
+          in: path
+          required: true
+          description: Administrative area code (e.g., state code)
+          schema:
+            type: string
+            example: CA
+      responses:
+        '200':
+          description: Administrative area with boundary coordinates
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdminAreaBounds'
+
+  /country/{iso}/area:
+    get:
+      summary: List areas by country
+      description: Get all climbing areas within a country
+      operationId: listAreasByCountry
+      tags:
+        - Areas
+      parameters:
+        - name: iso
+          in: path
+          required: true
+          description: ISO 3166 country code
+          schema:
+            type: string
+            example: USA
+        - name: startDate
+          in: query
+          required: false
+          description: Filter forecasts from this date (YYYY-MM-DD)
+          schema:
+            type: string
+            format: date
+            example: '2024-01-15'
+        - name: days
+          in: query
+          required: false
+          description: Number of forecast days to include
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 7
+        - name: recent
+          in: query
+          required: false
+          description: Number of recently added areas to return
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: List of climbing areas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Area'
+
+  /country/{iso}/adminArea/{admin_area}/area:
+    get:
+      summary: List areas by administrative area
+      description: Get climbing areas within a specific state/province
+      operationId: listAreasByAdminArea
+      tags:
+        - Areas
+      parameters:
+        - name: iso
+          in: path
+          required: true
+          description: ISO 3166 country code
+          schema:
+            type: string
+            example: USA
+        - name: admin_area
+          in: path
+          required: true
+          description: Administrative area code
+          schema:
+            type: string
+            example: CA
+        - name: days
+          in: query
+          required: false
+          description: Number of forecast days to include
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 7
+      responses:
+        '200':
+          description: List of climbing areas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Area'
+
+  /area/search/{search}:
+    get:
+      summary: Search for areas
+      description: |
+        Search for climbing areas by various criteria:
+        - Text search: area or state name
+        - Lat/lon: "latitude,longitude"
+        - Bounds: "sw_lat,sw_lon,ne_lat,ne_lon[,zoom]"
+        - ZIP code: 5-digit US ZIP code
+        - Area IDs: "ids-123,456,789"
+      operationId: searchAreas
+      tags:
+        - Areas
+      parameters:
+        - name: search
+          in: path
+          required: true
+          description: Search query (see description for formats)
+          schema:
+            type: string
+            example: yosemite
+      responses:
+        '200':
+          description: List of matching areas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Area'
+
+  /area/{area_id}/forecast:
+    get:
+      summary: Get area forecast
+      description: Get weather forecast for a specific climbing area (DarkSky-compatible format)
+      operationId: getAreaForecast
+      tags:
+        - Forecasts
+      parameters:
+        - name: area_id
+          in: path
+          required: true
+          description: Climbing area identifier
+          schema:
+            type: integer
+            example: 123
+        - name: tempUnit
+          in: query
+          required: false
+          description: Temperature unit
+          schema:
+            type: string
+            enum: [c, f]
+            default: f
+        - name: startDate
+          in: query
+          required: false
+          description: Start date for forecast (YYYY-MM-DD)
+          schema:
+            type: string
+            format: date
+        - name: days
+          in: query
+          required: false
+          description: Number of forecast days
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 7
+      responses:
+        '200':
+          description: Weather forecast in DarkSky-compatible format
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Forecast'
+
+  /area/{area_id}/averages:
+    get:
+      summary: Get climate averages
+      description: Get historical climate averages for a climbing area (13 months - Jan-Dec + annual)
+      operationId: getAreaAverages
+      tags:
+        - Averages
+      parameters:
+        - name: area_id
+          in: path
+          required: true
+          description: Climbing area identifier
+          schema:
+            type: integer
+            example: 123
+      responses:
+        '200':
+          description: Climate averages
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AreaAverages'
+
+  /area/{area_id}/detail:
+    get:
+      summary: Get extended area details
+      description: Get detailed information about a climbing area including all database fields. Optionally includes full climate station data with monthly averages.
+      operationId: getAreaDetail
+      tags:
+        - Areas
+      parameters:
+        - name: area_id
+          in: path
+          required: true
+          description: Climbing area identifier
+          schema:
+            type: integer
+            example: 123
+        - name: includeClim81Station
+          in: query
+          required: false
+          description: Include full climate station data with monthly averages
+          schema:
+            type: boolean
+            default: false
+      responses:
+        '200':
+          description: Extended area details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AreaDetail'
+        '404':
+          description: Area not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Area not found
+
+  /area/popular:
+    get:
+      summary: Get popular areas
+      description: Get a list of the most popular climbing areas based on request count
+      operationId: getPopularAreas
+      tags:
+        - Areas
+      parameters:
+        - name: limit
+          in: query
+          required: false
+          description: Maximum number of areas to return
+          schema:
+            type: integer
+            default: 50
+            minimum: 1
+            maximum: 100
+        - name: days
+          in: query
+          required: false
+          description: Number of forecast days to include
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 7
+        - name: startDate
+          in: query
+          required: false
+          description: Start date for forecasts (YYYY-MM-DD)
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: List of popular areas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  allOf:
+                    - $ref: '#/components/schemas/Area'
+                    - type: object
+                      properties:
+                        requestCount:
+                          type: integer
+                          description: Number of requests for this area
+                          example: 1542
+
+  /area/front-page:
+    get:
+      summary: Get front page areas
+      description: Get climbing areas marked for front page display
+      operationId: getFrontPageAreas
+      tags:
+        - Areas
+      parameters:
+        - name: days
+          in: query
+          required: false
+          description: Number of forecast days to include
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 7
+        - name: startDate
+          in: query
+          required: false
+          description: Start date for forecasts (YYYY-MM-DD)
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: List of front page areas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Area'
+
+  /clim81/{clim81_station_id}/detail:
+    get:
+      summary: Get climate station details
+      description: Get details for a NOAA 1981-2010 Climate Normals station
+      operationId: getClim81StationDetail
+      tags:
+        - Climate Stations
+      parameters:
+        - name: clim81_station_id
+          in: path
+          required: true
+          description: Climate station identifier
+          schema:
+            type: integer
+            example: 1234
+      responses:
+        '200':
+          description: Climate station details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Clim81Station'
+        '404':
+          description: Climate station not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Climate station not found
+
+components:
+  schemas:
+    Country:
+      type: object
+      description: A country with climbing areas
+      properties:
+        iso:
+          type: string
+          description: ISO 3166 country code
+          example: USA
+        name:
+          type: string
+          description: Country name
+          example: United States of America
+        adminAreaCount:
+          type: integer
+          description: Number of administrative areas
+          example: 37
+        areaCount:
+          type: integer
+          description: Number of climbing areas
+          example: 278
+
+    AdminArea:
+      type: object
+      description: Administrative area (state, province, etc.)
+      properties:
+        country:
+          type: string
+          description: ISO 3166 country code
+          example: USA
+        code:
+          type: string
+          description: Administrative area code
+          example: CA
+        name:
+          type: string
+          description: Administrative area name
+          example: California
+        areaCount:
+          type: integer
+          description: Number of climbing areas
+          example: 25
+        areas:
+          type: array
+          description: List of climbing areas (if includeAreas=true)
+          items:
+            $ref: '#/components/schemas/Area'
+
+    AdminAreaBounds:
+      allOf:
+        - $ref: '#/components/schemas/AdminArea'
+        - type: object
+          properties:
+            swLatitude:
+              type: number
+              format: double
+              description: Southwest boundary latitude
+            swLongitude:
+              type: number
+              format: double
+              description: Southwest boundary longitude
+            neLatitude:
+              type: number
+              format: double
+              description: Northeast boundary latitude
+            neLongitude:
+              type: number
+              format: double
+              description: Northeast boundary longitude
+
+    Area:
+      type: object
+      description: A climbing area
+      properties:
+        areaId:
+          type: integer
+          description: Unique area identifier
+          example: 123
+        country:
+          type: string
+          description: ISO 3166 country code
+          example: USA
+        adminArea:
+          type: string
+          description: Administrative area code
+          example: CA
+        adminAreaName:
+          type: string
+          description: Administrative area name
+          example: California
+        name:
+          type: string
+          description: Area name
+          example: Yosemite Valley
+        latitude:
+          type: string
+          description: Latitude in decimal degrees
+          example: '37.7456'
+        longitude:
+          type: string
+          description: Longitude in decimal degrees
+          example: '-119.5937'
+        forecast:
+          $ref: '#/components/schemas/Forecast'
+          description: Weather forecast (if days parameter provided)
+
+    Forecast:
+      type: object
+      description: Weather forecast in DarkSky-compatible format
+      properties:
+        latitude:
+          type: number
+          format: double
+          description: Latitude
+          example: 37.7456
+        longitude:
+          type: number
+          format: double
+          description: Longitude
+          example: -119.5937
+        timezone:
+          type: string
+          description: IANA timezone identifier
+          example: America/Los_Angeles
+        name:
+          type: string
+          description: Area name
+          example: Yosemite Valley
+        currently:
+          $ref: '#/components/schemas/ForecastDataPoint'
+          description: Current weather conditions (typically null for NDFD)
+        minutely:
+          $ref: '#/components/schemas/ForecastDataBlock'
+          description: Minute-by-minute forecast (typically null for NDFD)
+        hourly:
+          $ref: '#/components/schemas/ForecastDataBlock'
+          description: Hourly forecast
+        daily:
+          $ref: '#/components/schemas/ForecastDataBlock'
+          description: Daily forecast
+        alerts:
+          type: array
+          items:
+            $ref: '#/components/schemas/ForecastAlert'
+          description: Weather alerts (typically null for NDFD)
+        flags:
+          type: object
+          properties:
+            units:
+              type: string
+              enum: [us, si]
+              description: Unit system
+
+    ForecastDataBlock:
+      type: object
+      description: A collection of forecast data points
+      properties:
+        summary:
+          type: string
+          description: Human-readable summary
+          example: Rain throughout the week
+        icon:
+          type: string
+          description: Weather icon identifier
+          example: rain
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ForecastDataPoint'
+
+    ForecastDataPoint:
+      type: object
+      description: A single forecast data point
+      properties:
+        time:
+          type: integer
+          description: Unix timestamp
+          example: 1509993277
+        summary:
+          type: string
+          description: Weather summary
+          example: Partly cloudy
+        icon:
+          type: string
+          description: Weather icon identifier
+          example: partly-cloudy-day
+        temperature:
+          type: number
+          format: double
+          description: Temperature (hourly)
+        temperatureHigh:
+          type: number
+          format: double
+          description: High temperature (daily)
+        temperatureLow:
+          type: number
+          format: double
+          description: Low temperature (daily)
+        precipProbability:
+          type: number
+          format: double
+          description: Precipitation probability (0-1)
+          minimum: 0
+          maximum: 1
+        precipProbabilityNight:
+          type: number
+          format: double
+          description: Night precipitation probability (0-1)
+          minimum: 0
+          maximum: 1
+        precipType:
+          type: string
+          enum: [rain, snow]
+          description: Precipitation type
+        precipAccumulation:
+          type: number
+          format: double
+          description: Precipitation accumulation (inches or cm)
+        cloudCover:
+          type: number
+          format: double
+          description: Cloud cover (0-1)
+          minimum: 0
+          maximum: 1
+        humidity:
+          type: number
+          format: double
+          description: Relative humidity (0-1)
+          minimum: 0
+          maximum: 1
+        windSpeed:
+          type: number
+          format: double
+          description: Wind speed (mph or m/s)
+        windGust:
+          type: number
+          format: double
+          description: Wind gust speed (mph or m/s)
+
+    ForecastAlert:
+      type: object
+      description: A weather alert
+      properties:
+        title:
+          type: string
+          description: Alert title
+        time:
+          type: integer
+          description: Alert issue time (Unix timestamp)
+        expires:
+          type: integer
+          description: Alert expiration time (Unix timestamp)
+        description:
+          type: string
+          description: Detailed alert description
+        uri:
+          type: string
+          format: uri
+          description: Link to full alert details
+
+    AreaAverages:
+      type: object
+      description: Historical climate averages (13 values - Jan through Dec plus annual)
+      properties:
+        areaId:
+          type: integer
+          description: Area identifier
+          example: 123
+        precip:
+          type: array
+          description: Monthly precipitation averages (inches) + annual
+          items:
+            type: number
+            format: double
+          minItems: 13
+          maxItems: 13
+          example: [2.1, 2.3, 2.8, 3.1, 3.5, 2.9, 1.2, 0.8, 1.1, 1.9, 2.4, 2.6, 27.7]
+        high:
+          type: array
+          description: Monthly high temperature averages (°F) + annual
+          items:
+            type: number
+            format: double
+          minItems: 13
+          maxItems: 13
+          example: [48, 52, 58, 65, 73, 81, 86, 85, 78, 67, 56, 49, 66.5]
+        low:
+          type: array
+          description: Monthly low temperature averages (°F) + annual
+          items:
+            type: number
+            format: double
+          minItems: 13
+          maxItems: 13
+          example: [28, 31, 36, 42, 50, 58, 63, 62, 55, 44, 36, 30, 44.6]
+        mean:
+          type: array
+          description: Monthly mean temperature averages (°F) + annual
+          items:
+            type: number
+            format: double
+          minItems: 13
+          maxItems: 13
+          example: [38, 41, 47, 53, 61, 69, 74, 73, 66, 55, 46, 39, 55.2]
+
+    AreaDetail:
+      type: object
+      description: Extended area information with all database fields
+      properties:
+        areaId:
+          type: integer
+          description: Unique area identifier
+          example: 123
+        name:
+          type: string
+          description: Area name
+          example: Yosemite Valley
+        latitude:
+          type: number
+          format: double
+          description: Latitude in decimal degrees
+          example: 37.7456
+        longitude:
+          type: number
+          format: double
+          description: Longitude in decimal degrees
+          example: -119.5937
+        stateCode:
+          type: string
+          description: State/province code
+          example: CA
+        city:
+          type: string
+          nullable: true
+          description: Nearest city
+          example: Yosemite National Park
+        elevation:
+          type: integer
+          nullable: true
+          description: Elevation in feet
+          example: 4000
+        dataLastUpdated:
+          type: string
+          format: date-time
+          nullable: true
+          description: When area data was last updated
+          example: '2026-01-20T12:00:00'
+        description:
+          type: string
+          nullable: true
+          description: Area description
+        showWeather:
+          type: boolean
+          description: Whether weather is displayed for this area
+          example: true
+        areaSizeId:
+          type: integer
+          nullable: true
+          description: Area size category identifier
+          example: 2
+        frontPage:
+          type: boolean
+          description: Whether area is featured on front page
+          example: true
+        clim81StationId:
+          type: integer
+          nullable: true
+          description: Climate station identifier for historical averages
+          example: 1234
+        clim81StationDistance:
+          type: integer
+          nullable: true
+          description: Distance to climate station in miles
+          example: 15
+        zipCode:
+          type: string
+          nullable: true
+          description: Primary ZIP code for the area
+          example: '95389'
+        zipCodeIndexed:
+          type: boolean
+          description: Whether ZIP code has been indexed
+          example: true
+        gmtOffset:
+          type: integer
+          nullable: true
+          description: GMT offset in hours
+          example: -8
+        nameSearch:
+          type: string
+          nullable: true
+          description: Searchable name variant
+          example: yosemite valley
+        clim81Station:
+          $ref: '#/components/schemas/Clim81Station'
+          nullable: true
+          description: Full climate station data with monthly averages (only included if includeClim81Station=true)
+
+    Clim81Station:
+      type: object
+      description: NOAA 1981-2010 Climate Normals station with monthly averages
+      properties:
+        clim81StationId:
+          type: integer
+          description: Unique station identifier
+          example: 1234
+        stateCode:
+          type: string
+          nullable: true
+          description: State code
+          example: CA
+        number:
+          type: string
+          nullable: true
+          description: Station number
+          example: '040897'
+        coopid:
+          type: string
+          nullable: true
+          description: COOP station identifier
+          example: '040897'
+        stationName:
+          type: string
+          nullable: true
+          description: Station name
+          example: YOSEMITE PARK HEADQUARTERS
+        latitude:
+          type: number
+          format: double
+          nullable: true
+          description: Latitude in decimal degrees
+          example: 37.7489
+        longitude:
+          type: number
+          format: double
+          nullable: true
+          description: Longitude in decimal degrees
+          example: -119.5872
+        elevation:
+          type: integer
+          nullable: true
+          description: Elevation in feet
+          example: 3966
+        precip:
+          type: array
+          nullable: true
+          description: Monthly precipitation averages (inches) + annual (13 values - Jan-Dec + annual)
+          items:
+            type: number
+            format: double
+          minItems: 13
+          maxItems: 13
+          example: [2.1, 2.3, 2.8, 3.1, 3.5, 2.9, 1.2, 0.8, 1.1, 1.9, 2.4, 2.6, 27.7]
+        high:
+          type: array
+          nullable: true
+          description: Monthly high temperature averages (°F) + annual (13 values)
+          items:
+            type: number
+            format: double
+          minItems: 13
+          maxItems: 13
+          example: [48, 52, 58, 65, 73, 81, 86, 85, 78, 67, 56, 49, 66.5]
+        low:
+          type: array
+          nullable: true
+          description: Monthly low temperature averages (°F) + annual (13 values)
+          items:
+            type: number
+            format: double
+          minItems: 13
+          maxItems: 13
+          example: [28, 31, 36, 42, 50, 58, 63, 62, 55, 44, 36, 30, 44.6]
+        mean:
+          type: array
+          nullable: true
+          description: Monthly mean temperature averages (°F) + annual (13 values)
+          items:
+            type: number
+            format: double
+          minItems: 13
+          maxItems: 13
+          example: [38, 41, 47, 53, 61, 69, 74, 73, 66, 55, 46, 39, 55.2]

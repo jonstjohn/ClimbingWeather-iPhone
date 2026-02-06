@@ -12,7 +12,7 @@ import UIKit
 class AreaHourlyViewController: UITableViewController {
     
     var areaId: Int?
-    var area: Area?
+    var area: LegacyArea?
     
     let activityIndicatorView = UIActivityIndicatorView(style: .gray)
     
@@ -57,7 +57,7 @@ class AreaHourlyViewController: UITableViewController {
         self.startLoading()
         
         DispatchQueue.global(qos: .userInteractive).async {
-            Area.fetchHourly(id: areaId, completion: { (area) in
+            LegacyArea.fetchHourly(id: areaId, completion: { (area) in
                 self.area = area
                 
                 DispatchQueue.main.async {

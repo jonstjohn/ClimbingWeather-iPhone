@@ -27,7 +27,7 @@ class AreasTests: XCTestCase {
     }
     
     func test_validJson() {
-        let areas = Areas(dailyJsonStr: jsonStr)
+        let areas = LegacyAreas(dailyJsonStr: jsonStr)
         XCTAssertEqual(areas?.areas[0].name, "Big Cottonwood Canyon")
         XCTAssertEqual(areas?.areas[0].id, 713)
         XCTAssertEqual(areas?.areas[0].state, "UT")
@@ -48,14 +48,14 @@ class AreasTests: XCTestCase {
     }
     
     func test_invalidJson() {
-        let areas = Areas(dailyJsonStr: invalidJsonStr)
+        let areas = LegacyAreas(dailyJsonStr: invalidJsonStr)
         XCTAssertNil(areas)
     }
     
     func test_fetchDaily() {
         let ex = expectation(description: "Wait for load.")
-        var areas: Areas?
-        Areas.fetchDaily(search: .Term("cottonwood")) { (fetchedAreas) in
+        var areas: LegacyAreas?
+        LegacyAreas.fetchDaily(search: .Term("cottonwood")) { (fetchedAreas) in
             areas = fetchedAreas
             ex.fulfill()
         }
@@ -77,7 +77,7 @@ class AreaDailyTests: XCTestCase {
     func test_validJson() {
         
         let data = self.jsonStr.data(using: .utf8)!
-        guard let area = Area(id: 3, dailyJsonData: data) else {
+        guard let area = LegacyArea(id: 3, dailyJsonData: data) else {
             XCTFail()
             return
         }
@@ -116,18 +116,18 @@ class AreaDailyTests: XCTestCase {
     
     func test_malformedJson() {
         let data = self.malformedJsonStr.data(using: .utf8)!
-        XCTAssertNil(Area(id: 3, dailyJsonData: data))
+        XCTAssertNil(LegacyArea(id: 3, dailyJsonData: data))
     }
     
     func test_errorJson() {
         let data = self.errorJsonStr.data(using: .utf8)!
-        XCTAssertNil(Area(id: 3, dailyJsonData: data))
+        XCTAssertNil(LegacyArea(id: 3, dailyJsonData: data))
     }
     
     func test_fetchArea() {
         let ex = expectation(description: "Wait for load.")
-        var area: Area?
-        Area.fetchDaily(id: 3) { (fetchedArea) in
+        var area: LegacyArea?
+        LegacyArea.fetchDaily(id: 3) { (fetchedArea) in
             area = fetchedArea
             ex.fulfill()
         }
@@ -152,7 +152,7 @@ class AreasHourlyTests: XCTestCase {
         }
         
         
-        guard let area = Area(id: 3, hourlyJsonData: data) else {
+        guard let area = LegacyArea(id: 3, hourlyJsonData: data) else {
             XCTFail("Failed to create Area from hourly JSON data")
             return
         }
@@ -188,7 +188,7 @@ class AreasHourlyTests: XCTestCase {
         }
         
         
-        guard let area = Area(id: 3, hourlyJsonData: data) else {
+        guard let area = LegacyArea(id: 3, hourlyJsonData: data) else {
             XCTFail("Failed to create Area from hourly JSON data")
             return
         }
@@ -213,15 +213,15 @@ class AreasHourlyTests: XCTestCase {
             return
         }
         
-        let area = Area(id: 3, hourlyJsonData: data)
+        let area = LegacyArea(id: 3, hourlyJsonData: data)
         
         XCTAssertNil(area)
     }
     
     func test_fetchArea() {
         let ex = expectation(description: "Wait for load.")
-        var area: Area?
-        Area.fetchHourly(id: 3) { (fetchedArea) in
+        var area: LegacyArea?
+        LegacyArea.fetchHourly(id: 3) { (fetchedArea) in
             area = fetchedArea
             ex.fulfill()
         }
@@ -255,7 +255,7 @@ class AreaDetailTests: XCTestCase {
         }
         
         
-        guard let area = Area(id: 3, detailJsonData: data) else {
+        guard let area = LegacyArea(id: 3, detailJsonData: data) else {
             XCTFail("Failed to create Area from hourly JSON data")
             return
         }
@@ -273,15 +273,15 @@ class AreaDetailTests: XCTestCase {
             return
         }
         
-        let area = Area(id: 3, detailJsonData: data)
+        let area = LegacyArea(id: 3, detailJsonData: data)
         
         XCTAssertNil(area)
     }
     
     func test_fetchDetail() {
         let ex = expectation(description: "Wait for load.")
-        var area: Area?
-        Area.fetchDetail(id: 3) { (fetchedArea) in
+        var area: LegacyArea?
+        LegacyArea.fetchDetail(id: 3) { (fetchedArea) in
             area = fetchedArea
             ex.fulfill()
         }

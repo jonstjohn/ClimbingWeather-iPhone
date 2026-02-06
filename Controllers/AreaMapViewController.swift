@@ -15,7 +15,7 @@ class AreaMapViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet var mapView: MKMapView!
     
     var areaId: Int?
-    var area: Area?
+    var area: LegacyArea?
     
     override func viewDidLoad() {
         self.navigationController?.isNavigationBarHidden = false
@@ -39,7 +39,7 @@ class AreaMapViewController: UIViewController, MKMapViewDelegate {
             return
         }
         
-        Area.fetchDetail(id: areaId, completion: { (area) in
+        LegacyArea.fetchDetail(id: areaId, completion: { (area) in
             self.area = area
             
             DispatchQueue.main.async { [weak self] in
