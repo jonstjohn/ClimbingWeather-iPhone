@@ -53,6 +53,11 @@
 		608DE64412FF85C600AE172C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608DE64312FF85C600AE172C /* CoreLocation.framework */; };
 		608DE66612FF88CE00AE172C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608DE66512FF88CE00AE172C /* MapKit.framework */; };
 		609F764F2F37C725000FC5BE /* FORECAST_VIEW_LAYOUT_COMPLETE.md in Resources */ = {isa = PBXBuildFile; fileRef = 609F764E2F37C725000FC5BE /* FORECAST_VIEW_LAYOUT_COMPLETE.md */; };
+		609F76512F37CC44000FC5BE /* ModernViewsForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609F76502F37CC44000FC5BE /* ModernViewsForecastView.swift */; };
+		609F76532F37CC69000FC5BE /* WEATHER_ICONS_UPDATED.md in Resources */ = {isa = PBXBuildFile; fileRef = 609F76522F37CC69000FC5BE /* WEATHER_ICONS_UPDATED.md */; };
+		609F76572F37CD01000FC5BE /* ICON_TROUBLESHOOTING.md in Resources */ = {isa = PBXBuildFile; fileRef = 609F76562F37CD01000FC5BE /* ICON_TROUBLESHOOTING.md */; };
+		609F76592F37CE0B000FC5BE /* INTEGRATION_EXAMPLE_FIXED.md in Resources */ = {isa = PBXBuildFile; fileRef = 609F76582F37CE0B000FC5BE /* INTEGRATION_EXAMPLE_FIXED.md */; };
+		609F765B2F37D17A000FC5BE /* ICON_MAPPING_COMPLETE.md in Resources */ = {isa = PBXBuildFile; fileRef = 609F765A2F37D17A000FC5BE /* ICON_MAPPING_COMPLETE.md */; };
 		60ADE8C51E8A8D740040A472 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60ADE8C41E8A8D740040A472 /* Launch Screen.storyboard */; };
 		60B3ADB02034C6020089D1CD /* ZeroState.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60B3ADAF2034C6010089D1CD /* ZeroState.xib */; };
 		60B3ADB22034C6DC0089D1CD /* ZeroState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B3ADB12034C6DC0089D1CD /* ZeroState.swift */; };
@@ -69,7 +74,6 @@
 		60B9A7852F36839A006F6186 /* ModernViewModelsAreaListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9A7632F36839A006F6186 /* ModernViewModelsAreaListViewModel.swift */; };
 		60B9A7862F36839A006F6186 /* ModernRepositoriesAreaRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9A75F2F36839A006F6186 /* ModernRepositoriesAreaRepository.swift */; };
 		60B9A7872F36839A006F6186 /* ModernViewsAreaSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9A7652F36839A006F6186 /* ModernViewsAreaSearchView.swift */; };
-		60B9A7882F36839A006F6186 /* ModernViewsForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9A7662F36839A006F6186 /* ModernViewsForecastView.swift */; };
 		60B9A7892F36839A006F6186 /* ModernNetworkingAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9A75D2F36839A006F6186 /* ModernNetworkingAPIError.swift */; };
 		60B9A78A2F36839A006F6186 /* ModernModelsCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9A7582F36839A006F6186 /* ModernModelsCountry.swift */; };
 		60B9A78B2F36839A006F6186 /* ModernIntegrationExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9A7532F36839A006F6186 /* ModernIntegrationExample.swift */; };
@@ -157,6 +161,11 @@
 		608DE64312FF85C600AE172C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		608DE66512FF88CE00AE172C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		609F764E2F37C725000FC5BE /* FORECAST_VIEW_LAYOUT_COMPLETE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = FORECAST_VIEW_LAYOUT_COMPLETE.md; sourceTree = "<group>"; };
+		609F76502F37CC44000FC5BE /* ModernViewsForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernViewsForecastView.swift; sourceTree = "<group>"; };
+		609F76522F37CC69000FC5BE /* WEATHER_ICONS_UPDATED.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = WEATHER_ICONS_UPDATED.md; sourceTree = "<group>"; };
+		609F76562F37CD01000FC5BE /* ICON_TROUBLESHOOTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ICON_TROUBLESHOOTING.md; sourceTree = "<group>"; };
+		609F76582F37CE0B000FC5BE /* INTEGRATION_EXAMPLE_FIXED.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = INTEGRATION_EXAMPLE_FIXED.md; sourceTree = "<group>"; };
+		609F765A2F37D17A000FC5BE /* ICON_MAPPING_COMPLETE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ICON_MAPPING_COMPLETE.md; sourceTree = "<group>"; };
 		60ADE8C41E8A8D740040A472 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		60B3ADAF2034C6010089D1CD /* ZeroState.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZeroState.xib; sourceTree = "<group>"; };
 		60B3ADB12034C6DC0089D1CD /* ZeroState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroState.swift; sourceTree = "<group>"; };
@@ -207,7 +216,6 @@
 		60B9A7632F36839A006F6186 /* ModernViewModelsAreaListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernViewModelsAreaListViewModel.swift; sourceTree = "<group>"; };
 		60B9A7642F36839A006F6186 /* ModernViewModelsAreaSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernViewModelsAreaSearchViewModel.swift; sourceTree = "<group>"; };
 		60B9A7652F36839A006F6186 /* ModernViewsAreaSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernViewsAreaSearchView.swift; sourceTree = "<group>"; };
-		60B9A7662F36839A006F6186 /* ModernViewsForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernViewsForecastView.swift; sourceTree = "<group>"; };
 		60B9A7A62F36860A006F6186 /* REFACTORING_COMPLETE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = REFACTORING_COMPLETE.md; sourceTree = "<group>"; };
 		60B9A7A82F368805006F6186 /* ERRORS_FIXED.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ERRORS_FIXED.md; sourceTree = "<group>"; };
 		60D99E091355279200B238D5 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
@@ -468,9 +476,13 @@
 				60B9A7632F36839A006F6186 /* ModernViewModelsAreaListViewModel.swift */,
 				60B9A7642F36839A006F6186 /* ModernViewModelsAreaSearchViewModel.swift */,
 				60B9A7652F36839A006F6186 /* ModernViewsAreaSearchView.swift */,
-				60B9A7662F36839A006F6186 /* ModernViewsForecastView.swift */,
+				609F76502F37CC44000FC5BE /* ModernViewsForecastView.swift */,
 				60B9A7A82F368805006F6186 /* ERRORS_FIXED.md */,
 				609F764E2F37C725000FC5BE /* FORECAST_VIEW_LAYOUT_COMPLETE.md */,
+				609F76522F37CC69000FC5BE /* WEATHER_ICONS_UPDATED.md */,
+				609F76562F37CD01000FC5BE /* ICON_TROUBLESHOOTING.md */,
+				609F76582F37CE0B000FC5BE /* INTEGRATION_EXAMPLE_FIXED.md */,
+				609F765A2F37D17A000FC5BE /* ICON_MAPPING_COMPLETE.md */,
 			);
 			path = Modern;
 			sourceTree = "<group>";
@@ -601,6 +613,7 @@
 			files = (
 				600611D11E77498C000F7694 /* AreaHourlyCell.xib in Resources */,
 				605BEDF31E692BD90076B4C4 /* AreaMapViewController.xib in Resources */,
+				609F765B2F37D17A000FC5BE /* ICON_MAPPING_COMPLETE.md in Resources */,
 				609F764F2F37C725000FC5BE /* FORECAST_VIEW_LAYOUT_COMPLETE.md in Resources */,
 				6009BF941E6147FA0021A13B /* SettingsViewController.xib in Resources */,
 				6009BF981E66429C0021A13B /* AboutViewController.xib in Resources */,
@@ -609,11 +622,14 @@
 				600611CD1E77494C000F7694 /* AreaDailyCell.xib in Resources */,
 				60ADE8C51E8A8D740040A472 /* Launch Screen.storyboard in Resources */,
 				608DE32B12FAD61100AE172C /* climbingweather.db in Resources */,
+				609F76532F37CC69000FC5BE /* WEATHER_ICONS_UPDATED.md in Resources */,
 				60B9A7A72F36860A006F6186 /* REFACTORING_COMPLETE.md in Resources */,
+				609F76572F37CD01000FC5BE /* ICON_TROUBLESHOOTING.md in Resources */,
 				60B9A7AA2F368805006F6186 /* ERRORS_FIXED.md in Resources */,
 				604890B11E6F3CC3002590D4 /* HomeViewController.xib in Resources */,
 				60B9A7362F367934006F6186 /* README.md in Resources */,
 				60807EE313240AC9004A60C0 /* MainWindow.xib in Resources */,
+				609F76592F37CE0B000FC5BE /* INTEGRATION_EXAMPLE_FIXED.md in Resources */,
 				60482A241E71D5D800A0AFC9 /* AreaCell.xib in Resources */,
 				60D99E0A1355279200B238D5 /* iTunesArtwork in Resources */,
 			);
@@ -667,13 +683,13 @@
 				60B9A77F2F36839A006F6186 /* ModernModelsAdminArea.swift in Sources */,
 				60B9A7802F36839A006F6186 /* ModernModelsForecast.swift in Sources */,
 				60B9A7812F36839A006F6186 /* ModernRepositoriesCountryRepository.swift in Sources */,
+				609F76512F37CC44000FC5BE /* ModernViewsForecastView.swift in Sources */,
 				60B9A7822F36839A006F6186 /* ModernNetworkingAPIConfiguration.swift in Sources */,
 				60B9A7832F36839A006F6186 /* ModernModelsAreaAverages.swift in Sources */,
 				60B9A7842F36839A006F6186 /* ModernNetworkingAPIClient.swift in Sources */,
 				60B9A7852F36839A006F6186 /* ModernViewModelsAreaListViewModel.swift in Sources */,
 				60B9A7862F36839A006F6186 /* ModernRepositoriesAreaRepository.swift in Sources */,
 				60B9A7872F36839A006F6186 /* ModernViewsAreaSearchView.swift in Sources */,
-				60B9A7882F36839A006F6186 /* ModernViewsForecastView.swift in Sources */,
 				60B9A7892F36839A006F6186 /* ModernNetworkingAPIError.swift in Sources */,
 				60B9A78A2F36839A006F6186 /* ModernModelsCountry.swift in Sources */,
 				60B9A78B2F36839A006F6186 /* ModernIntegrationExample.swift in Sources */,

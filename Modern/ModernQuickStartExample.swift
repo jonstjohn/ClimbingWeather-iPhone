@@ -23,7 +23,7 @@ extension UIViewController {
         let testAreaName = "Yosemite Valley"
         
         // Create modern forecast view
-        let forecastView = ForecastView(
+        let forecastView = ModernForecastView(
             areaId: testAreaId,
             areaName: testAreaName,
             repository: DependencyContainer.shared.areaRepository

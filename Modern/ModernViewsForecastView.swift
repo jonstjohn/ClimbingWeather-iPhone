@@ -9,7 +9,7 @@
 import SwiftUI
 
 /// Main forecast view for an area
-struct ForecastView: View {
+struct ModernForecastView: View {
     
     @StateObject private var viewModel: AreaForecastViewModel
     
@@ -31,7 +31,7 @@ struct ForecastView: View {
                     Spacer()
                 }
             } else if let error = viewModel.error {
-                ErrorView(error: error) {
+                ModernForecastErrorView(error: error) {
                     viewModel.retry(areaId: areaId)
                 }
             } else if let forecast = viewModel.forecast {
@@ -312,60 +312,152 @@ struct DailyForecastRow: View {
     }
 }
 
-/// Simple weather icon view (you'd replace this with your actual icon logic)
+/// Weather icon view with API code mapping
 struct WeatherIconView: View {
     let icon: String
     
     var body: some View {
-        Image(systemName: symbolName)
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .foregroundColor(iconColor)
-    }
-    
-    private var symbolName: String {
-        switch icon {
-        case "clear-day", "sunny":
-            return "sun.max.fill"
-        case "clear-night", "sunny_night":
-            return "moon.stars.fill"
-        case "rain", "light_rain":
-            return "cloud.rain.fill"
-        case "snow", "snow1", "snow2":
-            return "cloud.snow.fill"
-        case "cloudy", "cloudy1", "cloudy2":
-            return "cloud.fill"
-        case "partly-cloudy-day", "cloudy3":
-            return "cloud.sun.fill"
-        case "partly-cloudy-night", "cloudy3_night":
-            return "cloud.moon.fill"
-        case "wind":
-            return "wind"
-        case "fog":
-            return "cloud.fog.fill"
-        default:
-            return "cloud.fill"
+        let mappedIconName = mapAPIIconToAssetName(icon)
+        let _ = debugIconMapping(apiIcon: icon, mappedIcon: mappedIconName)
+        
+        // Use the project's bundled weather icon images
+        if let uiImage = UIImage(named: mappedIconName) {
+            let _ = print("   ✅ Loaded asset: '\(mappedIconName)'")
+            return AnyView(
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            )
+        } else {
+            let fallback = fallbackSymbolName(for: mappedIconName)
+            let _ = print("   ⚠️ Asset NOT found, using SF Symbol: '\(fallback)'")
+            // Fallback to SF Symbol if icon asset not found
+            return AnyView(
+                Image(systemName: fallback)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(.gray)
+            )
         }
     }
     
-    private var iconColor: Color {
-        switch icon {
-        case "clear-day", "sunny":
-            return .yellow
-        case "clear-night", "sunny_night":
-            return .purple
-        case "rain", "light_rain":
-            return .blue
-        case "snow", "snow1", "snow2":
-            return .cyan
-        default:
-            return .gray
+    /// Debug helper for icon mapping
+    private func debugIconMapping(apiIcon: String, mappedIcon: String) {
+        print("🔍 Icon Debug:")
+        print("   API Code: '\(apiIcon)'")
+        print("   Mapped To: '\(mappedIcon)'")
+    }
+    
+    /// Map API icon codes to local asset names
+    /// Supports codes with file extensions (e.g., "few.jpg") and trailing digits (e.g., "sn80")
+    private func mapAPIIconToAssetName(_ apiIcon: String) -> String {
+        // Strip file extensions (.jpg, .png, etc.) from API icon codes
+        var cleanIcon = apiIcon.replacingOccurrences(of: ".jpg", with: "")
+                                .replacingOccurrences(of: ".png", with: "")
+                                .replacingOccurrences(of: ".gif", with: "")
+        
+        // Strip trailing digits (e.g., "sn80" → "sn", "ra50" → "ra")
+        cleanIcon = cleanIcon.replacingOccurrences(of: #"\d+$"#, with: "", options: .regularExpression)
+        
+        switch cleanIcon {
+        // === DarkSky-style codes (common format) ===
+        case "clear-day": return "sunny"
+        case "clear-night": return "sunny_night"
+        case "partly-cloudy-day": return "cloudy2"
+        case "partly-cloudy-night": return "cloudy2_night"
+        case "cloudy": return "overcast"
+        case "rain": return "shower3"
+        case "sleet": return "sleet"
+        case "snow": return "snow4"
+        case "wind": return "cloudy1"
+        case "fog": return "fog"
+        case "thunderstorm": return "tstorm3"
+        
+        // === NOAA/NDFD codes ===
+        // Clear/Fair
+        case "skc": return "sunny"
+        case "nskc": return "sunny_night"
+        
+        // Few clouds
+        case "few": return "cloudy1"
+        case "nfew": return "cloudy1_night"
+        
+        // Scattered clouds
+        case "sct": return "cloudy2"
+        case "nsct": return "cloudy2_night"
+        
+        // Broken clouds
+        case "bkn": return "cloudy3"
+        case "nbkn": return "cloudy3_night"
+        
+        // Overcast
+        case "ovc", "novc": return "overcast"
+        
+        // Fog/Mist
+        case "fg": return "fog"
+        case "nfg": return "fog_night"
+        case "smoke": return "fog"
+        case "mist": return "mist"
+        
+        // Light rain
+        case "ra1", "nra": return "light_rain"
+        
+        // Rain/Showers
+        case "ra", "shra": return "shower3"
+        case "hi_shwrs": return "shower1"
+        case "hi_nshwrs": return "shower2"
+        
+        // Freezing rain/Sleet
+        case "fzra", "mix", "nmix", "raip", "rasn", "nrasn", "fzrara": return "sleet"
+        
+        // Hail
+        case "ip": return "hail"
+        
+        // Snow
+        case "sn", "nsn": return "snow4"
+        
+        // Thunderstorms - light
+        case "hi_tsra": return "tstorm1"
+        case "hi_ntsra": return "tstorm1_night"
+        
+        // Thunderstorms - moderate
+        case "scttsra": return "tstorm2"
+        case "nscttsra": return "tstorm2_night"
+        
+        // Thunderstorms - heavy
+        case "tsra", "ntsra": return "tstorm3"
+        
+        // Wind
+        case "wind": return "cloudy1"
+        case "nwind": return "cloudy1_night"
+        
+        // Severe/Dust/Unknown
+        case "nsvrtsra", "dust": return "cloudy1"
+        case "dunno": return "dunno"
+        
+        // If already a local asset name, use it directly
+        default: return apiIcon
+        }
+    }
+    
+    // Fallback SF Symbols for missing icons
+    private func fallbackSymbolName(for iconName: String) -> String {
+        switch iconName {
+        case "sunny": return "sun.max.fill"
+        case "sunny_night": return "moon.stars.fill"
+        case "light_rain", "shower1", "shower2", "shower3": return "cloud.rain.fill"
+        case "snow1", "snow2", "snow3", "snow4", "snow5": return "cloud.snow.fill"
+        case "cloudy1", "cloudy2", "cloudy3", "cloudy4", "cloudy5", "overcast": return "cloud.fill"
+        case "fog", "mist", "fog_night", "mist_night": return "cloud.fog.fill"
+        case "tstorm1", "tstorm2", "tstorm3": return "cloud.bolt.rain.fill"
+        case "sleet", "hail": return "cloud.sleet.fill"
+        default: return "cloud.fill"
         }
     }
 }
 
 /// Error view with retry button
-struct ErrorView: View {
+struct ModernForecastErrorView: View {
     let error: Error
     let retry: () -> Void
     
@@ -398,7 +490,7 @@ struct ErrorView: View {
 
 #Preview {
     NavigationStack {
-        ForecastView(
+        ModernForecastView(
             areaId: 518,
             areaName: "Yosemite National Park",
             repository: MockAreaRepository()

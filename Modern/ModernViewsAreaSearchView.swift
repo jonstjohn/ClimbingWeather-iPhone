@@ -23,7 +23,7 @@ struct AreaSearchView: View {
                 ProgressView("Searching...")
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else if let error = viewModel.error {
-                ErrorView(error: error) {
+                ModernForecastErrorView(error: error) {
                     viewModel.retry()
                 }
             } else if viewModel.isEmpty {
@@ -101,7 +101,7 @@ struct AreaListView: View {
     var body: some View {
         List(areas) { area in
             NavigationLink {
-                ForecastView(
+                ModernForecastView(
                     areaId: area.areaId,
                     areaName: area.name,
                     repository: repository
@@ -148,6 +148,6 @@ struct AreaRowView: View {
 
 #Preview {
     NavigationStack {
-        AreaSearchView(repository: MockAreaRepository())
+        AreaSearchView(repository: DependencyContainer.shared.areaRepository)
     }
 }

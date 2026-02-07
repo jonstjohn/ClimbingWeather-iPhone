@@ -30,10 +30,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         // Uncomment the line below to test the modern API in the console
         //quickConsoleTest()
         
+        // MARK: - Debug: Check Icon Loading
+        // Test if we can load weather icons
+        testIconLoading()
+        
         // MARK: - Example: Show Modern Forecast View
         // Uncomment to test showing a modern SwiftUI forecast view
         
-        let view = ForecastView(
+        let view = ModernForecastView(
             areaId: 518,  // Yosemite National Park (from our successful test!)
             areaName: "Yosemite National Park",
             repository: DependencyContainer.shared.areaRepository
@@ -70,6 +74,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         
         self.window?.makeKeyAndVisible()
          */
+    }
+    
+    // MARK: - Icon Loading Test
+    func testIconLoading() {
+        print("🔍 ========== ICON LOADING TEST ==========")
+        
+        // Test the most common icon names from your API
+        let iconNames = [
+            "sunny", "sunny_night",
+            "cloudy1", "cloudy2", "cloudy3",
+            "light_rain", "shower1",
+            "snow1", "snow2",
+            "tstorm1", "fog", "overcast"
+        ]
+        
+        var foundCount = 0
+        var missingCount = 0
+        
+        for name in iconNames {
+            if let image = UIImage(named: name) {
+                print("✅ Found: \(name) (\(Int(image.size.width))x\(Int(image.size.height)))")
+                foundCount += 1
+            } else {
+                print("❌ MISSING: \(name)")
+                missingCount += 1
+            }
+        }
+        
+        print("📊 Summary: \(foundCount) found, \(missingCount) missing")
+        print("🔍 ======================================")
     }
     
 }

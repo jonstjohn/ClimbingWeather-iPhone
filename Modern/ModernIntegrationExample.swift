@@ -39,7 +39,7 @@ extension UIViewController {
     
     /// Show modern forecast view
     private func showModernForecast(areaId: Int, areaName: String, animated: Bool) {
-        let forecastView = ForecastView(
+        let forecastView = ModernForecastView(
             areaId: areaId,
             areaName: areaName,
             repository: DependencyContainer.shared.areaRepository
@@ -265,7 +265,7 @@ class ABTestingExample {
             // Track analytics
             Analytics.track(event: "forecast_view_modern", properties: ["area_id": areaId])
             
-            let view = ForecastView(
+            let view = ModernForecastView(
                 areaId: areaId,
                 areaName: areaName,
                 repository: DependencyContainer.shared.areaRepository
