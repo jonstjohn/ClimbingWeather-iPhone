@@ -52,6 +52,7 @@
 		608DE32B12FAD61100AE172C /* climbingweather.db in Resources */ = {isa = PBXBuildFile; fileRef = 608DE32A12FAD61100AE172C /* climbingweather.db */; };
 		608DE64412FF85C600AE172C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608DE64312FF85C600AE172C /* CoreLocation.framework */; };
 		608DE66612FF88CE00AE172C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608DE66512FF88CE00AE172C /* MapKit.framework */; };
+		609F764F2F37C725000FC5BE /* FORECAST_VIEW_LAYOUT_COMPLETE.md in Resources */ = {isa = PBXBuildFile; fileRef = 609F764E2F37C725000FC5BE /* FORECAST_VIEW_LAYOUT_COMPLETE.md */; };
 		60ADE8C51E8A8D740040A472 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60ADE8C41E8A8D740040A472 /* Launch Screen.storyboard */; };
 		60B3ADB02034C6020089D1CD /* ZeroState.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60B3ADAF2034C6010089D1CD /* ZeroState.xib */; };
 		60B3ADB22034C6DC0089D1CD /* ZeroState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B3ADB12034C6DC0089D1CD /* ZeroState.swift */; };
@@ -155,6 +156,7 @@
 		608DE32A12FAD61100AE172C /* climbingweather.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = climbingweather.db; sourceTree = "<group>"; };
 		608DE64312FF85C600AE172C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		608DE66512FF88CE00AE172C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		609F764E2F37C725000FC5BE /* FORECAST_VIEW_LAYOUT_COMPLETE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = FORECAST_VIEW_LAYOUT_COMPLETE.md; sourceTree = "<group>"; };
 		60ADE8C41E8A8D740040A472 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		60B3ADAF2034C6010089D1CD /* ZeroState.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZeroState.xib; sourceTree = "<group>"; };
 		60B3ADB12034C6DC0089D1CD /* ZeroState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroState.swift; sourceTree = "<group>"; };
@@ -468,6 +470,7 @@
 				60B9A7652F36839A006F6186 /* ModernViewsAreaSearchView.swift */,
 				60B9A7662F36839A006F6186 /* ModernViewsForecastView.swift */,
 				60B9A7A82F368805006F6186 /* ERRORS_FIXED.md */,
+				609F764E2F37C725000FC5BE /* FORECAST_VIEW_LAYOUT_COMPLETE.md */,
 			);
 			path = Modern;
 			sourceTree = "<group>";
@@ -598,6 +601,7 @@
 			files = (
 				600611D11E77498C000F7694 /* AreaHourlyCell.xib in Resources */,
 				605BEDF31E692BD90076B4C4 /* AreaMapViewController.xib in Resources */,
+				609F764F2F37C725000FC5BE /* FORECAST_VIEW_LAYOUT_COMPLETE.md in Resources */,
 				6009BF941E6147FA0021A13B /* SettingsViewController.xib in Resources */,
 				6009BF981E66429C0021A13B /* AboutViewController.xib in Resources */,
 				60B3ADB02034C6020089D1CD /* ZeroState.xib in Resources */,

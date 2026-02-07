@@ -3,6 +3,7 @@
 //  climbingweather
 //
 //  Created on 2/6/26.
+//  Redesigned with 4-section scrolling layout
 //
 
 import SwiftUI
@@ -24,7 +25,11 @@ struct ForecastView: View {
     var body: some View {
         Group {
             if viewModel.isLoading {
-                ProgressView("Loading forecast...")
+                VStack {
+                    Spacer()
+                    ProgressView("Loading forecast...")
+                    Spacer()
+                }
             } else if let error = viewModel.error {
                 ErrorView(error: error) {
                     viewModel.retry(areaId: areaId)
@@ -32,11 +37,16 @@ struct ForecastView: View {
             } else if let forecast = viewModel.forecast {
                 ForecastContentView(forecast: forecast)
             } else {
-                Text("No forecast data available")
-                    .foregroundColor(.secondary)
+                VStack {
+                    Spacer()
+                    Text("No forecast data available")
+                        .foregroundColor(.secondary)
+                    Spacer()
+                }
             }
         }
         .navigationTitle(areaName)
+        .navigationBarTitleDisplayMode(.inline)
         .task {
             viewModel.loadForecast(areaId: areaId)
         }
@@ -46,44 +56,203 @@ struct ForecastView: View {
     }
 }
 
-/// Content view displaying the forecast
+/// Content view with 4-section scrolling layout
 struct ForecastContentView: View {
     let forecast: Forecast
     
-    @SwiftUI.State private var selectedTab = 0
-    
     var body: some View {
-        VStack(spacing: 0) {
-            // Tab selector
-            Picker("Forecast Type", selection: $selectedTab) {
-                Text("Daily").tag(0)
-                Text("Hourly").tag(1)
-            }
-            .pickerStyle(.segmented)
-            .padding()
-            
-            // Content
-            TabView(selection: $selectedTab) {
-                DailyForecastList(dataPoints: forecast.daily?.data ?? [])
-                    .tag(0)
+        ScrollView {
+            VStack(spacing: 0) {
+                // Section 1: Current Conditions (1/3 of screen)
+                CurrentConditionsSection(forecast: forecast)
                 
-                HourlyForecastList(dataPoints: forecast.hourly?.data ?? [])
-                    .tag(1)
+                // Section 2: Hourly Forecast (horizontal scroll)
+                HourlyForecastSection(dataPoints: forecast.hourly?.data ?? [])
+                
+                // Section 3: Daily Forecast (7 days)
+                DailyForecastSection(dataPoints: forecast.daily?.data ?? [])
             }
-            .tabViewStyle(.page(indexDisplayMode: .never))
         }
     }
 }
 
-/// Daily forecast list
-struct DailyForecastList: View {
+/// Section 1: Current conditions with large temperature and icon (~1/3 screen)
+struct CurrentConditionsSection: View {
+    let forecast: Forecast
+    
+    var currentConditions: ForecastDataPoint? {
+        forecast.hourly?.data.first
+    }
+    
+    var body: some View {
+        GeometryReader { geometry in
+            ZStack {
+                // Background gradient
+                LinearGradient(
+                    colors: [Color.blue.opacity(0.3), Color.blue.opacity(0.1)],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+                
+                VStack(spacing: 16) {
+                    if let current = currentConditions {
+                        // Weather icon
+                        if let icon = current.icon {
+                            WeatherIconView(icon: icon)
+                                .frame(width: 80, height: 80)
+                        }
+                        
+                        // Current temperature - BIG
+                        if let temp = current.temperature {
+                            Text("\(Int(temp))°")
+                                .font(.system(size: 72, weight: .thin))
+                        }
+                        
+                        // Conditions summary
+                        if let summary = current.summary {
+                            Text(summary)
+                                .font(.title3)
+                                .foregroundColor(.secondary)
+                        }
+                        
+                        // Additional details row
+                        HStack(spacing: 32) {
+                            if let precip = current.precipProbabilityPercentage, precip > 0 {
+                                VStack(spacing: 4) {
+                                    Image(systemName: "drop.fill")
+                                        .foregroundColor(.blue)
+                                    Text("\(precip)%")
+                                        .font(.caption)
+                                }
+                            }
+                            
+                            if let humidity = current.humidityPercentage {
+                                VStack(spacing: 4) {
+                                    Image(systemName: "humidity.fill")
+                                        .foregroundColor(.cyan)
+                                    Text("\(humidity)%")
+                                        .font(.caption)
+                                }
+                            }
+                            
+                            if let windSpeed = current.windSpeed {
+                                VStack(spacing: 4) {
+                                    Image(systemName: "wind")
+                                        .foregroundColor(.gray)
+                                    Text("\(Int(windSpeed)) mph")
+                                        .font(.caption)
+                                }
+                            }
+                        }
+                    } else {
+                        Text("Current conditions unavailable")
+                            .foregroundColor(.secondary)
+                    }
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
+        }
+        .frame(height: UIScreen.main.bounds.height * 0.33) // 1/3 of screen
+    }
+}
+
+/// Section 2: Horizontally scrolling hourly forecast
+struct HourlyForecastSection: View {
     let dataPoints: [ForecastDataPoint]
     
     var body: some View {
-        List(dataPoints) { dataPoint in
-            DailyForecastRow(dataPoint: dataPoint)
+        VStack(alignment: .leading, spacing: 12) {
+            Text("Hourly Forecast")
+                .font(.headline)
+                .padding(.horizontal)
+                .padding(.top, 16)
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 16) {
+                    ForEach(dataPoints.prefix(24)) { dataPoint in // First 24 hours
+                        HourlyForecastCard(dataPoint: dataPoint)
+                    }
+                }
+                .padding(.horizontal)
+                .padding(.bottom, 8)
+            }
+            
+            Divider()
+                .padding(.top, 8)
         }
-        .listStyle(.plain)
+        .background(Color(UIColor.systemBackground))
+    }
+}
+
+/// Individual hourly forecast card
+struct HourlyForecastCard: View {
+    let dataPoint: ForecastDataPoint
+    
+    var body: some View {
+        VStack(spacing: 8) {
+            // Time
+            Text(dataPoint.date, format: .dateTime.hour())
+                .font(.caption)
+                .foregroundColor(.secondary)
+            
+            // Icon
+            if let icon = dataPoint.icon {
+                WeatherIconView(icon: icon)
+                    .frame(width: 32, height: 32)
+            }
+            
+            // Temperature
+            if let temp = dataPoint.temperature {
+                Text("\(Int(temp))°")
+                    .font(.headline)
+            }
+            
+            // Precipitation
+            if let precip = dataPoint.precipProbabilityPercentage, precip > 0 {
+                HStack(spacing: 2) {
+                    Image(systemName: "drop.fill")
+                        .font(.caption2)
+                        .foregroundColor(.blue)
+                    Text("\(precip)%")
+                        .font(.caption2)
+                }
+            } else {
+                Text(" ")
+                    .font(.caption2)
+            }
+        }
+        .frame(width: 70)
+        .padding(.vertical, 12)
+        .background(Color(UIColor.secondarySystemBackground))
+        .cornerRadius(12)
+    }
+}
+
+/// Section 3: Daily forecast list (7 days)
+struct DailyForecastSection: View {
+    let dataPoints: [ForecastDataPoint]
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            Text("7-Day Forecast")
+                .font(.headline)
+                .padding(.horizontal)
+                .padding(.top, 16)
+                .padding(.bottom, 12)
+            
+            ForEach(dataPoints) { dataPoint in
+                DailyForecastRow(dataPoint: dataPoint)
+                
+                if dataPoint.id != dataPoints.last?.id {
+                    Divider()
+                        .padding(.horizontal)
+                }
+            }
+            
+            // Bottom padding
+            Color.clear.frame(height: 20)
+        }
+        .background(Color(UIColor.systemBackground))
     }
 }
 
@@ -109,103 +278,37 @@ struct DailyForecastRow: View {
                     .frame(width: 40, height: 40)
             }
             
-            // Summary
-            if let summary = dataPoint.summary {
-                Text(summary)
-                    .font(.subheadline)
-                    .lineLimit(2)
-            }
-            
             Spacer()
-            
-            // Temperature
-            VStack(alignment: .trailing, spacing: 4) {
-                if let high = dataPoint.temperatureHigh {
-                    Text("\(Int(high))°")
-                        .font(.headline)
-                }
-                if let low = dataPoint.temperatureLow {
-                    Text("\(Int(low))°")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                }
-            }
             
             // Precipitation
             if let precip = dataPoint.precipProbabilityPercentage, precip > 0 {
                 VStack(spacing: 4) {
                     Image(systemName: "drop.fill")
                         .foregroundColor(.blue)
+                        .font(.caption)
                     Text("\(precip)%")
                         .font(.caption2)
                 }
                 .frame(width: 40)
             }
-        }
-        .padding(.vertical, 8)
-    }
-}
-
-/// Hourly forecast list
-struct HourlyForecastList: View {
-    let dataPoints: [ForecastDataPoint]
-    
-    var body: some View {
-        List(dataPoints) { dataPoint in
-            HourlyForecastRow(dataPoint: dataPoint)
-        }
-        .listStyle(.plain)
-    }
-}
-
-/// Single hourly forecast row
-struct HourlyForecastRow: View {
-    let dataPoint: ForecastDataPoint
-    
-    var body: some View {
-        HStack(spacing: 16) {
-            // Time
-            Text(dataPoint.date, format: .dateTime.hour().minute())
-                .font(.headline)
-                .frame(width: 80, alignment: .leading)
             
-            // Icon
-            if let icon = dataPoint.icon {
-                WeatherIconView(icon: icon)
-                    .frame(width: 30, height: 30)
-            }
-            
-            // Temperature
-            if let temp = dataPoint.temperature {
-                Text("\(Int(temp))°")
-                    .font(.headline)
-                    .frame(width: 50)
-            }
-            
-            Spacer()
-            
-            // Precipitation
-            if let precip = dataPoint.precipProbabilityPercentage {
-                HStack(spacing: 4) {
-                    Image(systemName: "drop.fill")
-                        .foregroundColor(.blue)
-                    Text("\(precip)%")
+            // Temperature range
+            HStack(spacing: 8) {
+                if let low = dataPoint.temperatureLow {
+                    Text("\(Int(low))°")
                         .font(.subheadline)
+                        .foregroundColor(.secondary)
                 }
-                .frame(width: 60)
-            }
-            
-            // Wind
-            if let windSpeed = dataPoint.windSpeed {
-                HStack(spacing: 4) {
-                    Image(systemName: "wind")
-                        .foregroundColor(.gray)
-                    Text("\(Int(windSpeed)) mph")
-                        .font(.subheadline)
+                
+                if let high = dataPoint.temperatureHigh {
+                    Text("\(Int(high))°")
+                        .font(.headline)
                 }
             }
+            .frame(width: 70, alignment: .trailing)
         }
-        .padding(.vertical, 4)
+        .padding(.horizontal)
+        .padding(.vertical, 12)
     }
 }
 
@@ -296,8 +399,8 @@ struct ErrorView: View {
 #Preview {
     NavigationStack {
         ForecastView(
-            areaId: 123,
-            areaName: "Yosemite Valley",
+            areaId: 518,
+            areaName: "Yosemite National Park",
             repository: MockAreaRepository()
         )
     }
@@ -311,10 +414,31 @@ final class MockAreaRepository: AreaRepositoryProtocol {
             latitude: 37.7456,
             longitude: -119.5937,
             timezone: "America/Los_Angeles",
-            name: "Yosemite Valley",
+            name: "Yosemite National Park",
             currently: nil,
             minutely: nil,
-            hourly: nil,
+            hourly: ForecastDataBlock(
+                summary: nil,
+                icon: nil,
+                data: [
+                    ForecastDataPoint(
+                        time: Int(Date().timeIntervalSince1970),
+                        summary: "Clear",
+                        icon: "clear-day",
+                        temperature: 65,
+                        temperatureHigh: nil,
+                        temperatureLow: nil,
+                        precipProbability: 0.1,
+                        precipProbabilityNight: nil,
+                        precipType: nil,
+                        precipAccumulation: nil,
+                        cloudCover: 0.2,
+                        humidity: 0.5,
+                        windSpeed: 5,
+                        windGust: 10
+                    )
+                ]
+            ),
             daily: ForecastDataBlock(
                 summary: "Clear skies",
                 icon: "clear-day",
