@@ -15,12 +15,16 @@ struct ModernForecastView: View {
     
     let areaId: Int
     let areaName: String
+    let repository: AreaRepositoryProtocol
     
     init(areaId: Int, areaName: String, repository: AreaRepositoryProtocol) {
         self.areaId = areaId
         self.areaName = areaName
+        self.repository = repository
         _viewModel = StateObject(wrappedValue: AreaForecastViewModel(repository: repository))
     }
+    
+    @SwiftUI.State private var showingSearch = false
     
     var body: some View {
         Group {
@@ -47,6 +51,18 @@ struct ModernForecastView: View {
         }
         .navigationTitle(areaName)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    showingSearch = true
+                } label: {
+                    Label("Search Areas", systemImage: "magnifyingglass")
+                }
+            }
+        }
+        .sheet(isPresented: $showingSearch) {
+            AreaSearchView(repository: repository)
+        }
         .task {
             viewModel.loadForecast(areaId: areaId)
         }
