@@ -13,13 +13,13 @@ struct ModernForecastView: View {
     
     @StateObject private var viewModel: AreaForecastViewModel
     
-    let areaId: Int
-    let areaName: String
+    @SwiftUI.State private var currentAreaId: Int
+    @SwiftUI.State private var currentAreaName: String
     let repository: AreaRepositoryProtocol
     
     init(areaId: Int, areaName: String, repository: AreaRepositoryProtocol) {
-        self.areaId = areaId
-        self.areaName = areaName
+        _currentAreaId = SwiftUI.State(initialValue: areaId)
+        _currentAreaName = SwiftUI.State(initialValue: areaName)
         self.repository = repository
         _viewModel = StateObject(wrappedValue: AreaForecastViewModel(repository: repository))
     }
@@ -36,7 +36,7 @@ struct ModernForecastView: View {
                 }
             } else if let error = viewModel.error {
                 ModernForecastErrorView(error: error) {
-                    viewModel.retry(areaId: areaId)
+                    viewModel.retry(areaId: currentAreaId)
                 }
             } else if let forecast = viewModel.forecast {
                 ForecastContentView(forecast: forecast)
@@ -49,7 +49,7 @@ struct ModernForecastView: View {
                 }
             }
         }
-        .navigationTitle(areaName)
+        .navigationTitle(currentAreaName)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -61,14 +61,161 @@ struct ModernForecastView: View {
             }
         }
         .sheet(isPresented: $showingSearch) {
-            AreaSearchView(repository: repository)
+            NavigationStack {
+                AreaSearchViewWithDismiss(
+                    repository: repository,
+                    isPresented: $showingSearch,
+                    onAreaSelected: { area in
+                        currentAreaId = area.areaId
+                        currentAreaName = area.name
+                        viewModel.loadForecast(areaId: area.areaId)
+                    }
+                )
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button("Done") {
+                            showingSearch = false
+                        }
+                    }
+                }
+            }
         }
         .task {
-            viewModel.loadForecast(areaId: areaId)
+            viewModel.loadForecast(areaId: currentAreaId)
         }
         .refreshable {
-            viewModel.loadForecast(areaId: areaId)
+            viewModel.loadForecast(areaId: currentAreaId)
         }
+        .onChange(of: currentAreaId) { oldValue, newValue in
+            if oldValue != newValue {
+                viewModel.loadForecast(areaId: newValue)
+            }
+        }
+    }
+}
+
+/// Wrapper for AreaSearchView that handles dismissal and selection
+struct AreaSearchViewWithDismiss: View {
+    let repository: AreaRepositoryProtocol
+    @Binding var isPresented: Bool
+    let onAreaSelected: (Area) -> Void
+    
+    var body: some View {
+        AreaSearchViewForSheet(
+            repository: repository,
+            onSelect: { area in
+                isPresented = false
+                onAreaSelected(area)
+            }
+        )
+    }
+}
+
+/// Search view configured for sheet presentation
+struct AreaSearchViewForSheet: View {
+    @StateObject private var viewModel: AreaSearchViewModel
+    let onSelect: (Area) -> Void
+    
+    init(repository: AreaRepositoryProtocol, onSelect: @escaping (Area) -> Void) {
+        self.onSelect = onSelect
+        _viewModel = StateObject(wrappedValue: AreaSearchViewModel(repository: repository))
+    }
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            if viewModel.isLoading {
+                ProgressView("Searching...")
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else if let error = viewModel.error {
+                ModernForecastErrorView(error: error) {
+                    viewModel.retry()
+                }
+            } else if viewModel.isEmpty {
+                EmptySearchViewForSheet()
+            } else if viewModel.noResults {
+                NoResultsViewForSheet(query: viewModel.searchQuery)
+            } else {
+                AreaListViewForSheet(
+                    areas: viewModel.areas,
+                    repository: viewModel.repositoryForChildViews,
+                    onSelect: onSelect
+                )
+            }
+        }
+        .navigationTitle("Search Areas")
+        .searchable(
+            text: $viewModel.searchQuery,
+            placement: .navigationBarDrawer(displayMode: .always),
+            prompt: "Enter area name or ZIP code"
+        )
+    }
+}
+
+/// List of areas for sheet presentation
+struct AreaListViewForSheet: View {
+    let areas: [Area]
+    let repository: AreaRepositoryProtocol
+    let onSelect: (Area) -> Void
+    
+    var body: some View {
+        List(areas) { area in
+            Button {
+                onSelect(area)
+            } label: {
+                AreaRowView(area: area)
+            }
+        }
+        .listStyle(.plain)
+    }
+}
+
+/// Empty search state for sheet
+struct EmptySearchViewForSheet: View {
+    var body: some View {
+        VStack(spacing: 16) {
+            Image(systemName: "magnifyingglass")
+                .font(.system(size: 60))
+                .foregroundColor(.secondary)
+            
+            Text("Search for Climbing Areas")
+                .font(.headline)
+            
+            Text("Enter an area name, ZIP code, or coordinates")
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+}
+
+/// No results view for sheet
+struct NoResultsViewForSheet: View {
+    let query: String
+    
+    var body: some View {
+        VStack(spacing: 16) {
+            Image(systemName: "magnifyingglass")
+                .font(.system(size: 60))
+                .foregroundColor(.secondary)
+            
+            Text("No Results")
+                .font(.headline)
+            
+            Text("No areas found for \"\(query)\"")
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal)
+            
+            Text("Try searching by:\n• Area name\n• State\n• ZIP code\n• Coordinates")
+                .font(.caption)
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+                .padding(.top, 8)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
